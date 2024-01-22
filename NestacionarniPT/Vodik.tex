@@ -1,0 +1,97 @@
+\subsection{Vodík v elektrickém poli}
+Atom vodíku v základním stavu vložíme mezi desky kondenzátoru.
+V čase $t=0$ přivedeme na desky kondenzátoru napětí tak, že intenzita elektrického pole v čase $t>0$ mezi deskami bude
+\begin{equation}
+    E(t)=E_0\e^{-\frac{t}{\tau}}.
+\end{equation}
+Za předpokladu, že elektrické pole lze brát jako malou poruchu, spočítejte pravděpodobnost nalezení vodíku v prvním excitovaném stavu.
+	
+\begin{solution}
+    Mezi deskami kondenzátoru se vytvoří homogenní elektrické pole.
+    V analogii s předchozím příkladem je tedy Hamiltonán časově závislé poruchy 
+    \begin{equation}
+        \operator{H}_{\ti{I}}(t)=-eE(t)\operator{z},
+    \end{equation}
+    přičemž vzhledem k tomu, že neporušený atom vodíku je ve stavu $1s$ ($n=1, l=0, m=0$) se sféricky symetrickou vlnovou funkcí
+    \begin{equation}
+        \psi_{100}(r,\theta\phi)=\frac{1}{\sqrt{\pi a_{0}^{3}}}\e^{-\frac{r}{a_{0}}},
+    \end{equation}
+    lze souřadnou soustavu zvolit libovolně.
+    Zvolme ji tak, že osa $\axis{z}$ bude mířit ve směru homogenního pole.
+
+    První excitovaný stav atomu vodíku je buď stav $2s$ ($n=2, l=0, m=0$), jehož vlnová funkce má tvar
+    \begin{equation}
+        \psi_{200}(r,\theta,\phi)=\frac{1}{2\sqrt{2\pi a_{0}^{3}}}\left(1-\frac{r}{2a_{0}}\right)\e^{-\frac{r}{2a_{0}}},
+    \end{equation}
+    nebo $2p$ ($n=2, l=1, m$) s vlnovou funkcí
+    \begin{subequations}
+        \begin{align}
+            \psi_{21m}(r,\theta,\phi)&=R_{21}(r)Y_{m}\hi{1}(\theta,\phi),\\
+            R_{21}(r)&=\frac{1}{2\sqrt{6a_{0}^{3}}}\frac{r}{a_{0}}\e^{-\frac{r}{2a_{0}}},\\
+            Y_{\pm1}\hi{1}(\theta,\phi)&=\pm\frac{1}{2}\sqrt{\frac{3}{2\pi}}\sin{\theta}\e^{\mp\im\phi},\\
+            Y_{0}\hi{1}(\theta,\phi)&=\frac{1}{2}\sqrt{\frac{3}{\pi}}\cos{\theta},
+        \end{align}            
+    \end{subequations}
+    kde $R_{21}(r)$ je radiální část a $Y_{m}\hi{1}(\theta,\phi)$ úhlová část daná kulovou funkcí.
+    Konstanta $a_{0}$ je Bohrův poloměr:
+    \begin{equation}
+        a_{0}=\frac{\hbar^{2}}{\gamma M},\qquad \gamma=\frac{e^{2}}{4\pi\epsilon_{0}}.
+    \end{equation}
+
+    Elementy $S$-matice jsou podle~\eqref{eq:Selements}
+    \begin{subequations}
+        \begin{align}
+            S_{2lm,100}\hi{0}(t)&=0,\\
+            S_{2lm,100}\hi{1}(t)&=-\frac{\im}{\hbar}\int_{0}^{t}\matrixelement{2,l,m}{\left[-qE(t)\operator{z}\right]}{1,0,0}\e^{\im\omega_{21}t_{1}}\d t_{1},
+            \label{eq:SH2lm}
+        \end{align}            
+    \end{subequations}
+    kde
+    \begin{equation}
+        \omega_{21}
+            =\frac{E_{2}\hi{0}-E_{1}\hi{0}}{\hbar}
+            =\frac{1}{4\pi\epsilon_{0}}\frac{e^{2}}{2\hbar a_{0}}\left(-\frac{1}{4}+1\right)
+            =\frac{1}{4\pi\epsilon_{0}}\frac{3e^{2}}{8\hbar a_{0}}.
+    \end{equation}
+    Maticové elementy v $S_{21m,100}$ jsou
+    \begin{subequations}
+        \begin{align}
+            \matrixelement{2,0,0}{\operator{z}}{1,0,0}
+                &=\frac{1}{2\sqrt{2}\pi a_{0}^{3}}\int_{0}^{\infty}r^{2}\,\d r\int_{0}^{\pi}\sin{\theta}\,\d\theta\int_{0}^{2\pi}\d\phi \left(1-\frac{r}{2a_{0}}\right)\e^{-\frac{3r}{2a_{0}}}r\cos{\theta}=\nonumber\\
+                &=\frac{1}{2\sqrt{2}\pi a_{0}^{3}}
+                    \int_{0}^{\infty}r^{3}\left(1-\frac{r}{2a_{0}}\right)\e^{-\frac{3r}{2a_{0}}}\d r
+                    \underbrace{\int_{0}^{\pi}\sin{\theta}\cos{\theta}\,\d\theta}_{=-\frac{1}{2}\left[\cos^{2}{x}\right]_{0}^{\pi}=0}
+                    \int_{0}^{2\pi}\d\phi=0,\\
+            \matrixelement{2,1,\pm1}{\operator{z}}{1,0,0}
+                &=\pm\frac{1}{8\pi a_{0}^{4}}
+                    \int_{0}^{\infty}r^{4}\e^{-\frac{3r}{2a_{0}}}\,\d r
+                    \underbrace{\int_{0}^{\pi}\sin^{2}{\theta}\cos{\theta}\,\d\theta}_{=\frac{1}{3}\left[\sin^{3}{x}\right]_{0}^{\pi}=0}
+                    \int_{0}^{2\pi}\e^{\mp\im\phi}\d\phi=0,\\
+            \matrixelement{2,1,0}{\operator{z}}{1,0,0}
+                &=\frac{1}{4\pi a_{0}^{4}\sqrt{2}}
+                    \underbrace{\int_{0}^{\infty}r^{4}\e^{-\frac{3r}{2a_{0}}}\d r}_{=\left(\frac{4}{3}\right)^{4}a_{0}^{5}}
+                    \underbrace{\int_{0}^{\pi}\sin{\theta}\cos^{2}\theta\,\d\theta}_{=-\frac{1}{3}\left[\cos^{3}{x}\right]_{0}^{\pi}=\frac{2}{3}}
+                    \underbrace{\int_{0}^{2\pi}\d\phi}_{=2\pi}
+                =\frac{4^{4}}{3^{5}\sqrt{2}}a_{0}.
+        \end{align}            
+    \end{subequations}
+    V rámci 1. řádu nestacionární poruchové teorie je tedy možný pouze přechod do $2p$ stavu s projekcí orbitálního momentu hybnosti $m=0$.
+    Odpovídající element $S$-matice vychází z~\eqref{eq:SH2lm}
+    \begin{align}
+        S_{210,100}\hi{1}(t)
+            &=-\frac{\im}{\hbar}\frac{4^{4}eE_{0}a_{0}}{3^{5}\sqrt{2}}\int_{0}^{t}\e^{-\frac{t_{1}}{\tau}+\im\omega_{21}t_{1}}\d t_{1}\nonumber\\
+            &=-\frac{\im}{\hbar}\frac{4^{4}eE_{0}a_{0}}{3^{5}\sqrt{2}}\left[\frac{\tau}{\im\omega_{21}\tau-1}\e^{-\frac{t_{1}}{\tau}+\im\omega_{21}t_{1}}\right]_{0}^{t}\nonumber\\
+            &=-\frac{\im}{\hbar}\frac{4^{4}eE_{0}a_{0}}{3^{5}\sqrt{2}}\frac{\tau}{\im\omega_{21}\tau-1}\left(\e^{-\frac{t_{1}}{\tau}+\im\omega_{21}t_{1}}-1\right)
+    \end{align}
+    Hledaná pravděpodobnost přechodu je pak
+    \begin{equation}
+        \mathcal{P}_{100\rightarrow210}(t)
+            =\abss{S_{210,100}(t)}
+            =\frac{2^{15}}{3^{10}}\left(\frac{eE_{0}a_{0}\tau}{\hbar}\right)^{2}\frac{1-2\e^{-\frac{t}{\tau}}\cos{\omega_{21}t}+e^{-\frac{2t}{\tau}}}{\omega_{21}^{2}\tau^{2}+1}.
+    \end{equation}
+    V limitě velmi dlouhých časů $t\gg\tau$ vychází pravděpodobnost přechodu jako
+    \begin{equation}
+        \mathcal{P}_{100\rightarrow210}(t)
+            \approx\frac{2^{15}}{3^{10}}\left(\frac{eE_{0}a_{0}}{\hbar}\right)^{2}\frac{\tau^{2}}{\omega_{21}^{2}\tau^{2}+1}.
+    \end{equation}
+\end{solution}

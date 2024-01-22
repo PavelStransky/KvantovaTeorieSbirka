@@ -1,0 +1,206 @@
+\subsection{Breit-Wignerovo rozdělení}
+Kvantový systém je popsaný časově nezávislým Hamiltoniánem $\operator{H}$, takže unitární operátor časového vývoje má tvar
+\begin{equation}
+    \operator{U}(t)=\e^{-\frac{\im}{\hbar}\operator{H}t}
+\end{equation}
+za předpokladu $\operator{U}(0)=\operator{1}$.
+Časově vyvinutý stav $\ket{\psi(0)}$ lze rozložit jako
+\begin{equation}
+    \ket{\psi(t)}=A(t)\ket{\psi(0)}+\ket{\phi(t)}=\operator{U}(t)\ket{\psi(0)},
+\end{equation}
+kde
+\begin{equation}
+    \label{eq:BreitWignerA}
+    A(t)\equiv\braket{\psi(0)}{\psi(t)}
+\end{equation}
+a stav $\ket{\psi(0)}$ je kolmý na stav $\ket{\phi(t)}$,
+\begin{equation}
+    \braket{\psi(0)}{\phi(t)}=0.
+\end{equation}
+Na stav $\ket{\psi(t)}$ lze pohlížet například jako na superpozici rozpadlého a nerozpadlého jádra, 
+přičemž	$A(t)$ udává amplitudu pravděpodobnosti, že se systém od času $0$ do času $t$ nerozpadne (amplituda přežití).\index{amplituda!přežití}
+
+\begin{enumerate}
+\item 
+    Užitím rozkladu operátoru identity
+    \begin{equation}
+        \operator{1}=\intinf\ket{E}\bra{E}\d E
+    \end{equation}
+    ověřte, že amplituda $A(t)$ se dá vyjádřit jako Fourierova transformace 
+    hustoty pravděpodobnosti $f(\omega)$ v energetické reprezentaci
+    \begin{equation}
+        \label{eq:BreitWignerFT}
+        \important{A(t)=\intinf f(\omega)\e^{-\im\omega t}\d\omega}\,,
+    \end{equation}
+    kde 
+    \begin{equation}
+        \label{eq:BreitWignerf}
+        f(\omega)=\frac{1}{\hbar}|\braket{E}{\psi(0)}|^{2}\bigg\arrowvert_{E=\hbar\omega}
+    \end{equation}
+\end{enumerate}
+
+Nechť
+\begin{equation}
+    P(t)\equiv|A(t)|^{2}=\e^{-\frac{\Gamma}{\hbar}t}\,,\qquad t\geq0\,,\qquad\Gamma>0
+\end{equation}
+je pravděpodobnost exponenciálního rozpadového zákona (pravděpodobnost, že se systém rozpadne v čase $t\geq0$),
+přičemž střední doba života je $\tau\equiv\hbar/\Gamma$.
+Amplituda pravděpodobnosti se vyjádří jako
+\begin{equation}
+    \label{eq:BreitWignerAexp}
+    A(t)=\e^{-\frac{\Gamma}{2\hbar}t}\e^{\im\omega_{0}t},\qquad t\geq0
+\end{equation}
+kde $\e^{\im\omega_{0}t}$ udává komplexní fázi.
+
+\begin{enumerate}
+\setcounter{enumi}{1}
+\item 
+    Nalezněte vyjádření pro $A(-t)$.
+
+\item
+    Ukažte, že
+    \begin{equation}
+        \derivative{}{t}P(t)\Big|_{t=0}=0\,.
+    \end{equation}
+
+\item 
+    Inverzní Fourierovou transformací spočítejte $f(\omega)$ z $A(t)$. 
+    Získáte \emph{Breit-Wignerovo (Cauchyho) rozdělení}\index{rozdělení!Breit-Wignerovo}
+    \begin{equation}
+        f(\omega)=\frac{1}{2\pi}\frac{\Gamma}{\left(\frac{\Gamma}{2}\right)^{2}+\hbar^{2}\left(\omega-\omega_{0}\right)^{2}}.
+    \end{equation}
+
+\item 
+    Dokažte, že
+    \begin{equation}
+        \intinf f(\omega)\d\omega=1,
+    \end{equation}
+    takže veličinu $f(\omega)$ lze považovat za hustotu pravděpodobnosti (nalezení částice s frekvencí $\omega$).
+
+\item 
+    Vypočítejte střední hodnotu energie a disperzi
+	\begin{subequations}
+		\begin{align}
+			\langle E\rangle&=\hbar\langle\omega\rangle=\hbar\intinf\omega f(\omega)\d\omega\\
+			\left(\Delta E\right)^{2}&=\hbar^{2}\left(\langle E\rangle^{2}-\langle E^{2}\rangle\right)=\hbar^{2}\langle E\rangle^{2}-\hbar^{2}\intinf\omega^{2} f(\omega)\d\omega.
+		\end{align}
+	\end{subequations}
+
+\item 
+    Ukažte, že šířka křivky rozdělení $f(\omega)$ v polovině výšky je rovna $\Gamma$.
+\end{enumerate}
+
+\begin{solution}
+	\begin{enumerate}
+	\item
+		Do rovnice~\eqref{eq:BreitWignerA} se dosadí relace uzavřenosti~\eqref{eq:BreitWignerf}:
+		\begin{align}
+			A(t)
+				&=\braket{\psi(0)}{\psi(t)}\nonumber\\
+				&=\matrixelement{\psi(0)}{\e^{-\frac{\im}{\hbar}\operator{H}t}}{\psi(0)}\nonumber\\
+				&=\intinf\d E\intinf\d E'\braket{\psi(0)}{E}\underbrace{\matrixelement{E}{\e^{-\frac{\im}{\hbar}\operator{H}t}}{E'}}_{\e^{-\frac{\im}{\hbar}Et}\delta(E-E')}\braket{E'}{\psi(0)}\nonumber\\
+				&=\intinf\d E\abs{\braket{E}{\psi(0)}}^{2}\e^{-\frac{\im}{\hbar}Et}=\nonumber\\
+				&=\intinf\d\omega\frac{1}{\hbar}\abs{\braket{E}{\psi(0)}}^{2}\e^{-\im\omega t}\,,
+		\end{align}
+		což je dokazovaný výraz~\eqref{eq:BreitWignerFT}.
+		
+	\item
+		Obecně platí
+		\begin{align}
+			A(-t)
+				&=\matrixelement{\psi(0)}{\e^{\frac{\im}{\hbar}\operator{H}t}}{\psi(0)}\nonumber\\
+				&=\matrixelement{\psi(0)}{-\e^{\frac{\im}{\hbar}\operator{H}t}}{\psi(0}^{*}\nonumber\\
+				&=A^{*}(t)\,,
+		\end{align}
+		takže speciálně pro amplitudu~\eqref{eq:BreitWignerAexp} exponenciálního rozpadového zákona vychází
+		\begin{equation}
+			\label{eq:BreitWignerAexp*}
+			A(t)=A^{*}(-t)=\e^{\frac{\Gamma}{2\hbar}t}\e^{\im\omega_{0}t},\qquad t<0.
+		\end{equation}
+	
+	\item
+		Jelikož $P(t)=A^{*}(t)A(t)$, pak výsledek předchozího bodu~\eqref{eq:BreitWignerAexp*} vede na
+		\begin{equation}
+			\derivative{P(t)}{t}=\derivative{A^{*}(t)}{t}A(t)+A^{*}(t)\derivative{A(t)}{t}=-A'(-t)A(t)+A'(t)A(-t)\xrightarrow{t\rightarrow0}0.
+		\end{equation}
+		Z toho vyplývá, že kvantový rozpad musí být pro malé časy vždy alespoň kvadratická funkce času $t$.
+		Exponenciální rozpadový zákon toto \emph{nesplňuje}.
+	
+	\item
+		Inverzní Fourierova transformace k transformaci~\eqref{eq:BreitWignerFT} je		
+		\begin{equation}
+			f(\omega)=\frac{1}{2\pi}\intinf A(t)\e^{\im\omega t}\d t\,,
+		\end{equation}
+		kde integrace $x\in(-\infty,0)$ se dá provést díky rozšíření~\eqref{eq:BreitWignerAexp*}:
+		\begin{align}
+			f(\omega)
+				&=\frac{1}{2\pi}\left\{\int_{-\infty}^{0}\e^{\left[\frac{\Gamma}{2\hbar}+\im\left(\omega-\omega_{0}\right)\right]t}\d t
+					+\int_{0}^{\infty}\e^{\left[-\frac{\Gamma}{2\hbar}+\im\left(\omega-\omega_{0}\right)\right]t}\d t\right\}\nonumber\\
+				&=\frac{1}{2\pi}\left[\frac{1}{\frac{\Gamma}{2\hbar}+\im\left(\omega-\omega_{0}\right)}-\frac{1}{\frac{-\Gamma}{2\hbar}+\im\left(\omega-\omega_{0}\right)}\right]\nonumber\\
+				&=\frac{\hbar}{\pi}\frac{\frac{\Gamma}{2}}{\left(\frac{\Gamma}{2}\right)^{2}+\hbar^{2}\left(\omega-\omega_{0}\right)^{2}}.
+		\end{align}
+		
+	\item
+		Normalizace
+		\begin{align}
+			I_{0}\equiv\intinf f(\omega)\d\omega
+				&=\frac{\hbar}{\pi}\frac{\Gamma}{2}\left(\frac{2}{\Gamma}\right)^{2}\intinf\frac{\d\omega}{1+\left(\frac{2\hbar}{\Gamma}\right)^{2}\left(\omega-\omega_{0}\right)^{2}}
+				 =\left|\begin{array}{l}x=\frac{2\hbar}{\Gamma}\left(\omega-\omega_{0}\right) \\ \d\omega=\frac{\Gamma}{2\hbar}\d x\end{array}\right|\nonumber\\
+				&=\frac{1}{\pi}\intinf\frac{\d x}{1+x^{2}}\nonumber\\
+				&=\frac{1}{\pi}\left[\arctan{x}\right]_{-\infty}^{\infty}=1.
+		\end{align}
+		
+	\item
+		Střední hodnota\sfootnote{
+			Poslední integrál při výpočtu střední hodnoty je lichá funkce, odpovídající primitivní funkce je tedy sudá.
+			Primitivní funkce však diverguje pro $y\rightarrow\infty$.
+			Integrál přes nekonečný interval je tedy nutno chápat tak, že interval je symetrický, tj. ve smyslu limity $\lim_{z->\infty}\int_{-z}^{z}$, ve které integrál vymizí.
+		}
+		\begin{align}
+			I_{1}\equiv\intinf\omega f(\omega)\d\omega
+				&=\frac{\hbar}{\pi}\frac{\Gamma}{2}\left(\frac{2}{\Gamma}\right)^{2}\intinf\frac{\left(\omega-\omega_{0}+\omega_{0}\right)\d\omega}{1+\left(\frac{2\hbar}{\Gamma}\right)^{2}\left(\omega-\omega_{0}\right)^{2}}
+						=\left|\begin{array}{l}y=\omega-\omega_{0} \\ \d\omega=\d y\end{array}\right|\nonumber\\
+				&=\omega_{0}I_{0}+\frac{2}{\pi\hbar\Gamma}\underbrace{\intinf\frac{y\d y}{1+\left(\frac{2\hbar}{\Gamma}\right)^{2}y^{2}}}_{0}\nonumber\\
+				&=\omega_{0}.
+		\end{align}
+		
+		Střední hodnota $\omega^{2}$
+		\begin{align}
+			I_{2}\equiv\intinf\omega^{2}f(\omega)\d\omega
+				&=\frac{\Gamma}{2\pi\hbar}\left(\frac{2}{\Gamma}\right)^{2}\intinf\frac{\left(\omega^{2}-2\omega\omega_{0}+\omega_{0}^{2}+2\omega\omega_{0}-\omega_{0}^{2}\right)\d\omega}
+						{1+\left(\frac{2\hbar}{\Gamma}\right)^{2}\left(\omega-\omega_{0}\right)^{2}}\nonumber\\
+				&=2\omega_{0}I_{1}-\omega_{0}^{2}I_{0}+\frac{2}{\pi\hbar\Gamma}\intinf\frac{y^{2}\d y}{1+\left(\frac{2\hbar}{\Gamma}\right)^{2}y^{2}}
+						=\left|\begin{array}{l}z=\frac{2\hbar}{\Gamma}y \\ \d y=\frac{\Gamma}{2\hbar}\d z\end{array}\right|\nonumber\\
+				&=\omega_{0}^{2}+\frac{1}{\pi}\intinf\frac{z^{2}\d z}{1+z^{z}}\nonumber\\
+				&=\omega_{0}^{2}+\frac{1}{\pi}\left[x-\arctan{x}\right]_{-\infty}^{\infty},
+		\end{align}
+		takže
+		\begin{equation}
+			\left(\Delta\omega\right)^{2}=\left[x-\arctan{x}\right]_{-\infty}^{\infty}\rightarrow\infty.
+		\end{equation}
+		Breit-Wignerovo rozdělení má tedy nekonečnou disperzi.		
+	\end{enumerate}
+	
+\note
+	Lineární chování exponenciálního rozpadového zákona v $t=0$ a nekonečná disperze Breit-Wignerova rozdělení spolu souvisejí.
+	Breit-Wignerovo rozdělení nemůže být fyzikální, jelikož není omezené na energiích zespodu.
+
+\note
+	\emph{(Payleyův-Wienerův teorém)}	
+	Je-li Hamiltonián systému omezený odspodu, tj. existuje-li $E_{0}$ taková, že
+	\begin{equation}
+		\matrixelement{\psi}{\operator{H}}{\psi}\geq E_{0}\qquad\forall\ket{\psi}\in\hilbert{H},
+	\end{equation}
+	a je-li $\abs{A(t)}$ kvadraticky integrovatelná funkce, pak zároveň platí
+	\begin{equation}
+		\intinf\frac{\abs{\ln{\abs{A(t)}}}}{1+t^{2}}\d t<\infty.
+	\end{equation}
+	Tato podmínka je rovněž vhodným kritériem pro to, jestli $A(t)$ je dobrá funkce pro konsistentní teorii kvantového rozpadu.
+	
+	Breit-Wignerovo rozdělení tuto podmínku nesplňuje:
+	\begin{equation}
+		\intinf\frac{\Gamma}{2\hbar}\frac{\abs{t}}{1+t^{2}}\d t
+			=\frac{\Gamma}{\hbar}\int_{0}^{\infty}\frac{t}{1+t^{2}}\d t
+			=\frac{\Gamma}{2\hbar}\left[\ln{\left(1+t^{2}\right)}\right]_{0}^{\infty}\rightarrow\infty.
+	\end{equation}
+\end{solution}

@@ -1,0 +1,37 @@
+\subsection{Sférické komponenty tenzoru}
+\label{sec:DyadicProduct}
+	Jsou zadány dva libovolné vektorové operátory $\vectoroperator{R}$, $\vectoroperator{S}$ 
+	s kartézskými komponentami $\operator{R}_{j}$, $\operator{S}_{k}$.
+	Kartézské složky tenzoru vzniklého jejich dyadickým součinem označíme 
+	$\operator{T}_{jk}=\operator{R}_{j}\operator{S}_{k}$.
+
+	\begin{enumerate}
+	\item 
+		Pomocí vztahu pro tenzorový součin tenzorových operátorů
+		\begin{equation*}
+			\tensoroperatorcomponent{T}{\lambda}{\mu}\equiv\sum_{\mu_{1},\mu_{2}}
+				\clebsch{\lambda_{1}}{\mu_{1}}{\lambda_{2}}{\mu_{2}}{\lambda}{\mu}
+				\tensoroperatorcomponent{R}{\lambda_{1}}{\mu_{1}}\tensoroperatorcomponent{S}{\lambda_{2}}{\mu_{2}}
+		\end{equation*}
+		nalezněte sférické komponenty tenzorů $\tensoroperator{T}{0}$, $\tensoroperator{T}{1}$, $\tensoroperator{T}{2}$ 
+		a vyjádřete je pomocí $\operator{T}_{jk}$.
+
+	\item
+		Ukažte, že rozepíšeme-li kartézské komponenty tenzoru $\operator{T}_{jk}$ 
+		(což je libovolný tenzor 2. řádu) jako
+		\begin{equation*}
+		\operator{T}_{jk}=\operator{J}_{jk}+\operator{A}_{jk}+\operator{B}_{jk},
+		\end{equation*}
+		kde
+		\begin{align*}
+			\operator{J}_{jk}&\equiv\frac{1}{3}(\operator{T}_{11}+\operator{T}_{22}+\operator{T}_{33})\delta_{jk}\\
+			\operator{A}_{jk}&\equiv\frac{1}{2}(\operator{T}_{jk}-\operator{T}_{kj})\\
+			\operator{B}_{jk}&\equiv\frac{1}{2}(\operator{T}_{jk}+\operator{T}_{kj})-\operator{J}_{jk}
+		\end{align*}
+		($\vectoroperator{J}$ je násobek jednotkového tenzoru, $\vectoroperator{A}$ je antisymetrický tenzor 
+		a $\vectoroperator{B}$ je symetrický tenzor s nulovou stopou),
+		pak $\vectoroperator{J}$, $\vectoroperator{A}$, resp. $\vectoroperator{B}$ tvoří právě kartézské komponenty 
+		tenzorového operátoru nultého řádu $\tensoroperator{T}{0}$, prvního řádu $\tensoroperator{T}{1}$, 
+		resp. druhého řádu $\tensoroperator{T}{2}$.
+	\end{enumerate}
+		

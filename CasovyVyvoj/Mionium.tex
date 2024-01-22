@@ -1,0 +1,341 @@
+\subsection{Volné mionium}\index{mionium}\index{moment hybnosti!skládání}
+\label{sec:Mionium}
+	Mionium je vázaný stav (anti-)mionu $\mu^{+}$ s elektronem, podobný např. atomu vodíku.
+	Vznikne při ozařování vzorku svazkem $\mu^{+}$.
+	Miony se interakcí s látkou zpomalují a při dostatečně malé rychlosti zachytí elektron.
+	S ním vytvoří vázaný stav, který se velmi rychle (řádově za $10^{-9}\unit{s}$, pro srovnání střední doba života $\mu^{+}$ je $\tau_{\mu^{+}}=2\c2\unit{\mu s}$) dostane do základního stavu.
+	Při ozařování slabé fólie kovu je mionium po záchytu elektronu elektricky neutrální a volné a díky tomu může difundovat ven ze vzorku.
+	
+	Nachází-li se mionium v základním stavu, lze interakci spinu mionu a spinu elektronu popsat Hamiltoniánem\footnote{
+		Obecný tvar interakčního Hamiltoniánu dvou částic se spinem je 
+		(viz např.~\cite{Formanek2004}, kapitola 8.6.1.2)
+		\begin{equation}
+			H_{I}
+				=V_{0}(\vector{r})
+					+4V_{\sigma}(\vector{r})\left(\vectoroperator{s}_{1}\cdot\vectoroperator{s}_{2}\right)
+					+V_{T}(\vector{r})\operator{T}+\dotsb\,,
+		\end{equation}
+		kde $\operator{T}$ je tenzorový operátor.
+		Zbývající neuvedené tři členy nejsou invariantní vůči prostorové inverzi.
+	}
+	\begin{equation}
+		\label{eq:Hmionium}
+		\operator{H}=E_{0}+\frac{A}{\hbar^{2}}\,\vectoroperator{s}_{\mu}\cdot\vectoroperator{s}_{e},
+	\end{equation}
+	kde $E_{0}=-m_{r}c^{2}\alpha^{2}/2$ [$m_{r}\equiv m_{e}m_{\mu}/(m_{e}+m_{\mu})$ je redukovaná hmotnost elektronu a mionu, $\alpha$ je konstanta jemné struktury], $A$ je vazebná konstanta (její hodnotu lze určit teoreticky), $\vectoroperator{s}_{\mu}$ je operátor spinu příslušející mionu a $\vectoroperator{s}_{e}$ operátor spinu příslušející elektronu. 
+	Oba spinové operátory jsou definované na Hilbertově prostoru $\hilbert{H}=\hilbert{H}\hi{\mu}\otimes\hilbert{H}\hi{e}$:
+	\begin{align}
+		\vectoroperator{s}_{\mu}&=\frac{\hbar}{2}\vectoroperator{\sigma}\hi{\mu}\otimes\vectoroperator{1}\hi{e}\\
+		\vectoroperator{s}_{e}&=\vectoroperator{1}\hi{\mu}\otimes\frac{\hbar}{2}\vectoroperator{\sigma}\hi{e}\,,
+	\end{align}
+	přičemž operátor $\vectoroperator{\sigma}=(\sigma_{1},\sigma_{2},\sigma_{3})$ je realizován Pauliho maticemi~\eqref{eq:Sigma}.
+	
+	\begin{enumerate}
+		\item 
+			Nalezněte maticové vyjádření operátoru $\operator{s}\equiv\vectoroperator{s}_{\mu}\cdot\vectoroperator{s}_{e}$.			
+			Spočítejte vlastní hodnoty a vlastní vektory této matice.
+			
+		\item
+			Ukažte, že vlastní vektory lze označit $\ket{S,S_{3}}$, kde $S$ je velikost celkového spinu a $S_{3}$ je projekce spinu složeného systému do směru osy $z$.
+		
+		\item
+			Nalezněte vlastní hodnoty (energetické spektrum) Hamiltoniánu $\operator{H}$.
+		
+		\item
+			Předpokládejte, že spin mionu, kterým ozařujeme vzorek, má orientaci ve směru osy $z$, tj. $\ket{\psi_{\mu}}=\ket{\uparrow}\hi{\mu}$, a že spin elektronu má libovolně orientovaný spin daný normalizovaným vektorem
+			\begin{align}
+			\label{eq:mioniumes}
+				\ket{\psi_{e}}&=\alpha\ket{\uparrow}\hi{e}+\beta\ket{\downarrow}\hi{e}, &
+				\abs{\alpha}^{2}+\abs{\beta}^{2}&=1.
+			\end{align}			
+			Určete pravděpodobnost naměření jednotlivých energií pro stav $\ket{\psi}\equiv\ket{\psi_{\mu}}\otimes\ket{\psi_{e}}$.
+			
+		\item
+			Nalezněte stav systému $\ket{\psi(t)}$ v čase $t$.
+			
+		\item
+			Určete pravděpodobnost $p_{\mu\uparrow}(t)$, že v čase $t$ změříte projekci spinu mionu	ve směru osy $z$. 
+			Využijte k tomu projektor 
+			\begin{equation}
+			\label{eq:Pmuup}
+				\operator{P}_{\mu\uparrow}=\ket{\uparrow}\hi{\mu}\bra{\uparrow}\hi{\mu}.
+			\end{equation}
+			
+		\item 
+			Zopakujte celý výpočet pro případ, že stav elektronu na počátku je ve smíšeném stavu daném operátorem hustoty 
+			\begin{equation}
+			\label{eq:mioniumedm}
+				\operator{\rho}_{e}=a\ket{\uparrow}\hi{e}\bra{\uparrow}\hi{e}+b\ket{\downarrow}\hi{e}\bra{\downarrow}\hi{e}\,,
+			\end{equation}
+			kde $a+b=1$	(nalezněte matici hustoty složeného systému mion-elektron v čase $t=0$, následně v čase $t$, udělejte parciální stopu přes elektronové stavy, které neměříte, a poté aplikujte projektor $\operator{P}_{\mu\uparrow}$.
+\end{enumerate}
+
+\begin{note}
+	Příklad je inspirován kapitolou 19 sbírky~\cite{Basdevant2000}.
+\end{note}
+
+\begin{note}[Poznámky k notaci:]
+	Každý z operátorů $\vectoroperator{s}_{\mu,e}$ je vektorovým operátorem jednoho spinu (mionu, resp. elektronu) působícím na \emph{celém} Hilbertově prostoru dvou spinů $\hilbert{H}$.
+	Jedná se tedy o dvě sady tří matic rozměru $4\times4$, kde každá ze tří matic operátoru příslušejícího mionu je dána direktním součinem odpovídající Pauliho matice a jednotkové matice,
+	\begin{equation}
+		\operator{s}_{\mu j}
+			=\frac{\hbar}{2}\sigma_{j}^{(\mu)}\otimes\operator{1}^{(e)}\,,\qquad j=1,2,3\,,
+	\end{equation}
+	analogicky pro operátor spinu elektronu.
+	Skalární součin se pak provádí mezi složkami vektorů $\vectoroperator{s}_{\mu}$ a $\vectoroperator{s}_{e}$, explicitně
+	\begin{equation}
+		\vectoroperator{s}_{\mu}\cdot\vectoroperator{s}_{e}
+			\equiv\operator{s}_{\mu1}\operator{s}_{e1}+\operator{s}_{\mu2}\operator{s}_{e2}+\operator{s}_{\mu3}\operator{s}_{e3},
+	\end{equation}
+	kde součiny jsou běžné maticové součiny matic $4\times4$ (v každém sčítanci se tedy jedná o postupné působení dvou operátorů na prvky Hilbertova prostoru $\hilbert{H}$; z konstrukce je jasné, že operátory $\operator{s}_{\mu j}$ komutují s $\operator{s}_{ej}$, nezáleží tedy na pořadí	jejich působení; navíc jsou hermitovské, není tedy nutné ošetřovat sdružení matic na levé straně skalárního součinu).
+\end{note}
+	
+\begin{solution}
+	\begin{enumerate}
+	\item
+		Explicitní vyjádření spinových operátorů $\vectoroperator{s}_{\mu,e}$ v maticové realizaci	na Hilbertově prostoru celého systému s bází $\mathcal{B}=\left\{\ket{\uparrow\uparrow},\ket{\uparrow\downarrow}, \ket{\downarrow\uparrow},\ket{\downarrow\downarrow}\right\}$ je (viz též příklad~\ref{sec:TwoSpins})
+		\begin{align}
+			\vector{\matrix{s}}_{\mu}
+				&=\frac{\hbar}{2}
+					\left(\makematrix{0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \\ 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0},
+					\makematrix{0 & 0 & -\im & 0 \\ 0 & 0 & 0 & -\im \\ \im & 0 & 0 & 0 \\ 0 & \im & 0 & 0},
+					\makematrix{1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & -1 & 0 \\ 0 & 0 & 0 & -1}\right),\\
+			\vector{\matrix{s}}_{e}
+				&=\frac{\hbar}{2}
+				  \left[\makematrix{0 & 1 & 0 & 0 \\ 1 & 0 & 0 & 0 \\ 0 & 0 & 0 & 1 \\ 0 & 0 & 1 & 0},
+					\makematrix{0 & -\im & 0 & 0 \\ \im & 0 & 0 & 0 \\ 0 & 0 & 0 & -\im \\ 0 & 0 & \im & 0},
+					\makematrix{1 & 0 & 0 & 0 \\ 0 & -1 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & -1}\right].
+		\end{align}
+		Tyto vektory skalárně vynásobené vedou na matici\sfootnote{
+			Operátor $\operator{s}$ lze zavést ekvivalentně přímo přes tenzorový součin
+			\begin{equation}
+				\operator{s}\equiv\frac{\hbar}{2}\vectoroperator{\sigma}_{\mu}\otimes\frac{\hbar}{2}\vectoroperator{\sigma}_{e},
+			\end{equation}
+			což v maticové realizaci vede na stejný výsledek pro matici $\matrix{s}$:
+			\begin{align}
+				\matrix{s}
+					&=\frac{\hbar^{2}}{4}\left[
+						\makematrix{0 & 1 \\ 1 & 0}\otimes\makematrix{0 & 1 \\ 1 & 0}
+						+\makematrix{0 & -\im \\ \im & 0}\otimes\makematrix{0 & -\im \\ \im & 0}
+						+\makematrix{1 & 0 \\ 0 & -1}\otimes\makematrix{1 & 0 \\ 0 & -1}\right]\\
+					&=\frac{\hbar^{2}}{4}
+						\makematrix{1 & 0 & 0 & 0 \\ 0 & -1 & 2 & 0 \\ 0 & 2 & -1 & 0 \\ 0 & 0 & 0 & 1}\,.
+			\end{align}			
+		}
+		\begin{align}
+			\matrix{s}
+				&=\frac{\hbar^{2}}{4}\left(
+					\makematrix{0 & 0 & 0 & 1 \\ 0 & 0 & 1 & 0 \\ 0 & 1 & 0 & 0 \\ 1 & 0 & 0 & 0}
+					+\makematrix{0 & 0 & 0 & -1 \\ 0 & 0 & 1 & 0 \\ 0 & 1 & 0 & 0 \\ -1 & 0 & 0 & 0}
+					+\makematrix{1 & 0 & 0 & 0 \\ 0 & -1 & 0 & 0 \\ 0 & 0 & -1 & 0 \\ 0 & 0 & 0 & 1}\right)\\
+				&=\frac{\hbar^{2}}{4}
+					\underbrace{
+						\makematrix{1 & 0 & 0 & 0 \\ 0 & -1 & 2 & 0 \\ 0 & 2 & -1 & 0 \\ 0 & 0 & 0 & 1}
+					}_{\tilde{\matrix{s}}}
+		\end{align}
+		($\tilde{\matrix{s}}$ označuje matici bez rozměrového faktoru $\hbar^{2}/4$).			
+		\trick{Matice $\tilde{\matrix{s}}$ má blokově diagonální tvar, díky čemuž lze dvě její vlastní hodnoty ihned určit,}
+		\begin{equation}
+			\tilde{s}_{1,4}=1,
+		\end{equation}
+		zbývající dvě jsou řešením sekulární rovnice vnitřního bloku $2\times2$,
+		\begin{equation}
+			\det\makematrix{-1-\tilde{s} & 2 \\ 2 & -1-\tilde{s}}
+				=\left(\tilde{\lambda}+1\right)^{2}-4=0\,,
+		\end{equation}
+		které dává
+		\begin{align}
+			\tilde{s}_{2}&=1, & \tilde{s}_{3}&=-3.
+		\end{align}
+		
+		Matice $\matrix{s}$ má tedy trojnásobně degenerovanou vlastní hodnotu \emph{(tripletní stav)}\index{stav!tripletní} s vlastními vektory
+		\begin{align}
+			s_{1,2,4}&=\frac{\hbar^{2}}{4} &
+			\ket{s_{1}}&=\makematrix{1 \\ 0 \\ 0 \\ 0}\equiv\ket{\uparrow\uparrow} &
+			\ket{s_{2}}&=\frac{1}{\sqrt{2}}\makematrix{0 \\ 1 \\ 1 \\ 0}
+				\equiv\frac{1}{\sqrt{2}}\left(\ket{\uparrow\downarrow}+\ket{\downarrow\uparrow}\right) &
+			\ket{s_{4}}&=\makematrix{0 \\ 0 \\ 0 \\ 1}\equiv\ket{\downarrow\downarrow}
+		\end{align}
+		a jednou degenerovanou vlastní hodnotu \emph{(singletní stav)}\index{stav!singletní} s vlastním vektorem
+		\begin{align}
+			s_{3}&=-\frac{3}{4}\hbar^{2} & 
+			\ket{s_{3}}&=\frac{1}{\sqrt{2}}\makematrix{0 \\ 1 \\ -1 \\ 0}
+					\equiv\frac{1}{\sqrt{2}}\left(\ket{\uparrow\downarrow}-\ket{\downarrow\uparrow}\right).
+		\end{align}
+
+	\item
+		Operátor celkového spinu $\vectoroperator{S}$ splňuje relace pro moment hybnosti\index{moment!hybnosti}
+		\begin{equation}
+			\commutator{\operator{S}_{j}}{\operator{S}_{k}}=\im\hbar\epsilon_{jkl}\operator{S}_{l},
+		\end{equation}
+		což znamená, že existují společné vlastní vektory jeho kvadrátu $\vectoroperator{S}^{2}$ a jeho třetí složky $\operator{S}_{3}$		
+		\begin{align}
+			\vectoroperator{S}^{2}\ket{S,S_{3}}
+				&=\hbar^{2}S(S+1)\ket{S,S_{3}},\\
+			\operator{S}_{3}\ket{S,S_{3}}
+				&=\hbar S_{3}\ket{S,S_{3}},
+		\end{align}
+		O tom se lze přesvědčit následujícím přímým výpočtem.
+		Operátor spinu systému složeného ze dvou spinů $\frac{1}{2}$ byl jako matice vyjádřen již v příkladu~\ref{sec:TwoSpins}, takže
+		\begin{align}
+			\vector{\matrix{S}}^{2}&=\hbar^{2}\makematrix{2 & 0 & 0 & 0 \\ 0 & 1 & 1 & 0 \\ 0 & 1 & 1 & 0 \\ 0 & 0 & 0 & 2} &
+			\matrix{S}_{3}&=\hbar\makematrix{1 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & -1}.
+		\end{align}
+		Matice $\vector{\matrix{S}}^{2}$ má trojnásobně degenerovanou vlastní hodnotu $2\hbar^{2}$ 
+		(tripletní stav, odpovídá velikosti momentu hybnosti $S=1$) a nedegenerovanou vlastní hodnotu $0$ (singletní stav, odpovídá momentu hybnosti $S=0$).
+		Společné vlastní vektory matic $\vector{\matrix{S}}^{2}$ a $\matrix{S}_{3}$ příslušející vlastním číslům $S,S_{3}$ tedy jsou
+		\begin{align}
+			\ket{1,1}&=\makematrix{1 \\ 0 \\ 0 \\ 0} &
+			\ket{1,0}&=\frac{1}{\sqrt{2}}\makematrix{0 \\ 1 \\ 1 \\ 0}	 &
+			\ket{1,-1}&=\makematrix{0 \\ 0 \\ 0 \\ 1} &
+			\ket{0,0}&=\frac{1}{\sqrt{2}}\makematrix{0 \\ 1 \\ -1 \\ 0}.
+		\end{align}
+		Tento výsledek vyjadřuje skutečnost, že dva spiny o velikosti $\frac{1}{2}$ lze složit třemi způsoby na spin velikosti $1$ a jedním způsobem na spin velikosti $0$:
+		pokud spiny $\frac{1}{2}$ míří podél osy $z$, složí se na stav $\ket{1,1}$, pokud míří proti ose $z$, složí se na stav $\ket{1,-1}$; pokud však jeden spin míří podél osy $z$ a druhý proti ní, mohou se složit buď na stav $\ket{1,0}$ s celkovým spinem $S=1$ nebo na stav $\ket{0,0}$ s celkovým spinem $S=0$ (projekce na osu $z$ je v obou těchto případech samozřejmě $S_{3}=0$).
+
+		Srovnání s vlastními vektory předchozího bodu vede k závěru, že stavy příslušející vlastní hodnotě $s_{1,2,4}$ odpovídají stavům s $S=1$ a stav $s_{3}$ odpovídá stavu s $S=0$.
+		
+	\item
+		Vlastní hodnoty a odpovídající vlastní vektory Hamiltoniánu popisujícího mionium~\eqref{eq:Hmionium} se díky linearitě získají dosazením parametrů a konstant:
+		\begin{subequations}
+			\begin{align}
+				E_{1,2,4}
+					&=E_{0}+\frac{A}{\hbar^{2}}s_{1,2,4}=E_{0}+\frac{A}{4} &&
+					\begin{array}{l}
+						\ket{E_{1}}=\ket{1,1}=\ket{\uparrow\uparrow} \\
+						\ket{E_{2}}=\ket{1,0}=\frac{1}{\sqrt{2}}
+							\left(\ket{\uparrow\downarrow}+\ket{\downarrow\uparrow}\right) \\
+						\ket{E_{4}}=\ket{1,-1}=\ket{\downarrow\downarrow}
+					\end{array} \\
+				E_{3}
+					&=E_{0}+\frac{A}{\hbar^{2}}s_{3}=E_{0}-\frac{3A}{4} && \
+					\ket{E_{3}}=\ket{0,0}=\frac{1}{\sqrt{2}}
+						\left(\ket{\uparrow\downarrow}-\ket{\downarrow\uparrow}\right).
+			\end{align}				
+		\end{subequations}
+
+	\item
+		Vektor $\ket{\psi}$ se v bázi $\mathcal{B}$ a v bázi $\{\ket{S,S_{3}};S=0,1;S_{3}=-S,\dotsc,S\}$ vyjádří jako
+		\begin{equation}
+			\ket{\psi}
+				=\makematrix{1 \\ 0}\hi{\mu}\otimes\makematrix{\alpha \\ \beta}\hi{e}
+				=\makematrix{\alpha \\ \beta \\ 0 \\ 0}
+				=\alpha\ket{\uparrow\uparrow}+\beta\ket{\downarrow\downarrow}
+				=\alpha\ket{1,1}+\frac{\beta}{\sqrt{2}}\left(\ket{1,0}+\ket{0,0}\right)\,.
+		\end{equation}
+		Pravděpodobnosti naměření energií $E_{1,2,4}$, resp. $E_{3}$ systému připraveného ve stavu $\ket{\psi}$ jsou tudíž
+		\begin{subequations}
+			\begin{align}
+				p_{1,2,4}
+					&=\abs{\braket{E_{1}}{\psi}}^{2}+\abs{\braket{E_{2}}{\psi}}^{2}+\abs{\braket{E_{4}}{\psi}}^{2}			=\alpha^{2}+\frac{1}{2}\beta^{2},\\
+				p_{3}
+					&=\abs{\braket{E_{3}}{\psi}}^{2}=\frac{1}{2}\beta^{2}.
+			\end{align}						
+		\end{subequations}
+
+	\item
+		Stav systému v čase $t$ je dán evolučním operátorem, který lze vyjádřit díky znalosti spektrálního rozkladu Hamiltoniánu:
+		\begin{align}
+			\ket{\psi(t)}
+				&=\e^{-\frac{\im}{\hbar}\operator{H}t}\ket{\psi}
+				 =\sum_{k=1}^{4}\e^{-\frac{\im}{\hbar}E_{k}t}\ket{E_{k}}\braket{E_{k}}{\psi}\nonumber\\
+				&=\e^{-\frac{\im}{\hbar}\left(E_{0}+\frac{A}{4}\right)t}
+					\left(\alpha\ket{1,1}+\frac{\beta}{\sqrt{2}}\ket{1,0}
+						+\frac{\beta}{\sqrt{2}}\e^{\frac{\im}{\hbar}At}\ket{0,0}\right)\nonumber\\
+				&=\e^{-\frac{\im}{\hbar}\left(E_{0}+\frac{A}{4}\right)t}\left[\alpha\ket{\uparrow\uparrow}
+					+\beta\e^{\frac{\im}{2\hbar}At}\left(\cos{\frac{At}{2\hbar}}\ket{\uparrow\downarrow}-\im\sin{\frac{At}{2\hbar}}\ket{\downarrow\uparrow}\right)\right].
+		\end{align}
+	
+	\item
+		Pravděpodobnost nalezení mionu ve stavu $\ket{\uparrow}\hi{\mu}$ v čase $t$ pak je
+		\begin{equation}
+			p_{\mu\uparrow}(t)
+				=\matrixelement{\psi(t)}{\operator{P}_{\mu\uparrow}}{\psi(t)}
+				=\abs{\operator{P}_{\mu\uparrow}\ket{\psi(t)}}^{2}.
+		\end{equation}
+		Projektor~\eqref{eq:Pmuup} působí na bázové vektory vyskytující se v rozvoji stavu $\ket{\psi(t)}$ jako\sfootnote{
+			Přesněji se zde používá nikoliv projektor $\operator{P}_{\mu\uparrow}$, který působí pouze na Hilbertově prostoru $\hilbert{H}\hi{\mu}$, nýbrž $\operator{P}_{\mu\uparrow}\otimes\operator{1}\hi{e}$ celého Hilbertova prostoru $\operator{H}$.
+			Pro zjednodušení zápisu se operátor identity spojený s elektronovým podprostorem vynechává.
+		}
+		\begin{subequations}
+			\begin{align}
+				\operator{P}_{\mu\uparrow}\ket{1,1}
+					&=\operator{P}_{\mu\uparrow}\ket{\uparrow\uparrow}=\ket{\uparrow\uparrow},\\
+				\operator{P}_{\mu\uparrow}\ket{1,0}
+					&=\operator{P}_{\mu\uparrow}\ket{0,0}=\frac{1}{\sqrt{2}}\ket{\uparrow\downarrow},
+			\end{align}				
+		\end{subequations}
+		takže
+		\begin{equation}
+			\operator{P}_{\mu\uparrow}\ket{\psi(t)}
+				=\e^{-\frac{\im}{\hbar}\left(E_{0}+\frac{A}{4}\right)t}
+					\left(\alpha\ket{\uparrow\uparrow}+\beta\e^{\frac{\im}{2\hbar}At}\cos\frac{At}{2\hbar}\ket{\uparrow\downarrow}\right)
+		\end{equation}
+		a díky ortogonalitě vektorů $\ket{\uparrow\uparrow}$ a $\ket{\uparrow\downarrow}$ je hledaná pravděpodobnost
+		\begin{equation}
+			p_{\mu\uparrow}(t)=\abs{\alpha}^{2}+\abs{\beta}^{2}\cos^{2}\frac{At}{2\hbar}.
+		\end{equation}	
+			
+		Tento výsledek lze interpretovat jako rotaci spinu mionu s úhlovou frekvencí 
+		\begin{equation}
+			\omega=\frac{A}{2\hbar}.
+		\end{equation}
+		
+		\begin{note}[Speciální případy:]
+			Pokud je na počátku elektron polarizován podél osy $z$, tj. $(\alpha,\beta)=(1,0)$, a nachází se ve stavu $\ket{\psi_{e}}=\ket{\uparrow}\hi{e}$, k žádné rotaci mionu nedochází.
+			Naopak pokud na počátku spin elektronu míří proti ose $z$, tj. $(\alpha,\beta)=(0,1)$, což odpovídá stavu $\ket{\psi_{e}}=\ket{\downarrow}\hi{e}$, je modulace spinu mionu důsledkem rotace nejsilnější a pro časy
+			\begin{equation}
+				t_{\mathrm{flip}}\equiv\frac{2\pi\hbar}{A}\left(n+\frac{1}{2}\right),\qquad n\in\mathbb{Z}
+			\end{equation}
+			dochází dokonce k jeho úplnému překlopení.
+		\end{note}
+
+	\item\index{matice hustoty}
+		Matice hustoty v čase $t=0$ má tvar
+		\begin{align}
+			\operator{\rho}(0)
+				&=a\ket{\uparrow\uparrow}\bra{\uparrow\uparrow}+b\ket{\uparrow\downarrow}\bra{\uparrow\downarrow}\nonumber\\
+				&=a\ket{1,1}\bra{1,1}
+					+\frac{b}{2}\left(\ket{1,0}\bra{1,0}+\ket{1,0}\bra{0,0}+\ket{0,0}\bra{1,0}+\ket{0,0}\bra{0,0}\right)
+		\end{align}
+		a v čase se vyvíjí podle vztahu
+		\begin{align}
+			\operator{\rho}(t)
+				&=\operator{U}(t)\operator{\rho}(0)\operator{U}^{-1}(t)\nonumber\\
+				&=a\ket{1,1}\bra{1,1}+\frac{b}{2}\left(\ket{1,0}\bra{1,0}+\e^{-\frac{\im}{\hbar}At}\ket{1,0}\bra{0,0}
+					+\e^{\frac{\im}{\hbar}At}\ket{0,0}\bra{1,0}+\ket{0,0}\bra{0,0}\right)\nonumber\\
+				&=a\ket{\uparrow\uparrow}\bra{\uparrow\uparrow}+\frac{b}{2}\Big[\ket{\uparrow\downarrow}\bra{\uparrow\downarrow}
+					+\ket{\downarrow\uparrow}\bra{\downarrow\uparrow}\nonumber\\
+				&\qquad\qquad\qquad+\cos{\frac{At}{\hbar}}\left(\ket{\uparrow\downarrow}\bra{\uparrow\downarrow}
+						-\ket{\downarrow\uparrow}\bra{\downarrow\uparrow}\right)
+					+\im\sin{\frac{At}{\hbar}}\left(\ket{\uparrow\downarrow}\bra{\downarrow\uparrow}
+						-\ket{\downarrow\uparrow}\bra{\uparrow\downarrow}\right)\Big].
+		\end{align}
+		Parciální stopa\index{stopa!parciální} přes elektronové stavy vede na parciální matici hustoty
+		\begin{align}
+			\operator{\rho}\hi{\mu}(t)
+				&=\trace_{e}\operator{\rho}(t)=\bra{\uparrow}\hi{e}\operator{\rho}(t)\ket{\uparrow}\hi{e}
+					+\bra{\downarrow}\hi{e}\operator{\rho}(t)\ket{\downarrow}\hi{e}\\
+				&=a\ket{\uparrow}\hi{\mu}\bra{\uparrow}\hi{\mu}
+					+\frac{b}{2}\left[\ket{\uparrow}\hi{\mu}\bra{\uparrow}\hi{\mu}
+						+\ket{\downarrow}\hi{\mu}\bra{\downarrow}\hi{\mu}
+						+\cos{\frac{At}{\hbar}}\left(\ket{\uparrow}\hi{\mu}\bra{\uparrow}\hi{\mu}
+						+\ket{\downarrow}\hi{\mu}\bra{\downarrow}\hi{\mu}\right)\right],\nonumber
+		\end{align}
+		ze které se pomocí projektoru~\eqref{eq:Pmuup} určí pravděpodobnost nalezení mionu ve stavu $\ket{+}\hi{\mu}$,
+		\begin{equation}
+			p'_{\mu\uparrow}(t)
+				=\trace_{\mu}\operator{P}_{\mu\uparrow}\operator{\rho}\hi{\mu}(t)
+				=\bra{+}\hi{\mu}\operator{\rho}\hi{\mu}(t)\ket{+}\hi{\mu}
+				=a+\frac{b}{2}\left(1+\cos{\frac{At}{\hbar}}\right)
+				=a+b\cos^{2}\frac{At}{2\hbar}.
+		\end{equation}
+		Pravděpodobnost nalezení mionu ve stavu, kdy míří podél osy $z$ v čase $t$, tedy nezávisí na tom, jestli je na počátku elektron v čistém stavu daném superpozicí~\eqref{eq:mioniumes}, nebo ve smíšeném stavu popsaném maticí hustoty~\eqref{eq:mioniumedm}.
+		Zcela nekoherentní směs $a=b=1/\sqrt{2}$ nebo $\alpha=\beta=1/\sqrt{2}$ dá stejnou pravděpodobnost naměření spinu mionu mířícího vzhůru
+		\begin{equation}
+			p_{\mu\uparrow}^{(0)}(t)
+				=\frac{1}{2}+\frac{1}{2}\cos^{2}\frac{At}{2\hbar}
+				=\frac{3}{4}+\frac{1}{4}\cos{\frac{At}{\hbar}}.
+		\end{equation}	
+	\end{enumerate}
+\end{solution}

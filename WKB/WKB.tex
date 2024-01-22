@@ -1,0 +1,32 @@
+\section{WKB aproximace}
+
+\begin{theory}
+	\input{WKB/WKBMetoda}
+	\input{WKB/SesivaciPodminky}
+	\input{WKB/BohrSommerfeld}
+        
+    \begin{note}[Značení:]
+        Pro zjednodušení notace se v následujícím textu budou využívat substituce
+		\begin{subequations}
+			\begin{align}
+				\lambda(x)&\equiv\frac{C}{\sqrt{\abs{p(x)}}},\\
+				S_{a}^{b}&\equiv\frac{1}{\hbar}\int_{a}^{b}\abs{p(x')}\d x'.
+				\label{eq:WKBNotation}
+			\end{align}					
+		\end{subequations}
+        Navazovací podmínky~\eqref{eq:WKBConnectionDown1} se pak kompaktně zapíší jako
+		\begin{subequations}
+			\begin{align}
+				\psi_{\mathrm{II}_{1}}(x)&=\lambda(x)\e^{-S_{x}^{x_{1}}},\\
+				\psi_{\mathrm{I}_{1}}(x)&=2\lambda(x)\sin\left[S_{x_{1}}^{x}+\frac{\pi}{4}\right].
+			\end{align}				
+		\end{subequations}
+    \end{note}
+\end{theory}
+
+\input{WKB/PravouhlaJama}
+\input{WKB/HarmonickyOscilator}
+\input{WKB/AlphaRozpad}	
+\input{WKB/Dvoujama}
+\input{WKB/LangerovaKorekce}
+\input{WKB/HomogenniPole}

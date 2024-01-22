@@ -1,0 +1,37 @@
+\sec{Schrödingerova rovnice v křivočarých souřadnicích}
+	Schrödingerova rovnice v operátorové formě zní
+	\begin{align}
+		\operator{H}\ket{\psi}&=E\ket{\psi}\\
+		\left(\frac{1}{2M}\vector{\operator{p}}^{2}+\operator{V}\right)&=E\ket{\psi},
+	\end{align}
+	což v $x$-reprezentaci a v křivočarých souřadnicích $\vector{q}$ vede na
+	\begin{equation}
+		\label{eq:SchrodingerCurvilinear}
+		\left(-\frac{\hbar^{2}}{2M}\Delta+V(\vector{q})\right)\psi(\vector{q})=E\psi(\vector{q}),
+	\end{equation}
+	kde se za Laplaceův operátor $\Delta$ dosadí~\eqref{eq:Laplace}.
+
+\begin{note}
+	Hmotnost, či obecněji \emph{tenzor zobecněné hmotnosti}\footnote{
+		Zobecněné proto, že nemusí mít rozměr hmotnosti, a tenzor proto, že může být v různých směrech různá, např. v případu rotací a tenzoru setrvačnosti, viz příklad~\ref{sec:BodyRotation}.		
+	}
+	lze zahrnout do metrického tenzoru, potažmo formálně do definice křivočarých souřadnic.
+	Vztahy~\eqref{eq:LagrangianCurvilinear}---\eqref{eq:SchrodingerCurvilinear} pak přejdou na
+	\begin{align}
+		L(\dot{\vector{q}},\vector{q})
+			&=\frac{1}{2}g_{kl}(\vector{q})\dot{q}^{k}\dot{q}^{l}-V(\vector{q}),\nonumber\\
+		p_{k}
+			&=g_{kl}\dot{q}^{l},\nonumber\\
+		H(\dot{\vector{q}},\vector{q})
+			&=\frac{1}{2}g^{kl}(\vector{q})p_{k}p_{l}+V(\vector{q}),\nonumber\\
+		\left(-\frac{\hbar^{2}}{2}\Delta+V(\vector{q})\right)\psi(\vector{q})
+			&=E\psi(\vector{q}).
+		\label{eq:LagrangianHamiltonianCurvilinearM}
+	\end{align}
+	V případě sférických souřadnic $(r,\theta,\phi)$ to znamená zavést křivočaré souřadnice jako
+	\begin{align*}
+		x&=r\sqrt{M}\sin\theta\cos\phi\\
+		y&=r\sqrt{M}\sin\theta\sin\phi\\
+		z&=r\sqrt{M}\cos\theta.
+	\end{align*}
+\end{note}

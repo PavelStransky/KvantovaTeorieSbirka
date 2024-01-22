@@ -1,0 +1,31 @@
+\sec{Tenzorový součin}
+	Tenzorový součin dvou ireducibilních tenzorových operátorů 
+	\begin{equation}
+		\tensoroperator{W}{\lambda}=[\tensoroperator{U}{\lambda_{1}}\otimes\tensoroperator{V}{\lambda_{2}}]^{(\lambda)}
+	\end{equation}
+	je definován vztahem pro komponenty
+	\begin{equation}
+		\boxed{
+			\tensoroperatorcomponent{W}{\lambda}{\mu}
+				=\sum_{\mu_{1},\mu_{2}}
+					\clebsch{\lambda_{1}}{\mu_{1}}{\lambda_{2}}{\mu_{2}}{\lambda}{\mu}
+					\tensoroperatorcomponent{U}{\lambda_{1}}{\mu_{1}}\tensoroperatorcomponent{V}{\lambda_{2}}{\mu_{2}}
+		}.
+	\end{equation}
+	Pro tenzor nultého řádu pak vyplývá
+    \begin{align}
+        \tensoroperatorcomponent{W}{0}{0}
+            &=\sum_{\mu_{1},\mu_{2}}\clebsch{\lambda_{1}}{\mu_{1}}{\lambda_{2}}{\mu_{2}}{0}{0}
+                \tensoroperatorcomponent{U}{\lambda_{1}}{\mu_{1}}\tensoroperatorcomponent{V}{\lambda_{2}}{\mu_{2}}\nonumber\\
+            &=\frac{\minus{\lambda_{1}}}{\sqrt{2\lambda_{1}+1}}\sum_{\mu_{1}}\minus{\mu_{1}}
+                \tensoroperatorcomponent{U}{\lambda_{1}}{\mu_{1}}\tensoroperatorcomponent{V}{\lambda_{1}}{-\mu_{1}}
+    \end{align}
+	a na základě této rovnosti se definuje \emph{skalární součin}\index{součin!skalární pro tenzorové operátory} ireducibilních tenzorových operátorů
+	\begin{equation}
+		\label{eq:TensorOperatorScalar}
+		\boxed{
+			\tensoroperator{U}{\lambda}\cdot\tensoroperator{V}{\lambda}
+				\equiv\minus{-\lambda}\sqrt{2\lambda+1}\,\tensoroperatorcomponent{W}{0}{0}
+				=\sum_{\mu}\minus{\mu}\tensoroperatorcomponent{U}{\lambda}{\mu}\tensoroperatorcomponent{V}{\lambda}{-\mu}
+		}\,.
+	\end{equation}

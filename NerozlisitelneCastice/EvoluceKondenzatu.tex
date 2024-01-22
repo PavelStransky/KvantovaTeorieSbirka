@@ -1,0 +1,99 @@
+\subsection{Evoluce bosonového kondenzátu}
+	Soustava $N$ bosonů se nachází ve stavu kondenzátu
+	\begin{equation}
+		\ket{\psi_{0};N}\equiv\frac{1}{\sqrt{N!}}\left(\operatorconjugate{b}_{0}\right)^{N}\ket{0}.
+	\end{equation}
+	a systém je popsán jednočásticovým Hamiltoniánem
+	\begin{equation}
+		\operator{H}=\mathcal{E}\left(\operatorconjugate{B}\operator{b}_{0}+\operatorconjugate{b}_{0}\operator{B}\right),
+	\end{equation}
+	ve kterém $\mathcal{E}$ je reálný parametr udávající škálu energie a
+	\begin{equation}
+		\operatorconjugate{B}\equiv\sum_{k>0}z_{k}\operatorconjugate{b}_{k}
+	\end{equation}
+	(komplexní parametry $z_{k}$ nyní nemusí být narozdíl od předchozího příkladu normovány).
+	Operátory $\operator{b}_{k}$, $\operatorconjugate{b}_{k}$ splňují bosonové komutační relace \eqref{eq:BosonCommutator}.
+	
+	Nalezněte časový vývoj stavu $\ket{\psi_{0}(t);N}$.
+
+\begin{solution}
+	Hledaný stav je časovou evolucí počátečního stavu,
+	\begin{equation}
+		\ket{\psi_{0}(t);N}=\operator{U}(t)\ket{\psi_{0};N},
+	\end{equation}
+	kde
+	\begin{equation}
+		\operator{U}(t)=\e^{-\frac{\im}{\hbar}\operator{H}t}.
+	\end{equation}
+	Začneme s jedním bosonem v kondenzátu a postupně budeme přidávat další.
+	\begin{itemize}
+	\item
+		$N=1$:
+		\begin{equation}
+			\ket{\psi_{0}(t);1}=\e^{\overbrace{-\frac{\im}{\hbar}\mathcal{E}t}^{\alpha}\overbrace{\left(\operatorconjugate{B}\operator{b}_{0}+\operatorconjugate{b}_{0}\operator{B}\right)}^{\operator{X}}}\operatorconjugate{b}_{0}\ket{0}.
+		\end{equation}
+		Podle BCH formule~\eqref{eq:BCH} vyjádřené v operátorech $\operator{X},\operatorconjugate{b}_{0}$,
+		\begin{align*}
+			\e^{\alpha\operator{X}}\operatorconjugate{b}_{0}\e^{-\alpha\operator{X}}
+				&=\sum_{k=0}^{\infty}\frac{\alpha^{k}}{k!}\operator{K}_{n}, &
+			\operator{K}_{0}&=\operatorconjugate{b}_{0}\,,\\
+			&&\operator{K}_{k+1}&=\commutator{\operator{X}}{\operator{K}_{n}}\,,
+		\end{align*}
+		vychází
+		\begin{equation}
+			\ket{\psi_{0}(t);1}
+				=\underbrace{\left(\operatorconjugate{b}_{0}
+					+\alpha\commutator{\operator{X}}{\operatorconjugate{b}_{0}}
+					+\frac{\alpha^{2}}{2!}\commutator{\operator{X}}{\commutator{\operator{X}}{\operatorconjugate{b}_{0}}}
+					+\frac{\alpha^{3}}{3!}\dotsb\right)}_{\operator{Z}}\underbrace{\e^{\alpha\operator{X}}\ket{0}}_{\ket{0}}.
+		\end{equation}
+		Jednotlivé členy přispějí následujícím způsobem:
+        \begin{subequations}
+            \begin{align}
+                \commutator{\operator{X}}{\operatorconjugate{b}_{0}}
+                    &=\commutator{\operatorconjugate{B}\operator{b}_{0}+\operatorconjugate{b}_{0}\operator{B}}{\operatorconjugate{b}_{0}}
+                     =\commutator{\operatorconjugate{B}\operator{b}_{0}}{\operatorconjugate{b}_{0}}
+                     =\operatorconjugate{B}\commutator{\operator{b}_{0}}{\operatorconjugate{b}_{0}}=\operatorconjugate{B}\,,\\
+                \commutator{\operator{X}}{\commutator{\operator{X}}{\operatorconjugate{b}_{0}}}
+                    &=\commutator{\operatorconjugate{B}\operator{b}_{0}+\operatorconjugate{b}_{0}\operator{B}}{\operatorconjugate{B}}
+                     =\operatorconjugate{b}_{0}\commutator{\operator{B}}{\operatorconjugate{B}}=\abs{\vector{z}}^{2}\operatorconjugate{b}_{0}\,,\\
+                \commutator{\operator{X}}{\commutator{\operator{X}}{\commutator{\operator{X}}{\operatorconjugate{b}_{0}}}}
+                    &=\commutator{\operatorconjugate{B}\operator{b}_{0}+\operatorconjugate{b}_{0}\operator{B}}{\abs{\vector{z}}^{2}\operatorconjugate{b}_{0}}=\abs{\vector{z}}^{2}\operatorconjugate{B}\,,\\
+                \dotsb
+            \end{align}                
+        \end{subequations}
+		Po dosazení tedy vychází
+		\begin{align}
+			\ket{\psi_{0}(t);1}
+				&=\left(\operatorconjugate{b}_{0}+\alpha\operatorconjugate{B}+\alpha^{2}\frac{\abs{\vector{z}}^{2}}{2!}\operatorconjugate{b}_{0}+\alpha^{3}\frac{\abs{\vector{z}}^{2}}{3!}\operatorconjugate{B}+\alpha^{4}\frac{\abs{\vector{z}}^{4}}{4!}\operatorconjugate{b}_{0}+\dotsb\right)\ket{0}\nonumber\\
+				&=\Bigg[\underbrace{\left(1+\alpha^{2}\frac{\abs{\vector{z}}^{2}}{2!}+\alpha^{4}\frac{\abs{\vector{z}}^{4}}{4!}+\dotsb\right)}_{\cosh{\alpha\abs{\vector{z}}}}\operatorconjugate{b}_{0}					
+					+\underbrace{\left(\alpha+\alpha^{3}\frac{\abs{\vector{z}}^{2}}{3!}+\alpha^{5}\frac{\abs{\vector{z}}^{4}}{4!}+\dotsb\right)}_{\frac{1}{\abs{\vector{z}}}\sinh{\alpha\abs{\vector{z}}}}\operatorconjugate{B}\Bigg]\ket{0}\nonumber\\
+				&=\left[\operatorconjugate{b}_{0}\,\cosh{\alpha\abs{\vector{z}}}+\operatorconjugate{B}\,\frac{\sinh{\alpha\abs{\vector{z}}}}{\abs{\vector{z}}}\right]\ket{0}.
+		\end{align}
+			
+	\item
+		$N=2$:
+		\begin{align}
+			\ket{\psi_{0}(t);2}
+				&=\e^{\alpha\operator{X}}\frac{\left(\operatorconjugate{b}_{0}\right)^{2}}{2!}\ket{0}=\frac{\operator{Z}}{2}\e^{\alpha\operator{X}}\operatorconjugate{b}_{0}\ket{0}=\frac{\operator{Z}^{2}}{2}\e^{\alpha\operator{X}}\ket{0}=\frac{\operator{Z}^{2}}{2}\ket{0}\nonumber\\
+				&=\frac{1}{2}\left[\operatorconjugate{b}_{0}\,\cosh{\alpha\abs{\vector{z}}}+\operatorconjugate{B}\,\frac{\sinh{\alpha\abs{\vector{z}}}}{\abs{\vector{z}}}\right]^{2}\ket{0}\,.
+		\end{align}
+			
+	\item
+		$N$ obecné: Pomocí BCH formule se komutuje $N$-krát.
+        Indukcí vychází
+		\begin{align}
+			\ket{\psi_{0}(t);N}
+				&=\frac{1}{\sqrt{N!}}\left[\operatorconjugate{b}_{0}\,\cosh{\alpha\abs{\vector{z}}}+\operatorconjugate{B}\,\frac{\sinh{\alpha\abs{\vector{z}}}}{\abs{\vector{z}}}\right]^{N}\ket{0}\nonumber\\
+				&=\frac{1}{\sqrt{N!}}\left[\operatorconjugate{b}_{0}\,\cos{\frac{\mathcal{E}t\abs{\vector{z}}}{\hbar}}+\im\frac{\operatorconjugate{B}}{\abs{\vector{z}}}\,\sin{\frac{\mathcal{E}t\abs{\vector{z}}}{\hbar}}\right]^{N}\ket{0}.
+		\end{align}
+		Stavový vektor tedy rotuje v komplexní rovině s frekvencí
+		\begin{equation}
+			\omega\equiv\frac{\mathcal{E}}{\hbar}\abs{\vector{z}}.
+		\end{equation}		
+	\end{itemize}
+\end{solution}
+
+\begin{note}
+	O kondenzátorových koherentních stavech a jejich aplikacích se lze dočíst více v~článku~\cite{Caprio2005}.
+\end{note}

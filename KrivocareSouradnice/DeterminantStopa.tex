@@ -1,0 +1,60 @@
+\subsection{Determinant a stopa}
+\begin{enumerate}
+\item
+	Dokažte, že pro diagonalizovatelnou matici $\matrix{A}$ platí vztah
+	\begin{equation}
+		\label{eq:DetExp}
+		\det\e^{\matrix{A}}=\e^{\trace\matrix{A}}.
+	\end{equation}
+	
+\item
+	Na základě předchozího vztahu ukažte, že pokud je matice $\matrix{B}$ funkcí 
+	zobecněných souřadnic, $\matrix{B}=\matrix{B}(\vector{q})$, platí
+	\begin{equation}
+		\label{eq:LogDet}
+		\partialderivative{}{q^{i}}\ln\det\matrix{B}(\vector{q})=\trace\matrix{B}^{-1}(\vector{q})\partialderivative{}{q^{i}}\matrix{B}(\vector{q}),
+	\end{equation}
+	kde $\matrix{B}^{-1}(\vector{q})$ je matice inverzní k matici $\matrix{B}(\vector{q})$.
+\end{enumerate}
+
+\begin{solution}
+	\begin{enumerate}
+		\item
+			Matici $\matrix{A}$ lze zdiagonalizovat a vyjádřit ve tvaru
+			\begin{equation}
+				\matrix{A}=\matrix{C}\matrix{D}\matrix{C}^{-1},
+			\end{equation}
+			kde $\matrix{D}$ je diagonální matice.
+			Dosazením do~\eqref{eq:DetExp} dostaneme na levé a pravé straně
+			\begin{align}
+				\det{\e^{\matrix{A}}}
+					&=\det{\e^{\matrix{C}\matrix{D}\matrix{C}^{-1}}}
+					 =\det{\matrix{C}\e^{\matrix{D}}\matrix{C}^{-1}}
+					 =\det{\matrix{C}}\det\e^{\matrix{D}}\frac{1}{\det{\matrix{C}}}\nonumber\\
+					&=\det{\matrix{D}}=\prod_{j}\e^{D_{jj}},\\
+				\e^{\trace{\matrix{A}}}
+					&=\e^{\trace{\matrix{C}\matrix{D}\matrix{C}^{-1}}}
+					 =\e^{\trace{\matrix{D}}}
+					 =\e^{\sum_{j}D_{jj}}
+					 =\prod_{j}\e^{D_{jj}},
+			\end{align}
+			čímž je~\eqref{eq:DetExp} dokázáno.
+		
+		\item
+			Označme $\matrix{B}(\vector{q})=\e^{\matrix{A}(\vector{q})}$, 
+			takže $\matrix{A}(\vector{q})=\ln{\matrix{B}(\vector{q})}$.
+			Dosadíme-li do~\eqref{eq:DetExp}, dostaneme
+			\begin{equation}
+				\det{\matrix{B}(\vector{q})}=\e^{\trace\ln{\matrix{B}(\vector{q}})},
+			\end{equation}
+			po zlogaritmování
+			\begin{equation}
+				\ln\det{\matrix{B}(\vector{q})}=\trace\ln{\matrix{B}(\vector{q})}
+			\end{equation}
+			a zderivování
+			\begin{equation}
+				\partialderivative{}{q^{i}}\ln\det{\matrix{B}(\vector{q})}=\trace{\partialderivative{}{q^{i}}\ln{B(\vector{q})}}=\trace{\frac{1}{B(\vector{q})}\partialderivative{}{q^{i}}B(\vector{q})}.
+			\end{equation}
+			Tím je důkaz hotov.
+	\end{enumerate}
+\end{solution}

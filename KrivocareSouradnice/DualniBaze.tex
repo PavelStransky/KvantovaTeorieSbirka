@@ -1,0 +1,24 @@
+\sec{Duální báze}
+	K bázi $\vector{e}_{i}$ se zavádí duální \emph{(kontravariantní)} báze\index{báze!kontravariantní} $\vector{e}^{(j)}$ vztahy ortogonality
+	\begin{equation}
+		\vector{e}_{(i)}\cdot\vector{e}^{(j)}=\delta_{i}^{j},
+	\end{equation}
+	kde symbol $\cdot$ udává skalární součin:\index{součin!skalární}
+	\begin{equation}
+		\vector{a}\cdot\vector{b}=a^{i}b_{i}\left(=\sum_{i=1}^{d}a^{i}b_{i}\right).
+	\end{equation}
+	Pro křivočaré souřadnice je duální báze dána vektory kolmými k plochám $q^{i}=\const$, tj. je určena gradientem
+	\begin{equation}
+		\vector{n}^{(i)}=\nabla q^{i}=\partialderivative{q^{i}}{x^{j}}\vector{e}^{(j)}.
+	\end{equation}
+    Vektory kovariantní a kontravariantní báze jsou na sebe kolmé,
+	\begin{equation}
+		\label{eq:DualBasisOrthogonality}
+		\important{\vector{n}_{(i)}\cdot\vector{n}^{(j)}=\delta_{i}^{j}},
+	\end{equation}
+    což vyplývá ze zavedení obou bází:
+	\begin{equation}
+		\vector{n}_{(i)}\cdot\vector{n}^{(j)}
+			=\partialderivative{x^{k}}{q^{i}}\vector{e}_{(k)}\cdot\partialderivative{q^{j}}{x^{l}}\vector{e}^{(l)}
+			=\partialderivative{x^{k}}{q^{i}}\partialderivative{q^{j}}{x^{l}}\delta_{l}^{k}=\partialderivative{q^{j}}{q^{i}}=\delta_{i}^{j}.
+	\end{equation}

@@ -1,0 +1,32 @@
+\sec{Bohrovo-Sommerfeldovo kvantování}\index{kvantování!Bohrovo-Sommerfeldovo}
+Omezme se nyní na vázané stavy, tj. na stavy, jejichž vlnová funkce $\psi(x\pm\infty)=0$.
+Vyskytují-li se na zadané energii jen dva body obratu, pak musí platit $\psi_{\mathrm{I}_{1}}(x)=\psi_{\mathrm{I}_{2}}(x)$, což je splněno, pokud
+\begin{itemize}
+\item
+    $C_{1}=C_{2}$ a zároveň
+    \begin{equation}
+        \sin\left[\frac{1}{\hbar}\int_{x_{1}}^{x}p(x')\d x'+\frac{\pi}{4}\right]=\sin\left[\frac{1}{\hbar}\int_{x}^{x_{2}}p(x')\d x'+\frac{\pi}{4}\right],
+    \end{equation}
+    neboli
+    \begin{equation}
+        \frac{1}{\hbar}\int_{x_{1}}^{x}p(x')\d x'+\frac{\pi}{4}+n\pi=\frac{1}{\hbar}\int_{x}^{x_{2}}p(x')\d x'+\frac{\pi}{4},
+    \end{equation}
+    nebo vhodněji pokud	
+\item
+    $C_{1}=-C_{2}$ a zároveň
+    \begin{equation}
+        \sin\left[\frac{1}{\hbar}\int_{x_{1}}^{x}p(x')\d x'+\frac{\pi}{4}\right]=-\sin\left[\frac{1}{\hbar}\int_{x}^{x_{2}}p(x')\d x'+\frac{\pi}{4}\right],
+    \end{equation}
+    neboli
+    \begin{equation}
+        \frac{1}{\hbar}\int_{x_{1}}^{x}p(x')\d x'+\frac{\pi}{4}+n\pi=-\frac{1}{\hbar}\int_{x}^{x_{2}}p(x')\d x'-\frac{\pi}{4}.
+    \end{equation}
+\end{itemize}
+Z poslední rovnosti plyne \emph{Bohrova-Sommerfeldova kvantovací podmínka}
+\begin{equation}
+    \label{eq:BohrSommerfeld}
+    \important{\oint p(x')\d x'=2\int_{x_{1}}^{x_{2}}p(x')\d x'=2\pi\hbar\left(n+\frac{1}{2}\right)},
+\end{equation}
+kde $n\in\mathbb{N}_{0}$.	
+Tento výraz platí jen pro \uv{měkké} body obratu.
+Za každý \uv{tvrdý} bod obratu (odraz o nekonečně vysokou bariéru) je nutné do závorky přidat ještě $\frac{1}{4}$.

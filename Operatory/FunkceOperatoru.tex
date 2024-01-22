@@ -1,0 +1,41 @@
+\sec{Funkce operátoru}
+Funkci operátoru $\operator{A}$\index{funkce!operátoru} na základě funkce reálného argumentu $f(\xi)$ lze zavést dvěma způsoby:
+\begin{enumerate}
+\item
+    \emph{Rozvojem do řady.}
+    Za předpokladu, že existuje \emph{Maclaurinova řada}\index{řada!Maclaurinova} konvergující k zadané funkci, tj. rozvoj funkce $f(\xi)$ do mocninné řady v okolí bodu $\xi=0$,
+    \begin{equation}
+        f(\xi)=\sum_{n=0}^{\infty}a_{n}\xi^{n},\quad 
+        a_{n}=\frac{1}{n!}\left.\frac{\d^{n}f(\xi)}{\d\xi^{n}}\right|_{\xi=0},
+    \end{equation}
+    pak se pod funkcí $f(\operator{A})$ rozumí operátor
+    \begin{equation}
+        f(\operator{A})
+            =\sum_{n=0}^{\infty}a_{n}\operator{A}^{n}.
+        \label{eq:OperatorFncArray}
+    \end{equation}	
+    
+    \begin{example}\index{exponenciála operátoru}
+        \begin{equation}
+            \important{
+                \e^{\operator{A}}
+                    \equiv\sum_{n=0}^{\infty}\frac{\operator{A}^{n}}{n!}
+            }
+            \label{eq:OperatorExp}
+        \end{equation}
+    \end{example}
+        
+\item
+    \emph{Sylvestrova formule.}\index{formule!Sylvestrova}
+    Je-li operátor $\operator{A}$ samosdružený se spektrálním rozkladem
+    \begin{equation}
+        \operator{A}
+            =\sum_{k}A_{k}\operator{P}_{k},
+    \end{equation}
+    kde $\operator{P}_{k}=\projector{A_{k}}$ je projektor na podprostor příslušející reálné nedegenerované vlastní hodnotě $A_{k}$, a je-li funkce $f(\xi)$ definovaná na množině, která zahrnuje všechny body $\xi=A_{k}$, funkci operátoru $\operator{A}$ lze vyjádřit jako součet
+    \begin{equation}
+        f(\operator{A})
+            =\sum_{k}f(A_{k})\operator{P}_{k}.
+        \label{eq:OperatorFncSylvester}
+    \end{equation}		
+\end{enumerate}

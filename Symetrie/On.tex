@@ -1,0 +1,94 @@
+\subsection{Vlastnosti grupy $\group{O}(n)$}
+	Grupa $\group{O}(n)$ je grupou ortogonálních transformací, které udávají všechna natočení v $n$-rozměrném prostoru,
+	\begin{equation}
+		x'_{j}=\sum_{k=1}^{n}R_{jk}x_{k},
+	\end{equation}
+	kde $R_{jk}\in\mathbb{R}$ jsou elementy matice rotace $\matrix{R}$, $x_{j}\in\mathbb{R}$ jsou elementy vektoru $\vector{x}$.
+
+	\begin{enumerate}
+	\item 
+		Dokažte, že při natočení vektoru se jeho délka nemění:
+		\begin{equation}
+			\abs{\vector{x}'}^{2}=\sum_{j=1}^{n}x_{j}^{'2}=\sum_{j=1}^{n}x_{j}^{2}=\abs{\vector{x}}^{2}.
+		\end{equation}
+		Na základě této vlastnosti ukažte, že matice $\matrix{R}$ musejí být ortogonální, tj. $\matrix{R}^{\ti{T}}=\matrix{R}^{-1}$
+		a že $\det\matrix{R}=\pm1$. 
+
+	\item 
+		Ukažte, že grupa $\group{O}(n)$ je uzavřená, tj. že matice $\matrix{R}_{3}=\matrix{R}_{1}\matrix{R}_{2}$
+		(součin dvou ortogonálních matic) je ortogonální.
+
+	\item 
+		Nalezněte počet nezávislých elementů ortogonální matice rozměru $n\times n$.
+	\end{enumerate}
+
+	Nadále uvažujte jen \emph{vlastní rotace}, které splňují $\det\matrix{R}=1$. 
+	Ty tvoří grupu $\group{SO}(n)$. 
+	Matice s $\det\matrix{R}=-1$ zahrnují totiž kromě otočení ještě prostorovou inverzi.
+
+	\begin{enumerate}
+	\setcounter{enumi}{3}
+	\item 
+		Ukažte, že generátory rotací v maticové realizaci $\matrix{L}^{(jk)}$ lze zapsat jako hermitovské matice
+		\begin{equation}
+			\matrix{L}^{(jk)}_{\alpha\beta}=\im\left(\delta_{j\beta}\delta_{k\alpha}-\delta_{j\alpha}\delta_{k\beta}\right)
+		\end{equation}
+		($\alpha,\beta=1,\dotsc,n$ určují složky matic $\matrix{L}^{(jk)}$),
+		tj. ukažte, že matice 
+		\begin{align}
+			\matrix{R}=\exp\left(\im \sum_{j<k} a_{jk}\matrix{L}^{(jk)}\right)
+		\end{align}
+		jsou ortogonální a $a_{jk}$ jsou reálné parametry. 
+		
+		Přesvědčte se, že počet takto vytvořených generátorů je stejný jako počet nezávislých elementů ortogonálních matic rozměru $n$.
+		To znamená, že každou ortogonální matici lze jednoznačně zadat pomocí parametrů $a_{jk}$.
+
+		\item 
+			Nalezněte strukturní koeficienty grupy $\group{SO}(n)$, tj. spočítejte komutátor
+			\begin{equation}
+				\commutator{\matrix{L}^{(jk)}}{\matrix{L}^{(lm)}}.
+			\end{equation}
+			Tento komutátor musí být stejný pro jakoukoliv (nejen maticovou) realizaci grupy.
+			Nadále budeme tedy uvažovat, že generátory $\operator{L}_{jk}$ jsou operátory nad obecným Hilbertovým prostorem $\hilbert{H}$, 
+			které splňují tyto komutační relace.
+
+		\item 
+			Ukažte, že lineární Casimirův operátor
+			\begin{equation}
+				\operator{C}_{1}[\group{SO}(n)]\equiv\sum_{j=1}^{n}\operator{L}_{jj}
+			\end{equation}
+			je identicky nulový.
+			Nenulový je až kvadratický Casimirův operátor 
+			\begin{equation}
+				\operator{C}_{2}[\group{SO}(n)]\equiv\sum_{j,k=1}^{n}\operator{L}_{jk}\operator{L}_{kj}\,.
+			\end{equation}			
+			Přesvědčte se, že komutuje se všemi generátory $\operator{L}_{jk}$.
+
+		\item 
+			Ukažte, že operátory impulsmomentu v $n$-rozměrném prostoru, definované vztahem
+			\begin{equation}
+				\operator{L}_{jk}=\operator{x}_{j}\operator{p}_{k}-\operator{x}_{k}\operator{p}_{j}, \quad j,k=1,\dots,n,
+			\end{equation}
+			(mezi operátorem souřadnice a hybnosti platí standardní komutační relace $\commutator{\operator{x}_{j}}{\operator{p}_{k}}=\im\hbar\delta_{jk}$,	$\commutator{\operator{x}_{j}}{\operator{x}_{k}}=\commutator{\operator{p}_{j}}{\operator{p}_{k}}=0$) splňují (až na konstantu $\hbar$) stejné komutační relace jako výše vypočtené matice $\matrix{L}^{(jk)}$, a tvoří tedy generátory grupy $\group{SO}(n)$.
+			Napište vyjádření operátorů $\operator{L}_{jk}$ v $x$-reprezentaci, tj. dosaďte $\operator{p}_{j}=-\im\hbar\frac{\partial}{\partial x_{j}}$.
+
+		\item 
+			V třírozměrném prostoru dokažte, že platí
+			\begin{equation}
+				\matrix{R}^{(12)}=\e^{\left(\im\phi \matrix{L}^{(12)}\right)}=\left(\begin{array}{ccc}\cos\phi & \sin\phi & 0 \\ -\sin\phi & \cos\phi & 0 \\ 0 & 0 & 1\end{array}\right)
+			\end{equation}
+			(matice $\matrix{L}^{(12)}$ je definována výše). 
+			Jedná se tedy o matici rotace okolo osy $3$ o úhel $\phi$.
+			K výpočtu můžete použít rozvoj exponenciály do Taylorovy řady.
+	\end{enumerate}
+
+	\emph{Poznámka:} 
+		V třírozměrném prostoru platí mezi složkami vektoru impulsmomentu $\operator{L}_{j}$ a mezi výše definovanými operátory $\operator{L}_{kl}$ vztah
+		\begin{equation}
+		\operator{L}_{j}=\frac{1}{2}\epsilon_{jkl}\operator{L}_{kl}.
+		\end{equation}
+		Složky $\operator{L}_{j}$ splňují komutační relace 
+		\begin{equation}
+			\commutator{\operator{L}_{j}}{\operator{L}_{k}}=\im\hbar\epsilon_{jkl}\operator{L}_{l}
+		\end{equation}
+		a jsou jen jiným vyjádřením generujících operátorů grupy $\group{SO}(3)$.

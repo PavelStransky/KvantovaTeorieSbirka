@@ -1,0 +1,58 @@
+\subsection{Poissonovo rozdělení}
+\label{sec:PoissonDistribution}
+Poissonovo rozdělení\index{rozdělení!Poissonovo} udává počet $n$ výskytu jevů v určitém intervalu, pokud jsou jednotlivé jevy statisticky nezávislé.
+Rozdělení je dáno předpisem
+\begin{equation}
+    \label{eq:PoissonDistribution}
+    P_{n}=\frac{\lambda^{n}}{n!}\e^{-\lambda}\,,
+\end{equation}			
+kde $\lambda$ je parametr Poissonova rozdělení.
+
+\begin{enumerate}
+\item
+    Ukažte, že rozdělení je normalizované.
+    
+\item
+    Nalezněte střední hodnotu Poissonova rozdělení.
+    
+\item
+    Nalezněte rozptyl Poissonova rozdělení.
+\end{enumerate}
+
+\begin{solution}
+    \begin{enumerate}
+	\item
+		Normalizace
+		\begin{equation}
+			\sum_{n=0}^{\infty}P_{n}
+				=\sum_{n=0}^{\infty}\frac{\lambda^{n}}{n!}
+				=\e^{-\lambda}\e^{\lambda}=1\,.
+		\end{equation}
+		
+	\item
+		Střední hodnota
+		\begin{equation}
+			\mean{n}
+				=\sum_{n=0}^{\infty}nP_{n}
+				=\e^{-\lambda}\sum_{n=1}^{\infty}\frac{\lambda^{n}}{(n-1)!}
+				=\e^{-\lambda}\lambda\e^{\lambda}=\lambda\,.
+		\end{equation}
+		
+	\item
+		Střední hodnota kvadrátu je
+		\begin{align}
+			\mean{n^{2}}
+				&=\sum_{n=0}^{\infty}n^{2}P_{n}
+				=\e^{-\lambda}\sum_{n=1}^{\infty}\frac{\lambda^{n}}{(n-1)!}
+					\underbrace{n}_{n-1+1}\nonumber\\
+				&=\e^{-\lambda}\left[\lambda^{2}\sum_{n=2}^{\infty}\frac{\lambda^{n-2}}{(n-2)!}
+					+\lambda\sum_{n=1}^{\infty}\frac{\lambda^{n-1}}{(n-1)!}\right]\nonumber\\
+				&=\lambda^{2}+\lambda\,,
+		\end{align}
+		takže rozptyl vychází
+		\begin{equation}
+			(\Delta n)^{2}=\mean{n^{2}}-\mean{n}^{2}=\lambda\,.
+		\end{equation}
+		Poissonovo rozdělení má tedy rozpyl i střední hodnotu stejnou a danou velikostí parametru $\lambda$.
+	\end{enumerate}
+\end{solution}

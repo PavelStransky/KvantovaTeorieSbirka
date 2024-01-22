@@ -1,0 +1,38 @@
+\subsection{Hypersférické souřadnice}\index{souřadnice!hypersférické}
+	Pro hypersférické souřadnice v prostoru o dimenzi $d$ definované vztahy
+	\begin{align}
+		x_{1}&=r\cos\theta_{1}\nonumber\\
+		x_{2}&=r\sin\theta_{1}\cos\theta_{2}\nonumber\\
+		x_{3}&=r\sin\theta_{1}\sin\theta_{2}\cos\theta_{3}\nonumber\\
+		&\vdots\\
+		x_{d-2}&=r\sin\theta_{1}\sin\theta_{2}\cdots\cos\theta_{d-2}\nonumber\\
+		x_{d-1}&=r\sin\theta_{1}\sin\theta_{2}\cdots\sin\theta_{d-2}\cos\theta_{d-1}\nonumber\\
+		x_{d}&=r\sin\theta_{1}\sin\theta_{2}\cdots\sin\theta_{d-2}\sin\theta_{d-1}\nonumber
+	\end{align}
+	kde $0<r<\infty$, $0\leq\theta_{j}<\pi$, $j=1,\dots,d-2$ a $0\leq\theta_{d-1}<2\pi$, vyjádřete:
+	\begin{itemize}
+	\item
+		elementy metrického tenzoru $g_{ij}$,
+	\item
+		determinant metrického tenzoru $\det\matrix{g}$,
+	\item 
+		Laplaceův operátor~$\Delta$.
+	\end{itemize}
+
+	Ukažte, že Laplaceův operátor $\Delta$ lze rozložit na součet radiální části (závisí jen na souřadnici $r$) a části $-\frac{L_{d}^{2}}{\hbar^{2}r^{2}}$ (centrifugální člen), kde $L_{d}^{2}$ je velikost zobecněného impulsmomentu.
+	Vlastí hodnoty $L_{d}^{2}$ jsou $\lambda_{d}=\hbar^{2} l_{d}(l_{d}+d-2)$, kde $l_{d}=0,1,\dots$.
+	\begin{itemize}
+	\item
+		Vyjádřete Schrödingerovu rovnici pro radiální část vlnové funkce $R_{l_{d}}(r)$ pro sféricky symetrický potenciál $V(r)$ v $d$ dimenzích.
+
+	\item
+		Vyjádřete Schrödingerovu rovnici pro radiální část vlnové funkce $u_{l_{d}}(r)$ po substituci
+		\begin{equation}
+			R_{l_{d}}(r)=r^{\frac{1-d}{2}}u_{l_{d}}(r)
+		\end{equation}
+		a ukažte, že její tvar je shodný pro všechny dimenze $d$ a jediný rozdíl je jen ve velikosti centrifugálního členu.
+	\end{itemize}
+
+    Ukažte, že získané vztahy pro obecnou dimenzi $d$ jsou v souladu se známými vztahy pro $d=3$.
+
+    Hypersférické souřadnice a vícerozměrný Coulombický problém jsou diskutovány v práci~\cite{Nouri1999}.

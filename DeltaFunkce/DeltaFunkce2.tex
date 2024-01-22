@@ -1,0 +1,43 @@
+\section{Potenciály s $\delta$-funkcemi II}
+\exercise[24.11.2021, 25.11.2021]{Diracův hřeben}
+ 	Částice se pohybuje v potenciálu složeném z periodicky se opakujících $\delta$ funkcí
+ 	\begin{equation*}
+ 		V(x)=c\sum_{n=-\infty}^{\infty}\delta(x-na),
+ 	\end{equation*}
+ 	jehož vlnové funkce na intervalu 
+ 	$x\in\left(na; \left(n+1\right)a\right)$, $n\in\mathbb{Z}$, $c>0$, $E>0$ 
+ 	jsou podle Blochova teorému
+ 	\begin{equation*}
+ 		\psi_{q}(x)
+ 			=\left[A\e^{\im k\left(x-na\right)}+B\e^{-\im k\left(x-na\right)}\right]\e^{iqna},
+ 	\end{equation*}
+ 	kde $q$ je krystalová hybnost (kvazihybnost) částice.
+ 	Mezi $k=\sqrt{2ME}/\hbar$ a $K$ platí vztah
+ 	\begin{equation*}
+ 		\cos{qa}=\cos{ka}+\frac{K}{2k}\sin{ka},
+ 	\end{equation*}
+ 	kde $K=2Mc/\hbar^{2}$ ($M$ je hmotnost částice).
+ 	\begin{enumerate}
+ 	\item 
+ 		Pro dvě hodnoty $K=2$ a $K=10$ vypočítejte a zakreslete do grafu disperzní relaci $E(q)$ pro nejnižší čtyři energetické pásy.
+ 		Uvažujte následující konvenci: pokud $\pi n\leq ka\leq\pi(n+1)$, pak $\pi n\leq qa\leq\pi(n+1)$, $n\in\mathbb{Z}$.
+ 	\item 
+ 		Vypočítejte grupovou rychlost
+ 		\begin{equation*}
+ 			v_{\ti{g}}=\frac{1}{\hbar}\frac{\partial E}{\partial q}
+ 		\end{equation*}
+ 		a zakreslete její závislost na $q$ a na $E$ pro dvě hodnoty parametru $K=2$, $K=10$ a nejnižší čtyři energetické pásy.
+ 		Srovnejte s případem volné částice.
+ 	\item
+ 		Najděte řešení Schrödingerovy rovnice pro případ $K<0$ (v tomto případě může být energie i záporná).
+ 		Podobně jako v bodě 1 zakreslete disperzní relaci $E(q)$ pro $K=-2$ a $K=-10$.
+
+ 	\item 
+ 		Nalezněte parametry $A$, $B$ vlnové funkce. Vlnovou funkci normalizujte na intervalu mezi sousedními dvěma $\delta$ funkcemi:
+ 		\begin{equation*}
+ 			\label{eq:psiqnorm}
+ 			\int_{0}^{a}\abs{\psi_{q}(x)}^{2}\d x=1.
+ 		\end{equation*}
+ 	\end{enumerate}
+
+ 	Pro všechny numerické výpočty uvažujte $a=M=\hbar=1$.

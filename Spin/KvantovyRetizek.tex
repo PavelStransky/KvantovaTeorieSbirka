@@ -1,0 +1,22 @@
+\subsection{Kvantový řetízek}
+Určete vlastní hodnoty a normalizované vlastní vektory Hamiltoniánu dimenze $N$ ve tvaru tridiagonální matice    
+\begin{equation}
+    \matrix{H}
+        =\makematrix{e & v & 0 & 0 & \\ v & e & v & 0 & \\ 0 & v & e & v & \ldots 
+            \\ 0 & 0 & v & e & \\ & & \vdots & & \ddots}.
+\end{equation}
+Jak se bude měnit energetické spektrum s rostoucím $N$?
+
+\begin{note}[Nápověda:]
+    V charakteristické rovnici identifikujte diferenční rovnici pro složky $c_{k}, k=1,\cdots,n$ vlastních vektorů a řešte ji pomocí násady $c_{k}=u^{k}$.
+\end{note}
+
+\begin{note}
+    Tento Hamiltonián popisuje například částici na řetízku délky $N$, která smí \uv{přeskočit} jen na sousední pozice:
+    \begin{equation}
+        \operator{H}=e\sum_{k=1}^{N}\ket{k}\bra{k}+v\sum_{n=1}^{N-1}\left(\ket{k}\bra{k+1}+\ket{k+1}\bra{k}\right),
+    \end{equation}
+    kde $\left\{\ket{k},k=1,\dotsc,N\right\}$ je ortonormální báze.
+    V případě, kdy $N$ je velké, se jedná o jednoduchý model jednorozměrného krystalu.\index{model!krystalu}
+\end{note}
+

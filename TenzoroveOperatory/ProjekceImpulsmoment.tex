@@ -1,0 +1,16 @@
+\subsection{Projekce vektoru na impulsmoment}
+	Nalezněte redukovaný maticový element skalárního součinu libovolného vektorového operátoru $\vectoroperator{V}$ s~impulsmomentem $\vectoroperator{J}$.
+
+\begin{solution}
+	Řešení spočívá v přímočarém využití vztahu pro skalární součin tenzorových operátorů~\eqref{eq:RMETensorOperatorScalar}:
+	\begin{align}
+		&\reducedmatrixelement{a,J}{\vectoroperator{J}\cdot\vectoroperator{V}}{b,j}=\reducedmatrixelement{a,J}{\tensoroperator{J}{1}\cdot\tensoroperator{V}{1}}{b,j}=\nonumber\\
+		&\qquad=\frac{\minus{J}\delta_{Jj}}{\sqrt{2J+1}}
+			\sum_{cj'}\minus{-j'}\reducedmatrixelement{a,J}{\tensoroperator{J}{1}}{c,j'}\reducedmatrixelement{c,j'}{\tensoroperator{V}{1}}{b,J}=\nonumber\\
+		&\qquad=\frac{\minus{J}\delta_{Jj}}{\sqrt{2J+1}}\minus{-J}\sqrt{J(J+1)(2J+1)}
+			\sum_{c}\braket{a}{c}\underbrace{\reducedmatrixelement{c,J}{\tensoroperator{V}{1}}{b,J}}
+			_{\bra{c}\reducedmatrixelement{J}{\tensoroperator{V}{1}}{J}\ket{b}}=\nonumber\\
+		&\qquad=\frac{\delta_{Jj}}{\sqrt{2J+1}}\sqrt{J(J+1)(2J+1)}\,\reducedmatrixelement{a,J}{\tensoroperator{V}{1}}{b,J}=\nonumber\\
+		&\qquad=\delta_{Jj}\sqrt{J(J+1)}\,\reducedmatrixelement{a,J}{\tensoroperator{V}{1}}{b,J}.
+	\end{align}
+\end{solution}

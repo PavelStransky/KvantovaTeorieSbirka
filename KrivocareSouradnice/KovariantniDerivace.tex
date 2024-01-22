@@ -1,0 +1,50 @@
+\sec{Kovariantní derivace}
+Je zadáno vektorové pole v křivočarých souřadnicích $\vector{F}=\vector{F}(\vector{q})=F^{k}(\vector{q})\vector{n}_{(k)}$.
+Derivování podle $i$-té složky vede na
+\begin{equation}
+	\label{eq:CovariantVector}
+	\partialderivative{\vector{F}}{q^{i}}
+		=\partialderivative{}{q^{i}}\left(F^{k}\vector{n}_{(k)}\right)
+		=\partialderivative{F^{k}}{q^{i}}\vector{n}_{(k)}
+			+\underbrace{\partialderivative{\vector{n}_{(k)}}{q^{i}}F^{k}}_{\partialderivative{\vector{n}_{(j)}}{q^{i}}F^{j}}
+		=\partialderivative{F^{k}}{q^{i}}\vector{n}_{(k)}+\Gamma_{ij}^{k}F^{j}\vector{n}_{(k)},
+\end{equation}
+kde poslední rovnost plyne z toho, že $\partial\vector{n}_{(j)}/\partial q^{i}$ je vektor, a dá se tudíž vyjádřit v bázi $\vector{n}_{(k)}$ pomocí koeficientů $\Gamma_{ij}^{k}$,
+\begin{equation}
+	\label{eq:ChristoffelSymboln}
+	\partialderivative{\vector{n}_{(j)}}{q^{i}}=\Gamma_{ij}^{k}\vector{n}_{(k)}.
+\end{equation}	
+Koeficienty $\Gamma_{ij}^{k}$ se nazývají \emph{Christoffelovy symboly}\index{symboly!Christoffelovy} (2. druhu).
+Jsou symetrické vůči záměně dolních indexů\footnote{
+	Je vidět z~\eqref{eq:Vectorn} a~\eqref{eq:ChristoffelSymboln}:
+	\begin{equation}
+		\partialderivative{\vector{n}_{(j)}}{q^{i}}
+			=\frac{\partial^{2}\vector{x}}{\partial q_{j}\partial q^{i}}
+			=\partialderivative{\vector{n}_{(i)}}{q^{j}}.
+	\end{equation}
+}
+\begin{equation}
+	\Gamma_{ij}^{k}=\Gamma_{ji}^{k}
+\end{equation}
+a dají se vyjádřit pomocí derivací metrického tenzoru\footnote{
+	Odvození spočívá v derivování~\eqref{eq:MetricTensor} s různě označenými indexy.
+}
+\begin{equation}
+	\label{eq:ChristoffelSymbol}
+	\boxed{\Gamma_{ij}^{k}
+	=\frac{1}{2}g^{kl}\left(\partialderivative{g_{il}}{q^{j}}+\partialderivative{g_{jl}}{q^{i}}-\partialderivative{g_{ij}}{q^{l}}\right)}.
+\end{equation}
+
+Rovnice~\eqref{eq:CovariantVector} zapsaná ve složkách zní
+\begin{equation}
+	\label{eq:CovariantDerivative}
+	\boxed{{F^{k}}_{;i}=\partialderivative{F^{k}}{q^{i}}+\Gamma_{ij}^{k}F^{j}}
+\end{equation}
+a nazývá se \emph{kovariantní derivace}\footnote{
+	Kovariantní derivace podle $i$-té složky se značí středníkem následovaným indexem $i$.
+	Obyčejná derivace se značí čárkou následovanou indexem $i$.
+	Rovnici~\eqref{eq:CovariantDerivative} lze tedy zapsat jako
+	\begin{equation}
+		{F^{k}}_{;i}={F^{k}}_{,i}+\Gamma^{k}_{ij}F^{j}.
+	\end{equation}
+}.

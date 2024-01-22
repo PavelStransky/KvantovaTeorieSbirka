@@ -1,0 +1,156 @@
+\sec{Nestacionární poruchová metoda}
+Stejně jako u stacionární poruchové teorie se i v případě časově závislých Hamiltoniánů $\operator{H}(t)$ předpokládá, že spektrum $\operator{H}_{0}$ je známé:
+\begin{subequations}
+    \begin{align}
+        \operator{H}_{0}\ket{\phi_{m}}
+            &=E_{m}^{\hi{0}}\ket{\phi_{m}}\\
+        \braket{\phi_{m}}{\phi_{n}}
+            &=\delta_{mn}\\
+        \sum_{m}\ket{\phi_{m}}\bra{\phi_{m}}
+            &=\operator{1}.
+    \end{align}        
+\end{subequations}
+Maticové elementy rozvoje evolučního operátoru v Diracově obraze \eqref{eq:SExpansion} v této bázi označíme jako
+\begin{equation}
+    S_{fi}^{\hi{n}}(t,t_{0})
+        \equiv\matrixelement{\phi_{f}}{\operator{S}^{\hi{n}}(t,t_{0})}{\phi_{i}}
+\end{equation}
+a pro jednotlivé členy \eqref{eq:SExpansionItems} pak platí
+\begin{equation}
+    \label{eq:Selements}
+    \important{
+        \begin{aligned}
+            S_{fi}^{\hi{0}}(t,t_{0})
+                &=\delta_{fi}\\
+            S_{fi}^{\hi{1}}(t,t_{0})
+                &=-\frac{\im}{\hbar}\int_{t_{0}}^{t}\operator{H}_{\ti{I}fi}(t_{1})
+                    \e^{\im\omega_{fi}t_{1}}\d t_{1}\\
+            S_{fi}^{\hi{2}}(t,t_{0})
+                &=\left(-\frac{\im}{\hbar}\right)^{2}\sum_{m}\int_{t_{0}}^{t}\int_{t_{0}}^{t_{1}}
+                    \operator{H}_{\ti{I}fm}(t_{1})\e^{\im\omega_{fm}t_{1}}
+                    \operator{H}_{\ti{I}mi}(t_{2})\e^{\im\omega_{mi}t_{2}}\d t_{1}\d t_{2}
+        \end{aligned}
+    }
+\end{equation}
+kde jsme zavedli\footnote{
+    Občas budeme používat zjednodušené značení
+    $H_{\ti{I}fi}(t)=\matrixelement{f}{\operator{H}_{\ti{I}}(t)}{i}$.
+}
+\begin{align}
+    H_{\ti{I}fi}(t)
+        &\equiv\matrixelement{\phi_{f}}{\operator{H}_{\ti{I}}(t)}{\phi_{i}} 
+        &\omega_{fi}
+        &\equiv\frac{1}{\hbar}\left(E_{f}^{\hi{0}}-E_{i}^{\hi{0}}\right)
+\end{align}
+\emph{Pravděpodobnost přechodu} z počátečního stavu $\ket{\phi_{i}}$ 
+připraveného v čase $t_{0}$ do koncového stavu $\ket{\phi_{f}}$ v čase $t$ je
+\begin{align}
+    \mathcal{P}_{i\rightarrow f}(t_{0}\rightarrow t)
+        &\equiv\abs{\braket{\phi_{f}(t)}{\phi_{i}(t_{0})}}^{2}\nonumber\\
+        &=\abs{\braket{\phi_{f}^{\ti{D}}(t)}{\phi_{i}^{\ti{D}}(t_{0})}}^{2}\nonumber\\
+        &=\abs{\matrixelement{\phi_{f}}{\operator{S}(t,t_{0})}{\phi_{i}}}^{2}
+\end{align}
+což v poruchové teorii dává
+\begin{equation}
+    \important{
+        \mathcal{P}_{i\rightarrow f}(t_{0}\rightarrow t)
+            =\abs{S_{fi}\hi{0}(t,t_{0})+S_{fi}\hi{1}(t,t_{0})
+                +S_{fi}\hi{2}(t,t_{0})+\dotsb}^{2}
+    }.
+\end{equation}
+
+Pro {\bf časově neproměnnou poruchu} zapnutou v čase $t_{0}$ dostaneme do 1. řádu 
+poruchové teorie
+\begin{equation}\label{eq:ConstantPerturbation}
+    \mathcal{P}_{i\rightarrow f}(t_{0}\rightarrow t)
+        =\frac{2\pi}{\hbar}\abs{H_{\ti{I}fi}}^{2}\delta_{\Delta t}(\omega_{fi})\Delta t
+\end{equation}
+kde $\Delta t=t-t_{0}$ a 
+\begin{equation}
+    \delta_{\Delta t}(\omega_{fi})
+        \equiv\frac{1}{\pi}\frac{\sin^{2}
+            \frac{\omega_{fi}\Delta t}{2}}{\frac{\omega^{2}_{fi}\Delta t}{2}}
+        \xrightarrow{\Delta t\rightarrow\infty}\delta(\omega_{kj})
+\end{equation}
+je funkce, která má v okolí nuly ostré maximum pološířky $\simeq2\pi/\Delta t$ 
+a výšky $\Delta t/2\pi$.
+Za dobu $\Delta t$ tedy dojde k přechodům prakticky pouze v oblasti tohoto maxima, tj.
+\begin{equation}
+    \omega_{fi}
+        \gtrsim\frac{2\pi}{\Delta t}
+\end{equation}
+a označíme-li $\Delta E^{\hi{0}}\equiv\abs{E^{\hi{0}}_{f}-E^{\hi{0}}_{i}}$, dostaneme
+\begin{equation}
+    \boxed{\Delta E^{\hi{0}}\Delta t
+        \gtrsim2\pi\hbar}
+\end{equation}
+Tento vztah se nazývá \emph{relace neurčitosti mezi časem a energií}.
+
+Pokud lze na okolí $E_{i}^{\hi{0}}$ pohlížet jako na kontinuum hladin (jedná se o buď přechod do spojité části spektra, nebo je v okolí $E_{i}^{\hi{0}}$ velké množství diskrétních hladin), \eqref{eq:ConstantPerturbation} 
+přejde na \emph{Fermiho zlaté pravidlo}
+\begin{equation}\label{eq:FermiGoldenRuleConst}
+    \important{
+        w_{i\rightarrow F}(t_{0}\rightarrow t)
+            \equiv\frac{\mathcal{P}_{i\rightarrow F}(t_{0}\rightarrow t)}{\Delta t}
+            =\frac{2\pi}{\hbar}\abs{H_{\ti{I}fi}}^{2}\,
+                \rho_{f}(E)\Big\vert_{E\simeq E_{i}^{\hi{0}}}
+    }
+\end{equation}
+což je rychost přechodu z počátečního stavu $i$ do celého jeho okolí $f\in F$, 
+na kterém je $\abs{H_{\ti{I}fi}}^{2}$ přibližně konstantní.
+% Hustotu hladin $\rho_{f}(E)$ lze spočítat například pomocí
+% postupu uvedeném v sekci \ref{sec:LevelDensity}.
+
+Pro {\bf harmonickou poruchu} o frekvenci $\omega$
+\begin{equation}\label{eq:HarmonicPerturbation}
+    \operator{H}_{\ti{I}}
+        =\underbrace{\operator{h}^{\hi{+}}\e^{\im\omega t}}_{\text{emise}}
+            +\underbrace{\operator{h}^{\hi{-}}\e^{-\im\omega t}}_{\text{absorpce}}
+\end{equation}
+dostaneme užitím podobného postupu jako v případě konstantní poruchy vztah
+\begin{equation}\label{eq:HarmonicPerturbationE}
+    \boxed{
+        \omega_{fi}
+            \simeq\pm\omega,
+            \qquad\text{tj. }E_{f}^{\hi{0}}
+            \simeq E_{i}^{\hi{0}}\pm\hbar\omega
+    }
+\end{equation}
+platící za předpokladu, že porucha je zapnuta po dostatečně dlouhý čas.
+
+Fermiho zlaté pravidlo v případě harmonické poruchy zní
+\begin{equation}\label{eq:FermiGoldenRuleHarmonic}
+    \boxed{
+        \begin{aligned}
+            w_{i\rightarrow F}(t_{0}\rightarrow t)
+                &=\frac{2\pi}{\hbar}\abs{h_{fi}^{\hi{+}}}^{2}\,\rho_{f}(E)
+                    \Big\vert_{E\simeq E_{i}^{\hi{0}}-\hbar\omega}\text{ (stimulovaná emise)}\,,\\
+                &=\frac{2\pi}{\hbar}\abs{h_{fi}^{\hi{-}}}^{2}\,\rho_{f}(E)
+                    \Big\vert_{E\simeq E_{i}^{\hi{0}}+\hbar\omega}\text{ (stimulovaná absorpce)}\,.
+        \end{aligned}
+    }
+\end{equation}
+Pokud máme periodickou poruchu, která není harmonická, můžeme ji pomocí Fourierovy tranformace na periodickou rozložit a počítat pravděpodobnost přechodu pro každou složku zvlášť.
+
+Díky rovnosti $\matrixelement{i}{h^{(+)}}{f}=\matrixelement{f}{h^{(-)}}{i}$, platí 
+\emph{princip detailní rovnováhy}, který se dá slovně vyjádřit jako
+\begin{equation}
+    \frac{{\text{rychlost emise }}i\rightarrow [f]}{{\text{hustota kvantových stavů }}[f]}
+        =\frac{{\text{rychlost absorpce }}f\rightarrow [i]}
+            {{\text{hustota kvantových stavů }}[i]}\,.
+\end{equation}
+
+\note
+Diferenciální rovnici \eqref{eq:SDR} můžeme také zkoušet v bázi $\ket{\phi_{m}}$ řešit přímo.
+Označíme-li
+\begin{equation}
+    S_{fi}(t,t_{0})\equiv\matrixelement{\phi_{f}}{\operator{S}(t,t_{0})}{\phi_{i}},
+\end{equation}
+pak dostaneme
+\begin{align}
+\im\hbar\,\frac{\partial S_{fi}(t,t_{0})}{\partial t}
+    &=\sum_{m}\operator{H}_{\ti{I}fm}(t)\e^{\im\omega_{fm}t}S_{mi}(t,t_{0})
+    & S_{fi}(t_{0},t_{0})&=\delta_{fi}
+\end{align}
+což je soustava vázaných obyčejných diferenciálních rovnic 1. řádu.
+Soustavu lze explicitně vyřešit například pro dvouhladinový systém, viz příklad~\ref{sec:TwoLevelTD}.

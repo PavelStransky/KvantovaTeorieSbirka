@@ -1,0 +1,109 @@
+\subsection{Posunutí souřadnice}\index{operátor!posunutí}\label{sec:TranslationOperator}
+Jsou dány dva samosdružené operátory $\operator{x}$, $\operator{p}$ (souřadnice a hybnost), 
+které splňují komutační relaci $\commutator{\operator{x}}{\operator{p}}=\im\hbar$,
+a operátor
+\begin{equation}\label{eq:TranslationOperator}
+    \operator{T}(a)
+        =\e^{-\frac{\im}{\hbar}a\operator{p}},
+\end{equation}
+kde $a$ je libovolné reálné číslo. 
+\begin{enumerate}
+\item
+    Ukažte, že operátor $\operator{T}(a)$ je unitární.
+\item
+    Nalezněte, čemu se rovná $\operator{T}^{-1}(a)\,\operator{x}\,\operator{T}(a)$.
+\item
+    Spočítejte $\operator{T}(a)\psi(x)$, kde $\psi(x)\equiv\braket{x}{\psi}$ je vlnová funkce v $x$ reprezentaci.\index{funkce!vlnová}
+\end{enumerate}
+
+\begin{solution}
+	\begin{enumerate}
+	\item
+		Unitární operátor musí splňovat rovnost\index{operátor!unitární}
+		\begin{equation}
+			\conjugate{\operator{T}}(a)\operator{T}(a)
+				=\operator{T}(a)\conjugate{\operator{T}}(a)
+				=\operator{1}.
+		\end{equation}
+		Pro zadaný operátor~\eqref{eq:TranslationOperator}
+		\begin{equation}
+			\conjugate{\left(\e^{-\frac{\im}{\hbar}a\operator{p}}\right)}\e^{-\frac{\im}{\hbar}a\operator{p}}
+				=\e^{+\frac{\im}{\hbar}a\conjugate{\operator{p}}}\e^{-\frac{\im}{\hbar}a\operator{p}}
+				=\e^{-\frac{\im}{\hbar}a\left(\operator{p}-\operator{p}\right)}=\e^{\operator{0}}=\operator{1},
+		\end{equation}
+		kde se postupně využilo samosdruženosti operátoru $\operator{p}$ a vztahu pro exponenciálu komutujících operátorů~\eqref{eq:CommutatorExp}.
+		
+		Stejným způsobem by se ukázalo, že
+		\begin{equation}
+			\important{
+				\begin{aligned}
+					\operator{T}^{-1}(a)
+						&=\conjugate{\operator{T}}(a)=\operator{T}(-a)\\
+					\operator{T}(a)\operator{T}(b)
+						&=\operator{T}(a+b)\\
+				\end{aligned}
+			}.
+		\end{equation}
+		
+	\item
+		K výpočtu hledaného výrazu se vyjde z \trick{BCH formule}~\eqref{eq:BCH}\index{formule!Baker-Campbell-Hausdorffova} s operátory		
+		\begin{equation}
+			\operator{A}
+				\equiv\frac{\im}{\hbar}a\operator{p},\qquad
+			\operator{B}
+				\equiv\operator{x}.
+		\end{equation}
+        Díky tomu, že $\operator{A}$ a $\operator{B}$ komutují na násobek jednotkového operátoru, přispějí do BCH řady jen první dva členy
+        \begin{subequations}
+            \begin{align}
+                \operator{K}_{0}
+                    &=\operator{x}\\
+                \operator{K}_{1}
+                    &=\commutator{\frac{\im}{\hbar}a\operator{p}}{\operator{x}}
+                    =\frac{\im}{\hbar}a\commutator{\operator{p}}{\operator{x}}
+                    =\frac{\im}{\hbar}a\left(-\im\hbar\right)
+                    =a\\
+                \operator{K}_{2}
+                    &=\operator{K}_{3}=\dotsb=0,
+            \end{align}
+        \end{subequations}
+        takže
+		\begin{equation}
+			\important{
+				\operator{T}^{-1}(a)\,\operator{x}\,\operator{T}(a)
+					=\operator{x}+a
+			}.
+        \end{equation}		
+        
+	\item
+        Spektrum operátoru souřadnice je dáno rovnicí $\operator{x}\ket{x}=x\ket{x}$.
+        Z výsledku předchozího bodu vyplývá
+		\begin{equation}
+			\operator{x}\operator{T}(a)\ket{x}
+				=\operator{T}(a)\left(\operator{x}+a\right)\ket{x}
+				=\operator{T}(a)\left(x+a\right)\ket{x}
+				=\left(x+a\right)\operator{T}(a)\ket{x}.
+		\end{equation}
+		Stav $\operator{T}(a)\ket{x}$ tedy přísluší vlastní hodnotě $x+a$ operátoru $\operator{x}$, je vhodné ho označit
+		\begin{equation}
+			\important{\ket{x+a}
+				\equiv\operator{T}(a)\ket{x}}.
+		\end{equation}
+		Obdobně
+		\begin{equation}
+			\bra{x-a}
+				=\bra{x}\conjugate{\operator{T}}(-a)
+				=\bra{x}\operator{T}(a).
+		\end{equation}
+		Z posledních dvou vztahů pak plyne
+        \begin{equation}\label{eq:TranslationOperatorX}
+            \operator{T}(a)\psi(x)
+                =\matrixelement{x}{\operator{T}(a)}{\psi}
+                =\braket{x-a}{\psi}=\psi(x-a).
+		\end{equation}
+	\end{enumerate}
+\end{solution}
+
+\begin{note}
+	Operátor $\operator{T}(a)$ se nazývá \emph{operátor posunutí}.
+\end{note}

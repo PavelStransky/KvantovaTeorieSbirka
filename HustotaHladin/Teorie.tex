@@ -1,0 +1,74 @@
+Hladkou část hustoty kvantových hladin $\rho(E)$ systému s $f$ stupni volnosti lze vyjádřit jako podíl objemu energetické nadplochy fázového prostoru
+\begin{equation}\label{eq:PhaseSpaceVolume}
+    \important{
+        \Omega(E)
+            =\int\delta(E-H(\vector{p},\vector{q}))\d^{f}\vector{p}\,\d^{f}\vector{q}
+    }
+\end{equation}
+[$H(\vector{p},\vector{q})]$ je klasická Hamiltonova funkce systému) ku objemu elementární kvantové buňky:
+\begin{equation}\label{eq:LevelDensity}
+    \important{
+        \rho(E)
+            =\frac{\Omega(E)}{h^{f}}=\frac{\Omega(E)}{(2\pi\hbar)^{f}}.
+    }
+\end{equation}
+Pro praktické výpočty se více hodí vztah, kdy Diracovu $\delta$ funkci nahradíme derivací Heavisideovy $\Theta$ funkce:\footnote{
+    Tento vztah se někdy nazývá Weylova formule a má použití i mimo kvantovou mechaniku, například
+    při studiu spektra bicích nástrojů~\cite{Kac1966}.
+}
+\begin{equation}
+    \label{eq:LevelDensityTheta}
+    \rho(E)=\frac{1}{(2\pi\hbar)^{f}}\partialderivative{}{E}\int\Theta(E-H(\vector{p},\vector{q}))\d^{f}\vector{p}\,\d^{f}\vector{q}
+        =\frac{1}{(2\pi\hbar)^{f}}\partialderivative{}{E}\int_{H(\vector{p},\vector{q})\leq E}\d^{f}\vector{p}\,\d^{f}\vector{q},
+\end{equation} 
+kde poslední integrál je vlastně Lesbegueova míra (\uv{objem}) energetické nadplochy fázového prostoru.  
+
+% Jonáš Dujava 2022
+V případě Hamiltoniánu se standardním kinetickým členem a potenciálem závisejícím jen na souřadnici,
+\begin{equation}
+    H(\vector{p},\vector{q})
+        =\frac{1}{2M}\vector{p}^{2}+V(\vector{q}),
+\end{equation}
+lze vztah~\eqref{eq:LevelDensityTheta} dále upravit.
+Integraci přes souřadnice a přes hybnosti lze provést nezávisle,
+\begin{align}
+    \rho(E)
+        &=\frac{1}{(2\pi\hbar)^{f}}\partialderivative{}{E}\int_{E>V(\vector{q})}\d^{f}\vector{q}\underbrace{\int_{0}^{\sqrt{2M[E-V(\vector{q})]}}p^{f-1}\d\Omega_{f}\d p}_{\text{objem }d\text{-rozměrné koule}}\nonumber\\
+        &=\frac{1}{(2\pi\hbar)^{f}}\partialderivative{}{E}\int_{E>V(\vector{q})}\left[\frac{\pi^{\frac{f}{2}}}{\Gamma\left(\frac{f}{2}+1\right)}p^{f}\right]_{0}^{\sqrt{2M\left[E-V(\vector{q})\right]}}\d\vector{q}\nonumber\\
+        &=\frac{1}{(2\pi\hbar)^{f}}\frac{(2\pi M)^{\frac{f}{2}}}{\Gamma\left(\frac{f}{2}+1\right)}\int_{E>V(\vector{q})}\partialderivative{}{E}\left[E-V(\vector{q})\right]^{\frac{f}{2}}\d\vector{q}\nonumber\\
+        &=\frac{1}{(2\pi\hbar)^{f}}\frac{(2\pi M)^{\frac{f}{2}}}{\Gamma\left(\frac{f}{2}\right)}\int_{E>V(\vector{q})}\left[E-V(\vector{q})\right]^{\frac{f}{2}-1}\d\vector{q}.
+\end{align}
+Pro speciální případ $f=1$ platí
+\begin{align}
+    \rho(E)
+        &=\frac{1}{2\pi\hbar}\frac{\sqrt{2\pi M}}{\sqrt{\pi}}\int_{E>V(q)}\frac{1}{\sqrt{E-V(q)}}\d q\nonumber\\
+        &=\frac{1}{2\pi\hbar}\oint\frac{\d q}{v}\nonumber\\
+        &=\frac{T}{2\pi\hbar},
+\end{align}
+kde $T$ je perioda trajektorie s energií $E$.
+
+Pokud máte radši $\delta$ funkce, lze vyjít ze vztahu~\eqref{eq:PhaseSpaceVolume}.
+Pro speciální případ $f=1$ se využije vztahu pro složenou $\delta$ funkci 
+\begin{subequations}
+    \begin{align}
+        \delta(f(x))
+            &=\sum_{x_{j}}\frac{1}{\abs{f'(x_{j})}}\,\delta(x-x_{j})\\
+        f(x_{j})
+            &=0\quad\text{($x_{j}$ jsou všechny jednoduché kořeny)}
+    \end{align}
+    \label{eq:Deltaf}        
+\end{subequations}
+a provede se integrace přes hybnost:
+\begin{align}
+    \Omega(E)
+        &=\int\delta\left(E-\frac{1}{2M}p^{2}-V(q)\right)\d q\d p
+        &&\equationcomment{
+                \delta\left(E-\frac{1}{2M}p^{2}-V(q)\right)=\frac{M}{P(q)}\left[\delta(p-P(q))+\delta(p+P(q))\right]\\
+                P(q)=\sqrt{2M[E-V(q)]}
+            }\nonumber\\
+        &=2M\int_{E>V(q)}\frac{1}{\sqrt{2M[E-V(q)]}}\d q\nonumber\\
+        \label{eq:LevelDensity1D}
+        &=\sqrt{2M}\int_{E>V(q)}\frac{1}{\sqrt{E-V(q)}}\d q.
+\end{align}
+Integruje se přes veškerá dostupná $q$ (například v případě systému se dvěma body obratu jsou integrační meze 
+$\int_{q_{\ti{min}}}^{q_{\ti{max}}}$ řešením rovnice $V(q_{\ti{min},\ti{max}})=E$).

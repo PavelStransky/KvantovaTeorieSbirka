@@ -1,0 +1,205 @@
+\subsection{Dvě částice se spinem \texorpdfstring{$\frac{1}{2}$}{1/2}}\index{moment hybnosti!skládání}\label{sec:TwoSpins}
+Studovaný systém se skládá ze dvou rozlišitelných částic se spinem $\frac{1}{2}$.
+Měřitelné veličině $A$ odpovídá operátor
+\begin{equation}
+    \operator{A}
+        =\frac{\omega}{\hbar}\left(\operator{S}_{1}^{2}-\operator{S}_{2}^{2}\right),
+\end{equation}	
+kde $\operator{S}_{j}$ je $j$-tá složka operátoru celkového spinu\footnote{
+    Obvykle se používá jednodušší zápis
+    \begin{equation}
+        \operator{S}_{j}=\frac{\hbar}{2}\left(\sigma_{j}^{(1)}+\sigma_{j}^{(2)}\right),
+    \end{equation}
+    kterému je však vždy potřeba rozumět ve smyslu rovnice~\eqref{eq:TwoSpins}.
+    Viz též kapitola~\ref{sec:SkladaniMomentuHybnosti}.
+}
+\begin{equation}
+    \operator{S}_{j}
+        =\frac{\hbar}{2}\left[\matrix{\sigma}_{j}^{(1)}\otimes\matrix{1}^{(2)}+\matrix{1}^{(1)}\otimes\matrix{\sigma}_{j}^{(2)}\right]
+    \label{eq:TwoSpins}
+\end{equation}
+a $\matrix{\sigma}_{j}$ jsou Pauliho matice.
+Horní index v závorce značí, zda operátor působí na Hilbertově prostoru $\hilbert{H}^{(1)}$ první, resp. $\hilbert{H}^{(2)}$ druhé částice, dolní index udává složku v kartézském prostoru.
+
+\begin{enumerate}
+\item
+    Nalezněte všechny hodnoty, které lze pozorovat při měření veličiny $A$.\index{měření}		
+
+\item
+    Jaká je pravděpodobnost nalezení jednotlivých hodnot a jaký bude stav systému po měření, pokud byl před měřením připraven ve stavu 
+    \begin{equation}
+        \ket{\psi}
+            =\ket{x+}^{(1)}\otimes\ket{x+}^{(2)}\,\mathrm{?}
+    \end{equation}		
+
+\item    
+    Ukažte, že stav
+    \begin{equation}
+        \ket{\psi'}
+            =\frac{1}{\sqrt{2}}\left[\ket{x+}^{(1)}\otimes\ket{x-}^{(2)}-
+                \ket{x-}^{(1)}\otimes\ket{x+}^{(2)}\right]
+    \end{equation}
+    je provázaný\index{entanglement} (nelze ho faktorizovat) a nalezněte pravděpodobnost naměření vlastních hodnot operátoru $\operator{A}$, je-li systém před měřením připraven v tomto stavu.
+\end{enumerate}
+
+\begin{solution}
+	\begin{enumerate}
+	\item
+		První část úlohy vede na hledání spektra operátoru $\operator{A}$.
+		V první řadě je potřeba vyjádřit si operátor celkového spinu $\vectoroperator{S}$.
+        Jednotlivé jeho složky jsou dány maticemi\index{součin!direktní}
+        \begin{subequations}
+            \begin{align}
+                \matrix{S}_{1}
+                    &=\frac{\hbar}{2}
+                        \left[\makematrix{0 & 1 \\ 1 & 0}\otimes\makematrix{1 & 0 \\ 0 & 1}+
+                            \makematrix{1 & 0 \\ 0 & 1}\otimes\makematrix{0 & 1 \\ 1 & 0}\right]\nonumber\\
+                    &=\frac{\hbar}{2}
+                        \left[\makematrix{0\makematrix{1 & 0 \\ 0 & 1} & 1\makematrix{1 & 0 \\ 0 & 1}\\
+                                        1\makematrix{1 & 0 \\ 0 & 1} & 0\makematrix{1 & 0 \\ 0 & 1}}
+                            +\makematrix{1\makematrix{0 & 1 \\ 1 & 0} & 0\makematrix{0 & 1 \\ 1 & 0}\\
+                                        0\makematrix{0 & 1 \\ 1 & 0} & 1\makematrix{0 & 1 \\ 1 & 0}}\right]\nonumber\\
+                    &=\frac{\hbar}{2}
+                        \left[\makematrix{0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \\ 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0}
+                            +\makematrix{0 & 1 & 0 & 0 \\ 1 & 0 & 0 & 0 \\ 0 & 0 & 0 & 1 \\ 0 & 0 & 1 & 0}
+                            \right]\nonumber\\
+                    &=\frac{\hbar}{2}\makematrix{0 & 1 & 1 & 0 \\ 1 & 0 & 0 & 1 \\ 1 & 0 & 0 & 1 \\ 0 & 1 & 1 & 0},\\
+                \matrix{S}_{2}
+                    &=\frac{\hbar}{2}\makematrix{0 & -\im & -\im & 0 \\ \im & 0 & 0 & -\im \\ \im & 0 & 0 & -\im \\ 0 & \im & \im & 0},\\
+                \matrix{S}_{3}
+                    &=\hbar\makematrix{1 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & -1},
+            \end{align}
+        \end{subequations}
+        jejich kvadráty jsou
+		\begin{equation}
+			\matrix{S}_{1}^{2}
+				=\frac{\hbar^{2}}{2}\makematrix{1 & 0 & 0 & 1 \\ 0 & 1 & 1 & 0 \\ 0 & 1 & 1 & 0 \\ 1 & 0 & 0 & 1},
+            \quad
+			\matrix{S}_{2}^{2}
+				=\frac{\hbar^{2}}{2}\makematrix{1 & 0 & 0 & -1 \\ 0 & 1 & 1 & 0 \\ 0 & 1 & 1 & 0 \\ -1 & 0 & 0 & 1},
+            \quad
+            \matrix{S}_{3}^{2}
+				=\hbar^{2}\makematrix{1 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 1},
+		\end{equation}
+		a maticové vyjádření operátoru $\operator{A}$ má tudíž tvar
+		\begin{equation}
+			\matrix{A}=\hbar\omega\makematrix{0 & 0 & 0 & 1 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 1 & 0 & 0 & 0}.
+		\end{equation}		
+		Vlastní čísla $a$ této matice se určí diagonalizací
+		\begin{equation}
+			\det\left(\matrix{A}-a\matrix{1}\right)
+				=\det\makematrix{-a & 0 & 0 & \hbar\omega \\ 0 & -a & 0 & 0 \\	0 & 0 & -a & 0 \\ \hbar\omega & 0 & 0 & -a}
+				=a^{2}\left[a^{2}-\left(\hbar\omega\right)^{2}\right]=0.
+		\end{equation}
+		Operátor $\operator{A}$ má tedy tři různé vlastní hodnoty, přičemž jedna je dvojnásobně degenerovaná:\index{spektrum!degenerované}
+		\begin{equation}
+            a_{1,2}
+                =0,\quad 
+            a_{3}
+                =\hbar\omega,\quad
+            a_{4}
+                =-\hbar\omega.
+		\end{equation}
+		Odpovídající vlastní vektory příslušející degenerované vlastní hodnotě $a_{1,2}=0$ musejí ležet v dvourozměrném charakteristickém podprostoru a musejí být ortonormální, jinak je lze zvolit libovolně, například\sfootnote{
+			Jiná rovnocenná volba může být
+			\begin{equation}
+                \ket{a_{1}'}
+                    =\frac{1}{\sqrt{2}}\makematrix{0 \\ 1 \\ 1 \\ 0},\quad
+                \ket{a_{2}'}
+                    =\frac{1}{\sqrt{2}}\makematrix{0 \\ 1 \\ -1 \\ 0}.
+			\end{equation}
+		}		
+		\begin{equation}
+            \ket{a_{1}}
+                =\makematrix{0 \\ 1 \\ 0 \\ 0},\quad
+            \ket{a_{2}}
+                =\makematrix{0 \\ 0 \\ 1 \\ 0}.
+		\end{equation}
+		Normalizované vlastní vektory příslušející zbývajícím dvěma vlastním hodnotám jsou určeny (až na komplexní fázi) jednoznačně:
+		\begin{equation}
+            \ket{a_{3}}
+                =\frac{1}{\sqrt{2}}\makematrix{1 \\ 0 \\ 0 \\ 1},\quad
+            \ket{a_{4}}
+                =\frac{1}{\sqrt{2}}\makematrix{1 \\ 0 \\ 0 \\ -1}.
+        \end{equation}		
+        
+	\item
+		Dvourozměrné Hilbertovy prostory jednotlivých spinů $\mathcal{H}^{(1)}$ a $\mathcal{H}^{(2)}$ jsou realizovány pomocí báze dané vlastními vektory třetí Pauliho matice, viz~\eqref{eq:SigmaXYZ}.
+		Hilbertův prostor celého systému $\hilbert{H}=\hilbert{H}^{(1)}\otimes\hilbert{H}^{(2)}$ je čtyřrozměrný a za jeho bázi lze volit $\mathcal{B}=\left\{\ket{\uparrow\uparrow},\ket{\uparrow\downarrow},\ket{\downarrow\uparrow},\ket{\downarrow\downarrow}\right\}$.\sfootnote{
+			Jedná se o zjednodušený zápis $\ket{\uparrow\uparrow}\equiv\ket{\uparrow}^{(1)}\otimes\ket{\uparrow}^{(2)}$ a analogicky u zbylých tří vektorů.
+			Vektory báze mají sloupcové vyjádření
+			\begin{equation}
+                \ket{\uparrow\uparrow}
+                    =\makematrix{1 \\ 0}\otimes\makematrix{1 \\ 0}=\makematrix{1 \\ 0 \\ 0 \\ 0},\quad
+                \ket{\uparrow\downarrow}
+                    =\makematrix{0 \\ 1 \\ 0 \\ 0},\quad
+                \ket{\downarrow\uparrow}
+                    =\makematrix{0 \\ 0 \\ 1 \\ 0},\quad
+                \ket{\downarrow\downarrow}
+                    =\makematrix{0 \\ 0 \\ 0 \\ 1}.
+                \label{eq:TwoSpinsBasis}
+			\end{equation}
+			To znamená, že vektor $\ket{\uparrow\uparrow}$ odpovídá situaci, kdy oba spiny míří ve směru osy $z$,
+			vektor $\ket{\uparrow\downarrow}$ popisuje stav, kdy první spin míří ve směru osy $z$, 
+			zatímco druhý proti, atd.
+		}
+		V ní se vektor $\ket{\psi}$ vyjádří jako
+		\begin{equation}
+			\ket{\psi}
+				=\frac{1}{\sqrt{2}}\makematrix{1 \\ 1}\otimes\frac{1}{\sqrt{2}}\makematrix{1 \\ 1}
+				=\frac{1}{2}\makematrix{1 \\ 1 \\ 1 \\ 1}.
+		\end{equation}		
+        Pravděpodobnosti naměření jednotlivých hodnot pozorovatelné veličiny $A$ pak vycházejí
+        \begin{subequations}
+            \begin{align}
+                p_{a_{1,2}}
+                    &=\abs{\braket{\phi_{1}}{\psi}}^{2}+\abs{\braket{\phi_{2}}{\psi}}^{2}
+                    =\frac{1}{4}+\frac{1}{4}=\frac{1}{2},\\
+                p_{a_{3}}
+                    &=\abs{\braket{\phi_{3}}{\psi}}^{2}=\frac{1}{2},\\
+                p_{a_{4}}
+                    &=\abs{\braket{\phi_{4}}{\psi}}^{2}=0.
+            \end{align}
+        \end{subequations}
+        Kontrolou je, že celková pravděpodobnost se sečte na $1$, což znamená, že s jistotou naměříme aspoň jednu z uvedených vlastních hodnot.
+		
+		Stav systému po naměření hodnot $a_{3}$, resp. $a_{4}$ bude dán vlastními vektory $\ket{a_{3}}$, resp. $\ket{a_{4}}$.
+        Po naměření dvojnásobně degenerované vlastní hodnoty $a_{1,2}$ bude systém ve stavu daném libovolnou lineární kombinací vektorů $\ket{a_{1}}$ a $\ket{a_{2}}$.		
+        
+	\item
+		Vektor $\ket{\psi'}$ vyjádřený v bázi $\mathcal{B}$~\eqref{eq:TwoSpinsBasis} je
+		\begin{align}
+			\ket{\psi'}
+				&=\frac{1}{\sqrt{2}}\left[
+					\frac{1}{\sqrt{2}}\makematrix{1 \\ 1}\otimes\frac{1}{\sqrt{2}}\makematrix{1 \\ -1}
+					-\frac{1}{\sqrt{2}}\makematrix{1 \\ -1}\otimes\frac{1}{\sqrt{2}}\makematrix{1 \\ 1}\right]\nonumber\\
+				&=\frac{1}{\sqrt{2}}\left[\frac{1}{2}\makematrix{1 \\ -1 \\ 1 \\ -1}-\frac{1}{2}\makematrix{1 \\ 1 \\ -1 \\ -1}\right]
+				 =\frac{1}{\sqrt{2}}\makematrix{0 \\ -1 \\ 1 \\ 0}.
+        \end{align}
+        Faktorizovatelný vektor systému složeného ze dvou dvourozměrných podsystémů musí být obecně možné zapsat jako
+        \begin{align}
+            \ket{\psi'}
+                &=\ket{\phi_{1}}^{(1)}\otimes\ket{\phi_{2}}^{(2)}\nonumber\\
+                &=\left(\alpha\ket{\uparrow}^{(1)}+\beta\ket{\downarrow}^{(1)}\right)\otimes\left(\gamma\ket{\uparrow}^{(2)}+\delta\ket{\uparrow}^{(2)}\right)\nonumber\\
+                &=\alpha\gamma\ket{\uparrow\uparrow}+\alpha\delta\ket{\uparrow\downarrow}+\beta\gamma\ket{\downarrow\uparrow}+\beta\delta\ket{\downarrow\downarrow}\nonumber\\
+                &=a\ket{\uparrow\uparrow}+b\ket{\uparrow\downarrow}+c\ket{\downarrow\uparrow}+d\ket{\downarrow\downarrow},
+        \end{align}
+        kde $\alpha,\beta,\gamma,\delta$, resp. $a,b,c,d$ jsou komplexní čísla.
+        Z posledních dvou řádků vyplývá podmínka faktorizovatelnosti stavu:
+        \begin{equation}
+            \important{ad-bc=0.}
+            \label{eq:TwoSpinFactorize}
+        \end{equation}
+        V případě stavu $\ket{\psi'}$ je $a=0$, $b=-1/\sqrt{2}$, $c=1/\sqrt{2}$, $d=0$ a podmínka~\eqref{eq:TwoSpinFactorize} splněna není.
+        Stav je tedy provázaný (entanglovaný).
+
+		Pravděpodobnosti naměření jednotlivých vlastních hodnot operátoru $\operator{A}$, je-li systém ve stavu $\ket{\psi'}$, jsou
+		\begin{equation}
+            p_{a_{1,2}}
+                =1,\quad
+            p_{a_{3}}
+                =p_{a_{4}}
+                =0.
+		\end{equation}		
+	\end{enumerate}
+\end{solution}

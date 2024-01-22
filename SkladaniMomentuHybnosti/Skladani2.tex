@@ -1,0 +1,78 @@
+Jsou zadány dva nezávislé operátory momentu hybnosti $\vectoroperator{J}^{(1)}$, $\vectoroperator{J}^{(2)}$, $\commutator{\vectoroperator{J}^{(1)}}{\vectoroperator{J}^{(2)}}=0$, které působí na Hilbertových prostorech $\hilbert{H}^{(1)}$, $\hilbert{H}^{(2)}$.
+Operátor celkového impulsmomentu\footnote{
+    Formálně by se mělo správně psát
+    \begin{equation}
+        \vectoroperator{J}=\vectoroperator{J}^{(1)}\otimes\vectoroperator{1}^{(2)}+\vectoroperator{1}^{(1)}\otimes\vectoroperator{J}^{(2)}\,,
+    \end{equation}
+    což ve složkách znamená
+    \begin{equation}
+        \operator{J}_{j}=\operator{J}_{j}^{(1)}\otimes\operator{1}^{(2)}+\operator{1}^{(1)}\otimes\operator{J}_{j}^{(2)}\,,
+        \qquad j=1,2,3\,,
+    \end{equation}
+    ve shodě s již dříve použitým operátorem dvou spinů~\eqref{eq:TwoSpins}.
+}
+\begin{equation}
+    \vectoroperator{J}=\vectoroperator{J}^{(1)}+\vectoroperator{J}^{(2)}
+\end{equation}
+pak působí na Hilbertově prostoru $\hilbert{H}=\hilbert{H}^{(1)}\otimes\hilbert{H}^{(2)}$.
+Mezi jednotlivými operátory a jejich složkami platí komutační relace
+\begin{subequations}
+    \begin{align}
+        \commutator{\operator{J}_{j}}{\operator{J}_{k}}
+            &=\im\epsilon_{jkl}\operator{J}_{l}\,,\\
+        \commutator{\operator{J}_{j}}{\vectoroperator{J}^{2}}
+            &=0\,,\\
+        \commutator{\vectoroperator{J}^{2}}{\vectoroperator{J}^{(1)2}}
+            &=\commutator{\vectoroperator{J}^{2}}{\vectoroperator{J}^{(2)2}}=0\,,\\
+        \commutator{\operator{J}_{j}}{\vectoroperator{J}^{(1)2}}
+            &=\commutator{\operator{J}_{j}}{\vectoroperator{J}^{(2)2}}=0\,.
+    \end{align}
+\end{subequations}
+Z toho vyplývá, že na prostoru $\hilbert{H}$ lze volit za úplnou množinu komutujících operátorů jednu z následujících dvou množin operátorů se svými bázemi:
+\begin{equation}
+    \begin{array}{lcl}
+        \vectoroperator{J}^{(1)2},\operator{J}^{(1)}_{3},\vectoroperator{J}^{(2)2},\operator{J}^{(2)}_{3} 
+            & \longrightarrow 
+            & \{\ket{j_{1}\,m_{1}}\otimes\ket{j_{2}\,m_{2}}\}\\
+        \vectoroperator{J}^{(1)2},\vectoroperator{J}^{(2)2},\vectoroperator{J}^{2},\operator{J}_{3} 
+            & \longrightarrow 
+            & \{\ket{j_{1}\,j_{2}\,j\,m}\}
+    \end{array}
+\end{equation}
+(dále budeme užívat zjednodušené značení $\ket{j_{1}\,m_{1}}\otimes\ket{j_{2}\,m_{2}}
+\equiv\ket{j_{1}\,m_{1}}\ket{j_{2}\,m_{2}}$).
+Platí tedy
+\begin{subequations}
+    \begin{align}
+        \vectoroperator{J}^{(1)2}\ket{j_{1}l_{2}lm}
+            &=j_{1}(j_{1}+1)\ket{j_{1}\,j_{2}\,j\,m}\,,\\
+        \vectoroperator{J}^{(2)2}\ket{j_{1}\,j_{2}\,j\,m}
+            &=j_{2}(j_{2}+1)\ket{j_{1}\,j_{2}\,j\,m}\,,\\
+        \vectoroperator{J}^{2}\ket{j_{1}\,j_{2}\,j\,m}
+            &=j(j+1)\ket{j_{1}\,j_{2}\,j\,m}\,,\\
+        \operator{J}_{3}\ket{j_{1}\,j_{2}\,j\,m}
+            &=m\ket{j_{1}\,j_{2}\,j\,m}\,,
+    \end{align}
+\end{subequations}
+přičemž kvantová čísla musejí splňovat
+\begin{equation}
+    \label{eq:AngularMomentumSelectionRules}
+    \important{\abs{j_{1}-j_{2}}\leq j\leq j_{1}+j_{2}\,,\qquad m_{1}+m_{2}=m}.
+\end{equation}
+Mezi oběma bázemi platí vztah
+\begin{equation}
+    \important{
+        \ket{j_{1}\,j_{2}\,j\,m}
+            =\sum_{m_{1}\,m_{2}}\clebsch{j_{1}}{m_{1}}{j_{2}}{m_{2}}{j}{m}
+                \ket{j_{1}\,m_{1}}\ket{j_{2}\,m_{2}}
+    },
+\end{equation}
+kde $\clebsch{j_{1}}{m_{1}}{j_{2}}{m_{2}}{j}{m}$ 
+jsou \emph{Clebsch-Gordanovy koeficienty}\footnote{
+    Jiné způsoby zápisu Clebsch-Gordanových koeficientů používané v literatuře jsou
+    \begin{equation}
+            C^{jm}_{j_{1}\,m_{1}\,j_{2}\,m_{2}}
+            =\braket{j_{1}\,m_{1}\,j_{2}\,m_{2}}{j\,m}
+            =\left(j_{1}\,j_{2}\,j|m_{1}\,m_{2}\,m\right)
+    \end{equation}
+}.

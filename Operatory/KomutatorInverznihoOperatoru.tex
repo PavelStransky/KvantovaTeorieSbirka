@@ -1,0 +1,26 @@
+\subsection{Komutátor inverzního operátoru}
+Vyjádřete komutátor $\commutator{\operator{A}}{\operator{B}^{-1}}$ pomocí komutátoru $\commutator{\operator{A}}{\operator{B}}$.
+
+\begin{solution}
+	\trick{Každý operátor komutuje s operátorem identity}, tj.
+	\begin{equation}
+        \commutator{\operator{A}}{\operator{B}\operator{B}^{-1}}
+			=\commutator{\operator{A}}{\operator{1}}=0.
+	\end{equation}
+	Levá strana rovnice se rozepíše podle vztahu~\eqref{eq:CommutatorA,BC} z předchozího příkladu,
+	\begin{equation}
+		\commutator{\operator{A}}{\operator{B}\operator{B}^{-1}}
+			=\commutator{\operator{A}}{\operator{B}}\operator{B}^{-1}+\operator{B}\commutator{\operator{A}}{\operator{B}^{-1}},
+	\end{equation}
+	což vede k výsledku
+	\begin{equation}
+		\commutator{\operator{A}}{\operator{B}^{-1}}
+			=-\operator{B}^{-1}\commutator{\operator{A}}{\operator{B}}\operator{B}^{-1}\,.
+	\end{equation}	
+	Dalším přirozeným krokem je ukázat, že
+	\begin{equation}
+		\commutator{\operator{A}^{-1}}{\operator{B}^{-1}}
+			=\operator{A}^{-1}\operator{B}^{-1}\commutator{\operator{A}}{\operator{B}}\operator{B}^{-1}\operator{A}^{-1}
+	\end{equation}
+	(o platnosti tohoto vztahu se lze též přesvědčit prostým roznásobením).
+\end{solution}

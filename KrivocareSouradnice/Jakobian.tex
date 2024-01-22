@@ -1,0 +1,24 @@
+\sec{Jakobián}
+	Přechod mezi jednotlivými souřadnými systémy $\vector{x}$ a $\vector{q}$ je dán~\emph{Jacobiho maticí}\index{matice!Jacobiho}
+	\begin{equation}
+		\matrix{J}=\left(\partialderivative{\vector{x}}{\vector{q}}\right)
+			=\left(\partialderivative{\left(x^{1},x^{2},\dotsc,x^{d}\right)}
+            {\left(q^{1},q^{2},\dotsc,q^{d}\right)}\right)
+            =\makematrix{
+                \partialderivative{x^{1}}{q^{1}} & \partialderivative{x^{1}}{q^{2}} & \partialderivative{x^{1}}{q^{3}} & \\
+                \partialderivative{x^{2}}{q^{1}} & \partialderivative{x^{2}}{q^{2}} & \partialderivative{x^{2}}{q^{3}} & \ldots \\
+                \partialderivative{x^{3}}{q^{1}} & \partialderivative{x^{3}}{q^{2}} & \partialderivative{x^{3}}{q^{3}} & \\
+                & \vdots & & \ddots
+            }
+	\end{equation}
+	či ve složkách
+	\begin{equation}
+		\label{eq:JacobiMatrix}
+		J_{i}^{j}=\partialderivative{x^{j}}{q^{i}}\equiv n_{(i)}^{j}\,.
+	\end{equation}
+	(Jacobiho matice má tedy ve sloupcích kovariantní bázové vektory $\vector{n}_{(i)}$.)
+	Podmínka invertovatelnosti~\eqref{eq:xq} souvisí s nesingularitou Jacobiho matice,
+	\begin{equation}
+		\det{\matrix{J}}\neq 0
+	\end{equation}
+	($\det{\matrix{J}}$ se nazývá \emph{Jakobián}\index{Jakobián}).

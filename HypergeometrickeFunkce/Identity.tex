@@ -1,0 +1,35 @@
+\sec{Užitečné identity}
+Pro hypergeometrickou funkci je známo tisíce identit, které lze najít například na stránkách 
+\href{http://functions.wolfram.com/HypergeometricFunctions/Hypergeometric2F1/17/ShowAll.html}
+{Wolfram} 
+nebo \href{http://dlmf.nist.gov/15}{Digital Library of Mathematical Functions}.
+Pro následující příklady jsou nejdůležitější identity tyto,
+\begin{subequations}
+    \begin{align}
+        \2F1{a}{b}{c}{z}
+            &=\frac{\Gamma(c)\Gamma(c-a-b)}{\Gamma(c-a)\Gamma(c-b)}
+                \2F1{a}{b}{a+b-c+1}{1-z}\nonumber\\
+        \label{eq:2F1Identity1}
+            &\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!
+                +\frac{\Gamma(c)\Gamma(a+b-c)}{\Gamma(a)\Gamma(b)}\left(1-z\right)^{c-a-b}
+                \2F1{c-a}{c-b}{c-a-b+1}{1-z},\quad c-a-b\notin\mathbb{Z},\\
+        \2F1{a}{b}{c}{z}
+            &=\frac{\Gamma(c)\Gamma(b-a)}{\Gamma(b)\Gamma(c-a)}\left(-z\right)^{-a}
+                \2F1{a}{a-c+1}{a-b+1}{\frac{1}{z}}\nonumber\\
+        \label{eq:2F1Identity3}
+            &+\frac{\Gamma(c)\Gamma(a-b)}{\Gamma(a)\Gamma(c-b)}\left(-z\right)^{-b}
+                \2F1{b}{b-c+1}{b-a+1}{\frac{1}{z}},\quad a-b\notin\mathbb{Z},\ z\notin(0,1),\\
+        \label{eq:2F1Identity2}
+        \2F1{a}{b}{c}{z}
+            &=\left(1-z\right)^{-a}\2F1{a}{c-b}{c}{\frac{z}{z-1}},\quad z\notin(1,\infty),
+    \end{align}
+\end{subequations}
+přičemž první dvě mohou sloužit k prodlužování řešení hypergeometrické funkce
+za konvergenční oblast $\abs{z}<1$.
+Druhá formule navíc určuje asymptotiku hypergeometrické funkce v nekonečnu,
+\begin{equation}
+    \label{eq:2F1Asymptotic}
+    \2F1{a}{b}{c}{z\rightarrow\infty}\rightarrow
+        \frac{\Gamma(c)\Gamma(b-a)}{\Gamma(b)\Gamma(c-a)}(-z)^{-a}+
+        \frac{\Gamma(c)\Gamma(a-b)}{\Gamma(a)\Gamma(c-b)}(-z)^{-b}\quad a-b\notin\mathbb{Z}.
+\end{equation}

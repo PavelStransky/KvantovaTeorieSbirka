@@ -1,0 +1,155 @@
+\subsection{Spin mířící do obecného směru}\label{sec:Pauli}
+Na jednotkové kouli (tzv. \emph{Blochově sféře})\index{sféra!Blochova} je zadán jednotkový vektor
+\begin{equation}
+	\vector{n}
+		=\left(n_{1},n_{2},n_{3}\right)
+		=\left(\sin\theta\cos\phi,\sin\theta\sin\phi,\cos\theta\right),\qquad
+		\abs{\vector{n}}=1,
+		\theta\in\left[0,\pi\right),
+		\phi\in\left[0,2\pi\right)
+\end{equation}			
+mířící do obecného směru daného sférickými úhly $(\theta,\phi)$.
+\begin{enumerate}
+\item
+    V souřadnicích $(n_{1},n_{2},n_{3})$ a $(\theta,\phi)$ vyjádřete matici $\matrix{\sigma}_{\vector{n}}\equiv\vector{n}\cdot\vector{\matrix{\sigma}}$, kde $\vector{\matrix{\sigma}}=(\matrix{\sigma}_{1},\matrix{\sigma}_{2},\matrix{\sigma}_{3})$ je tzv. \emph{Pauliho vektor}.\index{vektor!Pauliho}
+
+\item
+    Určete vlastní hodnoty a vlastní vektory matice $\matrix{\sigma}_{\vector{n}}$.
+
+\item
+    Napište maticové vyjádření projektorů $\operator{P}_{\vector{n}\pm}$\index{projektor} na podprostory odpovídající vlastním hodnotám $\sigma_{\vector{n}\pm}$ matice $\matrix{\sigma}_{\vector{n}}$ a ověřte, že se skutečně jedná o projektory.\index{projektor}
+
+\item
+    Dokažte, že platí
+    \begin{equation}
+        \important{
+            \matrix{P}_{\vector{n}\pm}
+                =\frac{1}{2}\left(\matrix{1}\pm\matrix{\sigma}_{\vector{n}}\right)
+        }.
+        \label{eq:SigmaProjector}
+    \end{equation}		
+\end{enumerate}
+	
+\begin{solution}
+	\begin{enumerate}
+	\item
+		Spinová matice vyjádřená v kartézských souřadnicích:
+		\begin{equation}
+			\matrix{\sigma}_{\vector{n}}
+				=n_{1}\matrix{\sigma}_{1}+n_{2}\matrix{\sigma}_{2}+n_{3}\matrix{\sigma}_{3}
+				=\makematrix{n_{3} & n_{1}-\im n_{2} \\ n_{1}+\im n_{2} & -n_{3}}
+		\end{equation}
+		a ve sférických souřadnicích:
+		\begin{equation}
+            \matrix{\sigma}_{\vector{n}}
+                =\makematrix{\cos{\theta} & \e^{-\im\phi}\sin{\theta} 
+					\\ \e^{\im\phi}\sin{\theta} & -\cos{\theta}}.
+            \label{eq:SigmaSpherical}
+        \end{equation}			
+    
+	\item
+		Vlastní hodnoty spinové matice získané diagonalizací:
+		\begin{gather}			
+            \matrix{\sigma}_{\vector{n}}\ket{\vector{n}\pm}
+                =\sigma_{\vector{n}\pm}\ket{\vector{n}\pm}\nonumber\\
+			\det\makematrix{\cos{\theta}-\sigma_{\vector{n}\pm} & \e^{-\im\phi}\sin{\theta} 
+                \\ \e^{\im\phi}\sin{\theta} & -\cos{\theta}-\sigma_{\vector{n}\pm}}
+                =0\nonumber\\
+            -\left(\cos{\theta}-\sigma_{\vector{n}\pm}\right)\left(\cos{\theta}+\sigma_{\vector{n}\pm}\right)-\sin^{2}\theta
+                =0\nonumber\\
+            \sigma_{\vector{n}\pm}^{2}-\cos^{2}\theta-\sin^{2}\theta
+                =0\nonumber\\
+            \sigma_{\vector{n}\pm}
+                =\pm1.
+		\end{gather}
+		Vlastní vektor příslušející $\lambda=1$:
+		\begin{gather}
+			\makematrix{\cos{\theta} & \e^{-\im\phi}\sin{\theta} 
+				    \\ \e^{\im\phi}\sin{\theta} & -\cos{\theta}}
+                    \makematrix{x \\ y}
+                =+\makematrix{x \\ y}\nonumber\\
+            x\e^{\im\phi}\sin{\theta}
+                =y\left(\cos{\theta}+1\right)\nonumber\\
+            x=y\frac{\cos{\theta+1}}{\sin{\theta}}\e^{-\im\phi}
+		\end{gather}
+		a jeho normalizace
+		\begin{align}
+			1&=xx^{*}+yy^{*}\nonumber\\
+			 &=\abs{y}^{2}\left[\frac{\cos^{2}\theta+2\cos{\theta}+1}{\sin^{2}\theta}+1\right]\nonumber\\
+			 &=\abs{y}^{2}\frac{2\cos{\theta}+2}{\left(1-\cos^{2}\theta\right)}\nonumber\\
+			 &=\abs{y}^{2}\frac{2}{1-\cos{\theta}}=\nonumber\\
+			 &=\abs{y}^{2}\frac{1}{\sin^{2}\frac{\theta}{2}}.
+		\end{align}
+		Fázi lze volit libovolně.
+		Konkrétní volba s reálnou $y$-ovou složkou odpovídá
+        \begin{subequations}
+            \begin{align}
+                y&=\sin{\frac{\theta}{2}}\,,\\
+                x&=\sin{\frac{\theta}{2}}\cotg{\frac{\theta}{2}}\e^{-\im\phi}
+                    =\e^{-\im\phi}\cos{\frac{\theta}{2}},
+            \end{align}
+        \end{subequations}
+		takže vlastní vektor odpovídající vlastní hodnotě $\lambda=1$ je
+		\begin{equation}
+    		\important{
+	    		\ket{\vector{n}+}
+		    		=\makematrix{\e^{-\im\phi}\cos{\frac{\theta}{2}} \\ \sin{\frac{\theta}{2}}}
+		    }.
+		\end{equation}
+		Obdobně se získá i vlastní vektor k vlastní hodnotě $\lambda=-1$:
+		\begin{equation}
+    		\important{
+                \ket{\vector{n}-}
+                    =\makematrix{-\e^{-\im\phi}\sin{\frac{\theta}{2}} \\ \cos{\frac{\theta}{2}}}
+		    }.
+        \end{equation}
+        		
+	\item
+		Z definice projektoru plyne po dosazení vlastních vektorů
+		\begin{align}
+			\operator{P}_{\vector{n}+}
+				&\equiv\ket{\vector{n}+}\bra{\vector{n}+}\nonumber\\
+				&=\makematrix{\e^{-\im\phi}\cos{\frac{\theta}{2}} \\ \sin{\frac{\theta}{2}}}
+					\makematrix{\e^{\im\phi}\cos{\frac{\theta}{2}} \\ \sin{\frac{\theta}{2}}}\nonumber\\
+				&=\makematrix{\cos^{2}\frac{\theta}{2} & 
+						\e^{-\im\phi}\sin{\frac{\theta}{2}}\cos{\frac{\theta}{2}} \\
+						\e^{\im\phi}\sin{\frac{\theta}{2}}\cos{\frac{\theta}{2}} &
+						\sin^{2}\frac{\theta}{2}}\nonumber\\
+				&=\boxed{\frac{1}{2}
+					\makematrix{1+\cos{\theta} & \e^{-\im\phi}\sin{\theta} \\
+							 \e^{\im\phi}\sin{\theta} & 1-\cos{\theta}}}
+			\label{eq:SigmaProjectorPlus}
+		\end{align}
+		\begin{equation}
+			\important{
+				\operator{P}_{\vector{n}-}
+					=\frac{1}{2}\makematrix{1-\cos{\theta} & -\e^{-\im\phi}\sin{\theta} \\
+							   -\e^{\im\phi}\sin{\theta} & 1+\cos{\theta}}
+		    }
+            \label{eq:SigmaProjectorMinus}
+    	\end{equation}		
+		Skutečnost, že se jedná o projektory, se dokáže ze \trick{vztahu úplnosti}
+		\begin{equation}
+			\operator{P}_{\vector{n}+}+\operator{P}_{\vector{n}-}
+				=\frac{1}{2}\makematrix{2 & 0 \\ 0 & 2}
+				=\matrix{1}
+		\end{equation}
+		a z vlastnosti \trick{kvadrátu projektoru}
+        \begin{subequations}
+            \begin{gather}
+                \operator{P}_{\vector{n}+}^{2}
+                    =\frac{1}{4}
+                        \makematrix{1+\cos{\theta} & \e^{-\im\phi}\sin{\theta} \\
+                                \e^{\im\phi}\sin{\theta} & 1-\cos{\theta}}
+                        \makematrix{1+\cos{\theta} & \e^{-\im\phi}\sin{\theta} \\
+                                \e^{\im\phi}\sin{\theta} & 1-\cos{\theta}}
+                    =\operator{P}_{\vector{n}+},\\
+                \operator{P}_{\vector{n}-}^{2}
+                    =\operator{P}_{\vector{n}-}.
+            \end{gather}		
+        \end{subequations}
+
+    \item
+		Vztah~\eqref{eq:SigmaProjector} mezi projektory a spinovou maticí vyplývá z porovnání projektorů~\eqref{eq:SigmaProjectorPlus} a~\eqref{eq:SigmaProjectorMinus} s explicitním vyjádřením matice~\eqref{eq:SigmaSpherical}.		
+	\end{enumerate}
+\end{solution}

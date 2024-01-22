@@ -1,0 +1,135 @@
+\subsection{Maticový formalismus}
+Částice hmotnosti $M$ se pohybuje v jednorozměrném potenciálu složeném z $n$ různě silných $\delta$ funkcí,
+\begin{equation}\label{PotentialSumDelta}
+    V(x)=\sum_{j=1}^{n}c_{j}\,\delta(x-x_{j}),
+\end{equation}
+kde $c_{j}$ jsou jejich \uv{síly} a $x_{1}<x_{2}<\dotsb<x_{n}$ jejich polohy.
+
+\begin{enumerate}
+\item
+    Obecnou vlnovou funkci pro částici v bodě $x$ zapište ve formě dvousložkového vektoru.
+    
+\item
+    Nalezněte transformaci posunutí vlnové funkce o vzdálenost $a$ a zapište tuto transformaci ve formě matice.
+    
+\item
+    Nalezněte transformaci vlnové funkce při průchodu $\delta$ funkcí v bodě $x_{j}$.
+    
+\item
+    Nalezněte transformaci $\Xi$, která dává do vztahu vlnovou funkci před první jámou s vlnovou funkcí po poslední jámě.
+    
+\item
+    Pro případ dvou stejně silných jam vzdálených od sebe $a$ najděte podmínku na to, aby vlnová funkce pro vázané stavy $E<0$ byla normalizovatelná.
+\end{enumerate}
+	
+\begin{solution}
+	\begin{enumerate}
+	\item
+		Až na jednotlivé body $x_{j}$ se jedná o vlnovou funkci volné částice
+		\begin{equation}\label{eq:SumDeltaWaveFunction}
+			\psi(x)
+				=\underbrace{A_{+}\e^{\im k x}}_{\psi_{+}(x)}
+					+\underbrace{A_{-}\e^{-\im k x}}_{\psi_{-}(x)},
+		\end{equation}
+		kde $k=\sqrt{2ME/\hbar^{2}}$ [pro vázané stavy $E<0$ je $k$ ryze imaginární, nebo je možné přejít k veličině $\kappa$~\eqref{eq:kappa}].
+		Vlnová funkce se zapíše v kompaktním tvaru dvousložkového vektoru
+		\begin{equation}
+			\Psi(x)\equiv\makematrix{\psi_{+}(x) \\ \psi_{-}(x)}.
+		\end{equation}
+		
+	\item
+		Posunutá vlnová funkce je
+		\begin{equation}
+			\psi(x+a)
+				=A_{+}\e^{\im kx+\im ka}+A_{-}\e^{-\im kx-\im ka}
+				=\e^{+\im ka}\psi_{+}(x)+\e^{-\im ka}\psi_{-}(x),
+		\end{equation}
+		takže
+		\begin{equation}
+			\Psi(x+a)
+				=\makematrix{\e^{+\im ka}\psi_{+}(x) \\ \e^{-\im ka}\psi_{-}(x)}
+				=\underbrace{\makematrix{\e^{+\im ka} & 0 \\ 0 & \e^{-\im ka}}}_{\matrix{T}(a)}\Psi(x)\,.
+		\end{equation}
+		
+	\item
+		\trick{Sešívací podmínka~\eqref{eq:SewDerivativeDelta} pro vlnovou funkci~\eqref{eq:SumDeltaWaveFunction} je lineární, a proto ji lze rovněž vyjádřit maticovou transformací vektoru $\Psi(x)$.}
+		Označí-li se vlnová funkce nalevo od $j$-té $\delta$ funkce jako $\Psi^{(L)}(x_{j})$ a vlnová funkce napravo od $\delta$ funkce jako $\Psi^{(R)}(x_{j})$, pak podmínka na spojitost a na skok v derivaci v bodě $x_{j}$ zní
+		\begin{subequations}
+			\begin{align}
+				\psi_{+}^{(L)}+\psi_{-}^{(L)}
+					&=\psi_{+}^{(R)}+\psi_{-}^{(R)},\\
+				\im k\left(\psi_{+}^{(R)}-\psi_{-}^{(R)}+\psi_{+}^{(L)}-\psi_{-}^{(L)}\right)
+					&=K_{j}\left(\psi_{+}^{(L,R)}+\psi_{-}^{(L,R)}\right).
+			\end{align}
+		\end{subequations}
+		Z první rovnice plyne $\psi_{-}^{(R)}=\psi_{+}^{(L)}+\psi_{-}^{(L)}-\psi_{+}^{(R)}$, což po dosazení do druhé rovnice dá
+		\begin{subequations}
+			\begin{align}
+				\psi_{+}^{(R)}
+					&=\frac{K_{j}}{2\im k}\left(\psi_{+}^{(L)}+\psi_{-}^{(L)}\right)+\psi_{+}^{(L)}
+					=\left(1+\frac{K_{j}}{2\im k}\right)\psi_{+}^{(L)}+\frac{K_{j}}{2\im k}\psi_{-}^{(L)},\\
+				\psi_{+}^{(L)}
+					&=-\frac{K_{j}}{2\im k}\left(\psi_{+}^{(L)}+\psi_{-}^{(L)}\right)+\psi_{-}^{(L)}
+					=-\frac{K_{j}}{2\im k}\psi_{+}^{(L)}+\left(1-\frac{K_{j}}{2\im k}\right)\psi_{-}^{(L)}.
+			\end{align}
+		\end{subequations}
+		To je lineární transformace, kterou lze zapsat jako
+		\begin{equation}
+			\Psi^{(R)}(x_{j})
+				=\underbrace{\makematrix{1+\frac{K_{j}}{2\im k} & \frac{K_{j}}{2\im k} 
+								\\ -\frac{K_{j}}{2\im k} & 1-\frac{K_{j}}{2\im k}}}_{\matrix{R}\left(K_{j}\right)}
+					\Psi^{(L)}(x_{j}).
+		\end{equation}
+		
+		\item
+			Transformace $\Xi$ je složením transformací posunutí mezi $\delta$ funkcemi $\matrix{T}$ 
+			a transformací přechodu přes $\delta$ funkce $\matrix{R}$:
+			\begin{equation}\label{eq:SumDeltaTransformationMatrix}
+				\Xi(x_{n};x_{1})
+					=\matrix{R}(K_{n})\matrix{T}(x_{n}-x_{n-1})\matrix{R}(K_{n-1})\dotsb\matrix{R}(K_{2})\matrix{T}(x_{2}-x_{1})\matrix{R}(K_{1}).
+			\end{equation}			
+			
+		\item
+			Transformace~\eqref{eq:SumDeltaTransformationMatrix} má pro dvě $\delta$ funkce tvar
+			\begin{align}
+				\Xi(a)
+					&=\matrix{R}(K)\matrix{T}(a)\matrix{R}(K)\nonumber\\
+					&=\makematrix{1+\frac{K}{2\pi k} & \frac{K}{2\im k} 
+						\\ -\frac{K}{2\im k} & 1-\frac{K}{2\im k}}
+						\makematrix{\e^{\im ka} & 0 \\ 0 & \e^{-\im ka}}
+						\makematrix{1+\frac{K}{2\pi k} & \frac{K}{2\im k} 
+						\\ -\frac{K}{2\im k} & 1-\frac{K}{2\im k}}\nonumber\\
+					&=\makematrix{\left(1+\frac{K}{2\im k}\right)^{2}\e^{\im ka}
+								-\left(\frac{K}{2ik}\right)^{2}\e^{-\im ka} &
+							\frac{K}{2\im k}\left[\left(1+\frac{K}{2\im k}\right)\e^{\im ka}
+								+\left(1-\frac{K}{2\im k}\right)\e^{-\im ka}\right] \\
+							-\frac{K}{2\im k}\left[\left(1+\frac{K}{2\im k}\right)\e^{\im ka}
+								+\left(1-\frac{K}{2\im k}\right)\e^{-\im ka}\right] &
+							-\left(\frac{K}{2ik}\right)^{2}\e^{\im ka}
+							+\left(1-\frac{K}{2\im k}\right)^{2}\e^{\im ka}}.
+			\end{align}
+			Stav bude normalizovatelný, pokud $\psi_{+}^{(L)}=\psi_{-}^{(R)}=0$, kde $\psi_{+}^{(L)}$ zde značí část vlnové funkce s kladným znaménkem nalevo před levou $\delta$ funkcí a $\psi_{-}^{(R)}$ část vlnové funkce napravo za pravou $\delta$ funkcí potenciálu.\sfootnote{
+				Pro vázané stavy je $k=\im\sqrt{-2ME/\hbar}=\im\kappa$.
+			}
+			Jelikož $\Psi^{(R)}=\Xi\Psi^{(L)}$, platí
+			\begin{equation}
+                \psi_{-}^{(R)}
+                    =\Xi_{21}\psi_{+}^{(L)}+\Xi_{22}\psi_{-}^{(L)},
+			\end{equation}
+			a pokud se kvůli správnému asymptotickému chování má vynulovat $\psi_{+}^{(L)}$ a $\psi_{-}^{(R)}$, musí být $\Xi_{22}=0$, neboli (po zavedení $k=\im\kappa$)
+			\begin{equation}
+				-\left(\frac{K}{2\kappa}\right)^{2}\e^{-\kappa a}
+					+\left(1+\frac{K}{2\kappa}\right)^{2}\e^{\kappa a}=0,
+			\end{equation}
+			\begin{subequations}
+				\begin{align}
+					K^{2}\e^{-2\kappa a}
+						&=\left(K+2\kappa\right)^{2},\\
+					\abs{K}\e^{-\kappa a}
+						&=\pm\left(K+2\kappa\right).
+				\end{align}					
+			\end{subequations}
+			Rovnice je identická s rovnicemi~\eqref{eq:DoubleDeltaEEven} a ~\eqref{eq:DoubleDeltaEOdd}.
+			Jejím řešením bychom dostali energie vázaných stavů.
+	\end{enumerate}
+\end{solution}

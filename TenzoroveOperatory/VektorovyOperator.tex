@@ -1,0 +1,54 @@
+\subsection{Vektorový operátor jako ireducibilní tenzor}
+Ukažte, že libovolnému vektorovém operátoru $\vectoroperator{V}$ s kartézskými složkami $(\operator{V}_{1},\operator{V}_{2},\operator{V}_{3})$ se dá přiřadit ireducibilní tenzorový operátor 1. řádu pomocí předpisu
+\begin{equation}\label{eq:VectorTensor}
+    \boxed{
+        \begin{aligned}
+            \tensoroperatorcomponent{V}{1}{-1}
+                &=\frac{1}{\sqrt{2}}\left(\operator{V}_{1}-\im\operator{V}_{2}\right)\\
+            \tensoroperatorcomponent{V}{1}{0}
+                &=\operator{V}_{3}\\
+            \tensoroperatorcomponent{V}{1}{1}
+                &=-\frac{1}{\sqrt{2}}\left(\operator{V}_{1}+\im\operator{V}_{2}\right)
+        \end{aligned}
+    }
+\end{equation}
+($\tensoroperatorcomponent{V}{1}{\mu}$ jsou sférické složky vektoru).
+
+\begin{solution}
+    Libovolný vektorový operátor $\vectoroperator{V}$ splňuje komutační relace s operátorem momentu
+    hybnosti\footnote{Jsou to například operátory $\vectoroperator{X}$, $\vectoroperator{P}$, $\vectoroperator{L}$, $\dotsc$.}
+    \begin{equation}
+        \commutator{\operator{V}_{j}}{\operator{J}_{k}}=\im\epsilon_{jkl}V_{l}.
+    \end{equation}	
+    Důkaz transformačních vztahů~\eqref{eq:VectorTensor} se provede přímým dosazením do vztahů~\eqref{eq:IrreducibleTensor}:
+    \begin{align*}
+        \commutator{\operator{J}_{3}}{\tensoroperatorcomponent{V}{1}{-1}}
+            &=-\commutator{\frac{1}{\sqrt{2}}\left(\operator{V}_{x}-\im\operator{V}_{y}\right)}{\operator{J}_{3}}
+            =-\frac{1}{\sqrt{2}}\left(-\im\operator{V}_{y}+\operator{V}_{x}\right)
+            =-\tensoroperatorcomponent{V}{1}{-1},\\
+        \commutator{\operator{J}_{3}}{\tensoroperatorcomponent{V}{1}{0}}
+            &=-\commutator{\operator{V}_{3}}{\operator{J}_{3}}=0,\\
+        \commutator{\operator{J}_{3}}{\tensoroperatorcomponent{V}{1}{1}}
+            &=\commutator{\frac{1}{\sqrt{2}}\left(\operator{V}_{x}+\im\operator{V}_{y}\right)}{\operator{J}_{3}}
+            =\frac{1}{\sqrt{2}}\left(-\im\operator{V}_{y}-\operator{V}_{x}\right)
+            =+\tensoroperatorcomponent{V}{1}{1},
+    \end{align*}
+    \begin{align*}
+        \commutator{\operator{J}_{\pm}}{\tensoroperatorcomponent{V}{1}{-1}}
+            &=-\frac{1}{\sqrt{2}}\commutator{\operator{V}_{1}-\im\operator{V}_{2}}{\operator{J}_{1}\pm\im\operator{J}_{2}}
+            =-\frac{1}{\sqrt{2}}\left(\mp\operator{V}_{3}-\operator{V}_{3}\right)
+            =\begin{cases}
+                \alpha^{+}(1,-1)\tensoroperatorcomponent{V}{1}{0} \\ 0
+                \end{cases},\\
+        \commutator{\operator{J}_{\pm}}{\tensoroperatorcomponent{V}{1}{0}}
+            &=-\commutator{\operator{V}_{3}}{\operator{J}_{1}\pm\im\operator{J}_{2}}
+            =\pm\operator{J}_{1}-\im\operator{J}_{2}
+            =\alpha^{\pm}(1,0)\tensoroperatorcomponent{V}{1}{\pm1},\\
+        \commutator{\operator{J}_{\pm}}{\tensoroperatorcomponent{V}{1}{1}}
+            &=\frac{1}{\sqrt{2}}\commutator{\operator{V}_{1}+\im\operator{V}_{2}}{\operator{J}_{1}\pm\im\operator{J}_{2}}
+            =\frac{1}{\sqrt{2}}\left(\mp\operator{V}_{3}+\operator{V}_{3}\right)
+            =\begin{cases}
+                0 \\ \alpha^{-}(1,1)\tensoroperatorcomponent{V}{1}{0}
+                \end{cases}.
+    \end{align*}
+\end{solution}

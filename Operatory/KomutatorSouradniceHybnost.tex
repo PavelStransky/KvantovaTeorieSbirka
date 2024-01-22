@@ -1,0 +1,58 @@
+\subsection{Komutátory souřadnice a hybnosti}\label{sec:CommutatorXP}
+Jsou dány dva samosdružené operátory $\operator{x}$, $\operator{p}$ (souřadnice a hybnost)\index{operátor!souřadnice}, které splňují komutační relaci $\commutator{\operator{x}}{\operator{p}}=\im\hbar$.
+
+\begin{enumerate}
+\item
+    Určete $\commutator{\operator{x}^{2}}{\operator{p}}$.
+\item
+    Určete $\commutator{\operator{x}^{n}}{\operator{p}}$.
+\item
+    Určete $\commutator{f(\operator{x})}{\operator{p}}$ a $\commutator{\operator{x}}{g(\operator{p})}$.
+\end{enumerate}
+
+\begin{solution}
+	\begin{enumerate}
+	\item
+		Dosazení do vzorce pro komutátor součinu operátorů~\eqref{eq:CommutatorAB,C} vede na
+		\begin{equation}
+			\commutator{\operator{x}^{2}}{\operator{p}}
+				=\commutator{\operator{x}\operator{x}}{\operator{p}}
+				=\operator{x}\commutator{\operator{x}}{\operator{p}}+\commutator{\operator{x}}{\operator{p}}\operator{x}
+				=2\im\hbar\operator{x}.
+		\end{equation}
+	\item
+		Zopakuje se $n$-krát postup z předchozího bodu:
+        \begin{equation}
+            \label{eq:CommutatorXnP}
+			\commutator{\operator{x}^{n}}{\operator{p}}
+				=\commutator{\operator{x}^{n-1}\operator{x}}{\operator{p}}
+				=\im\hbar\operator{x}^{n-1}+\commutator{\operator{x}^{n-1}}{\operator{p}}\operator{x}
+				=\dotsb
+				=n\im\hbar\operator{x}^{n-1}.
+		\end{equation}
+	\item
+		Využije se definice funkce operátoru~\eqref{eq:OperatorFncArray}\index{funkce!operátoru}.
+		Za předpokladu záměnnosti sčítání řady a komutování postupně vychází
+		\begin{align}
+            \commutator{f(\operator{x})}{\operator{p}}
+				&=\commutator{\sum_{n=0}^{\infty}\frac{f^{(n)}(0)}{n!}\operator{x}^{n}}{\operator{p}}
+                 =\sum_{n=0}^{\infty}\frac{f^{(n)}(0)}{n!}\commutator{\operator{x}^{n}}{\operator{p}}
+                &&\text{\eqref{eq:CommutatorXnP}}\nonumber\\
+                &=\im\hbar\sum_{n=0}^{\infty}\frac{f^{(n)}(0)}{n!}n\operator{x}^{n-1}
+				&&\equationcomment{m=n-1}\nonumber\\
+                &=\im\hbar\sum_{m=0}^{\infty}\frac{f^{(m+1)}(0)}{m!}\operator{x}^{m}
+				 =\important{\im\hbar f'(\operator{x})},				
+		\end{align}
+        přičemž pod $n$-tou derivací funkce operátoru rozumíme\index{derivace!operátoru}
+        \begin{equation}
+            f^{(n)}(\operator{x})
+                =\left.\derivative{f^{n}(\xi)}{\xi^{n}}\right|_{\xi=\operator{x}}.
+        \end{equation}
+            
+		Analogický postup pro operátor hybnosti dá
+		\begin{equation}
+			\important{\commutator{\operator{x}}{f(\operator{p})}
+				=\im\hbar f'(\operator{p})}.
+		\end{equation}		
+	\end{enumerate}
+\end{solution}

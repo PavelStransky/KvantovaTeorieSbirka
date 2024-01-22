@@ -1,0 +1,18 @@
+Propagátor částice pohybující se v potenciálu $V(\vector{x})$ lze formálně zapsat ve tvaru Feynmanova integrálu
+\begin{equation}
+G\left(\vector{x}_{\mathrm{f}},t_{\mathrm{f}};\vector{x}_{\mathrm{i}},t_{\mathrm{i}}\right)
+    =\int_{\vector{x}(t_{\mathrm{i},\mathrm{f}})=\vector{x}_{\mathrm{i},\mathrm{f}}}\e^{\frac{\im}{\hbar}S[\vector{x}\left(t\right)]}\D x,
+\end{equation}
+kde
+\begin{equation}
+S[\vector{x}(t)]=\int_{t_{\mathrm{i}}}^{t_{\mathrm{f}}}\left[\frac{1}{2}M\dot{\vector{x}}^{2}(t)-V(\vector{x})\right]\d t
+\end{equation}
+je akce trajektorie $\vector{x}(t)$ a $\D x$ je míra integrace.
+Pro praktické výpočty se používá diskretizovaná verze tohoto integrálu
+\begin{align}\label{eq:FeynmanIntegral}
+G\left(\vector{x}_{\mathrm{f}},t_{\mathrm{f}};\vector{x}_{\mathrm{i}},t_{\mathrm{i}}\right)=&\lim_{N\rightarrow\infty}\left[\left(\frac{M}{2\im\pi\hbar\,\delta t}\right)^{d/2}\right]^N\int\exp\left\{\frac{i}{\hbar}\delta\tau\sum_{k=1}^{N}\left[\frac{M}{2}\frac{\vector{x}_{k}-\vector{x}_{k-1}}{\delta\tau}-V(\vector{x}_{k-1})\right]\right\}\d^{d}\vector{x}_{1}\dots\d^{d}\vector{x}_{N-1},
+\end{align}
+kde $d$ je dimenze prostoru, $\delta\tau\equiv(t_{\mathrm{f}}-t_{\mathrm{i}})/N$ a $\vector{x}_{0}\equiv\vector{x}_{\mathrm{i}}$, $\vector{x}_{N}\equiv\vector{x}_{\mathrm{f}}$.
+
+V této sekci odvodíme vztah pro dráhový integrál libovolného systému s maximálně kvadratickou akcí (integrál~\eqref{eq:FeynmanIntegral} bude v tomto případě Gaussovský).
+

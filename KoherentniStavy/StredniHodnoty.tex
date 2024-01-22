@@ -1,0 +1,108 @@
+\subsection{Střední hodnoty operátorů}
+\label{sec:CoherentStatesExpectation}
+\begin{enumerate}
+\item 
+    Nalezněte střední hodnotu energie harmonického oscilátoru ve stavu $\ket{z}$
+    a porovnejte s výsledkem~\eqref{eq:HOmeanE}.
+    
+\item 
+    Určete střední hodnoty operátorů polohy a hybnosti 
+	\begin{subequations}
+		\begin{align}
+			\mean{\operator{x}}_{z}&\equiv\matrixelement{z}{\operator{x}}{z},\\
+			\mean{\operator{p}}_{z}&\equiv\matrixelement{z}{\operator{p}}{z}
+		\end{align}					
+	\end{subequations}
+    a vyjádřete pomocí nich číslo $z$.
+
+\item 
+    Určete střední kvadratickou odchylku operátorů souřadnice a hybnosti 
+	\begin{subequations}
+		\begin{align}
+			\uncertainty{z}{x}&\equiv\matrixelement{z}{\left(\operator{x}-\mean{\operator{x}}_{z}\right)^{2}}{z},\\
+			\uncertainty{z}{p}&\equiv\matrixelement{z}{\left(\operator{p}-\mean{\operator{p}}_{z}\right)^{2}}{z}
+		\end{align}			
+	\end{subequations}
+    a pomocí nich ukažte, že koherentní stavy minimalizují relace neurčitosti.
+\end{enumerate}
+
+\begin{solution}
+	\begin{enumerate}
+	\item 
+		Hamiltonián harmonického oscilátoru se vyjádří pomocí posunovacích operátorů~\eqref{eq:HOHamiltonianAA+} a využije se vztahy~\eqref{eq:HOCoherentStateA}:
+		\begin{equation}
+			\matrixelement{z}{\operator{H}}{z}
+				=\matrixelement{z}{\hbar\Omega\left(\conjugate{\operator{a}}\operator{a}+\frac{1}{2}\right)}{z}
+				=\hbar\Omega\left(\abs{z}^{2}+\frac{1}{2}\right).
+		\end{equation}
+		To se rovná dříve obdrženému výsledku~\eqref{eq:HOmeanE}.
+		
+	\item
+		Přímočarý postup rozvinutím koherentních stavů do řady a využitím vztahu mezi souřadnicí a posunovacími operátory~\eqref{eq:ShiftOperatorToPX}\sfootnote{
+			Místo explicitního výpočtu lze využít i \trick{jednodušší postup díky vztahu~\eqref{eq:HOCoherentStateA}}:
+			\begin{equation}
+				\label{eq:HOCoherentStateAZ}
+				\matrixelement{z}{\operator{a}}{z}=z\,,
+				\qquad\matrixelement{z}{\conjugate{\operator{a}}}{z}=\left(\matrixelement{z}{\operator{a}}{z}\right)^{*}=z^{*}\,.
+			\end{equation}
+		} se dostane
+		\begin{align}
+			\matrixelement{z}{\operator{x}}{z}
+				&=\e^{-\abs{z}^{2}}\sum_{n,n'=0}^{\infty}\frac{z^{*n}}{\sqrt{n!}}
+					\frac{z^{n'}}{\sqrt{n'!}}
+					\underbrace{\matrixelement{n'}{\operator{x}}{n}}_{\sqrt{\frac{\hbar}{2M\Omega}}
+					\left(\sqrt{n+1}\delta_{n',n+1}+\sqrt{n}\delta_{n',n-1}\right)}\nonumber\\
+				&=\e^{-\abs{z}^{2}}\sqrt{\frac{\hbar}{2M\Omega}}
+					\left[\sum_{n=0}^{\infty}\frac{z^{*n}z^{n+1}}{\sqrt{n!(n+1)!}}\sqrt{n+1}
+					+\sum_{n=0}^{\infty}\frac{z^{*n}z^{n-1}}{\sqrt{n!(n-1)!}}\sqrt{n}\right]\nonumber\\
+				&=\e^{-\abs{z}^{2}}\sqrt{\frac{\hbar}{2M\Omega}}
+					\left[z\e^{\abs{z}^{2}}+z^{*}\e^{\abs{z}^{2}}\right]\nonumber\\
+				&=\sqrt{\frac{2\hbar}{M\Omega}}\real{z}
+		\end{align}
+		a analogicky pro operátor hybnosti
+		\begin{equation}
+			\matrixelement{z}{\operator{p}}{z}=\sqrt{2\hbar M\Omega}\,\imaginary{z}.
+		\end{equation}		
+		Číslo $z$ lze tedy vyjádřit jako
+		\begin{equation}
+			\label{eq:HOCoherentStateZ}
+			\boxed{
+			z=\sqrt{\frac{M\Omega}{2\hbar}}
+				\left(\mean{\operator{x}}_{z}+\frac{\im}{M\Omega}\mean{\operator{p}}_{z}\right)
+			}.
+		\end{equation}
+		Reálná část čísla $z$ udává střední hodnotu \emph{souřadnice}, 
+		imaginární část $z$ střední hodnotu \emph{hybnosti}.				
+				
+	\item
+		Kvadrát operátoru souřadnice vyjádřený pomocí posunovacích operátorů~\eqref{eq:ShiftOperatorToPX} je
+		\begin{align}
+			\operator{x}^{2}
+				&=\frac{\hbar}{2M\Omega}\left(\operator{a}^{2}+\operator{a}\conjugate{\operator{a}}+\conjugate{\operator{a}}\operator{a}+\operator{a}^{\dagger 2}\right)
+					\nonumber\\
+				&=\frac{\hbar}{2M\Omega}\left(\operator{a}^{2}+2\conjugate{\operator{a}}\operator{a}+1+\operator{a}^{\dagger 2}\right)
+		\end{align}
+		(využily se navíc komutační relace $\commutator{\operator{a}}{\conjugate{\operator{a}}}=1$).
+		Na základě vztahů analogických k~\eqref{eq:HOCoherentStateAZ} je střední hodnota operátoru $\operator{x}^{2}$ rovna
+		\begin{equation}
+			\matrixelement{z}{\operator{x}^{2}}{z}=\frac{\hbar}{2M\Omega}\left(z^{2}+2\abs{z}^{2}+1+z^{*2}\right).
+		\end{equation}
+		Střední kvadratická odchylka tedy vychází
+		\begin{equation}
+			\uncertainty{z}{x}
+				=\frac{\hbar}{2M\Omega}
+					\left(z^{2}+2\abs{z}^{2}+1+z^{*2}-z^{2}-2\abs{z}^{2}-z^{*2}\right)
+				=\frac{\hbar}{2M\Omega}
+		\end{equation}
+		a podobně pro operátor hybnosti
+		\begin{equation}
+			\uncertainty{z}{p}=\frac{\hbar M\Omega}{2}.
+		\end{equation}
+		Relace neurčitosti pro koherentní stav tedy znějí
+		\begin{equation}
+			\label{eq:HOCoherentStateUncertainty}
+			\uncertainty{z}{x}\uncertainty{z}{p}=\frac{\hbar^{2}}{4},
+		\end{equation}
+		což je minimální hodnota, kterou může neurčitost mezi polohou a hybností nabývat.
+	\end{enumerate}
+\end{solution}

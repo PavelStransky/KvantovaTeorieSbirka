@@ -1,0 +1,86 @@
+\subsection{Vlastní stav operátoru $\operator{a}$}
+\begin{enumerate}
+\item 
+    Ukažte, že pro posunovací operátor $\operator{a}$ platí
+    \begin{equation}
+        \label{eq:HOCoherentStateA}
+        \important{\operator{a}\ket{z}=z\ket{z}}\,.
+    \end{equation}
+    To znamená, že koherentní stav $\ket{z}$ je vlastním stavem $\operator{a}$ 
+    s vlastní hodnotou $z$.
+    Operátor $\operator{a}$ není hermitovský, proto jsou jeho vlastní hodnoty komplexní.
+
+\item 
+    Ukažte, že neexistuje žádný vlastní stav posunovacího operátoru $\conjugate{\operator{a}}$.
+
+\item 
+    Pomocí Bakerovy-Campbellovy-Hausdorffovy formule~\eqref{eq:BCH1} ukažte, 
+    že koherentní stav lze vyjádřit také ve tvaru
+    \begin{equation}
+        \ket{z}=\e^{z\conjugate{\operator{a}}-z^{*}\operator{a}}\ket{0}.
+    \end{equation}
+\end{enumerate}
+
+\begin{solution}
+    \begin{enumerate}
+		\item 
+			Při důkazu se vychází z definice koherentního stavu~\eqref{eq:HOCoherentState} a vztahu pro posunovací operátor~\eqref{eq:AN}:
+			\begin{align}
+				\operator{a}\ket{z}
+					&=\e^{-\frac{\abs{z}^{2}}{2}}\sum_{n=0}^{\infty}
+						\frac{z^{n}}{\sqrt{n!}}\underbrace{\operator{a}\ket{n}}_{\sqrt{n}\ket{n-1}}\nonumber\\
+					&=z\e^{-\frac{\abs{z}^{2}}{2}}\sum_{n=1}^{\infty}
+						\frac{z^{n-1}}{\sqrt{(n-1)!}}\ket{n-1}\nonumber\\
+					&=z\ket{z}\,.
+			\end{align}
+		
+		\item
+			Předpokládejme, že existuje vlastní stav operátoru $\conjugate{\operator{a}}$ s vlastní hodnotou $\lambda$
+			\begin{equation}
+				\conjugate{\operator{a}}\ket{\psi(z)}=z\ket{\psi(z)}\,,
+			\end{equation}
+			který lze vyjádřit v bázi $\ket{n}$ jako rozvoj
+			\begin{equation}
+				\label{eq:cohac}
+				\ket{\psi(z)}=\sum_{n=0}^{\infty}a_{n}\frac{z^{n}}{\sqrt{n!}}\ket{n}\,.
+			\end{equation}
+			Působení $\conjugate{\operator{a}}$ na tento vztah dá
+			\begin{equation}
+				\conjugate{\operator{a}}\ket{\psi(z)}=\sum_{n=0}^{\infty}a_{n}\frac{z^{n}}{(n+1)!}\ket{n+1}\,,
+			\end{equation}
+			takže v rozvoji~\eqref{eq:cohac} musí být $a_{0}=0$.
+			Indukcí vyplývá, že musí platit $a_{n}=0$ pro všechna $n\in\mathbb{N}_{0}$.
+			Vlastní stav $\ket{\psi(z)}$ tedy neexistuje.
+		
+		\item
+			Využije se \trick{BCH formule} ve tvaru~\eqref{eq:BCH1},
+			\begin{equation}
+				\e^{\operator{A}+\operator{B}}=\e^{-\frac{1}{2}\commutator{\operator{A}}{\operator{B}}}\e^{\operator{A}}\e^{\operator{B}}\,,
+			\end{equation}
+			která platí za předpokladu
+			\begin{equation}
+				\label{eq:BCHkomut}
+				\commutator{\operator{A}}{\commutator{\operator{A}}{\operator{B}}}=\commutator{\operator{B}}{\commutator{\operator{A}}{\operator{B}}}=0\,.
+			\end{equation}
+			Dosazení $\operator{A}=z\conjugate{\operator{a}}$, $\operator{B}=-z^{*}\operator{a}$
+			(komutační relace~\eqref{eq:BCHkomut} jsou splněny, jelikož $\commutator{z\conjugate{\operator{a}}}{-z^{*}\operator{a}}=zz^{*}=\abs{z}^{2}$ je $c$-číslo) vede na
+			\begin{equation}
+				\e^{z\conjugate{\operator{a}}-z^{*}\operator{a}}
+					=\e^{-\frac{\abs{z}^{2}}{2}}\e^{z\conjugate{\operator{a}}}\e^{z^{*}\operator{a}}\,.
+			\end{equation}
+			Jelikož $\operator{a}\ket{0}=0$, je také
+			\begin{equation}
+				\e^{-z^{*}\operator{a}}\ket{0}=0
+			\end{equation}
+			a díky vztahu~\eqref{eq:EigenstateNumberOperator} a po rozvinutí zbývající exponenciály se dostane
+			\begin{align}
+				\e^{z\conjugate{\operator{a}}-z^{*}\operator{a}}\ket{0}
+					&=\e^{-\frac{\abs{z}}{2}}\e^{z\conjugate{\operator{a}}}\ket{0}\nonumber\\
+					&=\e^{-\frac{\abs{z}}{2}}\sum_{n=0}^{\infty}
+						\frac{z^{n}}{n!}\operator{a}^{\dagger n}\ket{0}\nonumber\\
+					&=\e^{-\frac{\abs{z}}{2}}\sum_{n=0}^{\infty}
+						\frac{z^{n}}{n!}\sqrt{n!}\ket{n}\nonumber\\
+					&=\ket{z}\,.
+			\end{align}			
+	\end{enumerate}
+\end{solution}

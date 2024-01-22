@@ -1,0 +1,45 @@
+\subsection{Redukovaný maticový element impulsmomentu}
+	Nalezněte redukovaný maticový element operátoru impulsmomentu $\vectoroperator{J}$.
+
+\begin{solution}
+	Redukovaný maticový element stačí počítat pro jednu sférickou komponentu tenzoru $\tensoroperator{J}{1}$.
+	Je výhodné zvolit si $\tensoroperatorcomponent{J}{1}{0}=\operator{J}_{z}$.
+	Pak
+	\begin{equation}
+		\matrixelement{a,J\,M}{\operator{J}_{3}}{b,j\,m}=m\,f(a,b)\delta_{Jj}\delta_{Mm}.
+	\end{equation}
+	Na druhou stranu (s omezením se na $J=j$)
+	\begin{align}
+		\matrixelement{a,J\,M}{\operator{J}_{3}}{b,J\,m}
+		    &=\frac{\minus{J+1-J}}{\sqrt{2J+1}}
+			\clebsch{1}{0}{J}{M}{J}{m}\,\reducedmatrixelement{a,J}{\tensoroperator{J}{1}}{b,J}=\nonumber\\
+		    &=\delta_{Mm}\frac{1}{\sqrt{J(J+1)(2J+1)}}\,\reducedmatrixelement{a,J}{\tensoroperator{J}{1}}{b,J},
+	\end{align}
+	neboť 
+	\begin{equation}
+		\label{eq:ClebschGordan10j}
+		\clebsch{1}{0}{J}{M}{J}{m}=-\frac{M}{\sqrt{J(J+1)}}\delta_{Mm},
+	\end{equation}
+	viz například~\cite{Formanek2004}.
+
+	Srovnání techto dvou výrazů dá hledaný redukovaný maticový element
+	\begin{equation}
+		\boxed{
+			\reducedmatrixelement{a,J}{\tensoroperator{J}{1}}{b,j}=f(a,b)\delta_{Jj}\sqrt{J(J+1)(2J+1)}
+		},
+	\end{equation}
+	kde $f(a,b)=\braket{a}{b}$.
+
+\note
+	Vektor $\vectoroperator{J}$ lze pro spin $s=\frac{1}{2}$ realizovat pomocí Pauliho $\sigma$ matic
+	\begin{equation}
+		\vectoroperator{s}=\frac{\vector{\sigma}}{2}.
+	\end{equation}
+	Redukovaný maticový element pro Pauliho vektor je tedy
+	\begin{equation}
+		\reducedmatrixelement{\frac{1}{2}}{\vector{\sigma}}{\frac{1}{2}}
+			=2\reducedmatrixelement{\frac{1}{2}}{\tensoroperator{s}{1}}{\frac{1}{2}}
+			=2\sqrt{\frac{1}{2}\left(\frac{1}{2}+1\right)\left(2\times\frac{1}{2}+1\right)}
+			=\sqrt{6}.
+	\end{equation}
+\end{solution}

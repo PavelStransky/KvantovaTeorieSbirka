@@ -1,0 +1,43 @@
+\sec{Degenergovaná hypergeometrická funkce}
+Degenerovaná hypergeometrická funkce je řešením \emph{Kummerovy rovnice}\index{rovnice!Kummerova}
+\begin{equation}
+    \important{
+        x\derivative[2]{w}{x}+(c-x)\derivative{w}{x}-aw=0
+    },
+\end{equation}
+kde $w=w(x)$, $x\in\mathbb{C}$ a $a,c\in\mathbb{C}$ jsou parametry.
+Tato rovnici se formálně získá z rovnice~\eqref{eq:HypergeometricEquation} limitou $b\rightarrow\infty$, $z=x/b$. 
+Rovnice má regulární singulární bod $x=0$ a neregulární singulární bod $x=\infty$, který vznikne splynutím dvou regulárních singulárních bodů $z=1$ a $z=\infty$ rovnice~\eqref{eq:HypergeometricEquation}.
+
+Dvě lineárně nezávislá řešení Kummerovy rovnice jsou
+\begin{subequations}
+    \begin{align}
+        u_{1}(x)
+            &=\1F1{a}{c}{x},\\
+        u_{2}(x)
+            &=z^{1-c}\1F1{a-c+1}{2-c}{x},
+    \end{align}
+\end{subequations}
+kde $\1F1{a}{c}{z}$ je \emph{degenerovaná hypergeometrická funkce}\index{funkce!degenerovaná hypergeometrická} (nebo \emph{konfluentní hypergeometrická funkce}) daná řadou
+\begin{equation}
+    \label{eq:1F1Series}
+    \boxed{
+        \1F1{a}{c}{x}=\sum_{m=0}^{\infty}\frac{(a)_{m}}{(c)_{m}}\frac{x^{m}}{m!}
+    }
+\end{equation}
+
+Pokud $1-c=n\in\mathbb{N}$, řada~\eqref{eq:1F1Series} není definována.
+Řešení Kummerovy rovnice je v tom případě
+\begin{equation}
+    u(x)
+        =\lim_{c\rightarrow-n}\frac{\1F1{a}{c}{x}}{\Gamma(c)}
+        =\frac{\Gamma(a+n+1)}{\Gamma(a)}\frac{x^{n+1}}{(n+1)!}\1F1{a+n+1}{n+2}{x}.
+\end{equation}
+
+Asymptotické chování degenerované hypergeometrické funkce je
+\begin{equation}
+    \1F1{a}{c}{x\rightarrow\infty}
+        \rightarrow\e^{-\im\pi a}\frac{\Gamma(c)}{\Gamma(c-a)}x^{-a}
+            +\frac{\Gamma(c)}{\Gamma(a)}\e^{x}x^{a-c}.
+\end{equation}
+Tato rovnice platí za předpokladu, že $1-a\notin\mathbb{N}$.

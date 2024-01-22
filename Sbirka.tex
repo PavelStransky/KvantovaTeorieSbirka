@@ -1,0 +1,191 @@
+\documentclass[a4paper,11pt,twoside]{article}
+
+\usepackage{palatino,newtxmath,bbold}	%% Písma
+\usepackage{microtype}					%% Lepší mezery
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}	            %% Kódování textu
+\usepackage[czech]{babel}               %% České nápisy
+\usepackage{amsfonts,amsmath}			%% Matematické symboly (amssymb koliduje s jiným balíkem)
+
+\usepackage{epsfig}                     %% Obrázky
+\usepackage[subrefformat=simple,labelformat=simple]{subcaption} %% Podobrázky
+\usepackage{graphicx}					%% Doplňující příkazy pro obrázky
+
+\usepackage{xifthen}					%% Podmínka if - then
+\usepackage{makeidx}					%% Rejstřík
+%\usepackage{showframe}
+%\usepackage{showidx}
+
+\usepackage[multiple]{footmisc}			%% Lepší formátování poznámek pod čarou - nefunguje s hyperref
+%\usepackage{fnpct}						%% Lepší formátování poznámek pod čarou
+\usepackage{comment}					%% Komentáře
+\usepackage{scrextend}					%% Vylepšené formátování (addmargin)
+\usepackage{xcolor}						%% Barvy
+\usepackage{indentfirst}				%% Odsazení prvního odstavce
+\usepackage{fancyhdr}
+\usepackage{blkarray}					%% Pro komentované vektory
+\usepackage{empheq}                     %% Box around equations
+
+\usepackage{csquotes}
+%\usepackage{expl3}						%% Jinak nefunguje biblatex
+
+%\bibliographystyle{phaip}
+
+\graphicspath{{figures/}}
+
+%\usepackage{showlabels}                 %% Temporarily show the names of labels
+%\renewcommand{\showlabelfont}{\tiny\bfseries\color{black}}
+
+\usepackage{mathtools}
+%\mathtoolsset{showonlyrefs}            %% Remove equation number of unrefferenced equations
+
+\usepackage[unicode]{hyperref}			%% Hypertextové odkazy
+\hypersetup{
+	pdftitle={Cvičení k přednášce kvantová teorie},
+	pdfauthor={Pavel Stránský},
+	pdffitwindow=true,
+	colorlinks=true,
+	urlcolor=cyan,            			%barva textu pri tisku
+	linkcolor=red,
+	citecolor=green,
+	filecolor=magenta
+}
+
+\usepackage[sorting=none,style=phys]{biblatex}
+\addbibresource{S:/Fyzika/Bibliography/References.bib}
+\addbibresource{References.bib}
+
+% Velikost stránky
+\addtolength{\topmargin}{-2.2cm} %\addtolength{\textheight}{-10cm}
+\addtolength{\leftmargin}{-2cm}
+\addtolength{\textwidth}{4cm} \addtolength{\textheight}{4.5cm} % Šířka a výška textu
+%\addtolength{\voffset}{-0.5cm} % Horní okraj
+%\addtolength{\hoffset}{-2cm}
+\setlength{\headheight}{15pt}
+\setlength{\headsep}{0.5cm}
+
+\addtolength{\oddsidemargin}{-2cm}
+\addtolength{\evensidemargin}{-2cm}
+
+\pagestyle{fancy}
+
+\input{LaTeX_defs/defs}
+
+%\excludecomment{solution}
+%\includecomment{note}
+
+% Homework - části, které jsou (byly) za domácí úkol, a proto by se neměly vyskytnout ve sbírce
+% \newenvironment{homework}{}{}
+% \excludecomment{homework}
+
+% homeworknote - části, které jsou navázané na řešení; část s domácím úkolem; vzájemně exklusivní s prostředním homework
+% \newenvironment{homeworknote}{}{}
+
+% 0 pro číslování stránek průběžné
+% 1 pro číslování stránek po sekcích
+\def\secpage{1}
+
+\includecomment{theory}
+
+% solution - část s řešením
+%\excludecomment{solution}
+%\excludecomment{theory}
+
+\newenvironment{solution}{\begin{addmargin}{0.5cm}\color{gray}\subsubsection*{Řešení:}\small}{\end{addmargin}\vspace*{0.3cm}}
+
+\newenvironment{example}{\textbf{\textit{Příklad:}}}{}
+
+\newenvironment{note}[1][]{\vspace*{0.2cm}\noindent\textbf{\textit{\ifthenelse{\isempty{#1}}{Poznámka: }{#1}}}}{}
+%\newenvironment{theory}{}{}
+
+\def\sec#1{\subsubsection*{#1}}
+\def\sfootnote#1{\footnote{\color{gray}#1}}
+\def\scaption#1{\caption{\small\color{gray}#1}}
+\def\scaptionx#1#2{\caption[#1]{\small\color{gray}#2}}
+
+\ifthenelse{\equal{\secpage}{1}}
+	{\newcommand{\np}{\clearpage\setcounter{page}{1}\newpage}}
+	{\newcommand{\np}{\clearpage\newpage}}
+%\newcommand{\np}{}\newcommand{\minput}[1]{\input{#1}}
+
+\makeindex
+
+\begin{document}
+
+\makeatletter
+\@addtoreset{equation}{subsection}
+\renewcommand{\theequation}{\arabic{section}.\arabic{subsection}.\arabic{equation}}
+
+\ifthenelse{\equal{\secpage}{1}}
+	{\renewcommand{\thepage}{\arabic{section}.\arabic{page}}}
+	{}
+%\@addtoreset{page}{section}
+\makeatother
+
+\title{Cvičení k přednášce Kvantová teorie}
+\date{\today}
+\author{Pavel Stránský}
+
+\maketitle
+\pdfbookmark{\contentsname}{Contents}
+\tableofcontents\np
+
+\section*{Úvod}
+Tato sbírka vznikla na základě cvičení k přednášce Kvantová mechanika I (NJSF094) a Kvantová mechanika II (NJSF095), které se později přetvořily do přednášek Kvantová teorie I (NOFY076), Kvantová teorie II (NOFY079) a Kvantová teorie - vybraná témata (NJSF179) vyučované prof. Pavlem Cejnarem~\cite{Cejnar}.
+Sbírka je členěna do tematických kapitol, přičemž každá kapitola přibližně odpovídá příkladům propočítaným na jednom cvičení.
+Důsledkem snahy o systematičnost a samoobsažnost tohoto textu je to, že jsou často uvedeny i příklady, které lze najít v jiných sbírkách.
+Vždy jsou však doplněné o co nejdetailnější postup výpočtu včetně diskuze všech netriviálních kroků, zanedbání a triků.
+Kromě příkladů \uv{standardního rázu} jsem se snažil začlenit i příklady netradiční, často techničtěji náročnější, nebo uvádím pečlivě propočítané problémy, které se objevují v učebnicích a během přednášek, ale na jejichž podrobné řešení se nenachází čas ani prostor.
+Většina příkladů klade spíše důraz na technickou stránku věci, což odpovídá zaměření této přednášky kvantové mechaniky pro studenty teoretických oborů.
+
+Příklady byly převzaty či adaptovány z různých sbírek či zdrojů na webu.
+Zmínil bych zde zejména publikace Antona Capriho~\cite{Capri2002}, Jeana-Luise Basdevanta a Jeana Dalibarda~\cite{Basdevant2000}, Kyriakose Tamvakise\cite{Tamvakis2005} a cvičení k alternující přednášce Martina Čížka~\cite{CizekWWW1,CizekWWW2}.
+
+Chtěl bych zde poděkovat všem studentům, kteří mi byli během cvičení kolegy a partnery a bez nichž by tato sbírka nevznikla. 
+Speciální poděkování patří pak těm, kteří mi pomohli vyladit řešení jednotlivých příkladů a odstranit množství chyb a překlepů.
+
+\np
+
+\input{Operatory/Operatory}\np
+\input{Spin/Spin}\np
+\input{Vicecastice/Vicecastice}\np
+
+\input{HarmonickyOscilator/HarmonickyOscilator}\np
+\input{PriblizneMetody/VariacniMetoda.tex}\np
+
+\input{SkladaniMomentuHybnosti/SkladaniMomentuHybnosti}\np
+\input{DeltaFunkce/DeltaFunkce}\np
+%\input{DeltaFunkce/DeltaFunkce2}\np
+
+\input{KoherentniStavy/KoherentniStavy}\np
+\input{CasovyVyvoj/CasovyVyvoj}\np
+\input{PriblizneMetody/PoruchovaMetoda}\np
+\input{CasovyVyvoj/Mereni}\np
+%\setcounter{section}{11}
+
+\input{NestacionarniPT/NestacionarniPT}\np
+\input{Rozptyl/Rozptyl}\np
+
+%\setcounter{section}{15}
+
+\input{TenzoroveOperatory/TenzoroveOperatory}\np
+\input{NerozlisitelneCastice/NerozlisitelneCastice}\np
+\input{HartreeFok/HartreeFok}\np
+
+\appendix
+\input{WKB/WKB}\np
+\input{HustotaHladin/HustotaHladin}\np
+
+\input{HypergeometrickeFunkce/HypergeometrickeFunkce}\np
+\input{KrivocareSouradnice/KrivocareSouradnice}\np
+\input{Symetrie/Symetrie}\np
+\input{Dekoherence/Dekoherence}\np
+\input{DrahovyIntegral/DrahovyIntegral}\np
+
+\printindex
+
+%\bibliography{Z:/Share/Fyzika/Bibliography/References.bib}
+\printbibliography
+%\input{refs}
+
+\end{document}

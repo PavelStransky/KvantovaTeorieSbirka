@@ -1,0 +1,70 @@
+\subsection{Nabitý harmonický oscilátor}
+Jednorozměrný harmonický oscilátor s nábojem $q$, popsaný Hamiltoniánem 
+\begin{equation}
+    \operator{H}_{0}=\frac{1}{2M}\operator{p}^{2}+\frac{1}{2}M\Omega^{2}\operator{x}^{2},
+\end{equation}
+vložíme do homogenního časově proměnného elektrického pole s intenzitou
+\begin{equation}
+    E(t)=\frac{A}{\tau\sqrt{\pi}}\e^{-\left(\frac{t}{\tau}\right)^{2}}
+\end{equation}
+($A$, $\tau$ jsou reálné parametry).
+    
+\begin{enumerate}
+\item
+    Jak vypadá Hamiltonián interakce oscilátoru s elektrickým polem?
+
+\item
+    Určete hybnost, která se klasicky přenese mezi časy $t_{i}\rightarrow-\infty$ a $t_{f}\rightarrow\infty$.
+    
+\item
+    Spočítejte pravděpodobnost přechodu ze základního stavu v čase $t_{i}\rightarrow-\infty$ do prvního excitovaného stavu v čase $t_{f}\rightarrow\infty$ v rámci 1. řádu nestacionární poruchové teorie.		
+\end{enumerate}
+	
+\begin{solution}
+	\begin{enumerate}
+	\item
+		Zadaná intenzita elektrického pole odpovídá potenciálu
+		\begin{equation}
+			V(x,t)=-q E(t)x,
+		\end{equation}		
+		takže operátor časově závislé opravy k Hamiltoniánu $\operator{H}_{0}$ je
+		\begin{equation}
+			\operator{H}_{\ti{I}}(t)=-q E(t)\operator{x}.
+		\end{equation}
+		
+	\item
+		Přenesená hybnost je dána časovým integrálem elektrické síly
+		\begin{align}
+			P=\int_{t_{i}}^{t_{f}}F(t)\d t
+				=\intinf\left[-\partialderivative{V(x,t)}{x}\right]\d t
+				=\frac{qA}{\tau\sqrt{\pi}}\intinf\e^{-\left(\frac{t}{\tau}\right)^{2}}\d t
+				=qA\,.
+		\end{align}
+		
+	\item
+		Příslušné elementy $S$-matice jsou podle~\eqref{eq:Selements}
+		\begin{subequations}
+			\begin{align}
+				S_{10}^{(0)}
+					&=0,\\
+				S_{10}^{(1)}
+					&=-\frac{\im}{\hbar}\intinf\matrixelement{1}{\left[-q E(t)\operator{x}\right]}{0}
+						\e^{\im\omega_{10}t_{1}}\d t_{1}
+					 =\equationcomment{\operator{x}=\sqrt{\frac{\hbar}{2M\Omega}}\left(\conjugate{\operator{a}}+\operator{a}\right) 
+						\\ \omega_{10}=\frac{E_{1}^{(0)}-E_{0}^{(0)}}{\hbar}=\Omega}\nonumber\\
+					&=\frac{\im qA}{\sqrt{2\pi\hbar M\Omega}}\underbrace{\intinf
+						\e^{-\left(\frac{t}{\tau}\right)^{2}+\im\Omega t}\frac{\d t}{\tau}}_
+						{\sqrt{\pi}\e^{-\left(\frac{\Omega\tau}{2}\right)^{2}}}
+					 =\frac{\im qA}{\sqrt{2\hbar M\Omega}}\e^{-\left(\frac{\Omega\tau}{2}\right)^{2}}\,.
+			\end{align}				
+		\end{subequations}
+		Pravděpodobnost přechodu je tedy do prvního řádu poruchové teorie rovna
+		\begin{equation}
+			\mathcal{P}_{0\rightarrow1}=\abs{S_{10}^{(0)}+S_{11}^{(1)}}^{2}=\frac{q^{2}A^{2}}{2\hbar M\Omega}\e^{-\frac{\Omega^{2}\tau^{2}}{2}}=\frac{P^{2}}{2\hbar M\Omega}\e^{-\frac{\Omega^{2}\tau^{2}}{2}}\,.
+		\end{equation}	
+	\end{enumerate}
+	
+\begin{note}
+	Uvedená porucha v prvním řádu poruchové teorie způsobí přechod nanejvýš na sousední energetickou hladinu harmonického oscilátoru.	
+\end{note}
+\end{solution}

@@ -1,0 +1,70 @@
+\subsection{Wronskián sférické Besselovy rovnice}
+Nalezněte, čemu se rovná Wronskián\footnote{
+    Nenulovost Wronskiánu zaručuje lineární nezávislost zúčastněných funkcí.
+}
+sférických Besselových funkcí, tj. determinant
+\begin{equation}
+    W_{l}(z)
+        \equiv\det\makematrix{j_{l}(z) & n_{l}(z) \\ j'_{l}(z) & n'_{l}(z)}
+        =j_{l}(z)n'_{l}(z)-j'_{l}(z)n_{l}(z).
+\end{equation}
+
+\begin{solution}
+    Rovnice pro sférické Besselovy funkce \eqref{eq:Helmholtz} se vynásobí zleva sférickou Neumannovou funkcí a naopak.
+    Poté se výsledné rovnice od sebe odečtou:
+    \begin{subequations}
+        \begin{align}
+            n_{l}(z)&\bigg|
+            &\left[\frac{\d^{2}}{\d z^{2}}+\frac{2}{z}\frac{\d}{\d z}+
+                        \left(1+\frac{l(l+1)}{z^{2}}\right)\right]j_{l}(z)
+            &=0\\
+            j_{l}(z)&\bigg|
+            &\left[\frac{\d^{2}}{\d z^{2}}+\frac{2}{z}\frac{\d}{\d z}+
+                        \left(1+\frac{l(l+1)}{z^{2}}\right)\right]n_{l}(z)
+            &=0
+        \end{align}            
+    \end{subequations}
+    \begin{subequations}
+        \begin{align}
+            j''_{l}(z)n_{l}(z)-j_{l}(z)n''_{l}(z)+2z(j'_{l}(z)n_{l}(z)-j_{l}(z)n'_{l}(z))
+                &=0\\
+            W_{l}'(z)+\frac{2}{z}W_{l}(z)
+                &=0
+        \end{align}            
+    \end{subequations}
+    Poslední rovnice je diferenciální rovnicí pro $W(z)$, jejíž řešení se hledá ve tvaru
+    \begin{equation}
+        W_{l}(z)=cz^{\alpha}.
+    \end{equation}
+    Po dosazení vychází pro hledané řešení $\alpha=-2$.
+    Pro určení konstanty $c$ stačí vyčíslit hodnota Wronskiánu pro jedno konkrétní $z$.
+    Lze využít například asymptotiky $z\rightarrow0$ \eqref{eq:SphericalBessel0}.
+    Z ní pro $l\neq0$ vychází
+    \begin{subequations}
+        \begin{align}
+            W_{l}(z\sim0)
+                &=\frac{z^{l}}{(2l+1)!!}\frac{\d}{\d z}\left(-\frac{(2l-1)!!}{z^{l+1}}\right)
+                    +\frac{(2l-1)!!}{z^{l+1}}\frac{\d}{\d z}\left(\frac{z^{l}}{(2l+1)!!}\right)\nonumber\\
+                &=\frac{z^{l}}{(2l+1)!!}\frac{(l+1)(2l-1)!!}{z^{l+2}}
+                    +\frac{(2l-1)!!}{z^{l+1}}\frac{lz^{l-1}}{(2l+1)!!}\nonumber\\
+                &=\frac{1}{z^{2}}\frac{l+1}{2l+1}+\frac{1}{z^{2}}\frac{l}{2l+1}
+                    =\frac{1}{z^{2}}
+        \end{align}
+        a pro $l=0$
+        \begin{align}
+            W_{0}(z\sim0)
+                &=1\frac{\d}{\d z}\left(-\frac{1}{z}\right)
+                    +\frac{1}{z}\frac{\d}{\d z}1
+                    =\frac{1}{z^{2}}.
+        \end{align}            
+    \end{subequations}
+    
+    Wronskián sférických Besselových funkcí tedy je
+    \begin{equation}\label{eq:SphericalBesselWronskian}
+        \important{
+            W_{l}(z)
+                =j_{l}(z)n'_{l}(z)-j'_{l}(z)n_{l}(z)
+                =\frac{1}{z^{2}}
+        }.
+    \end{equation}
+\end{solution}

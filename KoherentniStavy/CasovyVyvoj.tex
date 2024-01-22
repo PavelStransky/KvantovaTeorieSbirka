@@ -1,0 +1,101 @@
+\subsection{Časový vývoj}
+\begin{enumerate}
+\item 
+    Nalezněte vyjádření koherentního stavu v čase $t$, tj. stav
+    \begin{equation}
+        \ket{z(t)}=\operator{U}(t)\ket{z},
+    \end{equation}
+    kde $\operator{U}(t)$ je operátor časového vývoje.
+
+\item 
+    Určete střední hodnoty operátorů polohy a hybnosti v čase $t$ 
+    \begin{equation}
+        \mean{\operator{x}(t)}_{z}\equiv\matrixelement{z(t)}{\operator{x}}{z(t)}\,,
+        \qquad\mean{\operator{p}(t)}_{z}\equiv\matrixelement{z(t)}{\operator{p}}{z(t)}\,.
+    \end{equation}
+    Ukažte, že časový vývoj koherentního stavu lze znázornit jako elipsu v grafu, 
+    ve kterém na osy vynášíme $\mean{\operator{x}(t)}_{z}$ proti $\mean{\operator{p}(t)}_{z}$.
+    To je konzistentní s dynamikou klasické částice v potenciálu harmonického oscilátoru.
+
+\item 
+    Nalezněte podmínku pro hodnotu $z$, 
+    za které bude elipsa v klasickém případě a v kvantovém případě pro střední hodnoty stejná.
+\end{enumerate}
+
+\begin{solution}
+	\begin{enumerate}
+	\item
+		Evoluční operátor pro harmonický oscilátor zní
+		\begin{equation}
+			\operator{U}(t)
+				=\e^{-\frac{\im}{\hbar}\operator{H}t}
+				=\e^{-\im\Omega t\left(\conjugate{\operator{a}}\operator{a}+\frac{1}{2}\right)}\,.
+		\end{equation}
+		Jeho působení na koherentní stav dává
+		\begin{align}
+			\ket{z(t)}
+				&=\e^{-\frac{\abs{z}^{2}}{2}}\sum_{n=0}^{\infty}\frac{z^{n}}{\sqrt{n!}}
+					\e^{-\im\Omega t\left(n+\frac{1}{2}\right)}\ket{n}\nonumber\\
+				&=\e^{-\frac{\abs{z}^{2}}{2}-\frac{\im\Omega t}{2}}\sum_{n=0}^{\infty}
+					\frac{\left(z\e^{-\im\Omega t}\right)^{n}}{\sqrt{n!}}\ket{n}\nonumber\\
+				&=\e^{-\frac{\im\Omega t}{2}}\ket{z\e^{-\im\Omega t}}\,.
+		\end{align}
+		Při časovém vývoj tedy (až na fázi) číslo $z$ periodicky osciluje s frekvencí $\Omega$,
+		\begin{equation}
+			z(t)=z\e^{-\im\Omega t}\,.
+		\end{equation}
+		Jak víme z předchozího příkladu~\ref{sec:CoherentStatesExpectation}, reálná a imaginární část čísla $z$ udávají střední hodnotu polohy a hybnosti~\eqref{eq:HOCoherentStateZ}.
+		Tyto střední hodnoty se tedy budou měnit v čase, jak se také explicitně ukáže v následující části úlohy.
+		
+	\item
+		Díky vyjádření komplexního čísla $z$ pomocí rozkladu na velikost a fázi~\eqref{eq:z} lze časový vývoj středních hodnot zapsat ve tvaru
+		\begin{subequations}
+			\begin{align}
+				\mean{\operator{x}(t)}_{z}
+					&=\sqrt{\frac{2\hbar}{M\Omega}}\real{z(t)}
+					=\sqrt{\frac{2\hbar}{M\Omega}}\abs{z}\cos{\left[\phi_{0}-\Omega t\right]},\\
+				\mean{\operator{p}(t)}_{z}
+					&=\sqrt{2\hbar M\Omega}\imaginary{z(t)}
+					=\sqrt{2\hbar M\Omega}\abs{z}\sin{\left[\phi_{0}-\Omega t\right]},
+			\end{align}
+			\label{eq:CoherentStatesExpectationTime}
+		\end{subequations}
+		kde fáze $\phi_{0}$ je fixována střední hodnotou operátorů souřadnice a hybnosti v čase $t=0$.
+		Vztahy~\eqref{eq:CoherentStatesExpectationTime} se pak dají přepsat do tvaru
+		\begin{equation}
+			\frac{\mean{\operator{x}(t)}_{z}^{2}}{A_{q}^{2}}
+				+\frac{\mean{\operator{p}(t)}_{z}^{2}}{B_{q}^{2}}=1,
+		\end{equation}
+		což je rovnice elipsy s poloosami
+		\begin{subequations}
+			\begin{align}
+				A_{q}&=\sqrt{\frac{2\hbar}{M\Omega}}\abs{z},\\
+				B_{q}&=\sqrt{2\hbar M\Omega}\abs{z}.
+			\end{align}
+		\end{subequations}
+		
+	\item
+		V klasickém případě je energie harmonického oscilátoru (klasický Hamiltonián)
+		\begin{equation}
+			\label{eq:HOCoherentStateClassicalMotion}
+			E=\frac{1}{2M}p^{2}+\frac{1}{2}M\Omega^{2}x^{2},
+		\end{equation}
+		takže
+		\begin{equation}
+			\frac{x^{2}}{A_{c}^{2}}+\frac{p^{2}}{B_{c}^{2}}=1,
+		\end{equation}
+		kde
+		\begin{subequations}
+			\begin{align}
+				A_{c}&=\sqrt{\frac{2E}{M\Omega^{2}}},\\
+				B_{c}&=\sqrt{2ME}.
+			\end{align}
+		\end{subequations}
+		Střední hodnota energie v kvantovém případě popsaném koherentním stavem $\ket{z}$ je~\eqref{eq:HOmeanE}.
+		Pro velké hodnoty $z$ lze zanedbat faktor $\frac{1}{2}$ a přibližně tedy platí
+		\begin{equation}
+			\mean{E}_{z}\approx\hbar\Omega\abs{z}^{2}\,.
+		\end{equation}
+		Čím větší je hodnota $z$, tím lépe bude koherentní stav odpovídat pohybu klasické částice o stejné energii.
+	\end{enumerate}
+\end{solution}    

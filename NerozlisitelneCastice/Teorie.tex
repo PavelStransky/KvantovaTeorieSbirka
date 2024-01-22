@@ -1,0 +1,62 @@
+Pro složené	soustavy nerozlišitelných částic je výhodný popis pomocí kreačních 
+a anihilačních operátorů $\operatorconjugate{a}_{k}$, $\operator{a}_{k}$, které působí na \emph{Fockově prostoru}
+\begin{equation}
+    \hilbert{F}
+        =\hilbert{H}^{(0)}\oplus\hilbert{H}^{(1)}\oplus\hilbert{H}^{(2)}\oplus\dotsb
+\end{equation}
+($\hilbert{H}^{(n)}$ označuje Hilbertův prostor soustavy $n$ částic, 
+$\hilbert{H}^{(0)}$ obsahuje pouze jeden stav $\ket{0}$, který se běžně nazývá \emph{vakuum}).
+Normované bázové vektory prostoru $\hilbert{H}^{(n)}$ budeme značit
+\begin{equation}
+    \ket{N_{1},N_{2},\dotsc;N},
+        \qquad\text{kde}\quad\sum_{k=1}^{\infty}N_{k}=N
+\end{equation}
+je celkový počet částic ($N_{1}$ je počet částic v jednočásticovém stavu (orbitalu) $\ket{\phi_{k}}$),
+a dají se vytvořit pomocí kreačních operátorů
+\begin{equation}
+    \ket{N_{1},N_{2},\dotsc;N}
+        =\frac{1}{\sqrt{N_{1}!N_{2}!\dotsm}}\left(\operatorconjugate{a}_{1}\right)^{N_{1}}\left(\operatorconjugate{a}_{2}\right)^{N_{2}}\dotsm\ket{0}
+\end{equation}	
+Schematicky můžeme tedy psát
+\begin{equation}
+    \hilbert{F}
+        =\ket{0}\otimes\operatorconjugate{a}_{j}\ket{0}\otimes\operatorconjugate{a}_{j}\operatorconjugate{a}_{k}\ket{0}\otimes\dotsb
+\end{equation}	
+Kreační operátory přidávají částici, anihilační ubírají:
+\begin{subequations}
+    \begin{align}
+        \operatorconjugate{a}_{k}\ket{N_{1},\dotsc,N_{k},\dotsc;N}
+            &=\sqrt{N_{k}+1}\,\ket{N_{1},\dotsc,N_{k}+1,\dots;N+1}\\
+        \operator{a}_{k}\ket{N_{1},\dotsc,N_{k},\dotsc;N}
+            &=\sqrt{N_{k}}\,\ket{N_{1},\dotsc,N_{k}-1,\dots;N-1}
+    \end{align}        
+\end{subequations}
+(odmocninové koeficienty plynou z normalizace vektorů).
+Působení anihilačního operátoru na vakuum dá $0$:
+\begin{equation}
+    \operator{a}_{k}\ket{0}=0
+\end{equation}
+
+Vlnové funkce soustavy částic musí být symetrické vůči záměně libovolných dvou nerozlišitených bosonů
+(částic s celočíselným spinem) a antisymetrické vůči záměně dvou nerozlišitelných fermionů
+(částic s poločíselným spinem).
+Toho lze docílit tím, že kreační operátory splňují komutační (bosony) nebo antikomutační (fermiony) relace.
+
+Bosonové kreační a anihilační operátory označíme $\operatorconjugate{b}_{k}$, $\operator{b}_{k}$.
+Komutační relace mezi nimi zní
+\begin{align}\label{eq:BosonCommutator}
+        \commutator{\operator{b}_{j}}{\operatorconjugate{b}_{k}}
+            &=\delta_{jk}\,,
+        &\commutator{\operator{b}_{j}}{\operator{b}_{k}}
+            &=\commutator{\operatorconjugate{b}_{j}}{\operatorconjugate{b}_{k}}
+            =0\,.
+\end{align}
+Operátor počtu částic ve stavu $\ket{\phi_{k}}$ a operátor celkového počtu částic jsou
+\begin{subequations}
+    \begin{align}
+        \operator{N}_{k}
+            &=\operatorconjugate{a}_{k}\operator{a}_{k}\,,\\
+        \operator{N}
+            &=\sum_{k}\operatorconjugate{a}_{k}\operator{a}_{k}\,.
+    \end{align}    
+\end{subequations}

@@ -1,0 +1,40 @@
+\subsection{Nabitý harmonický oscilátor v elektrickém poli}
+	Částice s nábojem $q$ se nachází v potenciálu harmonického oscilátoru, a navíc v konstantním homogenním elektrickém poli\index{pohyb v elektromagnetickém poli} intenzity $\mathcal{E}$, směřujícím podél souřadné osy $z$.
+	Nalezněte spektrum tohoto systému.
+	
+\begin{solution}
+	Hamiltonián harmonického oscilátoru v homogenním elektrickém poli
+	\begin{equation}\label{eq:HamiltonianHOCharged}
+		\operator{H}'(\mathcal{E})=\frac{1}{2M}\operator{p}^{2}+\frac{1}{2}M\Omega^{2}\operator{x}^{2}
+			-q\mathcal{E}\operator{x}
+	\end{equation}
+	se přepíše pomocí výsledku~\eqref{eq:HamiltonianHOTranslated} předchozího příkladu,
+	\begin{equation}
+		\operator{H}'(\mathcal{E})
+			=\operator{H}-q\mathcal{E}\operator{x}
+			=\operator{T}^{-1}(\alpha)\operator{H}\operator{T}(\alpha)-e_{0},
+	\end{equation}
+	kde
+	\begin{subequations}
+		\begin{align}
+			\alpha\Omega\sqrt{2\hbar\Omega M}&=-q\mathcal{E}\qquad\Rightarrow\qquad
+			\alpha=-\frac{q\mathcal{E}}{\Omega}\sqrt{\frac{1}{2\hbar\Omega M}},\\		
+			e_{0}&=\alpha^{2}\hbar\Omega
+				=\frac{q^{2}\mathcal{E}^{2}}{\Omega^{2}}\frac{\hbar\Omega}{2\hbar\Omega M}
+				=\frac{q^{2}\mathcal{E}^{2}}{2M\Omega^{2}},\\
+			d&=-\frac{q\mathcal{E}}{M\Omega^{2}}.
+		\end{align}				
+	\end{subequations}
+	Vlastní hodnoty a vlastní vektory Hamiltoniánu $\operator{H}'(\mathcal{E})$ tedy jsou
+	\begin{subequations}
+		\begin{align}
+			E_{n}'&=E_{n}-e_{0}=\hbar\Omega\left(n+\frac{1}{2}\right)
+				-\frac{q^{2}\mathcal{E}^{2}}{2M\Omega^{2}}\\
+			\ket{n}'&=\operator{T}^{-1}\left(-\frac{q\mathcal{E}}{\Omega}\sqrt{\frac{1}{2\hbar\Omega M}}\right)
+				\ket{n}.
+		\end{align}
+	\end{subequations}
+	Vlnové funkce $\psi'_{n}(x)\equiv\braket{x}{n}'$ jsou oproti vlnovým funkcím harmonického oscilátoru posunuté v souřadnici o vzdálenost $d$, viz~\eqref{eq:TranslationOperatorX}.
+	
+	K výsledku lze alternativně dospět tak, že se Hamiltonián $\operator{H}'(\mathcal{E})$ upraví na úplný čtverec a převede na tvar $\operator{H}$ vhodným přeznačením souřadnice.
+\end{solution}

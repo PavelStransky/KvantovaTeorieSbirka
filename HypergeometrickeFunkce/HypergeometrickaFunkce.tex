@@ -1,0 +1,107 @@
+\sec{Hypergeometrická funkce}
+Hypergeometrická funkce\index{funkce!hypergeometrická} je řešením obyčejné homogenní diferenciální rovnice 2. řádu\footnote{
+    Jiné ekvivalentní způsoby zápisu jsou
+    \begin{subequations}
+        \begin{equation}
+            \left(z\derivative{}{z}+a\right)\left(z\derivative{}{z}+b\right)w=\left(z\derivative{}{z}+c\right)\derivative{w}{z},
+        \end{equation}
+        \begin{equation}
+            \derivative[2]{w}{z}+\frac{-c+\left(1+a+b\right)}{z(z-1)}\derivative{w}{z}+\frac{ab}{z(z-1)}w=0.
+        \end{equation}        
+    \end{subequations}
+}
+\begin{equation}
+    \label{eq:HypergeometricEquation}
+    \important{
+        z(1-z)\derivative[2]{w}{z}+\left[c-\left(a+b+1\right)z\right]\derivative{w}{z}-abw=0
+    }\,,
+\end{equation}
+kde $w=w(z)$, $z\in\mathbb{C}$ je nezávisle proměnná a $a,b,c\in\mathbb{C}$ jsou číselné parametry.
+Tato rovnice má 3 regulární singulární body $(0,1,\infty)$.\index{bod!singulární}
+Každá homogenní diferenciální rovnice 2. řádu se třemi regulárními singulárními body se dá vhodnými substitucemi převést na tvar~\eqref{eq:HypergeometricEquation}.
+
+Dvě lineárně nezávislá řešení rovnice~\eqref{eq:HypergeometricEquation} v okolí počátku $z=0$ s poloměrem konvergence 1,\footnote{
+    Funkci lze ovšem analyticky prodloužit do celé komplexní roviny 
+    s řezem probíhajícím podél reálné osy v intervalu $z\in(1,\infty)$.
+} tj. $\abs{z}<1$, jsou až na speciální případy\footnote{
+    Je-li $1-c\in\mathbb{N}$, pak jsou dvě lineárně nezávislá řešení
+    \begin{subequations}
+        \begin{align}
+            w_{1}(z)&=\2F1{a}{b}{c}{z},\\
+            w_{2}(z)&=G(a,b,c;z)+w_{1}(z)\ln{z},\\
+            G(a,b,c;z)&=z^{1-c}\sum_{m=0}^{\infty}\frac{\xi_{m}}{m!}z^{m},
+        \end{align}    
+    \end{subequations}
+    přičemž funkci $G(a,b,c;z)$ je třeba hledat zvlášť.
+}
+\begin{subequations}
+    \begin{align}
+        w_{1}(z)&=\2F1{a}{b}{c}{z}\,,\\
+        w_{2}(z)&=z^{1-c}\2F1{a-c+1}{b-c+1}{2-c}{z}\,,
+    \end{align}    
+\end{subequations}
+kde $\2F1{a}{b}{c}{z}$ je \emph{hypergeometrická funkce} daná řadou
+\begin{equation}
+    \important{
+        \2F1{a}{b}{c}{z}=\sum_{m=0}^{\infty}\frac{\zeta_{m}}{m!}z^{m},
+    }
+\end{equation}
+s koeficienty rozvoje\footnote{
+    Označení ${}_{2}F_{1}$ zavedl Pochhammer a je zakotveno ve tvaru koeficientů $\zeta_{m}$.
+    Obecněji se závádí \emph{zobecněná hypergeometrická funkce} ${}_{r}F_{s}$, 
+    která má $r+s$ parametrů, přičemž stoupající faktoriály $r$ parametrů se nacházejí 
+    v čitateli a stoupající faktoriály $s$ parametrů ve jmenovateli zlomku $\zeta_{m}$.
+    Kromě hypergeometrické funkce ${}_{2}F_{1}$ se nejčastěji setkáme s 
+    \emph{degenerovanými hyperbolickými funkcemi}	${}_{1}F_{1}$, které budou popsány níže.
+}
+\begin{equation}
+    \important{
+        \zeta_{m}
+            =\frac{a(a+1)\dotsb(a+m-1)\,b(b+1)\dotsb(b+m-1)}{c(c+1)\dotsb(c+m-1)}
+            =\frac{(a)_{m}(b)_{m}}{(c)_{m}},
+    }
+\end{equation}
+kde $(\bullet)_{m}$ je tzv. \emph{Pochhammerův symbol} (nebo \emph{stoupající faktoriál})\index{symbol!Pochhammerův}
+definovaný jako
+\begin{equation}
+    (\bullet)_{m}=\left\{\begin{array}{ll}
+        1 & m=0\,, \\ \bullet(\bullet+1)\dotsb(\bullet+m-1) & m>0.
+        \end{array}\right.
+\end{equation}
+Důležitá vlastnost je, že pokud $a$ nebo $b$ je nekladné číslo $-n$, $n\in\mathbb{N}_{0}$,
+vynulují se všechny koeficienty $\zeta_{m}=0$ pro $m\geq n$.
+Hypergeometrická funkce se tak redukuje na polynom stupně $n$, tzv. \emph{Jacobiho polynom},\index{polynom!Jacobiho}
+který se zavádí ve tvaru\footnote{
+    Bližší vztah k hypergeometrické funkci má \emph{posunutý Jacobiho polynom}
+    \begin{equation}
+        J_{n}(p,q;z)
+            \equiv\2F1{-n}{p+n}{q}{z}
+            =\frac{n!}{(q)_n}P_{n}^{(q-1,p-q)}(2z-1).
+    \end{equation}
+    }
+\begin{equation}
+    P^{(\alpha,\beta)}_{n}(z)
+        \equiv\frac{(\alpha+1)_{n}}{n!}\2F1{-n}{\alpha+\beta+n+1}{\alpha+1}{\frac{1}{2}(1-z)},
+\end{equation}
+splňující relace ortogonality
+\begin{equation}
+    \int_{-1}^{1}(1-z)^{\alpha}(1+z)^{\beta}P_{m}^{(\alpha,\beta)}(z)
+        P_{n}^{(\alpha,\beta)}\d z
+        =\mathcal{N}_{n}^{(\alpha,\beta)}\delta_{mn},
+\end{equation}
+kde
+\begin{equation}
+    \mathcal{N}_{n}^{(\alpha,\beta)}
+        =\frac{2^{\alpha+\beta+1}}{2n+\alpha+\beta+1}\frac{\Gamma(n+\alpha+1)\Gamma(n+\beta+1)}{\Gamma(n+\alpha+\beta+1)n!}
+\end{equation}
+je normalizační koeficient. 
+Z Jacobiho polynomů lze zkonstruovat Wignerovy $d$-funkce\footnote{
+    Viz příklad~\ref{sec:BodyRotation}.
+}\index{funkce!Wignerova $d$}
+\begin{equation}
+    d_{m'm}^{j}(\theta)
+        =\sqrt{\frac{(j+m)!(j-m)!}{(j+m')!(j-m')!}}
+        \sin^{m-m'}\frac{\theta}{2}\cos^{m+m'}\frac{\theta}{2}
+        P_{j}^{(m-m',m+m')}(\cos\theta),\quad\theta\in(0,4\pi).
+\end{equation}
+

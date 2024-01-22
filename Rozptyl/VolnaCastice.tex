@@ -1,0 +1,49 @@
+\subsection*{Stacionární stavy volné částice s ostrou hodnotou impulsmomentu}
+Vlnová funkce volné částice s velikostí vlnového vektoru $k$ se vyjádří ve sférických souřadnicích pomocí radiální vlnové funkce a kulových funkcí
+\begin{equation}
+    \psi_{klm}(r,\theta,\phi)
+        =\braket{\vector{r}}{k\,l\,m}
+        =R_{klm}(r)Y_{lm}(\theta,\phi),
+\end{equation}
+což je řešení Schrödingerovy rovnice
+\begin{equation}
+    -\frac{\hbar^{2}}{2M}\Delta\psi_{klm}(r,\theta,\phi)
+        =E\psi_{klm}(r,\theta,\phi),
+\end{equation}
+kde Laplaceův operátor ve sférických souřadnicích je
+\begin{align}
+    \Delta
+        &=\frac{1}{r^{2}}\frac{\partial}{\partial r}r^{2}\frac{\partial}{\partial r}
+            +\frac{1}{r^{2}\sin{\theta}}\frac{\partial}{\partial\theta}\sin{\theta}\frac{\partial}{\partial\theta}
+            +\frac{1}{r^{2}\sin^{2}\theta}\frac{\partial^{2}}{\partial\phi^{2}}\nonumber\\
+        &=\frac{\partial^{2}}{\partial r^{2}}+\frac{2}{r}\frac{\partial}{\partial r}
+            -\frac{\vector{L}^{2}}{\hbar^{2}r^{2}}\,,
+\end{align}
+přičemž $E=\hbar^{2}k^{2}/2M$.
+Po dosazení $\vector{L}^{2}\psi_{klm}(r,\theta,\phi)=\hbar^{2}l(l+1)\psi_{klm}(r,\theta,\phi)$
+\begin{align}
+    \left[\frac{\partial^{2}}{\partial r^{2}}+\frac{2}{r}\frac{\partial}{\partial r}
+        +\left(k^{2}-\frac{l(l+1)}{r^{2}}\right)\right]R_{kl}(r)
+        &=0\nonumber\\
+        &\downarrow z=kr\nonumber\\
+    \left[\frac{\partial^{2}}{\partial z^{2}}+\frac{2}{z}\frac{\partial}{\partial z}
+        +\left(1-\frac{l(l+1)}{z^{2}}\right)\right]R_{kl}(z)
+        &=0,
+\end{align}
+což je přesně Helmholtzova rovnice pro sférické Besselovy funkce \eqref{eq:Helmholtz}.
+Obecné řešení pro radiální část tedy zní
+\begin{equation}\label{eq:FreeParticleRadialWF}
+    R_{kl}(r)
+        =a_{l}(k)j_{l}(kr)+b_{l}(k)n_{l}(kr).
+\end{equation}
+Sférická Neumannova funkce podle asymptotiky \eqref{eq:SphericalBessel0} diverguje pro $r=0$,
+ve výsledném řešení se tudíž nebude vyskytovat.
+Užitím relací ortogonality \eqref{eq:SphericalBesselOrtogonality} 
+dostáváme normovanou radiální část vlnové funkce volné částice
+\begin{equation}
+    \important{
+    R_{kl}(r)			
+        =\sqrt{\frac{2}{\pi}}\,k j_{l}(kr)
+    }.
+    \label{eq:FreeParticleRadialWFBessel}
+\end{equation}

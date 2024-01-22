@@ -1,0 +1,288 @@
+\subsection{Baker-Campbell-Hausdorffova formule}
+\begin{enumerate}
+\item 
+    Jsou-li $\operator{A}$, $\operator{B}$ dva komutující operátory, $\commutator{\operator{A}}{\operator{B}}=0$, dokažte, že
+    \begin{equation}\label{eq:CommutatorExp}
+        \e^{\operator{A}+\operator{B}}
+            =\e^{\operator{A}}\e^{\operator{B}}
+            =\e^{\operator{B}}\e^{\operator{A}}.
+    \end{equation}
+
+\item 
+    Pro obecné nekomutující operátory $\operator{A}$, $\operator{B}$ ověřte, že
+    \begin{equation}\label{eq:BCH}
+        \e^{\operator{A}}\,\operator{B}\,\e^{-\operator{A}}
+            =\sum_{n=0}^{\infty}\frac{\operator{K}_{n}}{n!},
+    \end{equation}
+    kde $\operator{K}_{0}=\operator{B}$ a $\operator{K}_{n+1}=\commutator{\operator{A}}{\operator{K}_{n}}$.
+
+\item
+    Dokažte, že pro libovolné nekomutující operátory $\operator{B}$, $\operator{C}$ platí
+    \begin{equation}\label{eq:ExpExp}
+        \e^{\operator{C}\operator{B}\operator{C}^{-1}}
+            =\operator{C}\e^{\operator{B}}\operator{C}^{-1},
+    \end{equation}
+    a vhodnou volbou operátoru $\operator{C}$ přepište formuli~\eqref{eq:BCH} do jiného často užívaného tvaru
+    \begin{equation}\label{eq:BCHExp}
+        \e^{\operator{A}}\e^{\operator{B}}\e^{-\operator{A}}
+            =\e^{\sum_{n=0}^{\infty}\frac{\operator{K}_{n}}{n!}}.
+    \end{equation}		
+
+    \item
+    Pokud $\operator{A}$, $\operator{B}$ navzájem nekomutují, avšak komutují se svým komutátorem,
+    \begin{equation}
+        \commutator{\operator{A}}{\commutator{\operator{A}}{\operator{B}}}
+            =\commutator{\operator{B}}{\commutator{\operator{A}}{\operator{B}}}
+            =0,
+    \end{equation}
+    ukažte, že platí
+    \begin{equation}
+        \e^{\operator{A}}\e^{\operator{B}}
+            =\e^{\operator{A}+\operator{B}}\e^{\operator{D}}
+            =\e^{\operator{D}}\e^{\operator{A}+\operator{B}}
+            =\e^{\operator{A}+\operator{B}+\operator{D}},
+    \end{equation}
+    a nalezněte operátor $\operator{D}$.				
+
+    \item
+    Pro zcela obecné operátory $\operator{A}$ a $\operator{B}$ nalezněte operátor $\operator{F}$ tak, aby platilo
+    \begin{equation}
+        \e^{\operator{A}}\e^{\operator{B}}
+            =\e^{\operator{F}}.
+    \end{equation}
+\end{enumerate}
+
+\begin{solution}
+	\begin{enumerate}
+	\item
+		Exponenciála operátoru se \trick{rozvine do řady} podle vzorce~\eqref{eq:OperatorExp}:
+        \begin{align}
+			\e^{\operator{A}+\operator{B}}
+				&=\sum_{n=0}^{\infty}\frac{1}{n!}\left(\operator{A}+\operator{B}\right)^{n}
+				&&\equationcomment{\text{binomický}\\\text{rozvoj}}\nonumber\\
+               	&=\sum_{n=0}^{\infty}\sum_{m=0}^{n}\frac{1}{n!}
+					\underbrace{\makematrix{n\\m}}_{\frac{n!}{m!(n-m)!}}\operator{A}^{m}\operator{B}^{n-m}
+				 =\sum_{n=0}^{\infty}\sum_{m=0}^{n}
+					\frac{\operator{A}^{m}}{m!}\frac{\operator{B}^{n-m}}{(n-m)!}\nonumber\\
+                &=\sum_{k=0}^{\infty}\sum_{l=0}^{\infty}\frac{\operator{A}^{k}}{k!}\frac{\operator{B}^{l}}{l!}
+				 =\left(\sum_{k=0}^{\infty}\frac{\operator{A}^{k}}{k!}\right)
+					\left(\sum_{l=0}^{\infty}\frac{\operator{B}^{l}}{l!}\right)
+				 =\e^{\operator{A}}\e^{\operator{B}}.
+		\end{align}
+        Komutativita operátorů $\operator{A}$ a $\operator{B}$ se využila pro přeskládání operátorů v binomickém rozvoji.\index{rozvoj!binomický}
+        
+	\item
+		\trick{Zavede se pomocná funkce $\operator{f}(\xi)=\e^{\xi\operator{A}}\operator{B}\e^{-\xi\operator{A}}$.}\sfootnote{
+			Jedná se o funkci reálného parametru $\xi$, avšak funkční hodnota je operátor z Hilbertova prostoru $\hilbert{H}$: $\operator{f}:\mathbb{R}\mapsto\hilbert{H}$.
+		}
+		Levá strana dokazované formule~\eqref{eq:BCH} je pak rovna $\operator{f}(1)$.
+		Funkce $\operator{f}(\xi)$ se do rozvine do mocninné řady, jejíž jednotlivé členy se označí v souladu s pravou stranou dokazované formule
+		\begin{equation}
+            \operator{f}(\xi)
+                =\sum_{n=0}^{\infty}\frac{\xi^{n}}{n!}\operator{K}_{n}.
+		\end{equation}		
+        Operátorové výrazy $\operator{K}_{n}$ se postupně vyjádří pomocí derivací funkce $\operator{f}(\xi)$:
+        \begin{subequations}
+            \begin{align}
+                \operator{K}_{0}=\operator{f}(0)
+                    &=\operator{B},\\
+                \operator{K}_{1}=\operator{f}'(0)
+                    &=\left\{\left(\e^{\xi\operator{A}}\operator{A}\right)\operator{B}\e^{-\xi\operator{A}}
+                        +\e^{\xi\operator{A}}\operator{B}\left(-\operator{A}\e^{-\xi\operator{A}}\right)\right\}_{\xi=0}\nonumber\\
+                    &=\left\{\e^{\xi\operator{A}}\commutator{\operator{A}}{\operator{B}}\e^{-\xi\operator{A}}\right\}_{\xi=0}\nonumber\\
+                    &=\commutator{\operator{A}}{\operator{B}}
+                    =\commutator{\operator{A}}{\operator{K}_{0}},\\
+                \operator{K}_{2}=\operator{f}''(0)
+                    &=\left\{\derivative{}{\xi}
+                        \e^{\xi\operator{A}}\commutator{\operator{A}}{\operator{B}}\e^{-\xi\operator{A}}\right\}_{\xi=0}\nonumber\\
+                    &=\left\{\left(\e^{\xi\operator{A}}\operator{A}\right)\commutator{\operator{A}}{\operator{B}}\e^{-\xi\operator{A}}
+                        +\e^{\xi\operator{A}}\commutator{\operator{A}}{\operator{B}}
+                        \left(-\operator{A}\e^{-\xi\operator{A}}\right)\right\}_{\xi=0}\nonumber\\
+                    &=\commutator{\operator{A}}{\commutator{\operator{A}}{\operator{B}}}=\commutator{\operator{A}}{\operator{K}_{1}},\\
+                    \vdots&\nonumber\\
+                \operator{K}_{n}=\operator{f}^{(n)}(0)
+                    &=\commutator{\operator{A}}{\operator{K}_{n-1}}=\commutator{\operator{A}}{\commutator{\operator{A}}{\dotsb\commutator{\operator{A}}{\operator{B}}\dotsb}}.
+            \end{align}
+        \end{subequations}
+	\item
+		Analogicky s předchozím bodem se levá strana dokazovaného výrazu~\eqref{eq:ExpExp} rozvine do řady
+		podle vztahu pro exponenciálu operátoru~\eqref{eq:OperatorExp}:
+		\begin{equation}
+			\e^{\operator{C}\operator{B}\operator{C}^{-1}}
+				=\sum_{n=0}^{\infty}\frac{1}{n!}\left(\operator{C}\operator{B}\operator{C}^{-1}\right)^{n}
+				=\sum_{n=0}^{\infty}\frac{1}{n!}\operator{C}\operator{B}^{n}\operator{C}^{-1}
+				=\operator{C}\left(\sum_{n=0}^{\infty}\frac{1}{n!}\operator{B}^{n}\right)\operator{C}^{-1}
+				=\operator{C}\e^{\operator{B}}\operator{C}^{-1}.
+		\end{equation}
+        Substituce $\operator{C}\equiv\e^{\operator{A}}$ převede rovnici~\eqref{eq:BCH} do hledaného tvaru~\eqref{eq:BCHExp}.		
+
+    \item
+        Pro tuto část úlohy se zavede operátorová funkce
+		\begin{equation}
+            \operator{g}(\xi)
+                \equiv\e^{\xi\operator{A}}\e^{\xi\operator{B}}.
+            \label{eq:BCHgxi}
+        \end{equation}
+		Její derivace je
+		\begin{align}
+            \operator{g}'(\xi)
+				&=\operator{A}\e^{\xi\operator{A}}\e^{\xi\operator{B}}+\e^{\xi\operator{A}}\operator{B}\e^{\xi\operator{B}}\nonumber\\
+				&=\operator{A}\e^{\xi\operator{A}}\e^{\xi\operator{B}}
+					+\e^{\xi\operator{A}}\operator{B}\underbrace{\e^{-\xi\operator{A}}\e^{\xi\operator{A}}}_{\operator{1}}
+					\e^{\xi\operator{B}}\nonumber\\
+				&=\left(\operator{A}+\e^{\xi\operator{A}}\operator{B}\e^{-\xi\operator{A}}\right)\operator{g}(\xi)\nonumber\\
+				&=\left(\operator{A}+\operator{B}+\xi\commutator{\operator{A}}{\operator{B}}\right)\operator{g}(\xi),
+		\end{align}
+		přičemž poslední rovnost vyplývá z již dokázané formule~\eqref{eq:BCH}, z jejíž nekonečné sumy díky zadanému předpokladu $\commutator{\operator{A}}{\commutator{\operator{A}}{\operator{B}}}=0$ zbudou jen první dva členy $\operator{K}_{0}\equiv\operator{B}$ a $\operator{K}_{1}\equiv\commutator{\operator{A}}{\operator{B}}$.
+		Levá a pravá strana výrazu vede na \trick{diferenciální rovnici pro funkci $\operator{g}(\xi)$}
+		\begin{equation}
+            \derivative{}{\xi}\ln{\operator{g}(\xi)}
+                =\operator{A}+\operator{B}+\xi\commutator{\operator{A}}{\operator{B}}
+		\end{equation}
+		s řešením
+		\begin{equation}
+            \operator{g}(\xi)
+                =\e^{\xi\left(\operator{A}+\operator{B}\right)+\frac{\xi}{2}\commutator{\operator{A}}{\operator{B}}}
+		\end{equation}
+		[integrační konstantu fixuje požadavek $\operator{g}(0)=\operator{1}$ vyplývající z definičního vztahu~\eqref{eq:BCHgxi}].
+		Dosazení $\xi=1$ dá hledaný výraz
+		\begin{equation}
+			\important{\e^{\operator{A}}\e^{\operator{B}}
+				=\e^{\operator{A}+\operator{B}+\frac{1}{2}\commutator{\operator{A}}{\operator{B}}}
+                =\e^{\operator{A}+\operator{B}}\e^{\frac{1}{2}\commutator{\operator{A}}{\operator{B}}}
+            },
+            \label{eq:BCH1}
+        \end{equation}
+		kde poslední rovnost platí díky předpokladu $\commutator{\operator{A}+\operator{B}}{\commutator{\operator{A}}{\operator{B}}}=0$.
+		Hledaný operátor je tedy
+		\begin{equation}
+            \operator{D}
+                \equiv\frac{1}{2}\commutator{\operator{A}}{\operator{B}}.
+        \end{equation}
+
+%	\setcounter{enumi}{4}
+    \item
+		Nejprve se dokáže platnost \trick{pomocné formule}
+		\begin{equation}
+			\derivative{}{\xi}\e^{\operator{h}(\xi)}
+				=\int_{0}^{1}\e^{(1-y)\operator{h}(\xi)}\operator{h}'(\xi)\e^{y\operator{h}(\xi)}\d y,
+            \label{eq:Oint}
+        \end{equation}
+		kde $\operator{h}(\xi)$ je libovolná operátorová funkce a $\operator{h}'(\xi)$ její derivace.\sfootnote{
+			Funkce $\operator{h}$ a její derivace $\operator{h}'$ nemusejí komutovat, $\commutator{\operator{h}(\xi)}{\operator{h}'(\xi)}\neq0$.
+			Jako jednoduchý příklad poslouží $\operator{h}(\xi)=\operator{U}+\xi\operator{V}$, pokud $\commutator{\operator{U}}{\operator{V}}\neq0$.
+		}
+		Levá strana rozvinutá v řadu~\eqref{eq:OperatorExp} dá
+		\begin{align}
+			\derivative{}{\xi}\e^{\operator{h}}
+				&=\derivative{}{\xi}\left(\operator{1}+\operator{h}+\frac{\operator{h}^{2}}{2!}+\frac{\operator{h}^{3}}{3!}+\dotsb\right)\nonumber\\
+				&=\operator{h}'+\frac{\operator{h}'\operator{h}+\operator{h}\operator{h}'}{2!}+\frac{\operator{h}'\operator{h}^{2}+\operator{h}\operator{h}'\operator{h}+\operator{h}^{2}\operator{h}'}{3!}+\dotsb\nonumber\\
+				&=\sum_{n,m=0}^{\infty}\frac{\operator{h}^{n}\operator{h}'\operator{h}^{m}}{(n+m+1)!}
+		\end{align}
+		a pravá strana vede po rozvinutí obou exponenciál na
+		\begin{equation}
+			\int_{0}^{1}\e^{(1-y)\operator{h}}\operator{h}'\e^{y\operator{h}}\d y
+				=\sum_{n,m=0}^{\infty}\frac{\operator{h}^{n}\operator{h}'\operator{h}^{m}}{n!m!}
+					\underbrace{\int_{0}^{1}(1-y)^{n}y^{m}\d y}_{\frac{n!m!}{(n+m+1)!}}
+				=\sum_{n,m=0}^{\infty}\frac{\operator{h}^{n}\operator{h}'\operator{h}^{m}}{(n+m+1)!}.
+		\end{equation}
+		Pomocná formule~\eqref{eq:Oint} je tedy splněna.
+		
+		V následujícím kroku se pomocná formule~\eqref{eq:Oint} zleva obloží operátorem $\e^{-\operator{h}}$ a následně se použije dříve dokázaný vzorec~\eqref{eq:BCH},
+		\begin{align}
+			\e^{-\operator{h}}\derivative{}{\xi}\e^{\operator{h}}
+				&=\int_{0}^{1}\underbrace{\e^{-y\operator{h}}\operator{h}'\e^{y\operator{h}}}_{\operator{h}'
+					+y\commutator{\operator{h}'}{\operator{h}}+\frac{y^{2}}{2!}\commutator{\commutator{\operator{h}'}{\operator{h}}}{\operator{h}}+\dotsb}\d y\nonumber\\
+				&=\operator{h}'+\frac{1}{2!}\commutator{\operator{h}'}{\operator{h}}
+					+\frac{1}{3!}\commutator{\commutator{\operator{h}'}{\operator{h}}}{\operator{h}}+\dotsb.
+			\label{eq:ExpDExp}
+		\end{align}		
+		Operátor $\operator{F}$ se bude hledat ve tvaru
+		\begin{equation}
+            \operator{F}(\xi)
+                =\xi\operator{F}_{1}+\xi^{2}\operator{F}_{2}+\xi^{3}\operator{F}_{3}+\xi^{4}\operator{F}_{4}+\dotsb.
+		\end{equation}
+		Jednotlivé členy rozvoje se naleznou \trick{porovnáním příspěvků stejného řádu v $\xi$} u obou stran rovnice
+		\begin{equation}
+			\e^{-\xi\operator{B}}\e^{-\xi\operator{A}}\derivative{}{\xi}\e^{\xi\operator{A}}\e^{\xi\operator{B}}
+				=\e^{-\operator{F}(\xi)}\derivative{}{\xi}\e^{\operator{F}(\xi)}.
+		\end{equation}
+		Levá strana dá díky vzorci~\eqref{eq:BCH}
+		\begin{align}
+			\e^{-\xi\operator{B}}\e^{-\xi\operator{A}}\derivative{}{\xi}\e^{\xi\operator{A}}\e^{\xi\operator{B}}
+				&=\e^{-\xi\operator{B}}\operator{B}\e^{\xi\operator{B}}
+					+\e^{-\xi\operator{B}}\e^{-\xi\operator{A}}\operator{A}\e^{\xi\operator{A}}\e^{\xi\operator{B}}\nonumber\\
+				&=\operator{B}+\e^{-\xi\operator{B}}\operator{A}\e^{\xi\operator{B}}\nonumber\\
+				&=\operator{B}+\operator{A}+\xi\commutator{\operator{A}}{\operator{B}}
+					+\frac{\xi^{2}}{2}\commutator{\commutator{\operator{A}}{\operator{B}}}{\operator{B}}
+					+\frac{\xi^{3}}{6}\commutator{\commutator{\commutator{\operator{A}}{\operator{B}}}{\operator{B}}}{\operator{B}}
+					+\dotsb.
+		\end{align}
+		Pravá strana při použití pomocné formule~\eqref{eq:ExpDExp} vede na
+		\begin{align}
+			\e^{-\operator{F}(\xi)}\derivative{}{\xi}\e^{\operator{F}(\xi)}
+				&=\operator{F}'+\frac{1}{2!}\commutator{\operator{F}'}{\operator{F}}
+					+\frac{1}{3!}\commutator{\commutator{\operator{F}'}{\operator{F}}}{\operator{F}}+\dotsb\nonumber\\
+				&=\operator{F}_{1}+2\xi\operator{F}_{2}+\xi^{2}\left(3\operator{F}_{3}
+					-\frac{1}{2}\commutator{\operator{F}_{1}}{\operator{F}_{2}}\right)\nonumber\\
+				&\quad+\xi^{3}\left(4\operator{F}_{4}-\commutator{\operator{F}_{1}}{\operator{F}_{3}}
+					+\frac{1}{6}\commutator{\operator{F}_{1}}{\commutator{\operator{F}_{1}}{\operator{F}_{2}}}\right)+\O{\xi^{4}},
+		\end{align}
+        neboť
+        \begin{subequations}
+            \begin{align}
+                \operator{F}'
+                    &=\operator{F}_{1}+2\xi\operator{F}_{2}+3\xi^{2}\operator{F}_{3}+4\xi^{3}\operator{F}_{4}+\O{\xi^{4}},\\
+                \commutator{\operator{F}'}{\operator{F}}
+                    &=-\xi^{2}\commutator{\operator{F}_{1}}{\operator{F}_{2}}-2\xi^{3}\commutator{\operator{F}_{1}}{\operator{F}_{3}}
+                        +\O{\xi^{4}},\\
+                \commutator{\commutator{\operator{F}'}{\operator{F}}}{\operator{F}}
+                    &=\xi^{3}\commutator{\operator{F}_{1}}{\commutator{\operator{F}_{1}}{\operator{F}_{2}}}+\O{\xi^{4}}.
+            \end{align}		
+        \end{subequations}
+        Příspěvky stejných řádů v $\xi$ dají
+        \begin{subequations}
+            \begin{align}
+                \operator{F}_{1}
+                    &=\operator{A}+\operator{B},\\
+                \operator{F}_{2}
+                    &=\frac{1}{2}\commutator{\operator{A}}{\operator{B}},\\
+                \operator{F}_{3}
+                    &=\frac{1}{12}\left(\commutator{\operator{A}}{\commutator{\operator{A}}{\operator{B}}}
+                        +\commutator{\operator{B}}{\commutator{\operator{B}}{\operator{A}}}\right),\\
+                \operator{F}_{4}
+                    &=-\frac{1}{24}\commutator{\operator{A}}{\commutator{\operator{B}}{\commutator{\operator{A}}{\operator{B}}}},
+            \end{align}
+        \end{subequations}
+        takže do 4. řádu v operátorech $\operator{A}$, $\operator{B}$ platí
+		\begin{equation}\label{eq:BCHFull}
+			\important{
+			\e^{\operator{A}}\e^{\operator{B}}
+				=\e^{\operator{A}+\operator{B}+\frac{1}{2}\commutator{\operator{A}}{\operator{B}}
+				+\frac{1}{12}\left(\commutator{\operator{A}}{\commutator{\operator{A}}{\operator{B}}}
+				+\commutator{\operator{B}}{\commutator{\operator{B}}{\operator{A}}}\right)
+				-\frac{1}{24}\commutator{\operator{A}}{\commutator{\operator{B}}{\commutator{\operator{A}}{\operator{B}}}}+\dotsb}
+			}.				
+        \end{equation}
+    \end{enumerate}
+\end{solution}
+
+\begin{note}
+	Poslední vztah~\eqref{eq:BCHFull}, a někdy i dílčí vztahy~\eqref{eq:BCH} se nazývají v různých zdrojích \emph{Baker-Campbell-Hausdorffova (BCH) formule}\index{formule!Baker-Campbell-Hausdorffova} nebo \emph{Glauberova formule} a hrají důležitou roli v teorii grup a v kvantové mechanice v teorii koherentních stavů (koherentním stavům se věnuje kapitola~\ref{sec:CoherentStates}).
+	Metoda efektivního výpočtu koeficientů rozvoje BCH formule je popsána například v~práci~\cite{Casas2009}.
+\end{note}
+
+\begin{note}
+	Duální vztah k BCH formuli je tzv.~\emph{Zassenhausova formule}\index{formule!Zassenhausova}
+	\begin{equation}\label{eq:Zassenhaus}
+		\important{\e^{\operator{A}+\operator{B}}
+			=\e^{\operator{A}}\e^{\operator{B}}
+				\e^{-\frac{1}{2}\commutator{\operator{A}}{\operator{B}}}
+				\e^{\frac{1}{6}\left(\commutator{\operator{A}}{\commutator{\operator{A}}{\operator{B}}}
+					+2\commutator{\operator{B}}{\commutator{\operator{A}}{\operator{B}}}\right)}
+				\e^{-\frac{1}{24}\left(\commutator{\operator{A}}{\commutator{\operator{A}}{\commutator{\operator{A}}{\operator{B}}}}
+					+3\commutator{\operator{A}}{\commutator{\operator{B}}{\commutator{\operator{A}}{\operator{B}}}}
+                    +3\commutator{\operator{B}}{\commutator{\operator{B}}{\commutator{\operator{A}}{\operator{B}}}}\right)}\dotsb
+        }.
+	\end{equation}
+\end{note}

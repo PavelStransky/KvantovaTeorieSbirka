@@ -1,0 +1,224 @@
+\sec{Schödingerův, Heisenbergův, Diracův obraz}
+Předpokládejme, že systém popsaný Hamiltoniánem $\operator{H}$ lze rozložit na část $\operator{H}_{0}$ nezávisející na čase a na časově závislou poruchu $\operator{H}_{\ti{I}}$:
+\begin{equation}
+    \operator{H}(t)=\operator{H}_{0}+\operator{H}_{\ti{I}}(t).
+\end{equation}	
+Dále mějme v čase $t_{0}$ vektor $\ket{\psi(t_{0})}$ popisující stav systému, libovolný časově nezávislý operátor $\operator{A}$ a časově závislý operátor $\operator{B}(t)$.
+Fyzikální závěry se nezmění, pokud provedeme unitární transformaci současně stavového vektoru a operátorů, danou unitárním operátorem $\operator{U}$:
+\begin{subequations}
+    \begin{align}
+        \ket{\psi'}
+            &=\operator{U}\ket{\psi},\\
+        \operator{A}'
+            &=\operator{U}\operator{A}\conjugate{\operator{U}}.
+    \end{align}			
+\end{subequations}
+Tuto transformaci lze v každém čase $t$ uvažovat různou.
+V praxi se užívají tři takovéto transformace (fyzikálně ekvivalentní obrazy).
+
+\begin{enumerate}
+\item
+    \emph{Schrödingerův obraz}
+    \begin{equation}
+        \ket{\psi(t)}
+            =\operator{U}(t,t_{0})\ket{\psi(t_{0})}\qquad\operator{A},\,\operator{B}(t)
+    \end{equation}
+    Operátor $\operator{A}$ zůstává v čase konstantní, 
+    operátor $\operator{B}(t)$ se mění v čase podle svého funkčního předpisu.
+    
+    Diferenciální rovnice (spolu s počáteční podmínkou) pro evoluční operátor $\operator{U}(t,t_{0})$:
+    \begin{align}
+        \im\hbar\,\frac{\partial\operator{U}(t,t_{0})}{\partial t}
+            &=\operator{H}(t)\,\operator{U}(t,t_{0})\,,
+            &\operator{U}(t_{0},t_{0})
+            &=\operator{1}\,,
+    \end{align}
+    která má v případě, že celkový Hamiltonián $\operator{H}$ nezávisí na čase, řešení
+    \begin{equation}
+        \operator{U}(t,t_{0})
+            =\e^{-\frac{\im}{\hbar}\operator{H}(t-t_{0})}\,.
+    \end{equation}
+    Z evoluční rovnice pro evoluční operátor plyne rovnice pro stavový vektor (\emph{časová Schrödingerova rovnice})
+    \begin{equation}
+        \im\hbar\,\frac{\partial\ket{\psi(t)}}{\partial t}
+            =\operator{H}(t)\ket{\psi(t)}\,.
+    \end{equation}
+
+\item\emph{Heisenbergův obraz}
+    \begin{subequations}
+        \begin{align}
+            \ket{\psi^{\ti{H}}(t;t_{1})}
+                &=\conjugate{\operator{U}}(t,t_{1})\ket{\psi(t)}
+                    =\ket{\psi(t_{1})}
+                    =konst.\,,\\
+            \operator{A}^{\ti{H}}(t;t_{1})
+                &=\conjugate{\operator{U}}(t,t_{1})\,\operator{A}\,\operator{U}(t,t_{1})\,,\\
+            \operator{B}^{\ti{H}}(t;t_{1})
+                &=\conjugate{\operator{U}}(t,t_{1})\,\operator{B}(t)\,\operator{U}(t,t_{1})\,.
+        \end{align}            
+    \end{subequations}
+    ($t_{1}$ je vnější parametr).
+    Stavový vektor $\ket{\psi}$ se s časem nemění, veškerý časový vývoj je zahrnut v časové závislosti operátorů.
+    
+    Diferenciální rovnice pro stavový vektor a pro operátory:
+    \begin{subequations}
+        \begin{align}
+            \frac{\partial\ket{\psi^{\ti{H}}(t;t_{1})}}{\partial t}
+                &=0 
+                &\ket{\psi^{\ti{H}}(t_{1};t_{1})}
+                &=\ket{\psi(t_{1})}\\
+            \frac{\partial\operator{A}^{\ti{H}}(t;t_{1})}{\partial t}
+                &=\frac{1}{\im\hbar}\commutator{\operator{A}^{\ti{H}}(t;t_{1})}{\operator{H}^{\ti{H}}(t)}
+                &\operator{A}^{\ti{H}}(t_{1};t_{1})
+                &=\operator{A}\\
+            \frac{\partial\operator{B}^{\ti{H}}(t;t_{1})}{\partial t}
+                &=\frac{1}{\im\hbar}\commutator{\operator{A}^{\ti{H}}(t;t_{1})}{\operator{H}^{\ti{H}}(t)}
+                    +\frac{\partial^{\ti{H}}_{t_{1}}\operator{B}(t)}{\partial t}
+                &\operator{B}^{\ti{H}}(t_{1};t_{1})
+                &=\operator{B}(t_{1})\,,
+        \end{align}            
+    \end{subequations}
+    kde 
+    \begin{equation}
+        \frac{\partial^{\ti{H}}_{t_{1}}\operator{B}(t)}{\partial t}
+            \equiv\conjugate{\operator{U}}(t,t_{1})\,\frac{\partial\operator{B}(t)}{\partial t}\,\operator{U}(t,t_{1})\,.
+    \end{equation}
+    
+    Pokud je systém v časově neproměnném vnějším poli, tj. $\commutator{\operator{H}}{\operator{U}(t;t_{1})}=0$, pak
+    \begin{equation}
+        \operator{H}^{\ti{H}}(t;t_{1})
+            =\conjugate{\operator{U}}(t,t_{1})\,\operator{H}\,\operator{U}(t,t_{1})
+            =\operator{H}\,.
+    \end{equation}
+
+\item\emph{Diracův (interakční) obraz}
+    \begin{subequations}
+        \begin{align}
+            \ket{\psi^{\ti{D}}(t;t_{1})}
+                &=\conjugate{\operator{U}}_{0}(t;t_{1})\ket{\psi(t)}\\
+            \operator{A}^{\ti{D}}(t;t_{1})
+                &=\conjugate{\operator{U}}_{0}(t;t_{1})\,\operator{A}\,\operator{U}_{0}(t;t_{1})\\
+            \operator{B}^{\ti{D}}(t;t_{1})
+                &=\conjugate{\operator{U}}_{0}(t;t_{1})\,\operator{B}(t)\,\operator{U}_{0}(t;t_{1})
+        \end{align}            
+    \end{subequations}
+    Zde 
+    \begin{equation}
+        \operator{U}_{0}(t;t_{1})
+            =\e^{-\frac{\im}{\hbar}H_{0}(t-t_{1})}
+    \end{equation}
+    je evoluční operátor Hamiltoniánu $\operator{H}_{0}$, tj. řešení diferenciální rovnice
+    \begin{align}
+        \im\hbar\,\frac{\partial\operator{U}_{0}(t;t_{1})}{\partial t}
+            &=\operator{H}_{0}\,\operator{U}_{0}(t;t_{1})
+            &\operator{U}_{0}(t_{1};t_{1})
+            &=\operator{1}\,.
+    \end{align}
+    Bez újmy na obecnosti lze volit čas $t_{1}$ stejný jako v případě obrazu Heisenbergova.
+    
+    Diferenciální rovnice pro stavový vektor a pro operátory znějí:\footnote{
+        Ve shodě s definicí operátoru v Diracově obraze je
+        \begin{equation}
+            \operator{H}_{\ti{I}}^{\ti{D}}(t;t_{1})
+                =\conjugate{\operator{U}}_{0}(t;t_{1})\operator{H}_{\ti{I}}(t)\operator{U}_{0}(t;t_{1})\,.
+        \end{equation}
+    }
+    \begin{subequations}
+        \begin{align}
+            \im\hbar\,\frac{\partial\ket{\psi^{\ti{D}}(t;t_{1})}}{\partial t}
+                &=\operator{H}^{\ti{D}}_{\ti{I}}(t;t_{1})\ket{\psi^{\ti{D}}(t;t_{1})} 
+                &\ket{\psi^{\ti{D}}(t_{1};t_{1})}
+                &=\ket{\psi(t_{1})}\\
+            \frac{\partial\operator{A}^{\ti{D}}(t;t_{1})}{\partial t}
+                &=\frac{1}{\im\hbar}\commutator{\operator{A}^{\ti{D}}(t;t_{1})}{\operator{H}^{\ti{D}}_{\ti{I}}(t;t_{1})}
+                &\operator{A}^{\ti{D}}(t_{1};t_{1})
+                &=\operator{A}\\
+            \frac{\partial\operator{B}^{\ti{D}}(t;t_{1})}{\partial t}
+                &=\frac{1}{\im\hbar}\commutator{\operator{B}^{\ti{D}}(t;t_{1})}{\operator{H}^{\ti{D}}_{\ti{I}}(t;t_{1})}
+                    +\frac{\partial^{\ti{D}}_{t_{1}}\operator{B}(t)}{\partial t}
+                &\operator{B}^{\ti{D}}(t_{1};t_{1})
+                &=\operator{B}(t_{1}),
+        \end{align}            
+    \end{subequations}
+    kde (podobně jako u obrazu Heisenbergova)
+    \begin{equation}
+        \frac{\partial^{\ti{D}}_{t_{1}}\operator{B}(t)}{\partial t}
+            \equiv\conjugate{\operator{U}}_{0}(t,t_{1})\,\frac{\partial\operator{B}(t)}{\partial t}\,\operator{U}_{0}(t,t_{1}).
+    \end{equation}
+    Řešení první rovnice, která se v literatuře nazývá~\emph{Schwingerova-Tomonagova} a je analogií Schrödingerovy rovnice, lze psát ve tvaru
+    \begin{equation}
+        \ket{\psi^{\ti{D}}(t;t_{1})}
+            =\operator{S}(t,t_{0};t_{1})\ket{\psi^{\ti{D}}(t_{0};t_{1})},
+    \end{equation}
+    kde \emph{evoluční operátor v Diracově obraze}
+    \begin{equation}
+        \operator{S}(t,t_{0};t_{1})
+            =\conjugate{\operator{U}}_{0}(t,t_{1})\operator{U}(t,t_{0})\operator{U}_{0}(t_{0},t_{1})
+    \end{equation}
+    je řešením diferenciální rovnice
+    \begin{align}\label{eq:SDR}
+        \im\hbar\,\frac{\partial\operator{S}(t,t_{0};t_{1})}{\partial t}
+            &=\operator{H}^{\ti{D}}_{\ti{I}}(t;t_{1})\operator{S}(t,t_{0};t_{1})
+            &\operator{S}(t_{0},t_{0};t_{1})
+            &=\operator{1}\,.
+    \end{align}
+\end{enumerate}
+
+V Heisenbergově i Diracově obraze se objevuje vnější parametr $t_{1}$, který udává čas, ve kterém se operátory i stavové vektory všech tří uvedených obrazů rovnají.
+Od této chvíle budeme volit $t_{1}=0$ a nebudeme tento parametr ve vzorcích explicitně vypisovat.
+
+Pokud $\operator{H}_{0}$ představuje volný Hamiltonián, pak se zavádějí ještě
+\emph{M\o llerovy operátory}
+\begin{equation}
+    \Omega^{\hi{\pm}}
+        =\lim_{t_{0}\rightarrow\mp\infty}\operator{S}(0,t_{0})
+\end{equation}
+a operátor $S$-matice
+\begin{equation}
+    \operator{S}
+        =\lim_{\substack{t\rightarrow+\infty\\t_{0}\rightarrow-\infty}}\operator{S}(t,t_{0}).
+\end{equation}
+
+Řešení rovnice \eqref{eq:SDR} lze hledat ve tvaru integrální rovnice, kterou lze vyjádřit ve formě řady\footnote{Dysonova řada.}
+\begin{align}
+    \operator{S}(t,t_{0})
+        &=\operator{1}-\frac{\im}{\hbar}\int_{t_{0}}^{t}\operator{H}_{\ti{I}}^{\ti{D}}(t_{1})
+            \operator{S}(t_{1},t_{0})\d t_{1}=\nonumber\\
+        &=\operator{1}-\frac{\im}{\hbar}\int_{t_{0}}^{t}\operator{H}_{\ti{I}}^{\ti{D}}(t_{1})
+        \left\{\operator{1}-\frac{\im}{\hbar}\int_{t_{0}}^{t_{1}}\operator{H}_{\ti{I}}^{\ti{D}}(t_{2})
+            \operator{S}(t_{2},t_{0})\d t_{2}\right\}
+        \d t_{1}=\nonumber\\
+        &=\sum_{n=0}^{\infty}\operator{S}^{\hi{n}}(t,t_{0}),
+        \label{eq:SExpansion}
+\end{align}
+kde
+\begin{subequations}\label{eq:SExpansionItems}
+    \begin{align}
+        \operator{S}^{\hi{0}}
+            &=\operator{1}\\
+        \operator{S}^{\hi{1}}
+            &=-\frac{\im}{\hbar}\int_{t_{0}}^{t}\operator{H}_{\ti{I}}^{\ti{D}}(t_{1})\d t_{1}\\
+            &\;\;\vdots\nonumber\\
+        \operator{S}^{\hi{n}}
+            &=\left(-\frac{\im}{\hbar}\right)^{n}
+                \int_{t_{0}}^{t}\operator{H}_{\ti{I}}^{\ti{D}}(t_{1})
+                \int_{t_{0}}^{t_{1}}\operator{H}_{\ti{I}}^{\ti{D}}(t_{2})\dotsm
+                \int_{t_{0}}^{t_{n-1}}\operator{H}_{\ti{I}}^{\ti{D}}(t_{n})\d t_{n}
+                    \dotsm\d t_{2}\d t_{1}
+    \end{align}
+\end{subequations}
+
+Rozvoj \eqref{eq:SExpansion} lze formálně sečíst.
+Jelikož však Diracovy obrazy Hamiltoniánu v různých časech mezi sebou navzájem nekomutují, $\commutator{\operator{H}^{\ti{D}}_{\ti{I}}(t_{j})}{\operator{H}^{\ti{D}}_{\ti{I}}(t_{k})}\neq0$ pro $t_{j}\neq t_{k}$, musíme užít $\Tp$-součin, definovaný následujícím způsobem:
+Nechť operátory $\operator{A}_{j}(t)$ ve stejném čase komutují, tj. nechť $\commutator{A_{j}(t)}{A_{k}(t)}=0$.
+Pak
+\begin{align}
+    \Tp\left(\operator{A}_{N}(t_{N})\dotsm\operator{A}_{1}(t_{1})\right)
+        &\equiv\operator{A}_{i_{N}}(t_{i_{N}})\dotsm\operator{A}_{i_{1}}(t_{i_{1}})
+        &&t_{i_{N}}\geq t_{i_{N-1}}\geq\dotsb\geq t_{i_{1}}
+\end{align}
+Díky $\Tp$-součinu lze řadu formálně napsat jako exponenciálu
+\begin{equation}
+    \operator{S}(t,t_{0})
+        =\Tp\exp\left(-\frac{\im}{\hbar}\int_{t_{0}}^{t}\operator{H}_{\ti{I}}^{\ti{D}}(t')\d t'\right).
+\end{equation}

@@ -1,0 +1,403 @@
+\subsection{Fotoelektrický jev --- plné řešení}\label{sec:Photoeffect}
+	Atom vodíku popsaný Hamiltoniánem
+	\begin{equation}
+		\operator{H}_{0}
+			=\frac{1}{2m}\vectoroperator{p}^{2}-\frac{\gamma}{\operator{r}},
+	\end{equation}
+	je vystaven elektromagnetickému vlnění s vektorovým potenciálem
+	\begin{equation}\label{eq:PhotoeffectA}
+		\vector{A}(\vectoroperator{r},t)
+			=2A_{0}\vector{\epsilon}\cos\left(\vector{\kappa}\cdot\vectoroperator{r}-\omega t\right)
+	\end{equation}
+	(jednotkový vektor $\vector{\epsilon}$ určuje polarizaci vln, $\vector{\kappa}=\vector{n}\omega/c$ je vlnový vektor určující směr postupu vlny)	a skalárním potenciálem
+	\begin{equation}
+		\Phi(\vectoroperator{r},t)
+			=0.
+	\end{equation}
+
+	\begin{enumerate}
+		\item Nalezněte interakční Hamiltonián.
+		
+		\item Nalezněte hustotu pravděpodobnosti vztaženou na jednotku času (rychlost přechodu) jevu, kdy kdy atom vodíku nacházející se v základním stavu emituje elektron do oblasti prostorového úhlu $(\Omega,\Omega+\d\Omega)$ (fotoelektrický jev). 
+		
+		\item Určete diferenciální účinný průřez výše uvedeného jevu.
+	\end{enumerate}
+
+\begin{solution}
+	\begin{enumerate}
+	\item
+		\emph{Interakční Hamiltonián}
+	
+		Hamiltonián atomu vodíku, popisující interakci jeho elektronu s elektromagnetickým polem, je
+		\begin{equation}
+            \label{eq:PhotoeffectH}
+			\operator{H}_{\ti{(H\leftrightarrow EM)}}
+				=\frac{1}{2m}\left(\vectoroperator{p}^{2}-e\vector{A}(\vectoroperator{r},t)\right)^{2}
+					+e\,\Phi(\vectoroperator{r})-\frac{\gamma}{\operator{r}}.
+		\end{equation}
+		Ve speciální (Coulombické) kalibraci
+		\begin{equation}
+			\nabla\cdot\vector{A}
+				=0\,,
+				\qquad\Phi
+				=0\,.
+		\end{equation}
+		lze Hamiltonián~\eqref{eq:PhotoeffectH} přepsat do tvaru
+		\begin{align}
+			\operator{H}_{\ti{(H\leftrightarrow EM)}}(t)
+				&=\operator{H}_{0}-\frac{e}{m}\,\vector{A}(\vectoroperator{r},t)\cdot\vectoroperator{p}
+					+\frac{e^{2}}{m}\,\vector{A}(\vectoroperator{r},t)\cdot\vector{A}(\vectoroperator{r},t)\approx\nonumber\\
+				&\approx\operator{H}_{0}-\frac{e}{m}\,\vector{A}(\vectoroperator{r},t)\cdot\vectoroperator{p},
+		\end{align}
+		kde se (jako obvykle) zanedbal člen úměrný $\abs{\vector{A}(\vectoroperator{r})}^{2}$.
+		Interakční část Hamiltoniánu $\operator{H}_{\ti{I}}(t)=-\frac{e}{m}\,\vector{A}(\vectoroperator{r},t)\cdot\vectoroperator{p}$ po dosazení vektorového potenciálu~\eqref{eq:PhotoeffectA} má tvar
+		\begin{equation}\label{eq:PhotoeffectHI}
+			\operator{H}_{\ti{I}}(t)
+				=-\frac{eA_{0}}{m}
+					\left[\e^{\im\left(\vector{\kappa}\cdot\vectoroperator{r}-\omega t\right)}
+						+\e^{-\im\left(\vector{\kappa}\cdot\vectoroperator{r}-\omega t\right)}\right]
+					\vector{\epsilon}\cdot\vectoroperator{p}\,.
+		\end{equation}
+		
+		Nás bude zajímat excitace, stačí tedy brát pouze část
+		\begin{align}
+		\operator{H}_{\ti{I}}(t)
+			&=\operator{h}\e^{-\im\omega t},\\
+		\operator{h}
+			&=-\frac{eA_{0}}{m}\e^{\im\vector{\kappa}\cdot\vector{r}}\vector{\epsilon}\cdot\vectoroperator{p}.
+		\end{align}
+	
+	\item
+		\emph{Rychlost přechodu}
+		
+		Vlnová funkce základního stavu atomu vodíku je\footnote{
+			Jedná se o radiální i úhlovou část vlnové funkce, viz~\eqref{eq:HydrogenR10} a s ní související poznámka.
+		}
+		\begin{equation}
+			\psi_{i}(\vector{r})
+				=R_{10}(r)Y_{00}(\theta,\phi)
+				=\frac{1}{\sqrt{\pi a_{0}^{3}}}\e^{-\frac{r}{a_{0}}},
+		\end{equation}
+		kde $a_{0}$ je Bohrův poloměr.
+		Vlnová funkce konečného stavu volného elektronu je ovlivněna Coulombickým polem jádra.
+        Toto pole je však rychle odstíněno látkou, která se v okolí jádra vyskytuje.
+        Lze tedy uvažovat, že elektron je volný, a jeho vlnová funkce funkce má tudíž tvar rovinné vlny
+		\begin{equation}
+			\psi_{f}(\vector{r})\equiv\braket{\vector{r}}{\vector{k}}
+				=\frac{1}{\sqrt{(2\pi\hbar)^{3}}}\e^{\im \vector{k}\cdot\vector{r}}
+		\end{equation}
+		kde $\vector{k}$ je vlnový vektor elektronu s energií $E_{e}$,
+		\begin{equation}
+			E_{e}=\frac{\hbar^{2}k^{2}}{2m}.
+		\end{equation}
+		
+		Výpočet přechodu mezi spojitou a diskrétní částí spektra se zjednoduší tím, že budeme považovat elektron nikoliv za zcela volný, ale za uzavřený v krabici (nekonečně hluboké potenciálové jámě) o objemu $V$. 
+		Předpokládá se, že krabice je tak velká, že neovlivní příliš spektrum atomu vodíku (přesněji stačí, aby neovlivnila základní stav, se kterým počítáme).
+		Nakonec se provede limita $V\rightarrow\infty$.
+		
+		Vlnová funkce elektronu v krabici zní
+		\begin{equation}
+			\psi'_{f}(\vector{r})
+				=\frac{1}{\sqrt{V}}\e^{\im \vector{k}\cdot\vector{r}},
+		\end{equation}
+		kde $\vector{k}$ je důsledkem konečných rozměrů krabice kvantovaná veličina,
+		\begin{align}
+			E_{\vector{n}}&=\frac{\hbar^{2}\vector{k}^{2}}{2m}\,,&
+			\vector{k}&=\frac{2\pi}{L}\vector{n}\,,&
+			L&=\sqrt[3]{V}\,,&
+			\vector{n}&=\left(n_{1},n_{2},n_{3}\right)\,.
+		\end{align}
+		Pokud je však objem $V$ dostatečně velký, lze s $\vector{k}$ nadále počítat jako se spojitou veličinou.
+		
+		Při výpočtu hustoty hladin volného elektronu se vyjde ze vztahů \eqref{eq:PhaseSpaceVolume} a \eqref{eq:LevelDensity}.
+		Objem energetické nadplochy fázového prostoru klasicky se pohybujícího volného elektronu v krabici je podle nich
+		\begin{align}
+		\Omega_{\ti{PS}}(E)
+			&=\int_{V}\d^{3}\vector{x}\int\delta\left(E-\frac{1}{2m}\vector{p}^{2}\right)
+				\d^{3}\vector{p}=\nonumber\\
+			&=V\int_{\Omega}\d\Omega\int_{0}^{\infty}\delta\left(E-\frac{1}{2m}p^{2}\right)
+				p^{2}\d p.
+		\end{align}
+		
+		\uv{Diferenciální} Hustota hladin pro elektron letící do směru daného elementem prostorového úhlu $\d\Omega$ je
+		\begin{align}
+			\frac{\d\rho(E)}{\d\Omega}
+				&=\frac{1}{(2\pi\hbar)^{3}}\frac{\d\Omega_{\ti{PS}}(E)}{\d\Omega}=\nonumber\\
+				&=\frac{V}{(2\pi\hbar)^{3}}\int_{0}^{\infty}\delta\left(E-\frac{1}{2m}p^{2}\right)
+					p^{2}\d p=\nonumber\\
+				&=\frac{V}{(2\pi\hbar)^{3}}\frac{2m}{2\sqrt{2mE}}\int_{0}^{\infty}
+					\delta\left(p-\sqrt{2mE}\right)p^{2}\d p=\nonumber\\
+				&=\frac{V}{(2\pi\hbar)^{3}}\frac{2m}{2\sqrt{2mE}}\,2mE=\nonumber\\
+				&=\frac{V}{(2\pi\hbar)^{3}}\,{m}\sqrt{2mE},
+		\end{align}
+		nebo v závislosti na veličině $k$
+		\begin{equation}
+			\frac{\d\rho(k)}{\d\Omega}=\frac{V}{(2\pi\hbar)^{3}}\,\hbar km.
+		\end{equation}
+		
+		K výpočtu pravděpodobnosti, resp. rychlosti přechodu se využije Fermiho zlaté pravidlo~\eqref{eq:FermiGoldenRuleHarmonic}.
+		V něm se objevuje maticový element
+		\begin{align}\label{eq:Photoeffecthfi}
+			h_{fi}
+				&=\matrixelement{f}{\operator{h}}{i}=\nonumber\\
+				&=-\frac{eA_{0}}{m}
+					\int\psi_{f}^{'*}(\vector{r})\e^{\im\vector{\kappa}\cdot\vector{r}}
+						\vector{\epsilon}\cdot\vector{p}\,
+					\psi_{i}(\vector{r})\d^{3}\vector{r}=\nonumber\\
+				&=\frac{\im\hbar eA_{0}}{m\sqrt{\pi a_{0}^{3}V}}\,\vector{\epsilon}\cdot
+					\int\e^{\im(\vector{\kappa}-\vector{k})\cdot
+					\vector{r}}\nabla\e^{-\frac{r}{a_{0}}}\d^{3}\vector{r}=\nonumber\\
+				&=-\frac{\im\hbar eA_{0}}{ma_{0}\sqrt{\pi a_{0}^{3}V}}\,\vector{\epsilon}\cdot
+					\int\e^{\im\vector{q}\cdot\vector{r}}\frac{\vector{r}}{r}
+					\e^{-\frac{r}{a_{0}}}\d^{3}\vector{r}=\nonumber\\
+				&=-\frac{\im\hbar eA_{0}}{ma_{0}\sqrt{\pi a_{0}^{3}V}}\,\vector{\epsilon}\cdot
+					\vector{I}(\vector{q}),
+		\end{align}
+		kde $\vector{q}\equiv\vector{\kappa}-\vector{k}$.
+		
+        \trick{
+		Integrál $\vector{I}(\vector{q})$ se vypočítá následující úvahou.
+        Výsledkem integrace musí být vektor.
+		Jediný vektor, na kterém integrand integrálu závisí, je $\vector{q}$.
+		To znamená, že integrál musí být možné vyjádřit jako
+		\begin{equation}
+			\vector{I}(\vector{q})=\vector{q}I(\vector{q}),
+		\end{equation}
+		kde $I(\vector{q})$ je již skalární funkce.}
+		Počítejme tedy počítat výraz
+		\begin{align}
+		q^{2}I(\vector{q})
+			&=\int\e^{\im\vector{q}\cdot\vector{r}}\frac{\vector{q}\cdot\vector{r}}{r}
+				\e^{-\frac{r}{a_{0}}}\d^{3}\vector{r}=\nonumber\\
+			&=\equationcomment{\text{Sférické souřadnice }(r,\theta,\phi) 
+				\\ \text{osa }z\text{ paralelní s vektorem }\vector{q}}=\nonumber\\
+			&=\int_{0}^{\infty}r\e^{-\frac{r}{a_{0}}}\d r
+				\int_{0}^{\pi}\e^{\im qr\cos{\theta}}qr\cos{\theta}\sin{\theta}\,\d\theta
+				\int_{0}^{2\pi}\d\phi=\nonumber\\
+			&=\equationcomment{u=\cos{\theta} & \d u=-\sin{\theta}\,\d\theta}=\nonumber\\
+			&=2\pi q\int_{0}^{\infty}r\e^{-\frac{r}{a_{0}}}\d r
+				\int_{-1}^{1}\e^{\im qru}u\,\d u\overset{\text{Per partes}}{=}\nonumber\\
+			&=2\pi q\int_{0}^{\infty}r\e^{-\frac{r}{a_{0}}}\d r
+				\left\{\left[\frac{1}{\im qr}\e^{\im qru}u\right]_{-1}^{1}
+					-\frac{1}{\im qr}\int_{-1}^{1}\e^{\im qru}\d u\right\}=\nonumber\\
+			&=-2\pi q\im\int_{0}^{\infty}r\e^{-\frac{r}{a_{0}}}\d r
+				\left\{\frac{1}{qr}\left(\e^{\im qr}+\e^{-\im qr}\right)
+					+\frac{\im}{(qr)^{2}}\left(\e^{\im qr}-\e^{-\im qr}\right)\right\}=\nonumber\\
+			&=-2\pi\im\int_{0}^{\infty}r\left\{\e^{-r\left(\frac{1}{a_{0}}+\im q\right)}
+				+\e^{-r\left(\frac{1}{a_{0}}-\im q\right)}\right\}\d r-\nonumber\\
+			&\qquad\qquad-\frac{2\pi}{q}\int_{0}^{\infty}
+				\left\{\e^{-r\left(\frac{1}{a_{0}}+\im q\right)}
+				-\e^{-r\left(\frac{1}{a_{0}}-\im q\right)}\right\}\d r=\nonumber\\
+			&=-2\pi\im\,J_{1}-\frac{2\pi}{q}\,J_{2}.
+		\end{align}
+		Platí
+        \begin{subequations}
+            \begin{align}
+                \int_{0}^{\infty}\e^{-\alpha r}\d r
+                    &=\frac{1}{\alpha},\\
+                \int_{0}^{\infty}r\e^{-\alpha r}\d r
+                    &=\frac{1}{\alpha}\int_{0}^{\infty}\e^{-\alpha r}\d r=\frac{1}{\alpha^{2}}
+            \end{align}                
+        \end{subequations}
+		(pro $\alpha>0$), takže
+		\begin{align}
+			J_{1}
+				&=\frac{1}{\left(\frac{1}{a_{0}}+\im q\right)^{2}}
+					+\frac{1}{\left(\frac{1}{a_{0}}-\im q\right)^{2}}
+				=a_{0}^{2}\frac{\left(1-\im qa_{0}\right)^{2}+\left(1+\im qa_{0}\right)^{2}}
+						{\left(1+q^{2}a_{0}^{2}\right)^{2}}=\nonumber\\
+				&=2a_{0}^{2}\frac{1-q^{2}a_{0}^{2}}{\left(1+q^{2}a_{0}^{2}\right)^{2}},\\
+			J_{2}
+				&=\frac{1}{\frac{1}{a_{0}}+\im q}-\frac{1}{\frac{1}{a_{0}}-\im q}
+					=a_{0}\frac{1-\im qa_{0}-1-\im qa_{0}}{1+q^{2}a_{0}^{2}}=\nonumber\\
+				&=-\frac{2\im qa_{0}^{2}}{1+q^{2}a_{0}^{2}},
+		\end{align}
+		a po dosazení 
+		\begin{align}
+			q^{2}I(\vector{q})
+				&=-4\pi\im a_{0}^{2}
+					\left[\frac{1-a_{0}^{2}q^{2}}{\left(1+q^{2}a_{0}^{2}\right)^{2}}
+						-\frac{1}{1+q^{2}a_{0}^{2}}\right]=\nonumber\\
+				&=-4\pi\im a_{0}^{2}\frac{1-a_{0}^{2}q^{2}-1-a_{0}^{2}q^{2}}
+					{\left(1+q^{2}a_{0}^{2}\right)^{2}}=\nonumber\\
+				&=\frac{8\im\pi a_{0}^{4}q^{2}}{\left(1+q^{2}a_{0}^{2}\right)^{2}}.
+		\end{align}
+		Hledaný integrál má tedy tvar
+		\begin{equation}
+			\vector{I}(\vector{q})
+				=\frac{8\im\pi a_{0}^{4}}{\left(1+q^{2}a_{0}^{2}\right)^{2}}\,\vector{q}.
+		\end{equation}
+		Maticový element je
+		\begin{align}
+			h_{fi}
+				&=\frac{\im\hbar eA_{0}}{ma_{0}\sqrt{\pi a_{0}^{3}V}}
+					\frac{8\im\pi a_{0}^{4}}{\left(1+q^{2}a_{0}^{2}\right)^{2}}\,\vector{\epsilon}\cdot(\vector{\kappa}-\vector{k})\nonumber\\
+				&=-\frac{\im\hbar eA_{0}}{ma_{0}\sqrt{\pi a_{0}^{3}V}}
+					\frac{8\im\pi a_{0}^{4}}{\left(1+q^{2}a_{0}^{2}\right)^{2}}\,\vector{\epsilon}\cdot\vector{k}\,,
+		\end{align}
+		neboť $\vector{\epsilon}\cdot\vector{\kappa}=0$, což plyne z vlastností Coulombické kalibrace.
+							
+		Nyní již máme v rukou vše, co potřebujeme k použití Fermiho zlatého pravidla~\eqref{eq:FermiGoldenRuleHarmonic}.
+		Po dosazení do něj vychází
+		\begin{align}\label{eq:PhotoefectTransitionRate}
+			\frac{\d w_{i\rightarrow f}}{\d\Omega}
+				&=\frac{2\pi}{\hbar}\abs{h_{fi}}^{2}\frac{\d\rho}{\d\Omega}=\nonumber\\
+				&=\frac{2\pi}{\hbar}
+					\abs{\frac{\im\hbar eA_{0}}{ma_{0}\sqrt{\pi a_{0}^{3}V}}
+					\frac{8\im\pi a_{0}^{4}}{\left(1+q^{2}a_{0}^{2}\right)^{2}}\,
+						\vector{\epsilon}\cdot\vector{k}}^{2}
+					\frac{V}{(2\pi\hbar)^{3}}\,\hbar km=\nonumber\\
+				&=\frac{16}{\pi\hbar}\frac{(eA_{0})^{2}}{m}
+					\frac{\left(\vector{\epsilon}\cdot\vector{k}\right)^{2}ka_{0}^{3}}
+						{\left(1+q^{2}a_{0}^{2}\right)^{4}}
+		\end{align}
+		
+	\item
+		\emph{Účinný přůřez}
+	
+		Účinný průřez procesu je definován jako počet procesů $i\rightarrow f$ za jednotku času dělenou celkovým tokem částic.
+		V našem případě je to absorbovaná energie za jednotku času dělená tokem energie dopadajícího elektromagnetického záření.
+		
+		Absorbovaná energie za jednotku času je dána součinem rychlosti přechodu~\eqref{eq:PhotoefectTransitionRate} a energie, která se absorbuje a která je rovna $\hbar\omega$:
+		\begin{equation}
+			\mathcal{U}_{i\rightarrow f}
+				=\hbar\omega\frac{\d w_{i\rightarrow f}}{\d\Omega}
+		\end{equation}					
+		Tok energie $\Phi$ je součin rychlosti přenosu energie $c$ a střední hustoty energie
+		\begin{equation}
+			\langle w\rangle=\frac{\epsilon_{0}}{2}\left(\left\langle\vector{E}^{2}\right\rangle
+				+c^{2}\left\langle\vector{B}^{2}\right\rangle\right)\,,
+		\end{equation}
+		kde vektory elektrické intenzity a magnetické indukce jsou
+        \begin{subequations}
+            \begin{align}
+                \vector{E}
+                    &=-\partialderivative{\vector{A}}{t}=-2A_{0}\omega\vector{\epsilon}
+                        \sin\left(\vector{\kappa}\cdot\vector{r}-\omega t\right)\,,\\
+                \vector{B}
+                    &=\nabla\times\vector{A}=-2A_{0}\vector{\epsilon}\times\vector{\kappa}
+                        \sin\left(\vector{\kappa}\cdot\vector{r}-\omega t\right)\,,
+            \end{align}                
+        \end{subequations}
+		takže
+        \begin{subequations}
+            \begin{align}
+                \left\langle\vector{E}^{2}\right\rangle
+                    &=4\abs{A_{0}}^{2}\omega^{2}\left\langle\sin^{2}\left(\vector{\kappa}\cdot\vector{r}-\omega t\right)\right\rangle=2\abs{A_{0}}^{2}\omega^{2},\\
+                \left\langle\vector{B}^{2}\right\rangle
+                    &=2\abs{A_{0}}^{2}\kappa^{2}=2\abs{A_{0}}^{2}\omega^{2}.
+            \end{align}                
+        \end{subequations}
+		To dává
+        \begin{subequations}
+            \begin{align}
+                \left\langle w\right\rangle&=2\epsilon_{0}\abs{A_{0}}^{2}\omega^{2},\\
+                \Phi=c\left\langle w\right\rangle&=2c\epsilon_{0}\abs{A_{0}}^{2}\omega^{2}
+            \end{align}							                
+        \end{subequations}
+		a hledaný účinný průřez je po dosazení
+		\begin{align}
+			\frac{\d\sigma_{i\rightarrow f}}{\d\Omega}
+				&=\frac{\mathcal{U}_{i\rightarrow f}}{\Phi}
+				 =\frac{\hbar\omega}{2c\epsilon_{0}\omega^{2}\abs{A_{0}}^{2}}
+					\frac{\d w_{i\rightarrow f}}{\d\Omega}
+				=\frac{32\gamma}{mc\omega}
+					\frac{\left(\vector{\epsilon}\cdot\vector{k}\right)^{2}ka_{0}^{3}}
+						{\left(1+q^{2}a_{0}^{2}\right)^{4}}
+				=\frac{32\alpha\hbar}{m\omega}
+					\frac{\left(\vector{\epsilon}\cdot\vector{k}\right)^{2}ka_{0}^{3}}
+						{\left(1+q^{2}a_{0}^{2}\right)^{4}},
+            \label{eq:PhotoeffectCrossSection}
+		\end{align}
+		kde $\alpha=\gamma/(\hbar c)$ je konstanta jemné struktury.
+	\end{enumerate}
+
+	Zaveďme ještě speciální souřadnou soustavu tak, aby vektor polarizace $\vector{\epsilon}$ mířil do směru osy $x$ a vlnový vektor dopadající vlny $\vector{\kappa}$ do směru osy $z$.
+	Ve sférických souřadnicích pak bude
+    \begin{subequations}
+        \begin{align}
+            \vector{\epsilon}\cdot\vector{k}
+                &=k\sin{\theta}\cos{\phi},\\
+            q^{2}
+                &=k^{2}-2\vector{k}\cdot\vector{\kappa}+\kappa^{2}
+                =k^{2}-2k\frac{\omega}{c}\cos{\theta}+\left(\frac{\omega}{c}\right)^{2}.
+        \end{align}            
+    \end{subequations}
+	
+	Při výpočtu se potichu předpokládalo, že Coulombické pole neovlivní pohyb vyraženého elektronu a ten se tudíž pohybuje jako volný.
+	To však platí pouze v případě, že $k\gg\abs{E_{0}}$, kde $E_{0}$ je energie základního stavu atomu.
+	Tuto aproximaci lze rozvést ještě dál.
+	Energie, kterou získá vylétávající elektron, je díky tomuto přiblížení rovna přibližně energii dopadajících fotonů:
+	\begin{equation}
+		k=\frac{\sqrt{2mE_{e}}}{\hbar}
+		 =\sqrt{\frac{2m\omega}{\hbar}}.
+	\end{equation}
+	Jelikož $\kappa=\omega/c$, platí
+	\begin{equation}
+		\frac{\kappa}{k}
+			=k\frac{\kappa}{k^{2}}
+			=\frac{\hbar k}{2mc}
+			=\frac{p}{2mc}
+			=\frac{v}{2c},
+	\end{equation}
+	a
+	\begin{equation}
+		q^{2}\approx k^{2}\left(1-\frac{v}{c}\cos{\theta}\right),
+	\end{equation}
+	kde $v$ je rychlost vylétnuvšího elektronu.
+	Tento výraz navíc pomůže zjednodušit jmenovatel diferenciálního účinného průřezu~\eqref{eq:PhotoeffectCrossSection}
+	\begin{align}
+		1+q^{2}a_{0}^{2}
+			&\approx1+k^{2}a_{0}^{2}\left(1-\frac{v}{c}\cos{\theta}\right)\approx\nonumber\\
+			&\approx k^{2}a_{0}^{2}\left(1-\frac{v}{c}\cos{\theta}\right).
+	\end{align}
+	Diferenciální účinný průřez pak bude v této aproximaci
+	\begin{equation}
+		\frac{\d\sigma_{i\rightarrow f}}{\d\Omega}
+			=\frac{32\alpha\hbar}{m\omega\left(ka_{0}\right)^{5}}
+				\frac{\sin^{2}\theta\cos^{2}\phi}{\left(1-\frac{v}{c}\cos{\theta}\right)^{4}}.
+	\end{equation}
+	Tato funkce nabývá maxima pro $\phi=0$, tj. v rovině polarizace dopadající elektromagnetické vlny, a pro $\theta$ dané rovnicí
+	\begin{align}
+		\frac{\d}{\d\theta}\frac{\sin^{2}\theta}{\left(1-\frac{v}{c}\cos{\theta}\right)}
+			&=0\nonumber\\
+		2\sin{\theta}\cos{\theta}\left(1-\frac{v}{c}\cos{\theta}\right)^{4}
+			-4\frac{v}{c}\sin^{2}\theta\sin{\theta}\left(1-\frac{v}{c}\cos{\theta}\right)^{3}
+			&=0\nonumber\\
+		2\cos{\theta}-2\frac{v}{c}\cos^{2}\theta-\frac{v}{c}\sin^{2}\theta
+			&=0
+	\end{align}
+	tj.
+	\begin{equation}
+		\cos{\theta}
+			=\frac{-1\pm\sqrt{1+8\left(\frac{v}{c}\right)^{2}}}{2\frac{v}{c}}
+			\approx\frac{c}{2v}\left[-1\pm1\pm4\left(\frac{v}{c}\right)^{2}\right]
+			\approx\begin{cases}
+				{\displaystyle \frac{c}{v}} & \\ {\displaystyle 2\frac{v}{c}} &
+			\end{cases}.
+	\end{equation}
+	První řešení nevyhovuje, neboť cosinus by musel být větší než 1, což pro reálné úhly $\theta$ nelze splnit.
+    Maximální pravděpodobnost emise při fotoefektu tedy vychází do směru
+	\begin{equation}
+        \important{
+            \begin{aligned}
+                \theta&=\frac{\pi}{2}-2\frac{v}{c}\,, & \phi&=0
+            \end{aligned}
+        }.
+	\end{equation}
+	
+\begin{note}
+	Integrál \eqref{eq:Photoeffecthfi} lze vypočítat také tak, že se operátor $\nabla$ posouvá vlevo.		
+	Posunutí skrz člen $\e^{\im\vector{\kappa}\cdot\vector{r}}$	lze provést přímo díky Coulombické kalibraci (směr šíření elektromagnetické vlny je kolmý na polarizaci).
+	Posunutí skrz člen $\e^{-\im\vector{k}\cdot\vector{r}}$ se provede pomocí integrace \emph{per partes}:
+	povrchový příspěvek je $0$ a gradient po zapůsobení na tento člen dá pouze faktor $-\im\vector{k}$,	který je možné vytknout před integrál.
+	Nakonec tedy stačí integrovat pouze
+	\begin{equation}
+		h_{fi}
+			=-\frac{\hbar eA_{0}}{mca_{0}\sqrt{\pi a_{0}^{3}V}}\,\vector{\epsilon}\cdot\vector{k}
+				\int\e^{\im\vector{q}\cdot\vector{r}}\e^{-\frac{r}{a_{0}}}\d^{3}\vector{r},
+	\end{equation}
+	což je vlastně Fourierova transformace vlnové funkce základního stavu atomu vodíku.
+\end{note}
+
+\end{solution}

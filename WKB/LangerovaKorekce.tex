@@ -1,0 +1,57 @@
+\subsection{Coulombické pole}	
+    WKB metodu lze aplikovat také na problémy se sféricky symetrickým polem.
+    Schrödingerova rovnice pro radiální část vlnové funkce $R(r)$ obecného sféricky symetrického problému má tvar
+    \begin{equation}
+        \frac{1}{r^{2}}\frac{\d}{\d r}r^{2}\frac{\d}{\d r}R(r)+\frac{2m}{\hbar^{2}}\left(E-V_{\ti{ef}}(r)\right)R(r)
+            =0,
+    \end{equation}
+    kde 
+    \begin{equation}
+    V_{\ti{ef}}(r)
+        \equiv V(r)+\frac{\hbar^{2}l(l+1)}{2mr^{2}}
+    \end{equation}
+    je efektivní potenciál, zahrnující v sobě centrifugální člen.
+    
+    Zavedením substituce $R(r)=u(r)/r$ dostaneme rovnici
+    \begin{equation}
+        \frac{\d^{2}}{\d r^{2}}u(r)+k^{2}(r)u(r)
+            =0,
+    \end{equation}
+    kde $k^{2}(r)=2m/\hbar^{2}(E-V_{\ti{ef}})$.
+    
+    WKB metoda pro sféricky symetrické potenciály dává dobré výsledky jedině v případě, 
+    aplikujeme-li tzv. \emph{Langerovu korekci}\index{korekce!Langerova}, která spočívá v nahrazení 
+    \begin{equation}
+        \important{l(l+1)\rightarrow(l+\frac{1}{2})^{2}}
+    \end{equation}
+    (dá se odvodit z asymptotiky vlnových funkcí; původní práce Rudolpha E. Langera je v~\cite{Langer1937}).
+    Vázané stavy lze pak nalézt z rovnice ekvivalentní Bohrově-Sommerfeldově kvantovací podmínce
+    \begin{equation}
+        \int_{r_{1}}^{r_{2}}k'(r)\d r
+            =\left(n_{\ti{r}}+\frac{1}{2}\right)\pi,
+    \end{equation}
+    přičemž $k'(r)$ zahrnuje Langerovu korekci, $n_{\ti{r}}=0,1,\dots$ je radiální kvantové číslo a
+    $r_{1,2}$ jsou body obratu klasické trajektorie s hybností $p'(r)=\hbar k'(r)$.
+    
+    Uvažujte konkrétní případ pohybu částice v Coulombickém poli
+    \begin{equation}
+        V(r)=-\frac{\gamma}{r}.
+    \end{equation}
+    kde $\gamma=e^{2}/(4\pi\epsilon_{0})$.
+    
+    \begin{enumerate}
+        \item 
+            Nalezněte body obratu $r_{1,2}$ trajektorie s energií $E$ (počítejte s Langerovou korekcí).
+        
+        \item 
+            Pomocí WKB přiblížení nalezněte spektrum, tj. stavy s energií $E<0$.
+        
+        \item
+            Porovnejte toto spektrum se spektrem získaným přesným řešením Schrödingerovy rovnice.
+    \end{enumerate}
+
+    \begin{solution}
+        Řešení formou hry naleznete na následujících odkazech:
+        \href{http://pavelstransky.cz/cviceniktvt/WKBLanger_1.1_linux.zip}{Linux},
+        \href{http://pavelstransky.cz/cviceniktvt/WKBLanger_1.1_windows.zip}{Windows}.
+    \end{solution}

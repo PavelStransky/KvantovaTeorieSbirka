@@ -1,0 +1,75 @@
+\sec{Wigner-Eckartův teorém}
+	\begin{equation}
+		\label{eq:WignerEckart}
+		\boxed{
+			\begin{aligned}
+			&\matrixelement{a,J\,M}{\tensoroperatorcomponent{T}{\lambda}{\mu}}{b,j\,m}=\\
+			&\qquad=\frac{\minus{J+\lambda-j}}{\sqrt{2J+1}}
+				\clebsch{\lambda}{\mu}{j}{m}{J}{M}\,\reducedmatrixelement{a,J}{\tensoroperator{T}{\lambda}}{b,j}\\
+			&\qquad=\minus{J-M}\threej{J}{\lambda}{j}{-M}{\mu}{m}\reducedmatrixelement{a,J}{\tensoroperator{T}{\lambda}}{b,j}
+			\end{aligned}
+		},
+	\end{equation}
+	přičemž:
+	\begin{itemize}
+	\item
+		Zlomek $\frac{(-1)^{J+\lambda-j}}{\sqrt{2J+1}}$ je jen záležitost konvence.
+		Zde je použita stejná konvence jako např. v knize J.~Formánka~\cite{Formanek2004}.	
+	
+	\item 
+		$\reducedmatrixelement{a,J}{\tensoroperator{T}{\lambda}}{b,j}$ je \emph{redukovaný maticový element}.\index{maticový element!redukovaný}
+
+	\item 
+		$a,b$ označují další vlastní čísla (může jich být i více) operátoru (operátorů) $\operator{A}$,	které spolu s impulsmomentem $\vectoroperator{J}$ tvoří úplnou množinu pozorovatelných:
+		\begin{equation}
+			\commutator{\operator{A}}{\vectoroperator{J}}=0.
+		\end{equation}
+
+	\item 
+		Mezi $3j$ symbolem\index{symbol!3j} a Clebsch-Gordanovými koeficienty platí relace
+        \begin{subequations}
+            \begin{align}
+                &\threej{j_{1}}{j_{2}}{j_{3}}{m_{1}}{m_{2}}{m_{3}}=\nonumber\\
+                &\qquad=\minus{j_{2}-j_{3}-m_{1}}
+                    \frac{\clebsch{j_{2}}{m_{2}}{j_{3}}{m_{3}}{j_{1}}{-m_{1}}}{\sqrt{2j_{1}+1}}\\
+                &\qquad=\minus{j_{3}-j_{1}-m_{2}}
+                    \frac{\clebsch{j_{3}}{m_{3}}{j_{1}}{m_{1}}{j_{2}}{-m_{2}}}{\sqrt{2j_{2}+1}}\\
+                &\qquad=\minus{j_{1}-j_{2}-m_{3}}
+                    \frac{\clebsch{j_{1}}{m_{1}}{j_{2}}{m_{2}}{j_{3}}{-m_{3}}}{\sqrt{2j_{3}+1}},
+            \end{align}                
+            \label{eq:3j}
+        \end{subequations}
+		přičemž uvedené tři rovnosti plynou ze symetrie $3j$ symbolů:
+        \begin{subequations}
+            \begin{equation}
+                \label{eq:Permutation3j}
+                \threej{j_{\sigma_{1}}}{j_{\sigma_{2}}}{j_{\sigma_{3}}}
+                    {m_{\sigma_{1}}}{m_{\sigma_{2}}}{m_{\sigma_{3}}}=
+                \begin{cases}
+                    \minus{j_{1}+j_{2}+j_{3}}\threej{j_{1}}{j_{2}}{j_{3}}{m_{1}}{m_{2}}{m_{3}} 
+                    & \sign\sigma=-1 \\
+                    \threej{j_{1}}{j_{2}}{j_{3}}{m_{1}}{m_{2}}{m_{3}} & \sign\sigma=1
+                \end{cases}
+            \end{equation}
+            Další symetrie $3j$ symbolů:
+            \begin{equation}
+                \label{eq:Minus3j}
+                \threej{j_{1}}{j_{2}}{j_{3}}{-m_{1}}{-m_{2}}{-m_{3}}
+                    =\minus{j_{1}+j_{2}+j_{3}}\threej{j_{1}}{j_{2}}{j_{3}}{m_{1}}{m_{2}}{m_{3}}.
+            \end{equation}                
+        \end{subequations}
+	\end{itemize}
+
+	Wigner-Eckartův teorém je užitečný zejména proto, že k výpočtu všech $n=(2J+1)(2\lambda+1)(2j+1)$ maticových elementů stačí znát jediný z nich,	zbytek se dopočte pomocí běžně tabulovaných Clebsch-Gordanových koeficientů.
+	Z oněch $n$ elementů jsou navíc všechny, které nesplňují výběrová pravidla pro hodnoty 
+	$J,M,\lambda,\mu,j,m$, tj.
+	\begin{equation}
+	\label{eq:WignerEckartSelectionRules}
+		\boxed{
+		\begin{aligned}
+			m+\mu&=M\\
+			|j-\lambda|\leq&J\leq j+\lambda\qquad\text{(trojúhelníková nerovnost)}
+		\end{aligned}
+		},
+	\end{equation}
+	nulové.

@@ -1,0 +1,38 @@
+\sec{Komutátor}
+Komutátor\index{komutátor} dvou operátorů $\operator{A}$ a $\operator{B}$ se zavádí jako bilineární zobrazení
+\begin{equation}
+    \commutator{\operator{A}}{\operator{B}}
+        \equiv\operator{A}\operator{B}-\operator{B}\operator{A}
+    \label{eq:Commutator}
+\end{equation}
+a splňuje následující dvě vlastnosti:
+\begin{subequations}  
+\begin{enumerate}
+\item\emph{Antisymetrie}
+    \begin{equation}
+        \commutator{\operator{A}}{\operator{B}}
+            =-\commutator{\operator{B}}{\operator{A}},
+    \end{equation}
+\item\emph{Jacobiho identita}\index{identita!Jacobiho}
+    \begin{equation}
+        \commutator{\operator{A}}{\commutator{\operator{B}}{\operator{C}}}
+            +\commutator{\operator{B}}{\commutator{\operator{C}}{\operator{A}}}
+            +\commutator{\operator{C}}{\commutator{\operator{A}}{\operator{B}}}
+            =0.
+    \end{equation}
+\end{enumerate}
+\end{subequations}
+
+\begin{note}
+    Skládání lineárních operátorů nad Hilbertovými prostory je z definice asociativní, tj. platí, že
+    \begin{equation}
+        \left(\operator{A}\operator{B}\right)\operator{C}
+            =\operator{A}\left(\operator{B}\operator{C}\right).
+    \end{equation}
+    Existují však \emph{neasociativní algebry}\index{algebra!neasociativní}, kde míru neasociativity udává \emph{asociátor}\index{asociátor}
+    \begin{equation}
+        \associator{x}{y}{z}
+            \equiv(xy)z-x(yz).
+    \end{equation}
+    Příkladem je algebra oktonionů\index{oktoniony} nebo algebry používající se v teoriích superstrun\index{teorie!superstrun} (například pro popis částice pohybující se v okolí magnetického monopólu).
+\end{note}

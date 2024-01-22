@@ -1,0 +1,128 @@
+\subsection{Základní vlastnosti koherentních stavů}
+\label{sec:HOCoherentState}
+\begin{enumerate}
+\item 
+    Ukažte, že skalární součin dvou koherentních stavů~\eqref{eq:HOCoherentState} je
+    \begin{equation}			
+        \label{eq:HOCoherentStateBraket}
+        \braket{z}{z'}=\e^{-\frac{\abs{z-z'}^{2}}{2}
+            +\im\abs{z}\abs{z'}\sin\left(\phi'-\phi\right)}\,,
+    \end{equation}
+    kde
+    \begin{equation}
+        \label{eq:z}
+        z=\abs{z}\e^{\im\phi}\,,\qquad\phi\in[0,2\pi)\,.
+    \end{equation}
+    Koherentní stavy jsou tedy normalizované, avšak nejsou navzájem ortogonální, z čehož vyplývá, že $\ket{z}$ nelze vzít za bázi Hilbertova prostoru harmonického oscilátoru (resp. někdy se říká, že báze pomocí koherentních stavů je přeurčená).
+
+\item
+    Ukažte, čemu se rovná pravděpodobnost nalezení stavu $\ket{z'}$, 
+    pokud máme systém připravený ve stavu $\ket{z}$.
+
+\item
+    Ukažte, že je splněna relace uzavřenosti ve tvaru
+    \begin{equation}
+        \int\ket{z}\bra{z}\frac{\d z}{\pi}=1\,.
+    \end{equation}
+
+\item
+    Ukažte, že rozdělení energií v koherentním stavu je Poissonovo, tj. že lze psát
+    \begin{equation}
+        P_{n}=\abs{\braket{n}{z}}^{2}=\frac{\lambda^{n}}{n!}\e^{-\lambda}\,.
+    \end{equation}
+    Nalezněte $\lambda$.
+
+\item 
+    Na základě vlastností Poissonova rozdělení nalezněte, 
+    čemu se rovná střední hodnota energie harmonického oscilátoru
+    v koherentním stavu $\mean{E}_{z}$.
+\end{enumerate}
+	
+\begin{solution}
+	\begin{enumerate}
+	\item
+		Na základě definice~\eqref{eq:HOCoherentState} platí:
+		\begin{align}
+			\braket{z}{z'}
+				&=\e^{-\frac{\abs{z}^{2}+\abs{z'}^{2}}{2}}
+					\sum_{n,n'=0}^{\infty}\frac{(z^{*})^{n}(z')^{n'}}{\sqrt{n!n'!}}
+					\underbrace{\braket{n}{n'}}_{\delta_{nn'}}\nonumber\\
+				&=\e^{-\frac{\abs{z}^{2}+\abs{z'}^{2}}{2}}
+					\sum_{n=0}^{\infty}\frac{(z^{*}z')^{n}}{n!}\,.
+		\end{align}
+		Po zavedení
+		\begin{equation}
+			z^{*}=\abs{z}\e^{-\im\phi}\,,\qquad z'=\abs{z'}\e^{\im\phi'}			
+		\end{equation}
+		lze absolutní hodnotu rozdílu dvou komplexních čísel rozepsat jako
+		\begin{align}
+			\abs{z-z'}^{2}
+				&=\left(z-z'\right)\left(z^{*}-z'^{*}\right)\nonumber\\
+				&=\abs{z}^{2}+\abs{z'}^{2}-zz'^{*}-z^{*}z'\nonumber\\
+				&=\abs{z}^{2}+\abs{z'}^{2}-\abs{z}\abs{z'}\e^{\im(\phi-\phi')}
+					-\abs{z}\abs{z'}\e^{-\im(\phi-\phi')}\nonumber\\
+				&=\abs{z}^{2}+\abs{z'}^{2}-2\abs{z}\abs{z'}\cos{(\phi-\phi')}\,.
+		\end{align}		
+		Pak
+		\begin{align}
+			\braket{z}{z'}
+				&=\e^{-\frac{\abs{z}^{2}+\abs{z'}^{2}}{2}}\sum_{n=0}^{\infty}
+					\frac{\abs{z}^{n}\abs{z'}^{n}}{n!}\e^{\im n(\phi'-\phi)}\nonumber\\
+				&=\e^{-\frac{\abs{z}^{2}+\abs{z'}^{2}}{2}}\sum_{n=0}^{\infty}
+					\frac{\left[\abs{z}\abs{z'}\e^{\im(\phi'-\phi)}\right]^{n}}{n!}\nonumber\\
+				&=\e^{-\frac{\abs{z}^{2}+\abs{z'}^{2}}{2}}\e^{\abs{z}\abs{z'}
+					\left[\cos{(\phi'-\phi)}+\im\sin{(\phi'-\phi)}\right]}\nonumber\\
+				&=\e^{-\frac{\abs{z'-z}^{2}}{2}+\im\abs{z}\abs{z'}\sin{(\phi'-\phi)}}\,.
+		\end{align}
+		Je tedy $\braket{z}{z}=1$, avšak $\braket{z}{z'}\neq 0$ je obecně nenulové komplexní číslo.
+		
+	\item
+		Hledaná pravděpodobnost je dána kvadrátem amplitudy~\eqref{eq:HOCoherentStateBraket}
+		\begin{equation}
+			p=\abss{\braket{z'}{z}}=\e^{-\abs{z'-z}}\,.
+		\end{equation}
+	
+	\item
+		Komplexní číslo $z$ se opět vyjádří pomocí velikosti a fáze~\eqref{eq:z}, 
+		kde pro zjednodušení zápisu označíme $r\equiv\abs{z}$.
+		Pak $\d z=r\d r\d\phi$ a integrál relací uzavřenosti dá
+		\begin{align}
+			\int\ket{z}\bra{z}\frac{\d z}{\pi}
+				&=\int\e^{-r^{2}}\sum_{n,n'=0}^{\infty}\frac{r^{n}\e^{\im n\phi}}{\sqrt{n!}}
+					\frac{r^{n'}\e^{-\im n'\phi}}{\sqrt{n'!}}\ket{n}\bra{n'}
+					\frac{r}{\pi}\,\d r\d\phi\nonumber\\
+				&=\sum_{n,n'=0}^{\infty}\frac{\ket{n}\bra{n'}}{\pi\sqrt{n!n'!}}
+					\underbrace{\int_{0}^{\infty}\e^{-r^{2}}r^{n+n'+1}\d r}_{\rho\equiv r^{2}\,,
+					\quad\d\rho=2r\d r}
+					\underbrace{\int_{0}^{2\pi}\e^{\im(n-n')\phi}\d\phi}_{2\pi\delta_{nn'}}\nonumber\\
+				&=\sum_{n=0}^{\infty}\frac{2\ket{n}\bra{n}}{n!}\frac{1}{2}
+					\underbrace{\int_{0}^{\infty}\rho^{n}\e^{-n}\d\rho}_{\Gamma(n+1)=n!}\nonumber\\
+				&=\sum_{n=0}^{\infty}\ket{n}\bra{n}=1\,.
+		\end{align}
+		
+	\item
+		Pravděpodobnost se získá dosazením do definičního vztahu~\eqref{eq:HOCoherentStateBraket}
+		\begin{equation}
+			P_{n}
+				=\abs{\braket{n}{z}}^{2}
+				=\abs{\e^{-\frac{\abs{z}^{2}}{2}}\frac{z^{n}}{\sqrt{n!}}}^{2}\nonumber\\
+				=\e^{-\abs{z}^{2}}\frac{\abs{z}^{2n}}{n!}
+		\end{equation}
+		a srovnáním s Poissonovým rozdělením~\eqref{eq:PoissonDistribution}
+		\begin{equation}
+			\lambda=\abs{z}^{2}\,.
+		\end{equation}			
+		
+	\item
+		Energie vlastního stavu harmonického oscilátor $\ket{n}$ je dána vztahem~\eqref{eq:HOEnergy}.
+		Po dosazení
+		\begin{equation}
+			\label{eq:HOmeanE}
+			\mean{E}_{z}				
+				=\sum_{n=0}^{\infty}\hbar\Omega\left(n+\frac{1}{2}\right)\e^{-\lambda}
+					\frac{\lambda^{n}}{n!}
+				=\hbar\Omega\left(\lambda+\frac{1}{2}\right)
+				=\hbar\Omega\left(\abs{z}^{2}+\frac{1}{2}\right)\,.
+		\end{equation}	
+	\end{enumerate}
+\end{solution}

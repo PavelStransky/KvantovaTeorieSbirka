@@ -1,0 +1,39 @@
+\subsection{Funkce Pauliho vektoru}\index{funkce operátoru}\label{sec:PauliFunction}
+Dokažte, že pro funkci definovanou v bodech $\pm\alpha$ platí
+\begin{equation}
+    \important{
+        f\left(\alpha\,\vector{n}\cdot\vector{\matrix{\sigma}}\right)=\frac{f(\alpha)+f(-\alpha)}{2}
+            +\frac{f(\alpha)-f(-\alpha)}{2}\vector{n}\cdot\vector{\matrix{\sigma}}
+    }.
+\end{equation}
+
+\begin{note}
+	Pro $f\equiv\exp$ dostaneme výsledek z předchozího příkladu.
+\end{note}
+
+\begin{solution}	
+	V příkladu~\ref{sec:Pauli} bylo ukázáno, že vlastní hodnoty operátoru 
+	$\vector{n}\cdot\vector{\matrix{\sigma}}$ jsou $\pm1$, z čehož vyplývá, že spektrální rozklad operátoru 
+	v argumentu funkce je
+	\begin{equation}
+		\alpha\,\vector{n}\cdot\vector{\matrix{\sigma}}
+			=\alpha\operator{P}_{\vector{n}+}-\alpha\operator{P}_{\vector{n}-},
+	\end{equation}
+	kde $\operator{P}_{\vector{n}\pm}$ jsou projekční operátory na charakteristické podprostory
+	příslušných vlastních hodnot $\sigma_{\vector{n}\pm}=\pm1$.
+	Podle definice funkce operátoru pomocí spektrálního rozkladu~\eqref{eq:OperatorFncSylvester}\index{formule!Sylvestrova} platí
+	\begin{equation}
+		f\left(\alpha\,\vector{n}\cdot\vector{\matrix{\sigma}}\right)
+			=f(\alpha)\operator{P}_{\vector{n}+}+f(-\alpha)\operator{P}_{\vector{n}-}.
+	\end{equation}
+	Dosazení vyjádření projekčních operátorů pomocí spinové matice $\matrix{\sigma}_{\vector{n}}=\vector{n}\cdot\vector{\matrix{\sigma}}$
+	dané vztahem~\eqref{eq:SigmaProjector} vede na
+	\begin{align}
+		f\left(\alpha\,\vector{n}\cdot\vector{\matrix{\sigma}}\right)
+			&=f(\alpha)\left(\frac{1}{2}+\vector{n}\cdot\vector{\matrix{\sigma}}\right)
+				+f(-\alpha)\left(\frac{1}{2}-\vector{n}\cdot\vector{\matrix{\sigma}}\right)\nonumber\\
+			&=\frac{f(\alpha)+f(-\alpha)}{2}
+			+\frac{f(\alpha)-f(-\alpha)}{2}\vector{n}\cdot\vector{\matrix{\sigma}}.
+	\end{align}
+	Tím je důkaz hotov.
+\end{solution}

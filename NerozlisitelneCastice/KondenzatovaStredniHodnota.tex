@@ -1,0 +1,73 @@
+\subsection{Kondenzátová střední hodnota}
+	Je zadán bosonový $N$-částicový kondenzát\footnote{
+		Tento příklad je vyřešen a diskutován v učebnici~\cite{Cejnar2013}.
+	}
+	\begin{equation}
+		\ket{B;N}
+			\equiv\frac{1}{\sqrt{N!}}\left(\operatorconjugate{B}\right)^{N}\ket{0}
+	\end{equation}
+	kde operátor $\operatorconjugate{B}$ je vyjádřen lineární kombinací
+	\begin{equation}
+		\operatorconjugate{B}
+			\equiv\sum_{k}z_{k}\operatorconjugate{b}_{k}
+	\end{equation}
+	a $\operatorconjugate{b}_{k}$ bosonové operátory, splňující komutační relace \eqref{eq:BosonCommutator}.
+	Komplexní čísla $z_{k}$ jsou normována:
+	\begin{equation}
+		\abss{z}\equiv\sum_{k}z_{k}^{*}z_{k}=1
+	\end{equation}
+
+	Spočítejte střední hodnotu $\matrixelement{B;N}{\operator{H}}{B;N}$, kde operátor $\operator{H}$ je složen z jednočásticové a dvoučásticové části
+	\begin{equation}
+		\operator{H}
+			=\sum_{ij}\epsilon_{ij}\operatorconjugate{b}_{i}\operator{b}_{j}
+				+\frac{1}{2}\sum_{klmn}v_{klmn}\operatorconjugate{b}_{k}\operatorconjugate{b}_{l}\operator{b}_{n}\operator{b}_{m},
+	\end{equation}
+	přičemž $\epsilon_{ij}$, $v_{klmn}$ jsou komplexní čísla.
+	
+	\begin{solution}
+		Pokud se prokomutují všechny anihilační operátory napravo 
+		skrz kreační operátory kondenzátu, dá jejich působení na stav vakua nulový příspěvek.
+		
+		Komutace skrz jeden operátor $\operatorconjugate{B}$ vede na
+		\begin{equation}
+			\operator{K}_{1}
+				\equiv\commutator{\operator{b}_{j}}{\operatorconjugate{B}}
+				=\sum_{k}z_{k}\commutator{\operator{b}_{j}}{\operatorconjugate{b}_{k}}
+				=\sum_{k}z_{k}\delta_{jk}
+				=z_{j}.
+		\end{equation}
+		Indukcí se pak dostane
+		\begin{align}
+			\operator{K}_{N}
+				&\equiv\commutator{\operator{b}_{j}}{(\operatorconjugate{B})^{N}}=\nonumber\\
+				&=\commutator{\operator{b}_{j}}{\operatorconjugate{B}}(\operatorconjugate{B})^{N-1}+\operatorconjugate{B}\commutator{\operator{b}_{j}}{(\operatorconjugate{B})^{N-1}}=\nonumber\\
+				&=z_{j}(\operatorconjugate{B})^{N-1}+\operatorconjugate{B}\operator{K}_{N-1},
+		\end{align}
+		neboli
+		\begin{align*}
+			\operator{K}_{2}
+				&=z_{j}\operatorconjugate{B}+\operatorconjugate{B}z_{j}=2z_{j}\operatorconjugate{B}\\
+			\operator{K}_{3}
+				&=z_{j}(\operatorconjugate{B})^{2}+\operatorconjugate{B}(2z_{j}\operatorconjugate{B})=3z_{j}(\operatorconjugate{B})^{2}\\
+				&\vdots\\
+			\operatorconjugate{K}_{N}
+				&=Nz_{j}(\operatorconjugate{B})^{N-1}.
+		\end{align*}
+		Působení anihilačního operátoru $\operator{b}_{j}$ na kondenzát dává
+		\begin{align}
+			\operator{b}_{j}\ket{B;N}
+				&=\frac{1}{\sqrt{N!}}\,\operator{b}_{j}(\operatorconjugate{B})^{N}\ket{0}=\\
+				&=\frac{1}{\sqrt{N!}}\,Nz_{j}(\operatorconjugate{B})^{N-1}\ket{0}+\frac{1}{\sqrt{N!}}(\operatorconjugate{B})^{N}\operator{b}_{j}\ket{0}=\\
+				&=\frac{N}{\sqrt{N}}\,z_{j}\frac{1}{\sqrt{(N-1)!}}(\operatorconjugate{B})^{N-1}\ket{0}=\\
+				&=z_{j}\sqrt{N}\,\ket{B;N-1}.
+		\end{align}
+	
+		Střední hodnota Hamiltoniánu v kondenzátovém stavu tedy je
+		\begin{equation}
+			\matrixelement{B;N}{\operator{H}}{B;N}
+				=N\sum_{ij}\epsilon_{ij}z_{i}^{*}z_{j}
+					+\frac{N(N-1)}{2}\sum_{klmn}v_{klmn}z_{k}^{*}z_{l}^{*}z_{m}z_{n}
+		\end{equation}
+		Podobně lze postupovat při výpočtu kondenzátové střední hodnoty vícečásticových operátorů.
+	\end{solution}

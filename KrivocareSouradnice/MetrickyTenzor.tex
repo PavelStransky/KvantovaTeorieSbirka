@@ -1,0 +1,34 @@
+\sec{Metrický tenzor}
+	Metrický tenzor\index{tenzor!metrický} se nazývá matice $\matrix{g}$ s elementy
+	\begin{equation}
+		\label{eq:MetricTensor}
+		\boxed{g_{ij}=\vector{n}_{(i)}\cdot\vector{n}_{(j)}
+			=\sum_{k=1}^{n}\partialderivative{x^{k}}{q^{i}}\partialderivative{x^{k}}{q^{j}}}.
+	\end{equation}
+	Z definice vyplývá, že matice $\matrix{g}$ je symetrická:
+	\begin{equation}
+		g_{ij}=g_{ji}.
+	\end{equation}
+	
+	Pomocí metrického tenzoru lze spouštět indexy u kontravariantních komponent.
+    Působení $\matrix{g}$ na složky libovolného vektoru $\vector{a}=a^{j}\vector{n}_{(j)}=a_{i}\vector{n}^{(i)}$ dá	
+	\begin{equation}
+		g_{ij}a^{j}
+			=\vector{n}_{(i)}\cdot\vector{n}_{(j)}a^{j}
+			=\vector{n}_{(i)}\cdot\vector{n}^{(j)}a_{j}
+			=\delta_{i}^{j}a_{j}=a_{i}
+	\end{equation}
+	(ve třetí rovnosti jsme využili vztahu~\eqref{eq:DualBasisOrthogonality}).
+	
+    K matici $\matrix{g}$ se zavádí inverzní matice $\matrix{g}^{-1}$ se složkami $g^{jk}$,
+	\begin{equation}
+		g_{ij}g^{jk}=\delta_{i}^{k}.
+	\end{equation}
+	Tento inverzní metrický tenzor slouží ke zvedání indexů kovariantních komponent.
+
+	Metrický tenzor~\eqref{eq:MetricTensor} lze získat z Jacobiho matice~\eqref{eq:JacobiMatrix} 
+	\begin{equation}
+        \label{eq:MetricTensorJacobi}
+		\boxed{\matrix{g}=\matrix{J}^{\ti{T}}\matrix{J}}.
+	\end{equation}
+

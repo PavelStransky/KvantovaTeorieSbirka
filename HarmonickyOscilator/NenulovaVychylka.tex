@@ -1,0 +1,141 @@
+\subsection{Stav s nenulovou výchylkou}
+Harmonický oscilátor je připraven ve stavu daném lineární kombinací dvou vlastních stavů Hamiltoniánu,
+\begin{equation}
+    \ket{\psi}=\alpha\ket{m}+\beta\ket{n},
+\end{equation}
+kde $\alpha,\beta\in\mathbb{C}$.
+
+\begin{enumerate}
+\item
+    Nalezněte čísla $\alpha,\beta$ tak, aby střední hodnota operátoru polohy ve stavu $\ket{\psi}$ byla maximální možná.
+    
+\item
+    Pro tento stav určete $\matrixelement{\psi}{\operator{x}}{\psi}$, $\matrixelement{\psi}{\operator{p}}{\psi}$,
+    střední kvadratické odchylky $\uncertainty{\psi}{x}$, $\uncertainty{\psi}{p}$ a ověřte platnost relací neurčitosti.
+\end{enumerate}
+	
+\begin{solution}
+	\begin{enumerate}
+	\item
+		Střední hodnota operátoru polohy $\operator{x}$ pro harmonický oscilátor ve stavu $\ket{\psi}$ je
+		\begin{align}
+			\matrixelement{\psi}{\operator{x}}{\psi}
+				&=\left(\alpha^{*}\bra{m}+\beta^{*}\bra{n}\right)
+					\sqrt{\frac{\hbar}{2M\Omega}}\left(\conjugate{\operator{a}}+\operator{a}\right)
+					\left(\alpha\ket{m}+\beta\ket{n}\right)\nonumber\\
+				&=\sqrt{\frac{\hbar}{2M\Omega}}
+					\left(\alpha^{*}\bra{m}+\beta^{*}\bra{n}\right)		
+					\left(\alpha\sqrt{m+1}\ket{m+1}+\beta\sqrt{n+1}\ket{n+1}\right.\nonumber\\
+				&\qquad\qquad\qquad\qquad\qquad\qquad
+					\left.+\alpha\sqrt{m}\ket{m-1}+\beta\sqrt{n}\ket{n-1}\right)\nonumber\\
+				&=\sqrt{\frac{\hbar}{2M\Omega}}\left[
+					\alpha^{*}\beta\left(\sqrt{n+1}\,\delta_{n+1,m}+\sqrt{n}\,\delta_{n-1,m}\right)
+					\right.\nonumber\\
+				&\qquad\qquad\quad\qquad\left.
+					+\alpha\beta^{*}\left(\sqrt{m+1}\,\delta_{n,m+1}+\sqrt{m}\,\delta_{n,m-1}\right)
+					\right]\nonumber\\
+				&=\sqrt{\frac{\hbar}{2M\Omega}}\left[
+					\alpha^{*}\beta\left(\sqrt{m}\,\delta_{m,n+1}+\sqrt{m+1}\,\delta_{m+1,n}\right)
+					\right.\nonumber\\
+				&\qquad\qquad\quad\qquad\left.
+					+\alpha\beta^{*}\left(\sqrt{m}\,\delta_{m,n+1}+\sqrt{m+1}\,\delta_{m+1,n}\right)
+					\right]
+		\end{align}
+		(v posledním řádku byly přeuspořádány členy a využito $\delta$ funkcí k záměně čísel v odmocninách).
+		Střední hodnota souřadnice je tedy nulová, pokud $\abs{m-n}\neq1$.
+		Bez újmy na obecnosti stačí dále vyšetřovat případ $m=n+1$, pro který
+		\begin{equation}\label{eq:MeanX}
+			\matrixelement{\psi}{\operator{x}}{\psi}
+				=\sqrt{\frac{\hbar m}{2M\Omega}}\left(\alpha^{*}\beta+\alpha\beta^{*}\right)
+				=2\sqrt{\frac{\hbar m}{2M\Omega}}\,\real\left(\alpha^{*}\beta\right).
+        \end{equation}
+        Dalším krokem je tedy nalézt maximum této funkce vzhledem k $\alpha$ a $\beta$.
+		Parametry $\alpha$ a $\beta$ nejsou nezávislé, nýbrž jsou vázány podmínkou
+		\begin{equation}\label{eq:AlphaBetaNormalization}
+			\abs{\alpha}^{2}+\abs{\beta}^{2}=1
+		\end{equation}
+        plynoucí z normalizace vektoru $\ket{\psi}$.
+        
+        Maximum lze určit dvěma způsoby:
+		\begin{itemize}
+        \item 
+            Absolutní hodnota součtu parametrů $\alpha$ a $\beta$ je v přímém vztahu k reálné části součinu $\alpha^{*}\beta$,
+			\begin{equation}
+				\abs{\alpha+\beta}^{2}=\left(\alpha+\beta\right)^{*}\left(\alpha+\beta\right)
+					=\abs{\alpha}^{2}+\abs{\beta}^{2}+2\real\left(\alpha^{*}\beta\right)
+					=1+2\real\left(\alpha^{*}\beta\right).
+			\end{equation}
+			takže namísto výrazu $2\real\left(\alpha^{*}\beta\right)$ se maximalizuje $\abs{\alpha+\beta}$.
+			Za dodatečné podmínky~\eqref{eq:AlphaBetaNormalization} je nejvyšší hodnoty dosaženo pro $\alpha=\beta=1/\sqrt{2}$.
+			
+		\item
+			Alternativně se dá využít polární reprezentace parametrů $\alpha$ a $\beta$
+			\begin{equation}
+                \alpha
+                    =\cos\theta\e^{\im\phi},\qquad
+                \beta
+                    =\sin\theta,
+			\end{equation}
+            kde $\theta,\phi\in[0,2\pi)$ jsou dva úhly.
+            Tato parametrizace automaticky splňuje podmínku~\eqref{eq:AlphaBetaNormalization}.
+			Střední hodnota~\eqref{eq:MeanX} je v této parametrizaci
+			\begin{equation}
+                \matrixelement{\psi}{\operator{x}}{\psi}
+                    =\sqrt{\frac{\hbar m}{2M\Omega}}\sin{2\theta}\cos{\phi}
+			\end{equation}
+			a nabývá maximální hodnoty, pokud je $2\theta=\pi/2$ a zároveň $\phi=0$.
+			To odpovídá hodnotám $\alpha=\beta=1/\sqrt{2}$.
+		\end{itemize}
+		
+		Vektor, který maximalizuje střední hodnotu polohy, má tedy tvar
+		\begin{equation}
+            \ket{\psi}
+                =\frac{1}{\sqrt{2}}\left(\ket{m}+\ket{m-1}\right),
+		\end{equation}
+		a střední hodnota operátoru souřadnice nabývá velikosti
+		\begin{equation}
+            \matrixelement{\psi}{\operator{x}}{\psi}
+                =\sqrt{\frac{\hbar m}{2M\Omega}}.
+		\end{equation}	
+		
+	\item
+		Střední hodnota operátoru hybnosti pro stav $\ket{\psi}$ je
+		\begin{equation}
+			\matrixelement{\psi}{\operator{p}}{\psi}
+				=\im\sqrt{\frac{\hbar M\Omega}{2}}\matrixelement{\psi}{\conjugate{\operator{a}}-\operator{a}}{\psi}=0.
+		\end{equation}
+		
+	\item
+		Pro střední kvadratické odchylky je potřeba určit střední hodnoty kvadrátu operátorů souřadnice a hybnosti.
+		K jejich výpočtu se využije již získaných vztahů~\eqref{eq:MatrixElementNX2N} a~\eqref{eq:MatrixElementNP2N}:
+		\begin{subequations}			
+			\begin{align}
+				\matrixelement{\psi}{\operator{x}^{2}}{\psi}
+					&=\frac{\hbar}{4M\Omega}\left(\bra{n}+\bra{n+1}\right)
+						\left(\left(\conjugate{\operator{a}}\right)^{2}+\operator{a}\conjugate{\operator{a}}+\conjugate{\operator{a}}\operator{a}+\operator{a}^{2}\right)
+						\left(\ket{n}+\ket{n+1}\right)\nonumber\\
+					&=\frac{\hbar}{4M\Omega}\left(\underbrace{\matrixelement{n}{\operator{a}\conjugate{\operator{a}}+\conjugate{\operator{a}}\operator{a}}{n}}
+						_{2n+1}
+						+\underbrace{\matrixelement{n+1}{\operator{a}\conjugate{\operator{a}}+\conjugate{\operator{a}}\operator{a}}{n+1}}_{2(n+1)+1}\right)\nonumber\\
+					&=\frac{\hbar}{M\Omega}\left(n+1\right),\\
+				\matrixelement{\psi}{\operator{p}^{2}}{\psi}
+					&=\hbar M\Omega\left(n+1\right).
+			\end{align}
+		\end{subequations}
+		Střední kvadratické odchylky budou
+		\begin{subequations}
+			\begin{align}
+				\uncertainty{\psi}{x}
+					&=\frac{\hbar}{M\Omega}(n+1)-\frac{\hbar}{2M\Omega}(n+1)
+						=\frac{\hbar}{2M\Omega}(n+1),\\
+				\uncertainty{\psi}{p}
+					&=\hbar M\Omega(n+1)
+			\end{align}			
+		\end{subequations}
+		a relace neurčitosti\index{relace neurčitosti} pro harmonický oscilátor ve stavu $\ket{\psi}$ vycházejí
+		\begin{equation}
+            \uncertainty{\psi}{x}\uncertainty{\psi}{p}
+                =\frac{\hbar^{2}}{2}(n+1)^2>\frac{\hbar^{2}}{4}.
+		\end{equation}		
+	\end{enumerate}
+\end{solution}

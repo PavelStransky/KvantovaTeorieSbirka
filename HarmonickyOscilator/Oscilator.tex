@@ -1,0 +1,330 @@
+\subsection{Jednorozměrný harmonický oscilátor}\label{sec:HarmonicOscillator}\index{harmonický oscilátor}
+Harmonický oscilátor je popsán Hamiltoniánem
+\begin{equation}
+    \important{
+        \operator{H}
+            =\frac{1}{2M}\operator{p}^{2}+\frac{1}{2}M\Omega^{2}\operator{x}^{2},
+    }
+    \label{eq:HOHamiltonianXY}
+\end{equation}
+kde $M$ je hmotnost kmitající částice, $\Omega=\sqrt{k/M}$ je úhlová frekvence oscilátoru, $\operator{x}$ je operátor souřadnice a $\operator{p}$ operátor k němu přidružené hybnosti.
+Oba tyto samosdružené operátory splňují kanonický komutační vztah\index{komutační relace!kanonické}
+\begin{equation}
+    \commutator{\operator{x}}{\operator{p}}
+        =\im\hbar.
+\end{equation}
+
+V harmonickém oscilátoru lze vhodně nadefinovat operátory $\operator{a}$, $\conjugate{\operator{a}}$, a tím ho převést na algebraický systém, který jsme vyřešili v předchozím příkladu~\ref{sec:ShiftOperators}.
+Hledejte $\operator{a}$ ve tvaru
+\begin{equation}
+    \operator{a}
+        =\alpha{\operator{x}}+\beta{\operator{p}},\qquad 
+        \alpha,\beta\in\mathbb{C}.
+    \label{eq:HOA}
+\end{equation}
+
+\begin{enumerate}
+\item 
+    Nalezněte hodnoty konstant $\alpha$, $\beta$
+    a zapište Hamiltonián $\operator{H}$ pomocí operátorů $\operator{a}$, $\conjugate{\operator{a}}$.
+
+\item 
+    Nalezněte spektrum (vlastní energie a vlastní vektory) Hamiltoniánu.
+
+\item 
+    Vyjádřete operátory hybnosti $\operator{p}$ a souřadnice $\operator{x}$ pomocí operátorů $\operator{a}$, $\conjugate{\operator{a}}$.
+
+\item Spočítejte střední hodnoty 
+    \begin{equation}
+        \matrixelement{n}{\operator{x}}{n},\quad
+        \matrixelement{n}{\operator{p}}{n},\quad
+        \matrixelement{n}{\operator{x}^{2}}{n},\quad 
+        \matrixelement{n}{\operator{p}^{2}}{n},
+    \end{equation}
+    kde $\ket{n}$ je vlastní stav Hamiltoniánu.
+
+\item 
+    Spočítejte střední hodnoty 
+    \begin{equation}
+        \matrixelement{n}{\operator{T}}{n},\qquad
+        \matrixelement{n}{\operator{V}}{n},
+    \end{equation}		
+    kde $\operator{T}$ a $\operator{V}$ jsou operátory kinetické, resp. potenciální energie oscilátoru, 
+    a srovnejte s hodnotou energie ve stavu $\ket{n}$ (viriálový teorém).\index{teorém!viriálový}
+
+\item 
+    Ověřte platnost relací neurčitosti mezi polohou a hybností.
+
+\item 
+    Pomocí posunovacích operátorů vyjádřených v $x$-reprezentaci nalezněte vlnové funkce Harmonického oscilátoru.
+\end{enumerate}
+
+\begin{solution}
+	\begin{enumerate}
+	\item 
+        Dosazení lineární kombinace souřadnic a hybností~\eqref{eq:HOA} do definice operátoru $\operator{n}$ dá
+		\begin{align}
+			\operator{n}=\conjugate{\operator{a}}\operator{a}
+				&=\left(\alpha^{*}\operator{x}+\beta^{*}\operator{p}\right)
+					\left(\alpha\operator{x}+\beta\operator{p}\right)\nonumber\\
+				&=\abs{\alpha}^{2}\operator{x}^{2}
+					+\alpha^{*}\beta\underbrace{\operator{x}\operator{p}}_{\operator{p}\operator{x}+\im\hbar}
+					+\alpha\beta^{*}\operator{p}\operator{x}+\abs{\beta}^{2}\operator{p}^{2}\nonumber\\
+				&=\abs{\alpha}^{2}\operator{x}^{2}+\left(\alpha^{*}\beta+\alpha\beta^{*}\right)\operator{p}\operator{x}
+					+\im\hbar\alpha^{*}\beta+\abs{\beta}^{2}\operator{p}^{2}.
+				\label{eq:HONAlphaBeta}
+		\end{align}
+		Srovnáním tohoto výrazu s Hamiltoniánem~\eqref{eq:HOHamiltonianXY} je patrné, že až na konstantní člen lze Hamiltonián harmonického oscilátoru zkonstruovat z operátoru $\operator{n}$, pokud vymizí členy mísící souřadnici a hybnost, tj. pokud
+		\begin{equation}
+            \alpha^{*}\beta+\alpha\beta^{*}=0
+            \qquad
+            \Longleftrightarrow
+            \qquad
+            \real\alpha^{*}\beta=0.
+		\end{equation}
+        Bez újmy na obecnosti lze zvolit $\alpha$ reálné a $\beta$ ryze imaginární.
+        Pak
+		\begin{equation}
+            \operator{H}
+                =\gamma\operator{n}+\delta,
+		\end{equation}
+		kde $\gamma$ a $\delta$ jsou již reálná čísla.
+			
+		Dodatečná podmínka plyne z komutačních relací~\eqref{eq:ShiftOperatorCommutator},
+		\begin{align}
+			1=\commutator{\operator{a}}{\conjugate{\operator{a}}}
+				&=\left(\alpha\operator{x}+\beta\operator{p}\right)\left(\alpha^{*}\operator{x}+\beta^{*}\operator{p}\right)
+					-\left(\alpha^{*}\operator{x}+\beta^{*}\operator{p}\right)\left(\alpha\operator{x}+\beta\operator{p}\right)\nonumber\\
+				&=\left(\alpha\beta^{*}
+					-\alpha^{*}\beta\right)\underbrace{\operator{x}\operator{p}}_{\operator{p}\operator{x}+\im\hbar}
+					+\left(\alpha^{*}\beta-\alpha\beta^{*}\right)\operator{p}\operator{x}\nonumber\\
+				&=\left(\alpha\beta^{*}-\alpha^{*}\beta\right)\im\hbar\nonumber\\
+				&=2\alpha\beta^{*}\im\hbar,
+		\end{align}
+		takže musí platit
+		\begin{equation}\label{eq:HOAlphaBeta*}
+			\alpha\beta^{*}=\frac{1}{2\im\hbar}.
+		\end{equation}
+		
+		Srovnáním příslušných členů výrazu~\eqref{eq:HONAlphaBeta} s Hamiltoniánem~\eqref{eq:HOHamiltonianXY}
+        a díky podmínce~\eqref{eq:HOAlphaBeta*} lze přiřadit parametrům hodnoty
+        \begin{subequations}
+            \begin{align}
+                \alpha
+                    &=\frac{1}{\sqrt{\gamma}}\sqrt{\frac{1}{2}M\Omega^{2}},\\
+                \beta
+                    &=\frac{\im}{\sqrt{\gamma}}\sqrt{\frac{1}{2M}},\\
+                \gamma
+                    &=\hbar\Omega,\\
+                \delta
+                    &=\frac{\gamma}{2}=\frac{\hbar\Omega}{2}.			
+            \end{align}
+			\label{eq:HOAlphaBeta}
+        \end{subequations}
+		Výsledkem je vyjádření Hamiltoniánu harmonického oscilátoru ve tvaru
+		\begin{equation}
+			\important{\operator{H}=\hbar\Omega\left(\conjugate{\operator{a}}\operator{a}+\frac{1}{2}\right)}.
+            \label{eq:HOHamiltonianAA+}
+    	\end{equation}
+		
+	\item
+		Spektrum Hamiltoniánu lze určit na základě znalosti spektra operátoru $\operator{n}$~\eqref{eq:EigenstateNumberOperator}:
+		\begin{align}
+            \operator{H}\ket{E_{n}}
+                &=E_{n}\ket{E_{n}}\nonumber\\
+			\hbar\Omega\left(\conjugate{\operator{a}}\operator{a}\ket{E_{n}}+\frac{1}{2}\ket{E_{n}}\right)
+				&=E_{n}\ket{E_{n}}\nonumber\\
+            \hbar\Omega\left(n+\frac{1}{2}\right)\ket{n}
+                &=E_{n}\ket{n},
+		\end{align}
+		takže
+		\begin{equation}
+            \important{E_{n}
+                =\hbar\Omega\left(n+\frac{1}{2}\right),\quad n\in\mathbb{N}_{0}
+            }
+            \label{eq:HOEnergy}
+    	\end{equation}
+		a vlastní vektory jsou totožné s vlastními vektory operátoru $\operator{n}$, $\ket{E_{n}}\equiv\ket{n}$.
+	
+	\item
+		Dosazení $\alpha$, $\beta$ a $\gamma$ z~\eqref{eq:HOAlphaBeta} do~\eqref{eq:HOA}, vede na vztahy\sfootnote{
+			Lze navíc zavést veličiny rozměru souřadnice a hybnosti
+			\begin{equation}
+                x_{0}
+                    \equiv\sqrt{\frac{\hbar}{M\Omega}},\qquad
+                p_{0}
+                    \equiv\frac{x_{0}}{\hbar}=\sqrt{\hbar M\Omega}
+			\end{equation}
+			a vztahy~\eqref{eq:ShiftOperatorToPX} přepsat do bezrozměrného tvaru
+			\begin{equation}
+                \operator{a}
+                    =\frac{1}{\sqrt{2}}\left(\frac{\operator{x}}{x_{0}}+\im\frac{\operator{p}}{p_{0}}\right).
+			\end{equation}
+		}
+		\begin{subequations}
+			\begin{align}
+				\operator{a}
+					=\frac{\operator{A}}{\sqrt{\hbar\Omega}}
+					&=\frac{1}{\sqrt{\hbar\Omega}}\left(\sqrt{\frac{1}{2}M\Omega^{2}}\operator{x}
+						+\im\sqrt{\frac{1}{2M}}\operator{p}\right)\nonumber\\
+					&=\sqrt{\frac{M\Omega}{2\hbar}}\left(\operator{x}+\frac{\im}{M\Omega}\operator{p}\right),\\
+				\conjugate{\operator{a}}
+					&=\sqrt{\frac{M\Omega}{2\hbar}}\left(\operator{x}-\frac{\im}{M\Omega}\operator{p}\right).
+			\end{align}			
+			\label{eq:ShiftOperatorToPX}
+		\end{subequations}
+		Sečtení a odečtení vede k inverzní transformaci od posunovacích operátorů k operátorům souřadníce a hybnosti,
+        \begin{subequations}
+            \begin{empheq}[box=\fbox]{align}
+                \operator{x}
+                    &=\sqrt{\frac{\hbar}{2M\Omega}}\left(\conjugate{\operator{a}}+\operator{a}\right),\\
+                \operator{p}
+                    &=\im\sqrt{\frac{\hbar M\Omega}{2}}\left(\conjugate{\operator{a}}-\operator{a}\right).
+			\end{empheq}
+			\label{eq:PXToShiftOperator}		
+		\end{subequations}
+	
+	\item
+		K výpočtu středních hodnot operátorů $\operator{x}$, $\operator{p}$ se využije jejich vyjádření pomocí posunovacích operátorů~\eqref{eq:PXToShiftOperator} a poté vztahy~\eqref{eq:AN}:
+		\begin{align}
+			\matrixelement{n}{\operator{x}}{n}
+				&=\sqrt{\frac{\hbar}{2M\Omega}}\matrixelement{n}{\conjugate{\operator{a}}+\operator{a}}{n}\nonumber\\
+				&=\sqrt{\frac{\hbar}{2M\Omega}}\left(\sqrt{n+1}\braket{n}{n+1}
+					+\sqrt{n}\braket{n}{n-1}\right)\nonumber\\
+				&=0,
+				\label{eq:MatrixElementNXN}
+		\end{align}
+		jelikož vlastní vektory $\ket{n-1}$, $\ket{n}$ a $\ket{n+1}$ jsou na sebe kolmé.
+        Stejně tak vychází
+		\begin{equation}
+			\label{eq:MatrixElementNPN}
+			\matrixelement{n}{\operator{p}}{n}=0.
+		\end{equation}
+		Lze odpozorovat \trick{pravidlo}, že střední hodnota $\matrixelement{n}{f(r,s;\operator{a},\conjugate{\operator{a}})}{n}$, kde $f(r,s;\operator{a},\conjugate{\operator{a}})$ je funkce součinu $r$ operátorů $\operator{a}$ a $s$ operátorů $\conjugate{\operator{a}}$ v libovolném pořadí, je nenulová pouze tehdy, pokud $r=s$.
+		Obecněji maticový element $\matrixelement{m}{f(r,s;\operator{a},\conjugate{\operator{a}})}{n}$ je nenulový, pokud $m+r=n+s$.
+	
+		Pro střední hodnoty kvadrátů operátorů souřadnice a hybnosti platí
+		\begin{align}
+			\matrixelement{n}{\operator{x}^{2}}{n}
+				&=\frac{\hbar}{2M\Omega}\matrixelement{n}{\left(\conjugate{\operator{a}}+\operator{a}\right)^{2}}{n}\nonumber\\
+				&=\frac{\hbar}{2M\Omega}\matrixelement{n}{\underbrace{\left(\conjugate{\operator{a}}\right)^{2}}_{0}+\operator{a}\conjugate{\operator{a}}
+					+\conjugate{\operator{a}}\operator{a}+\underbrace{\operator{a}^{2}}_{0}}{n}\nonumber\\
+				&=\frac{\hbar}{2M\Omega}\matrixelement{n}{\sqrt{n+1}\sqrt{n+1}+\sqrt{n}\sqrt{n}}{n}\nonumber\\
+				&=\frac{\hbar}{2M\Omega}(2n+1),
+				\label{eq:MatrixElementNX2N}\\
+			\matrixelement{n}{\operator{p}^{2}}{n}
+				&=-\frac{\hbar M\Omega}{2}\matrixelement{n}{\left(\conjugate{\operator{a}}-\operator{a}\right)^{2}}{n}\nonumber\\
+				&=-\frac{\hbar M\Omega}{2}\matrixelement{n}{\underbrace{\left(\conjugate{\operator{a}}\right)^{2}}_{0}-\operator{a}\conjugate{\operator{a}}
+					-\conjugate{\operator{a}}\operator{a}+\underbrace{\left(\conjugate{\operator{a}}\right)^{2}}_{0}}{n}\nonumber\\
+				&=\frac{\hbar M\Omega}{2}(2n+1).
+				\label{eq:MatrixElementNP2N}
+		\end{align}
+	
+	\item
+		Operátor kinetické energie je
+		\begin{equation}
+            \operator{T}
+                =\frac{1}{2M}\operator{p}^{2},
+		\end{equation}
+		jehož střední hodnota vychází po dosazení~\eqref{eq:MatrixElementNP2N}
+		\begin{equation}\label{eq:MatrixElementT}
+			\matrixelement{n}{\operator{T}}{n}
+				=\frac{1}{2M}\frac{\hbar M\Omega}{2}(2n+1)
+				=\frac{1}{2}\hbar\Omega\left(n+\frac{1}{2}\right)
+				=\frac{E_{n}}{2}.
+		\end{equation}
+		Podobně potenciál
+		\begin{equation}
+            \operator{V}
+                =\frac{1}{2}M\Omega^{2}\operator{x}^{2}
+		\end{equation}
+		po dosazení~\eqref{eq:MatrixElementNX2N} vychází
+		\begin{equation}\label{eq:MatrixElementV}
+			\matrixelement{n}{\operator{V}}{n}
+				=\frac{1}{2}M\Omega^{2}\frac{\hbar}{2M\Omega}(2n+1)
+				=\frac{1}{2}\hbar\Omega\left(n+\frac{1}{2}\right)
+				=\frac{E_{n}}{2}.
+		\end{equation}
+	
+		Viriálový teorém\index{teorém!viriálový} udává vztah mezi střední hodnotou operátoru kinetické energie 
+		a operátoru potenciálu pro libovolný stav $\ket{\psi}$,\sfootnote{
+			Výrazu $\derivative{}{\operator{x}}\operator{V}(\operator{x})$ je třeba rozumět ve smyslu $\derivative{}{x}V(x)|_{x=\operator{x}}$.\index{derivace!operátoru}
+		} tedy nikoliv jen pro vlastní stav Hamiltoniánu:
+		\begin{equation}
+			2\matrixelement{\psi}{\operator{T}}{\psi}
+				=\matrixelement{\psi}{\operator{x}\derivative{}{\operator{x}}\operator{V}(\operator{x})}{\psi}.
+		\end{equation}
+		To se v případě, že $\operator{V}(\operator{x})$ je homogenní funkce stupně $s$, dále zjednoduší na
+		\begin{equation}
+			2\matrixelement{\psi}{\operator{T}}{\psi}=s\matrixelement{\psi}{\operator{V}}{\psi}.
+		\end{equation}
+        V případě harmonického oscilátoru je $s=2$. 
+        Pro střední hodnoty kinetické energie~\eqref{eq:MatrixElementT} a potenciálu~\eqref{eq:MatrixElementV} je viriálový teorém splněn.
+		
+	\item
+		Relace neurčitosti\index{relace neurčitosti} znějí
+		\begin{equation}
+			\uncertainty{n}{x}\uncertainty{n}{p}\geq\frac{\hbar^{2}}{4},
+		\end{equation}
+		kde
+		\begin{subequations}
+			\begin{align}
+				\uncertainty{n}{x}
+					&=\matrixelement{n}{\operator{x}^{2}}{n}-\matrixelement{n}{\operator{x}}{n}^{2},\\
+					\uncertainty{n}{p}
+					&=\matrixelement{n}{\operator{p}^{2}}{n}-\matrixelement{n}{\operator{p}}{n}^{2}.
+			\end{align}
+		\end{subequations}
+		Po dosazení vypočtených středních hodnot~\eqref{eq:MatrixElementNXN}, \eqref{eq:MatrixElementNPN}, \eqref{eq:MatrixElementNX2N} a \eqref{eq:MatrixElementNP2N} do relací neurčitosti vychází
+		\begin{align}
+			\uncertainty{n}{x}\uncertainty{n}{p}
+				&=\matrixelement{n}{\operator{x}^{2}}{n}\matrixelement{n}{\operator{p}^{2}}{n}\nonumber\\
+				&=\frac{\hbar}{2M\Omega}(2n+1)\frac{\hbar M\Omega}{2}(2n+1)\nonumber\\
+				&=\frac{\hbar^{2}}{4}(2n+1)^{2}.
+		\end{align}
+		Jelikož $n\geq0$, relace neurčitosti jsou splněny.
+        Stav s nejmenší možnou neurčitostí je základní stav $n=0$.
+        
+    \item 
+        Operátory $\operator{a}$ a $\conjugate{\operator{a}}$ v $x$-reprezentaci se získají ze vztahů~\eqref{eq:ShiftOperatorToPX} přechodem $\operator{x}\mapsto x$ a $\operator{p}\mapsto-\im\hbar\,\d/\d x$,
+        \begin{equation}\label{ShiftOperatorXRepresentation}
+            \operator{a}
+                =\sqrt{\frac{M\Omega}{2\hbar}}\left(x+\frac{\hbar}{M\Omega}\derivative{}{x}\right).
+        \end{equation}
+
+        Pro základní stav harmonického oscilátoru platí
+        \begin{equation}
+            \operator{a}\ket{0}=0
+            \xrightarrow{x-\text{reprezentace}}
+            \operator{a}\psi_{0}(x)=0,
+        \end{equation}
+        což vede v $x$-reprezentaci na obyčejnou diferenciální rovnici 1. řádu
+        \begin{equation}
+            \left(x+\frac{\hbar}{M\Omega}\derivative{}{x}\right)\psi_{0}(x)=0.
+        \end{equation}
+        Její řešení získané separací proměnných zní
+        \begin{equation}
+            \psi_{0}(x)
+                =N\e^{-\frac{M\Omega}{2\hbar}x^{2}}.
+        \end{equation}
+        Normalizační konstanta $N$ vychází z podmínky
+        \begin{equation}
+            \int_{-\infty}^{\infty}\abs{\psi_{0}(x)}^{2}\d x=1
+            \Longrightarrow
+            N=\sqrt[4]{\frac{M\Omega}{\pi\hbar}}.
+        \end{equation}
+        Normalizovaná vlnová funkce základního stavu harmonického oscilátoru je tedy
+        \begin{equation}
+            \psi_{0}(x)
+                =\sqrt[4]{\frac{M\Omega}{\pi\hbar}}\e^{-\frac{M\Omega}{2\hbar}x^{2}}.
+        \end{equation}
+
+        Vlnové funkce vzbuzených stavů se nagenergují ze základního stavu působením operátoru $\conjugate{\operator{a}}$ podle vztahu~\eqref{eq:EigenstateNumberOperator},
+        \begin{align}
+            \psi_{n}(x)
+                =\frac{1}{\sqrt{n!}}\left(\frac{M\Omega}{2\hbar}\right)^{\frac{n}{2}}\left(x-\frac{\hbar}{M\Omega}\derivative{}{x}\right)^{n}\psi_{0}(x)
+                =\frac{1}{\sqrt{2^{n}n!}}\sqrt[4]{\frac{M\Omega}{\pi\hbar}}\e^{-\frac{M\Omega}{2\hbar}x^{2}}H_{n}\left(\sqrt{\frac{M\Omega}{\hbar}}x\right),
+        \end{align}
+        kde $H_{n}(\xi)$ je Hermitův polynom.\index{polynom!Hermitův}
+    \end{enumerate}    
+\end{solution}	

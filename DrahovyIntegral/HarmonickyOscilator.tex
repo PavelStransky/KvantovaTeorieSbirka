@@ -1,0 +1,57 @@
+\subsection{Propagátor harmonického oscilátoru}
+Cílem této úlohy je spočítat propagátor jednorozměrného harmonického oscilátoru daného Hamiltoniánem
+\begin{equation}
+\operator{H}=\frac{1}{2M}\operator{p}^{2}+\frac{1}{2}M\Omega^{2}\operator{x}^{2}.
+\end{equation}
+Budeme sledovat stejné kroky jako v případě propagátoru částice v homogenním poli.
+Potenciál je kvadratický, propagátor bude tedy úměrný 
+\begin{equation}
+G(x_{\mathrm{f}}, t_{\mathrm{f}}; x_{\mathrm{i}}, t_{\mathrm{i}})\sim\e^{\frac{\im}{\hbar}S_{\mathrm{kl}}}
+\end{equation}
+(označili jsme $S_{\mathrm{kl}}\equiv S\left[x_{\mathrm{kl}}(t)\big|_{x_{\mathrm{kl}}(t_{\mathrm{i,f}})=x_{\mathrm{i,f}}}\right]$,
+což je akce pro klasickou trajektorii s okrajovými podmínkami 
+$x_{\mathrm{kl}}(t_{\mathrm{i}})=x_{\mathrm{i}}$, $x_{\mathrm{kl}}(t_{\mathrm{f}})=x_{\mathrm{f}}$).
+
+\begin{enumerate}
+\item Nalezněte klasickou trajektorii $x_{kl}(t)$ částice pohybující se v poli harmonického oscilátoru
+při okrajových podmínkách $x_{\mathrm{kl}}(t_{\mathrm{i}})=x_{\mathrm{i}}$, $x_{\mathrm{kl}}(t_{\mathrm{f}})=x_{\mathrm{f}}$.
+
+\item Nalezněte rychlosti $v_{\mathrm{i}}=\dot{x}_{\mathrm{kl}}(t_{\mathrm{i}})$, $v_{\mathrm{f}}=\dot{x}_{\mathrm{kl}}(t_{\mathrm{f}})$.
+
+\item Rozložme libovolnou trajektorii $x(t)$ s okrajovými podmínkami $x(t_{\mathrm{i,f}})=x_{\mathrm{i,f}}$ na 
+\begin{equation}
+x(t)=x_{\mathrm{kl}}(t)+x_{\mathrm{q}}(t),
+\end{equation}
+kde $x_{\mathrm{kl}}$ splňuje výše uvedené okrajové podmínky a pro $x_{\mathrm{q}}$ platí $x_{\mathrm{q}}(t_{\mathrm{i,f}})=0$.
+Nalezněte diferenciální operátor $\operator{A}$, který odpovídá matici $A$ Gaussovské integrace, 
+a na prostoru funkcí $x_{\mathrm{q}}$ nalezněte jeho vlastní čísla.
+
+\item Jelikož $\det{\frac{\operator{A}}{2\pi}}$ nekonverguje, regularizujte jej vydělením determinantem volné částice $\det{\frac{\operator{A}_{0}}{2\pi}}$,
+kde $\operator{A}_{0}=\frac{\im}{\hbar}M\frac{\d^{2}}{\d t^{2}}$, a dopočítejte. 
+Můžete využít vztah
+\begin{equation}
+\prod_{k=1}^{\infty}\left[1-\left(\frac{x}{k\pi}\right)^{2}\right]=\frac{\sin{x}}{x}.
+\end{equation}
+
+\item Ukažte, že porovnáním s propagátorem volné částice, kde má diferenciální operátor tvar $\operator{A}_{0}$, 
+můžete propagátor harmonického oscilátoru vyjádřit ve tvaru
+\begin{equation}
+G(x_{\mathrm{f}}, t_{\mathrm{f}}; x_{\mathrm{i}}, t_{\mathrm{i}})=\sqrt{\frac{M}{2\im\pi\hbar\left(t_{\mathrm{f}}-t_{\mathrm{i}}\right)}}
+\sqrt{\frac{\det{\frac{\operator{A}_{0}}{2\pi}}}{\det{\frac{\operator{A}}{2\pi}}}}\,
+\e^{\frac{\im}{\hbar}S[x_{\mathrm{kl}}(t)]}\nonumber
+\end{equation}
+Dosaďte, dopočítejte akci klasické trajektorie a napište konečný výsledek.
+\end{enumerate}
+
+Díky regularizaci máme v rukou prostředek, který výrazně zjednodušuje výpočet dráhového integrálu. 
+Nemusíme již uvažovat jeho diskrétní vyjádření. 
+
+Dalším krokem je \emph{Van Vleckova formule}, která říká, 
+že propagátor Gaussovského systému lze vyjádřit jen pomocí akce klasické trajektorie
+\begin{equation}
+G(\vector{x}_{\mathrm{f}}, t_{\mathrm{f}}; \vector{x}_{\mathrm{i}}, t_{\mathrm{i}})=
+\sqrt{\det{\left(\frac{-1}{2\im\pi\hbar}\frac{\partial^{2}S_{\mathrm{kl}}}{\partial\vector{x}_{\mathrm{i}}\partial\vector{x}_{\mathrm{f}}}\right)}}\
+\exp\left(\frac{\im}{\hbar}S_{\mathrm{kl}}\right).
+\end{equation}
+Ukažte, že Van Vleckova formule reprodukuje propagátor volné částice, propagátor částice v homogenním poli 
+a propagátor částice v poli harmonického oscilátoru.

@@ -1,0 +1,82 @@
+\subsection{Redukovaný maticový element skalárního součinu}
+Nalezněte vztah mezi redukovaným maticovým elementem skalárního součinu $\reducedmatrixelement{a,J}{\tensoroperator{U}{\lambda}\cdot\tensoroperator{V}{\lambda}}{b,j}$ a redukovanými maticovými elementy jednotlivých činitelů $\reducedmatrixelement{a,J}{\tensoroperator{U}{\lambda}}{b,j}$ a $\reducedmatrixelement{a,J}{\tensoroperator{V}{\lambda}}{b,j}$.
+
+\begin{solution}
+	Wigner-Eckartův teorém~\eqref{eq:WignerEckart} na jednu stranu dává
+	\begin{align}
+		\label{eq:RMEScalar}
+		\matrixelement{a,J\,M}{\tensoroperator{U}{\lambda}\cdot\tensoroperator{V}{\lambda}}{b,j\,m}
+			&=\frac{1}{\sqrt{2J+1}}\clebsch{0}{0}{j}{m}{J}{M}
+				\reducedmatrixelement{a,J}{\tensoroperator{U}{\lambda}\cdot\tensoroperator{V}{\lambda}}{b,j}\nonumber\\
+			&=\frac{\delta_{Jj}\delta_{Mm}}{\sqrt{2J+1}}
+				\reducedmatrixelement{a,J}{\tensoroperator{U}{\lambda}\cdot\tensoroperator{V}{\lambda}}{b,j}\,,
+	\end{align}
+	($\tensoroperator{U}{\lambda}\cdot\tensoroperator{V}{\lambda}$ je skalární operátor).
+	
+	V dalším stačí počítat jen maticový element diagonální v $J,M$, ostatní budou nulové.
+	Rozepsáním skalárního součinu podle definičního vztahu~\eqref{eq:TensorOperatorScalar}
+	\begin{align}
+		&\matrixelement{a,J\,M}{\tensoroperator{U}{\lambda}\cdot\tensoroperator{V}{\lambda}}{b,J\,M}\nonumber\\	
+		&\qquad=\matrixelement{a,J\,M}{\sum_{\mu}\minus{\mu}\tensoroperatorcomponent{U}{\lambda}{\mu}
+			\tensoroperatorcomponent{V}{\lambda}{-\mu}}{b,J\,M}\nonumber\\
+		&\qquad=\sum_{\mu cj'm'}\minus{\mu}
+			\underbrace{\matrixelement{a,J\,M}{\tensoroperatorcomponent{U}{\lambda}{\mu}}{c,j'\,m'}}
+				_{\minus{J-M}\threej{J}{\lambda}{j'}{-M}{\mu}{m'}
+				\reducedmatrixelement{a,J}{\tensoroperator{U}{\lambda}}{c,j'}}
+			\underbrace{\matrixelement{c,j'\,m'}{\tensoroperatorcomponent{V}{\lambda}{-\mu}}{b,J\,M}}
+				_{\minus{j'-m'}\threej{j'}{\lambda}{J}{-m'}{-\mu}{M}
+				\reducedmatrixelement{c,j'}{\tensoroperator{V}{\lambda}}{b,J}}.
+	\end{align}
+	V druhém $3j$ symbolu se prohodí první a třetí sloupec pomocí permutačních vztahů~\eqref{eq:Permutation3j} a zároveň vyměníme znaménka v druhé řádce u projekcí pomocí vztahu~\eqref{eq:Minus3j}:
+	\begin{equation}
+		\threej{j'}{\lambda}{J}{-m'}{-\mu}{M}
+			=\underbrace{(-1)^{2(j'+\lambda+J)}}_{1}\threej{J}{\lambda}{j'}{-M}{\mu}{m'}
+			=\threej{J}{\lambda}{j'}{-M}{\mu}{m'}.
+	\end{equation}
+	Co se týče znaménka $-$, v upravovaném výrazu se objevuje
+	\begin{equation}
+		\minus{\mu+J-M+j'-m'}=\minus{J+j'+\mu-M-m'}.
+	\end{equation}
+	Na základě výběrových pravidel~\eqref{eq:WignerEckartSelectionRules} je $m'+\mu=M$, takže zbývá vypořádat se s
+	\begin{equation}
+		\minus{J+j'}\minus{-2m'}.
+	\end{equation}
+	Faktor $-2m'$ je vždy sudý, pokud $m'$ je celé číslo, a vždy lichý, pokud $m'$ je polocelé číslo, takže	lze nahradit $\minus{-2m'}\mapsto\minus{-2j'}$ a toto znaménko neovlivní sumu přes $m'$. 
+    Dále se využijí relace ortogonality pro $3j$ symboly
+	\begin{equation}
+		\boxed{
+			\sum_{m_{2}m_{3}}\threej{j_{1}}{j_{2}}{j_{3}}{m_{1}}{m_{2}}{m_{3}}
+			\threej{j_{1}'}{j_{2}}{j_{3}}{m_{1}'}{m_{2}}{m_{3}}=\frac{1}{2j_{1}+1}\,
+				\delta_{j_{1}j'_{1}}\delta_{m_{1}m'_{1}}\delta(j_{1},j_{2},j_{3})
+		},
+	\end{equation}
+	kde $\delta(j_{1},j_{2},j_{3})=1$, pokud $j_{1}$, $j_{2}$, $j_{3}$ splňují trojúhelníkovou nerovnost $\abs{j_{1}-j_{2}}\leq j_{3}\leq j_{1}+j_{2}$, a $0$ v opačném případě.
+	
+	Pro $3j$ symboly v úloze dají relace ortogonality
+	\begin{equation}
+		\sum_{\mu m'}\threej{J}{\lambda}{j'}{-M}{\mu}{m'}\threej{J}{\lambda}{j'}{-M}{\mu}{m'}
+			=\frac{1}{2J+1}\,\delta(J,\lambda,j'),
+	\end{equation}
+	takže
+	\begin{align}
+		&\matrixelement{a,J\,M}{\tensoroperator{U}{\lambda}\cdot\tensoroperator{V}{\lambda}}{b,J\,M}\nonumber\\	
+		&\qquad=\frac{\minus{J}}{2J+1}\sum_{\begin{array}{c}c \\ \abs{J-\lambda}\leq j'\leq J+\lambda \end{array}}\minus{-j'}
+			\reducedmatrixelement{a,J}{\tensoroperator{U}{\lambda}}{c,j'}\reducedmatrixelement{c,j'}{\tensoroperator{V}{\lambda}}{{b,J}}
+	\end{align}
+	a srovnáním s výrazem~\eqref{eq:RMEScalar} dostaneme
+	\begin{equation}
+		\label{eq:RMETensorOperatorScalar}
+		\boxed{
+			\begin{aligned}
+				&\reducedmatrixelement{a,J}{\tensoroperator{U}{\lambda}\cdot\tensoroperator{V}{\lambda}}{b,j}=\\
+				&\qquad=\delta_{Jj}\minus{J}\frac{1}{\sqrt{2J+1}}\sum_{c\begin{array}{c}c \\ \abs{J-\lambda}\leq j'\leq J+\lambda \end{array}}\minus{-j'}
+				\reducedmatrixelement{a,J}{\tensoroperator{U}{\lambda}}{c,j'}\reducedmatrixelement{c,j'}{\tensoroperator{V}{\lambda}}{b,j}
+			\end{aligned}
+		}.
+	\end{equation}
+
+\note
+	V získaném výrazu probíhá sčítání přes $j'$ jen přes konečný počet vyznačených hodnot.
+	Suma přes $c'$ je však obecně nekonečná.
+
+\end{solution}

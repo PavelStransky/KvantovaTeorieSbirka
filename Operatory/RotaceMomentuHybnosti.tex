@@ -1,0 +1,75 @@
+\subsection{Rotace operátoru momentu hybnosti}\index{operátor!rotace}\index{operátor!momentu hybnosti}\label{sec:RotationOperator}
+Jsou zadány samosdružené operátory $\operator{S}_{1},\operator{S}_{2},\operator{S}_{3}$, které splňují komutační relace pro moment hybnosti,
+\begin{equation}\label{eq:CommutatorS}
+    \commutator{\operator{S}_{j}}{\operator{S}_{k}}
+        =\im\hbar\epsilon_{jkl}\operator{S}_{l},
+\end{equation}
+a operátor
+\begin{equation}
+    \operator{R}_{3}(\gamma)
+        =\e^{-\frac{\im}{\hbar}\gamma\operator{S}_{3}},
+\end{equation}
+s reálným parametrem $\gamma$.	
+Nalezněte, čemu se rovnají výrazy
+\begin{subequations}
+    \begin{align}
+        \operator{R}_{3}^{-1}(\gamma)\operator{S}_{1}\operator{R}_{3}(\gamma),\\
+        \operator{R}_{3}^{-1}(\gamma)\operator{S}_{2}\operator{R}_{3}(\gamma).
+    \end{align}
+\end{subequations}
+
+\begin{solution}
+	Stejně jako v předchozím příkladu~\ref{sec:TranslationOperator} se použije \trick{BCH formule}~\eqref{eq:BCH},\index{formule!Baker-Campbell-Hausdorffova} v níž se za operátory $\operator{A}$, $\operator{B}$ dosadí
+	\begin{equation}
+        \operator{A}
+            \equiv\frac{\im}{\hbar}\gamma\operator{S}_{3},\qquad
+        \operator{B}
+            \equiv\operator{S}_{1}.
+	\end{equation}
+    Využití komutačních relací pro složky momentu hybnosti~\eqref{eq:CommutatorS} pak dá členy BCH rozvoje v následujícím tvaru:
+    \begin{subequations}
+        \begin{align}
+            \operator{K}_{0}
+                &=\operator{S}_{1},\\
+            \operator{K}_{1}
+                &=\commutator{\frac{\im}{\hbar}\gamma\operator{S}_{3}}{\operator{S}_{1}}
+                =\frac{\im}{\hbar}\gamma\commutator{\operator{S}_{3}}{\operator{S}_{1}}
+                =-\gamma\operator{S}_{2},\\
+            \operator{K}_{2}
+                &=\commutator{\frac{\im}{\hbar}\gamma\operator{S}_{3}}{-\gamma\operator{S}_{2}}
+                =-\frac{\im}{\hbar}\gamma^{2}\commutator{\operator{S}_{3}}{\operator{S}_{2}}
+                =-\gamma^{2}\operator{S}_{1},\\
+            \operator{K}_{3}
+                &=\commutator{\frac{\im}{\hbar}\gamma\operator{S}_{3}}{-\gamma^{2}\operator{S}_{1}}
+                =-\frac{\im}{\hbar}\gamma^{3}\commutator{\operator{S}_{3}}{\operator{S}_{1}}
+                =\gamma^{3}\operator{S}_{2},\\
+                &\ \,\vdots\nonumber\\
+            \operator{K}_{2k}
+                &=\minus{k}\gamma^{2k}\operator{S}_{1},\\
+            \operator{K}_{2k+1}
+                &=-\minus{k}\gamma^{2k+1}\operator{S}_{2},
+        \end{align}
+    \end{subequations}
+    kde $n\in\mathbb{N}_{0}$.
+	BCH řada má v tomto případě nekonečně mnoho členů, lze ji však rozdělit na řadu sudých a na řadu lichých příspěvků, které se dají \trick{sečíst na goniometrické funkce}:
+	\begin{align}
+		\operator{R}^{-1}_{3}(\gamma)\operator{S}_{1}\operator{R}_{3}(\gamma)
+			&=\frac{1}{0!}\operator{S}_{1}-\frac{1}{1!}\gamma\operator{S}_{2}-\frac{1}{2!}\gamma^{2}\operator{S}_{1}
+				+\frac{1}{3!}\gamma^{3}\operator{S}_{2}+\dotsb\nonumber\\
+			&=\underbrace{\left[\sum_{k=0}^{\infty}\frac{\minus{k}}{(2k)!}\gamma^{2k}\right]}
+				_{\cos{\gamma}}\operator{S}_{1}
+				-\underbrace{\left[\sum_{k=0}^{\infty}\frac{\minus{k}}{(2k+1)!}\gamma^{2k+1}\right]}
+				_{\sin{\gamma}}\operator{S}_{2}\nonumber\\
+			&=\important{\operator{S}_{1}\cos{\gamma}-\operator{S}_{2}\sin{\gamma}}.
+	\end{align}
+	Stejný postup vede v případě druhého vztahu ze zadání na
+	\begin{equation}
+		\important{\operator{R}^{-1}_{3}(\gamma)\operator{S}_{2}\operator{R}_{3}(\gamma)
+			=\operator{S}_{1}\sin{\gamma}+\operator{S}_{2}\cos{\gamma}}.
+	\end{equation}
+\end{solution}
+
+\begin{note}
+	Operátor $\operator{R}_{3}(\gamma)$ se nazývá \emph{operátor natočení (rotace)} o úhel $\gamma$ okolo osy $z$.
+	Obdobným způsobem se definují operátory $\operator{R}_{1}$ a $\operator{R}_{2}$, které popisují rotace okolo souřadných os $x$ a $y$.
+\end{note}

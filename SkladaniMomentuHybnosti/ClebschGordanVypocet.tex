@@ -1,0 +1,290 @@
+\subsection[Explicitní výpočet C-G koeficientů]{Explicitní výpočet Clebsch-Gordanových koeficientů}
+Explicitním výpočtem pomocí posunovacích operátorů $\operator{J}_{\pm}=\operator{J}_{1}\pm\im\operator{J}_{2}$ 
+nalezněte Clebsch-Gordanovy koeficienty pro skládání impulsmomentů $j_{1}=j_{2}=1$.
+
+\begin{solution}
+	Budeme užívat zkrácený zápis
+	\begin{subequations}
+		\begin{align}
+			\ket{j_{1}\,j_{2}\,j\,m}
+				=\ket{1\,1\,\,j\,m}
+				&\rightarrow\ket{j\,m}\\
+			\ket{j_{1,2}\,m_{1,2}}
+				=\ket{1\,m_{1,2}}
+				&\rightarrow\ket{m_{1,2}}
+		\end{align}
+	\end{subequations}
+	Na základě trojúhelníkové nerovnosti~\eqref{eq:AngularMomentumSelectionRules} může celkový moment hybnosti nabývat pouze hodnot $j\in\{0,1,2\}$.
+
+	\begin{itemize}
+	\item 
+		Začíná se obvykle s vektory s nejvyšší váhou:
+		\begin{equation}
+			\label{eq:AngularMomentum22}
+			\ket{2\,2}
+				=\ket{1}\ket{1}
+		\end{equation}
+		(fázi můžeme volit obecně libovolně, jednička je v tzv. 
+		\emph{Condon-Shortleyově fázové konvenci}), takže
+		\begin{equation}
+			\clebsch{1}{1}{1}{1}{2}{2}
+				=1.
+		\end{equation}
+	
+	\item
+		K výpočtu dalších Clebsch-Gordanových koeficientů v podprostoru $j=2$ se využívá postupného působení posunovacími operátory $\operator{J}_{\pm}$, které splňují
+		\begin{equation}
+			\label{eq:AngularMomentumShiftOperator}
+			\important{
+			\begin{aligned}
+				\operator{J}_{\pm}\ket{j\,m}
+					&=\alpha^{(\pm)}(j,m)\ket{j\,m\pm1}\,,\\
+				\alpha^{(\pm)}(j,m)
+					&=\sqrt{j(j+1)-m(m\pm1)}
+			\end{aligned}
+			}
+		\end{equation}
+		(analogické vztahy platí pro jednotlivé impulsmomenty $\vectoroperator{J}^{(1,2)}$, přičemž $\operator{J}_{\pm}=\operator{J}^{(1)}_{\pm}+\operator{J}^{(2)}_{\pm}$).
+		Působení operátoru $\operator{J}_{-}$ na obě strany rovnosti~\eqref{eq:AngularMomentum22} dá
+		\begin{subequations}
+			\begin{align}
+				\operator{J}_{-}\ket{2\,2}
+					&=2\ket{2\,1}\,,\\
+				\operator{J}_{-}\ket{1}\ket{1}
+					&=\operator{J}^{(1)}_{-}\ket{1}\ket{1}+\operator{J}^{(2)}_{-}\ket{1}\ket{1}\nonumber\\
+					&=\sqrt{2}\left(\ket{0}\ket{1}+\ket{1}\ket{0}\right),
+			\end{align}
+		\end{subequations}		
+		z čehož vyplývá, že
+		\begin{equation}
+			\ket{2\,1}
+				=\frac{1}{\sqrt{2}}\left(\ket{1}\ket{0}+\ket{0}\ket{1}\right),
+		\end{equation}
+		a tedy
+		\begin{equation}
+			\clebsch{1}{0}{1}{1}{2}{1}
+				=\clebsch{1}{1}{1}{0}{2}{1}
+				=\frac{1}{\sqrt{2}}.
+		\end{equation}
+	
+	\item
+		Jelikož musí platit $m=m_{1}+m_{2}$, viz~\eqref{eq:AngularMomentumSelectionRules}, jsou ostatní Clebsch-Gordanovy koeficienty s $j=2$ a $m=1$ nulové:
+		\begin{equation}
+			\clebsch{1}{1}{1}{1}{2}{1}
+				=\clebsch{1}{0}{1}{0}{2}{1}
+				=\clebsch{1}{-1}{1}{0}{2}{1}
+				=\clebsch{1}{0}{1}{-1}{2}{1}
+				=\clebsch{1}{-1}{1}{-1}{2}{1}=0.
+		\end{equation}
+	
+	\item
+		Další působení posunovacího operátoru vede na
+		\begin{subequations}
+			\begin{align}
+				\operator{J}_{-}\ket{2\,1}
+					&=\sqrt{6}\ket{2\,0}\,,\\
+				\operator{J}_{-}\frac{1}{\sqrt{2}}\left(\ket{0}\ket{1}+\ket{1}\ket{0}\right)
+					&=\frac{1}{\sqrt{2}}\left(\sqrt{2}\ket{-1}\ket{1}+\sqrt{2}\ket{0}\ket{0}
+						+\sqrt{2}\ket{0}\ket{0}+\sqrt{2}\ket{1}\ket{-1}\right)=\nonumber\\
+					&=\ket{-1}\ket{1}+2\ket{0}\ket{0}+\ket{1}\ket{-1}\,,
+			\end{align}
+		\end{subequations}
+		takže
+		\begin{equation}
+			\ket{2\,0}
+				=\frac{1}{\sqrt{6}}\left(\ket{-1}\ket{1}+2\ket{0}\ket{0}+\ket{1}\ket{-1}\right)\,.
+		\end{equation}
+		Odpovídající Clebsch-Gordanovy koeficienty jsou
+		\begin{subequations}
+			\begin{align}
+				\clebsch{1}{-1}{1}{1}{2}{0}
+					=\clebsch{1}{1}{1}{-1}{2}{0}
+					&=\frac{1}{\sqrt{6}}\\
+				\clebsch{1}{0}{1}{0}{2}{0}
+					&=\frac{2}{\sqrt{6}}.
+			\end{align}
+		\end{subequations}
+		Všechny ostatní koeficienty s $l=2$, $m=0$ jsou nulové.
+	
+	\item
+		Opakování postupu působení operátorem $\operator{J}_{-}$ dá 
+		\begin{subequations}
+			\begin{align}
+				\ket{2\,-1}
+					&=\frac{1}{\sqrt{2}}\left(\ket{0}\ket{-1}+\ket{-1}\ket{0}\right),\\
+				\ket{2\,-2}
+					&=\ket{-1}\ket{-1}
+			\end{align}
+		\end{subequations}
+		a příslušné Clebsch-Gordanovy koeficienty jsou
+		\begin{subequations}
+			\begin{align}
+				\clebsch{1}{0}{1}{-1}{2}{-1}
+					=\clebsch{1}{-1}{1}{0}{2}{-1}
+					&=\frac{1}{\sqrt{2}}\\
+				\clebsch{1}{-1}{1}{-1}{2}{-2}
+					&=1.
+			\end{align}
+		\end{subequations}
+	
+	\item
+		V dalším kroku se přejde do podprostoru $j=1$. 
+		Vektor s nejvyšší vahou $\ket{1\,1}$ lze zkonstruovat pouze ze dvou vektorů báze nesložených momentů hybnosti,
+		\begin{equation}
+			\ket{1\,1}
+				=c_{1}\ket{0}\ket{1}+c_{2}\ket{1}\ket{0}.
+		\end{equation}
+		Tento vektor musí být kolmý na $\ket{2\,1}$, 
+		\begin{equation}
+			\braket{2\,1}{1\,1}=0,			
+		\end{equation}
+		z čehož plyne rovnice
+		\begin{equation}
+		\frac{c_{1}}{\sqrt{2}}+\frac{c_{2}}{\sqrt{2}}=0.
+		\end{equation}
+		Koeficienty $c_{1}$, $c_{2}$ jsou navíc vázany normalizační podmínkou $\abss{c_{1}}+\abss{c_{2}}=1$.
+		Podle Condon-Shortleyovy fázové konvence se koeficienty $c_{1}$, $c_{2}$ volí reálné, a navíc koeficient u $\ket{1}\ket{0}$ kladný.
+		To vede na jednoznačné vyjádření
+		\begin{equation}
+			\ket{1\,1}
+				=\frac{1}{\sqrt{2}}\left(\ket{1}\ket{0}-\ket{0}\ket{1}\right),
+		\end{equation}
+		z čehož lze získat Clebsch-Gordanovy koeficienty
+		\begin{subequations}
+			\begin{align}
+				\clebsch{1}{1}{1}{0}{1}{1}
+					&=\frac{1}{\sqrt{2}},\\
+				\clebsch{1}{0}{1}{1}{1}{1}
+					&=-\frac{1}{\sqrt{2}}.
+			\end{align}
+		\end{subequations}
+	
+	\item
+		Nyní lze opět působit operátorem $\operator{J}_{-}$, což dá
+		\begin{subequations}
+			\begin{align}
+				\ket{1\,0}
+					&=\frac{1}{\sqrt{2}}\left(\ket{1}\ket{-1}-\ket{-1}\ket{1}\right),\\
+				\ket{1\,-1}
+					&=\frac{1}{\sqrt{2}}\left(\ket{0}\ket{-1}-\ket{-1}\ket{0}\right),
+			\end{align}
+		\end{subequations}
+		takže
+		\begin{subequations}
+			\begin{align}
+				\clebsch{1}{1}{1}{-1}{1}{0}
+					&=\frac{1}{\sqrt{2}}\,,\\
+				\clebsch{1}{-1}{1}{1}{1}{0}
+					&=-\frac{1}{\sqrt{2}}\,,\\
+				\clebsch{1}{0}{1}{-1}{1}{-1}
+					&=\frac{1}{\sqrt{2}}\,,\\
+				\clebsch{1}{-1}{1}{0}{1}{-1}
+					&=-\frac{1}{\sqrt{2}}\,.
+			\end{align}
+		\end{subequations}
+	
+	\item
+		Zbývá určit poslední stav, který leží v jednorozměrném podprostoru $j=0$:
+		\begin{equation}
+			\ket{0\,0}
+				=d_{1}\ket{1}\ket{-1}+d_{2}\ket{0}\ket{0}+d_{3}\ket{-1}\ket{1}.
+		\end{equation}
+		Podmínky ortogonality
+		\begin{equation}
+			\braket{2\,0}{0\,0}
+				=\braket{1\,0}{0\,0}=0
+		\end{equation}
+		vedou na soustavu rovnic
+		\begin{subequations}
+			\begin{align}
+				\frac{d_{1}}{\sqrt{6}}+\frac{2d_{2}}{\sqrt{6}}+\frac{d_{3}}{\sqrt{6}}
+					&=0,\\
+				\frac{d_{1}}{\sqrt{2}}-\frac{d_{3}}{\sqrt{2}}
+					&=0,
+			\end{align}
+		\end{subequations}
+		z které vyplývají vztahy mezi koeficienty
+		\begin{equation}
+			d_{1}
+				=d_{3}
+				=-d_{2}.
+		\end{equation}
+		S uvážením Condon-Shortleyovy fázové konvence je tedy 
+		\begin{equation}
+			\ket{0\,0}
+				=\frac{1}{\sqrt{3}}\left(\ket{1}\ket{-1}-\ket{0}\ket{0}+\ket{-1}\ket{1}\right)
+		\end{equation}
+		a
+		\begin{subequations}
+			\begin{align}
+			\clebsch{1}{1}{1}{-1}{0}{0}
+				=\clebsch{1}{-1}{1}{1}{0}{0}
+				&=\frac{1}{\sqrt{3}}\\
+			\clebsch{1}{0}{1}{0}{0}{0}
+				&=-\frac{1}{\sqrt{3}}.
+			\end{align}
+		\end{subequations}
+	\end{itemize}
+
+	\begin{table}[!htbp]
+		\centering
+		\begin{tabular}{|rr||r|rr|rrr|rr|r|}
+			\hline
+			& $j$ & 2  & 2  & 1  & 2 & 1 & 0 & 2  & 1  & 2 \\
+			& $m$ & +2 & +1 & +1 & 0 & 0 & 0 & -1 & -1 & -2\\
+			$m_{1}$ & $m_{2}$ & & & & & & & & &\\
+			\hline\hline
+			+1 & +1 & 1 & & & & & & & &\\
+			\hline
+			+1 & 0  & & $\frac{1}{\sqrt{2}}$ & $\frac{1}{\sqrt{2}}$ & & & & & &\\
+			0 & +1  & & $\frac{1}{\sqrt{2}}$ & $-\frac{1}{\sqrt{2}}$ & & & & & &\\
+			\hline
+			+1 & -1  & & & & $\frac{1}{\sqrt{6}}$ & $\frac{1}{\sqrt{2}}$ & 
+				$\frac{1}{\sqrt{3}}$ & & &\\
+			0 & 0  & & & & $\frac{2}{\sqrt{6}}$ & 0 & $-\frac{1}{\sqrt{3}}$ & & &\\
+			-1 & +1  & & & & $\frac{1}{\sqrt{6}}$ & $-\frac{1}{\sqrt{2}}$ & 
+				$\frac{1}{\sqrt{3}}$ & & &\\
+			\hline
+			0 & -1  & & & & & & & $\frac{1}{\sqrt{2}}$ & $\frac{1}{\sqrt{2}}$ & \\
+			-1 & 0  & & & & & & & $\frac{1}{\sqrt{2}}$ & $-\frac{1}{\sqrt{2}}$ & \\
+			\hline
+			-1 & -1 & & & & & & & & & 1\\
+			\hline
+		\end{tabular}
+		\scaption{
+			\protect\small Clebsch-Gordanovy koeficienty pro impulsmomenty $j_{1}=j_{2}=1$. 
+			Pokud v tabulce není uvedeno žádné číslo, je příslušný C-G koeficient nulový.
+		}
+		\label{tab:AngularMomentumCoupling11}
+	\end{table}
+
+	Všechny vypočítané Clebsch-Gordanovy koeficienty pro impulsmomenty $j_{1}=j_{2}=1$ jsou přehledně uvedeny v tabulce~\ref{tab:AngularMomentumCoupling11}.
+
+\sec{Shrnutí}
+
+	Obecný postup výpočtu Clebsch-Gordanových koeficientů je tedy následující:
+	\begin{enumerate}
+		\item
+			Začne se s vektorem s nejvyšší váhou
+			\begin{equation}
+				\ket{j_{1},j_{2},j=j_{1}+j_{2},m=j_{1}+j_{2}}
+					=\ket{j_{1}\,j_{1}}\ket{j_{2}\,m_{2}}
+			\end{equation}
+		
+		\item
+			Opakovaně se zapůsobí posunovacím operátorem $\operator{J}_{-}$ na obě strany rovnice.
+			Tím se naleznou všechny vektory $\ket{j_{1},j_{2},j=j_{1}+j_{2},m}$, $m\in\left\{-(j_{1}+j_{2}),\dotsc,j_{1}+j_{2}\right\}$ z podprostoru $j=j_{1}+j_{2}$.
+		
+		\item
+			Vektor z podprostoru s o jedničku nižším $j=j_{1}+j_{2}-1$ a s odpovídajícím nejvyšším možným $m=j_{1}+j_{2}-1$ se určí z podmínky kolmosti na již vypočtený vektor z prostoru $j=j_{1}+j_{2}$,
+			\begin{equation}
+				\braket{j_{1},j_{2},j=j_{1}+j_{2}-1,m=j_{1}+j_{2}-1}
+					{j_{1},j_{2},j=j_{1}+j_{2},m=j_{1}+j_{2}-1}=0.
+			\end{equation}
+			V Condon-Shortleyově fázová konvenci je pak koeficient u členu s nejvyšším $m_{1}$ kladný a reálný.
+		
+		\item
+			Body 2 a 3 se opakují do té doby, než se dospěje do podprostoru s nejnižším možným $j=\abs{j_{1}-j_{2}}$.
+	\end{enumerate}	
+
+\end{solution}

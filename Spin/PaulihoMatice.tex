@@ -1,0 +1,50 @@
+\sec{Pauliho matice}\index{matice!Pauliho}
+\begin{equation}
+    \important{
+        \matrix{\sigma}_{1}
+            =\makematrix{0 & 1 \\ 1 & 0},\quad
+        \matrix{\sigma}_{2}
+            =\makematrix{0 & -\im \\ \im & 0},\quad
+        \matrix{\sigma}_{3}
+            =\makematrix{1 & 0 \\ 0 & -1}
+    }
+    \label{eq:Sigma}
+\end{equation}
+jsou unitární, hermitovské a unimodulární matice s nulovou stopou,
+\begin{subequations}
+    \begin{align}
+        \matrix{\sigma}_{j}
+            &=\conjugate{\matrix{\sigma}_{j}}
+            =\matrix{\sigma}_{j}^{-1},\\
+        \det\matrix{\sigma}_{j}
+            &=-1,\\
+        \trace\matrix{\sigma}_{j}&=0,
+    \end{align}        
+    \label{eq:SigmaDetTrace}
+\end{subequations}
+které splňují komutační relace
+\begin{align}
+    \commutator{\matrix{\sigma}_{j}}{\matrix{\sigma}_{k}}
+        &=2\im\epsilon_{jkl}\matrix{\sigma}_{l}.		
+    \label{eq:SigmaCommutator}
+\end{align}
+Z rovností~\eqref{eq:SigmaDetTrace} vyplývá, že všechny Pauliho matice mají dvě vlastní hodnoty $\lambda_{\pm}=\pm1$.
+Příslušné vlastní vektory se běžně značí
+\begin{subequations}
+    \begin{align}
+        \ket{x-}
+            &\equiv\ket{\leftarrow}\equiv\frac{1}{\sqrt{2}}\makematrix{1\\-1},
+        &\ket{x+}
+            &\equiv\ket{\rightarrow}\equiv\frac{1}{\sqrt{2}}\makematrix{1\\1},\label{eq:SigmaX}\\
+        \ket{y-}
+            &\equiv\ket{\odot}\equiv\frac{1}{\sqrt{2}}\makematrix{1\\-\im},
+        &\ket{y+}
+            &\equiv\ket{\otimes}\equiv\frac{1}{\sqrt{2}}\makematrix{1\\\im},\label{eq:SigmaY}\\
+        \ket{z-}
+            &\equiv\ket{\downarrow}\equiv\ket{-}\equiv\makematrix{0\\1},
+        &\ket{z+}
+            &\equiv\ket{\uparrow}\equiv\ket{+}\equiv\makematrix{1\\0}\label{eq:SigmaZ}
+    \end{align}
+    \label{eq:SigmaXYZ}
+\end{subequations}
+(první sloupec odpovídá záporným vlastním hodnotám $\lambda_{-}=-1$, druhý sloupec záporným vlastním hodnotám $\lambda_{+}=+1$; $j$-tý řádek odpovídá matici $\matrix{\sigma}_{j}$).

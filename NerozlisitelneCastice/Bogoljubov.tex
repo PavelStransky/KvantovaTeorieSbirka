@@ -1,0 +1,45 @@
+\subsection{Bogoljubovova transformace}
+Systém je popsaný Hamiltoniánem
+\begin{equation}
+    \operator{H}=\sum_{k}\left(E_{k}\operatorconjugate{a}_{k}\operator{a}_{k}+\lambda_{k}\operatorconjugate{a}_{k}\operatorconjugate{a}_{k}+\lambda_{k}^{*}\operator{a}_{k}\operator{a}_{k}\right),
+\end{equation}
+kde $\operator{a}_{k}$, $\operatorconjugate{a}_{k}$ jsou \emph{bosonové} operátory splňující bosonové komutační relace
+\begin{subequations}
+    \begin{align}
+        \commutator{\operator{a}_{j}}{\operatorconjugate{a}_{k}}&=\delta_{jk},\\
+        \commutator{\operator{a}_{j}}{\operator{a}_{k}}=\commutator{\operatorconjugate{a}_{j}}{\operatorconjugate{a}_{k}}&=0,
+    \end{align}        
+\end{subequations}
+$E_{k}\in\mathbb{R}$, $\lambda_{k}\in\mathbb{C}$ a $\lambda_{k}^{*}$ je číslo komplexně sdružené k $\lambda_{k}$.
+
+\begin{enumerate}
+    \item 
+        Vyjádřete podmínku, za které operátory $\operator{b}_{k}$, $\operatorconjugate{b}_{k}$ získané transformací
+        \begin{subequations}
+            \begin{align}
+                \operator{b}_{k}=u_{k}\operatorconjugate{a}_{k}+v_{k}\operator{a}_{k},\\
+                \operatorconjugate{b}_{k}=v_{k}^{*}\operatorconjugate{a}_{k}+u_{k}^{*}\operator{a}_{k},
+            \end{align}                
+        \end{subequations}
+        kde $u_{k},v_{k}\in\mathbb{C}$, budou splňovat bosonové komutační relace
+        \begin{subequations}
+            \begin{align}
+                \commutator{\operator{b}_{j}}{\operatorconjugate{b}_{k}}&=\delta_{jk},\\
+                \commutator{\operator{b}_{j}}{\operator{b}_{k}}=\commutator{\operatorconjugate{b}_{j}}{\operatorconjugate{b}_{k}}&=0.
+            \end{align}                
+        \end{subequations}
+
+    \item
+        Pomocí této lineární transformace převeďte Hamiltonián na diagonální tvar
+        \begin{equation}
+            \operator{H}=\sum_{k}\epsilon_{k}\operatorconjugate{b}_{k}\operator{b}_{k}+C
+        \end{equation}
+        a vyjřádřete čísla $\epsilon_{k}$ a $C$ pomocí $E_{k}$ a $\lambda_{k}$.
+        Za jaké podmínky lze transformaci provést?
+    
+    \item
+        Jaké je energetické spektrum systému popsaného Hamiltoniánem $\operator{H}$?
+
+    \item
+        Jak se změní spektrum, pokud $\operator{a}_{k}$, $\operatorconjugate{a}_{k}$ budou \emph{fermionové} operátory?
+\end{enumerate}

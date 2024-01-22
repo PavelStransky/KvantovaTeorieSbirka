@@ -1,0 +1,193 @@
+\subsection{Fotoelektrický jev v dipólové aproximaci}\label{ex:PhotoeffectDipol}
+Uvažujte stejný systém jako v předchozím příkladu~\ref{sec:Photoeffect}
+\begin{enumerate}
+	\item Nalezněte interakční Hamiltonián v dipólové (E1) aproximaci.
+
+	\item V této aproximaci spočítejte diferenciální rychlost přechodu a účinný průřez.
+	
+	\item Určete, pro jakou energii vylétávajícího elektronu je rychost přechodu (diferenciální účinný průřez) největší.
+		
+	\item Srovnejte obecné řešení z předchozí úlohy a řešení v dipólové aproximaci.
+\end{enumerate}
+
+\begin{solution}
+	\begin{enumerate}
+	\item
+		\emph{Interakční Hamiltonián v dipólové aproximaci}
+	
+		Budeme aproximovat interakční Hamiltoniánu \eqref{eq:PhotoeffectHI}
+		\begin{equation}
+			\operator{H}_{\ti{I}}(t)
+				=-\frac{eA_{0}}{mc}
+					\left[\e^{\im\left(\vector{\kappa}\cdot\vectoroperator{r}-\omega t\right)}
+						+\e^{-\im\left(\vector{\kappa}\cdot\vectoroperator{r}-\omega t\right)}\right]
+					\vector{\epsilon}\cdot\vectoroperator{p}.
+		\end{equation}				
+		Je-li vlnová délka vlny mnohem větší než rozměry atomu, z rozvoje exponenciály 
+		\begin{equation}
+			\e^{\pm\im\vector{\kappa}\cdot\vectoroperator{r}}
+				\approx1\pm\im\vector{\kappa}\cdot\vectoroperator{r}+\dotsb
+		\end{equation}
+		vezmeme jen první člen.
+
+		V 1. řádu nestacionární poruchové teorie se počítají amplitudy přechodu $\matrixelement{f}{\operator{H}_{\ti{I}}(t)}{i}$,
+		kde $\ket{i}$ je počáteční stav a $\ket{f}$ koncový stav, přičemž oba jsou vlastní stavy neporušeného Hamiltoniánu $\operator{H}_{0}$.
+		Platí tedy
+		\begin{align}
+            \matrixelement{f}{\operator{H}_{\ti{I}}(t)}{i}
+                &=-\frac{eA_{0}}{m}\,\vector{\epsilon}\cdot\matrixelement{f}{\vectoroperator{p}}{i}
+                    \left(\e^{\im\omega t}+\e^{-\im\omega t}\right)=\nonumber\\
+                &=\equationcomment{\text{platí }\commutator{\vectoroperator{r}}{\operator{H}_{0}}
+                =\im\hbar\,{\displaystyle\frac{\vectoroperator{p}}{m}}}=\nonumber\\
+                &=-\frac{eA_{0}}{m}\,\vector{\epsilon}\cdot
+                    \matrixelement{f}{\frac{m}{\im\hbar}\commutator{\vectoroperator{r}}{\operator{H}_{0}}}{i}\,2\cos{\omega t}=\nonumber\\
+                &=2\im eA_{0}\frac{E_{f}^{\hi{0}}-E_{i}^{\hi{0}}}{\hbar}\,\vector{\epsilon}\cdot
+                    \matrixelement{f}{\vectoroperator{r}}{i}\cos{\omega t}=\nonumber\\
+                &=\matrixelement{f}{2\im eA_{0}\,\omega_{fi}\cos{\omega t}\,\vector{\epsilon}\cdot\vectoroperator{r}}{i}.
+		\end{align}
+		Pro poruchu harmonicky závisející na čase s úhlovou frekvencí $\omega$ a pro dostatečně dlouhé časy platí podle \eqref{eq:HarmonicPerturbationE}
+		\begin{equation}
+			\omega\simeq\pm\omega_{fi},
+		\end{equation}
+		takže
+		\begin{equation}
+			\operator{H}_{\ti{I}}(t)
+				=2\im eA_{0}\omega\,\vector{\epsilon}\cdot\vectoroperator{r}\cos{\omega t},
+		\end{equation}
+		což se ještě přepíše pomocí intenzity elektrického pole
+		\begin{equation}
+			\vector{E}(t)
+				=-\partialderivative{\vector{A}}{t}
+				=2A_{0}\omega\,\vector{\epsilon}\sin\left(\vector{\kappa}\cdot\vector{r}-{\omega t}\right)
+				\approx-2E_{0}\vector{\epsilon}\sin{\omega t}
+		\end{equation}
+		a vhodnou volbou fáze do tvaru
+		\begin{equation}
+			\important{
+				\operator{H}_{\ti{I}}(t)=-\vector{E}(t)\cdot\vectoroperator{d}
+			},
+		\end{equation}
+		kde $\vectoroperator{d}=-e\vectoroperator{r}$ je dipólový operátor.
+		Takto zapsaný interační Hamiltonián pro harmonickou poruchu vyjadřuje interakci dipólu atomu vodíku s proměnným elektrickým polem.
+		To objasňuje, proč se aproximace nazývá dipólová.
+		
+	\item\emph{Rychlost přechodu}
+	
+		Kroky dalšího postupu jsou identické s předchozím příkladem --- směřují k využití Fermiho zlatého pravidla~\eqref{eq:FermiGoldenRuleHarmonic}.
+
+		Potřebný maticový element pro operátor $\operator{h}=eE_{0}\vector{\epsilon}\cdot\vector{r}$ je
+		\begin{align}
+            h_{fi}
+                &=\matrixelement{f}{\operator{h}}{i}=\nonumber\\
+                &=eE_{0}\int\psi_{f}^{'*}(\vector{r})\vector{\epsilon}\cdot
+                    \vector{r}\psi_{i}(\vector{r})\d^{3}\vector{r}=\nonumber\\
+                &=eE_{0}\frac{1}{\sqrt{\pi a_{0}^{3}V}}\,\vector{\epsilon}\cdot
+                \int\e^{-\im\vector{k}\cdot\vector{r}}\vector{r}\e^{-\frac{r}{a_{0}}}\d^{3}\vector{r}=\nonumber\\
+                &=eE_{0}\frac{1}{\sqrt{\pi a_{0}^{3}V}}\,\vector{\epsilon}\cdot\vector{I}(\vector{k}),
+		\end{align}
+		kde integrál $\vectoroperator{I}(\vectoroperator{k})$ se vypočte stejnou úvahou jako dříve:
+		\begin{align}
+		k^{2}I(\vector{k})
+			&=\int\e^{-\im\vector{k}\cdot\vector{r}}\vector{k}\cdot\vector{r}
+				\e^{-\frac{r}{a_{0}}}\d^{3}\vector{r}=\nonumber\\
+			&=2\pi\im\int_{0}^{\infty}r^{2}\left\{\e^{-r\left(\frac{1}{a_{0}}+\im k\right)}
+				+\e^{-r\left(\frac{1}{a_{0}}-\im k\right)}\right\}\d r+\nonumber\\
+				&\qquad\qquad+\frac{2\pi}{k}\int_{0}^{\infty}r
+					\left\{\e^{-r\left(\frac{1}{a_{0}}+\im k\right)}
+					-\e^{-r\left(\frac{1}{a_{0}}-\im k\right)}\right\}\d r=\nonumber\\
+			&=2\pi\im\,J_{1}+\frac{2\pi}{k}\,J_{2}.
+		\end{align}
+		Platí
+		\begin{equation}
+			\int_{0}^{\infty}r^{2}\e^{-\alpha r}\d r
+				=\frac{2}{\alpha}\int_{0}^{\infty}r\e^{-\alpha r}\d r=\frac{2}{\alpha^{3}}\,,
+		\end{equation}
+		neboli
+        \begin{subequations}            
+            \begin{align}
+                J_{1}
+                    &=\frac{2}{\left(\frac{1}{a_{0}}+\im k\right)^{3}}
+                        +\frac{2}{\left(\frac{1}{a_{0}}-\im k\right)^{3}}
+                    =2a_{0}^{3}\frac{\left(1-\im ka_{0}\right)^{3}+
+                        \left(1+\im ka_{0}\right)^{3}}{\left(1+k^{2}a_{0}^{2}\right)^{3}}=\nonumber\\
+                    &=4a_{0}^{3}\frac{1-3k^{2}a_{0}^{2}}{\left(1+k^{2}a_{0}^{2}\right)^{3}},\\
+                J_{2}
+                    &=\frac{1}{\left(\frac{1}{a_{0}}+\im k\right)^{2}}
+                        +\frac{1}{\left(\frac{1}{a_{0}}-\im k\right)^{2}}
+                        =a_{0}^{2}\frac{\left(1-\im ka_{0}\right)^{2}-
+                            \left(1+\im ka_{0}\right)^{2}}{\left(1+k^{2}a_{0}^{2}\right)^{2}}=\nonumber\\
+                    &=-\frac{4\im ka_{0}^{3}}{\left(1+k^{2}a_{0}^{2}\right)^{2}},
+            \end{align}
+        \end{subequations}
+		a po dosazení
+		\begin{align}
+			k^{2}I(\vector{k})
+				&=8\pi\im a_{0}^{3}\left[\frac{1-3a_{0}^{2}k^{2}}{\left(1+k^{2}a_{0}^{2}\right)^{3}}
+					-\frac{1}{\left(1+k^{2}a_{0}^{2}\right)^{2}}\right]=\\
+				&=8\pi\im a_{0}^{3}\frac{1-3a_{0}^{2}k^{2}-1-a_{0}^{2}k^{2}}
+					{\left(1+k^{2}a_{0}^{2}\right)^{3}}=\\
+				&=-\frac{32\im\pi a_{0}^{5}k^{2}}{\left(1+k^{2}a_{0}^{2}\right)^{3}}\,.
+		\end{align}
+		Integrál je tedy
+		\begin{equation}
+			\vector{I}(\vector{k})
+				=-\frac{32\im\pi a_{0}^{5}}{\left(1+k^{2}a_{0}^{2}\right)^{3}}\,\vector{k}\,
+		\end{equation}
+		a hledaný maticový element
+		\begin{equation}
+			h_{fi}
+				=-\frac{eE_{0}}{\sqrt{\pi a_{0}^{3}V}}
+					\frac{32\im\pi a_{0}^{5}}{\left(1+k^{2}a_{0}^{2}\right)^{3}}\,
+					\vector{\epsilon}\cdot\vector{k}.
+		\end{equation}
+		Rychlost přechodu je podle Fermiho zlatého pravidla
+		\begin{align}
+			\frac{\d w_{i\rightarrow f}}{\d\Omega}
+				&=\frac{2\pi}{\hbar}\abs{h_{fi}}^{2}\frac{\d\rho}{\d\Omega}=\\
+				&=\frac{2\pi}{\hbar}
+					\abs{-\frac{eE_{0}}{\sqrt{\pi a_{0}^{3}V}}\frac{32\im\pi a_{0}^{5}}
+					{\left(1+k^{2}a_{0}^{2}\right)^{3}}\,\vector{\epsilon}\cdot\vector{k}}^{2}
+					\frac{\hbar km}{(2\pi\hbar)^{3}}=\\
+				&=\frac{256ma_{0}^{4}(eA_{0}\omega)^{2}}{\pi\hbar^{3}}
+					\frac{\left(\,\vector{\epsilon}\cdot\vector{k}\right)^{2}ka_{0}^{3}}
+						{\left(1+k^{2}a_{0}^{2}\right)^{6}}\\
+				&=\frac{1024\gamma\epsilon_{0}ma_{0}^{4}(A_{0}\omega)^{2}}{\pi\hbar^{3}}
+					\frac{\left(\,\vector{\epsilon}\cdot\vector{k}\right)^{2}ka_{0}^{3}}
+						{\left(1+k^{2}a_{0}^{2}\right)^{6}}\\
+		\end{align}
+		a z ní vychází diferenciální účinný průřez jako
+		\begin{align}
+			\frac{\d\sigma_{i\rightarrow f}}{\d\Omega}
+				&=\frac{512\gamma ma_{0}^{4}\omega}{\pi\hbar^{2}c}
+					\frac{\left(\,\vector{\epsilon}\cdot\vector{k}\right)^{2}ka_{0}^{3}}
+						{\left(1+k^{2}a_{0}^{2}\right)^{6}}
+				=\frac{512\alpha ma_{0}^{4}\omega}{\pi\hbar}
+					\frac{\left(\,\vector{\epsilon}\cdot\vector{k}\right)^{2}ka_{0}^{3}}
+						{\left(1+k^{2}a_{0}^{2}\right)^{6}}\,.
+		\end{align}
+		
+		\item\emph{Extrémy rychlosti přechodu}
+		
+		Je vidět, že $\d w_{i\rightarrow f}/\d\Omega\sim\left(\vector{\epsilon}\cdot\vector{k}\right)^{2}$, což znamená, že elektrony jsou s největší pravděpodobností emitovány ve směru polarizace dopadající elektromagnetické vlny.
+		Velikost vlnového vektoru, pro který je rychlost emise elektronu nejvyšší, se spočítá z rovnice
+		\begin{align}
+			\frac{\d}{\d k}\left(\frac{\d w_{i\rightarrow f}}{\d\Omega}\right)
+				&=0\nonumber\\
+			3k^{2}\left(1+k^{2}a_{0}^{2}\right)^{6}-6\left(1+k^{2}a_{0}^{2}\right)^{5}2ka_{0}^{2}k^{3}
+				&=0\nonumber\\
+			3k^{2}\left(1+k^{2}a_{0}^{2}\right)-12a_{0}^{2}k^{4}
+				&=0\nonumber\\
+			3-9k^{2}a_{0}^{2}
+				&=0,
+		\end{align}
+		která nakonec dává
+		\begin{equation}
+			k_{\ti{m}}
+				=\frac{1}{\sqrt{3}}\frac{1}{a_{0}}=\frac{mc\alpha}{\hbar^{2}\sqrt{3}}\,.
+		\end{equation}
+		Energie je pro tuto hodnotu vlnového vektoru rovna
+		\begin{equation}
+			E_{\ti{m}}=\frac{1}{6\hbar^{2}}mc^{2}\alpha^{2}\,.
+		\end{equation}																				
+	\end{enumerate}
+\end{solution}

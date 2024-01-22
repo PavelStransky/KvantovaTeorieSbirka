@@ -1,0 +1,148 @@
+\subsection{Sférické souřadnice}
+	\label{sec:SphericalCoordinates}
+	Pro sférické souřadnice $\left(q^{1},q^{2},q^{3}\right)\equiv(r,\theta,\phi)$ definované běžným způsobem jako
+	\begin{align}
+		x&=r\sin\theta\cos\phi\nonumber\\
+		y&=r\sin\theta\sin\phi\\
+		z&=r\cos\theta\nonumber
+	\end{align}
+	vypočítejte:
+	\begin{enumerate}
+	\item 
+		Jacobiho matici $\matrix{J}\equiv\frac{\partial(x,y,z)}{\partial(r,\theta,\phi)}$.
+
+	\item 
+		Determinant Jacobiho matice $\det\matrix{J}$.
+
+	\item 
+		Metrický tenzor $\matrix{g}$.
+
+	\item 
+		Inverzní metrický tenzor $\matrix{g}^{-1}$.
+
+	\item 
+		Determinant metrického tenzoru $\det\matrix{g}$.
+
+	\item
+		Lagranžián a Hamiltonián klasického systému bez potenciálu.
+
+	\item 
+		Laplaceův operátor $\Delta$.
+	\end{enumerate}
+	
+\begin{solution}
+	\begin{enumerate}
+	\item
+		Jacobiho matice podle definičního vztahu~\eqref{eq:JacobiMatrix}:
+		\begin{equation}
+			\matrix{J}=\makematrix{
+                \sin{\theta}\cos{\phi} & r\cos{\theta}\cos{\phi} & -r\sin{\theta}\sin{\phi} \\
+                \sin{\theta}\sin{\phi} & r\cos{\theta}\sin{\phi} & r\sin{\theta}\cos{\phi} \\
+                \cos{\theta}  & -r\sin{\theta} & 0}.
+		\end{equation}
+		
+	\item
+		Jakobián
+		\begin{align}
+			\det{\matrix{J}}
+				&=r^{2}\sin{\theta}\cos^{2}{\theta}\cos^{2}{\phi}+r^{2}\sin^{3}\theta\sin^{2}\phi\nonumber\\
+				&+r^{2}\sin{\theta}\cos^{2}{\theta}\sin^{2}{\phi}+r^{2}\sin^{3}\theta\cos^{2}\phi\nonumber\\
+				&=r^{2}\sin{\theta}\cos^{2}\theta+r^{2}\sin^{3}\theta\nonumber\\
+				&=r^{2}\sin{\theta}.
+		\end{align}
+	
+	\item
+		Složky metrického tenzoru na základě~\eqref{eq:MetricTensorJacobi}:
+		\begin{subequations}
+			\begin{align}
+				g_{11}
+					&=\sin^{2}\theta\cos^{2}\phi+\sin^{2}\theta\cos^{2}\phi+\cos^{2}\theta
+					 =\sin^{2}\theta+\cos^{2}\theta
+					 =1,\\
+				g_{12}
+					&=r\sin\theta\cos\theta\cos^{2}\phi+r\sin\theta\cos\theta\sin^{2}\phi
+						-r\sin\theta\cos\theta
+					 =0,\\
+				g_{13}
+					&=-r\sin^{2}\theta\sin\phi\cos\phi+r\sin^{2}\theta\sin\phi\cos\phi
+					 =0,\\
+				g_{21}
+					&=g_{12}
+					 =0,\\
+				g_{22}
+					&=r^{2}\cos^{2}\theta\cos^{2}\phi+r^{2}\cos^{2}\theta\sin^{2}\phi+r^{2}\sin^{2}\theta
+					 =r^{2},\\
+				g_{23}
+					&=r^{2}\sin\theta\cos\theta\sin\phi\cos\phi-r^{2}\sin\theta\cos\theta\sin\phi\cos\phi
+					 =0,\\
+				g_{31}
+					&=g_{13}
+					 =0,\\
+				g_{32}
+					&=g_{23}
+					 =0,\\
+				g_{33}
+					&=r^{2}\sin^{2}\theta\sin^{2}\phi+r^{2}\sin^{2}\theta\cos^{2}\phi
+					 =r^{2}\sin^{2}\theta.
+			\end{align}				
+		\end{subequations}
+		V maticovém zápisu
+		\begin{equation}
+			\matrix{g}=\makematrix{
+                1 & 0 & 0 \\
+				0 & r^{2} & 0 \\
+				0 & 0 & r^{2}\sin^{2}\theta}.
+		\end{equation}
+		
+	\item
+		Metrický tenzor je diagonální\sfootnote{Je-li metrický tenzor diagonální, 
+		znamená to, že zobecněné souřadnice jsou v každém místě prostoru ortogonální.},
+		takže inverzní matice je dána prostou inverzí diagonálních elementů,
+		\begin{equation}
+			\matrix{g}^{-1}=\makematrix{
+                1 & 0 & 0 \\
+				0 & \frac{1}{r^{2}} & 0 \\
+				0 & 0 & \frac{1}{r^{2}\sin^{2}\theta}}.
+		\end{equation}
+	
+	\item
+		Determinant diagonální matice = součin členů na diagonále
+		\begin{equation}
+			\det{\matrix{g}}=r^{4}\sin^{2}\theta\,.
+		\end{equation}
+	
+	\item
+		Lagranžián je dán vztahem~\eqref{eq:LagrangianCurvilinear}
+		\begin{equation}
+			L=\frac{1}{2}M\left(\dot{r}^{2}+\dot{\theta}^{2}r^{2}
+				+\dot{\phi}^{2}r^{2}\sin^{2}\theta\right)
+		\end{equation}
+		a Hamiltonián~\eqref{eq:HamiltonianCurvilinear}
+		\begin{equation}
+			H=\frac{1}{2M}\left(p_{r}^{2}+\frac{1}{r^{2}}p_{\theta}^{2}
+				+\frac{1}{r^{2}\sin^{2}\theta}p_{\phi}^{2}\right).
+		\end{equation}
+	
+	\item
+		Laplaceův operátor je dán vztah~\eqref{eq:Laplace}:
+		\begin{align}
+			\Delta
+				&=\frac{1}{r^{2}\sin\theta}\left[\partialderivative{}{r}r^{2}\sin\theta\partialderivative{}{r}
+					+\partialderivative{}{\theta}r^{2}\sin\theta\frac{1}{r^{2}}\partialderivative{}{\theta}
+					+\partialderivative{}{\phi}r^{2}\sin\theta\frac{1}{r^{2}\sin^{2}\theta}\partialderivative{}{\phi}\right]\nonumber\\
+				&=\frac{1}{r^{2}}\partialderivative{}{r}r^{2}\partialderivative{}{r}
+					+\frac{1}{r^{2}\sin\theta}\partialderivative{}{\theta}\sin\theta\partialderivative{}{\theta}
+					+\frac{1}{r^{2}\sin^{2}\theta}\partialderivative[2]{}{\phi}.
+        \end{align}	
+        
+    \item 
+        Srovnání posledních dvou výrazů vede na vyjádření komponent hybnosti~\cite{Essen1978},
+		\begin{subequations}
+			\begin{align}
+				p_{r}&=-\im\hbar\frac{1}{r}\partialderivative{}{r}r,\\
+				p_{\theta}&=-\im\hbar\left(\partialderivative{}{\theta}+\frac{1}{2}\cotg{\theta}\right),\\
+				p_{\phi}&=-\im\hbar\partialderivative{}{\phi}.
+			\end{align}
+		\end{subequations}
+    \end{enumerate}
+\end{solution}

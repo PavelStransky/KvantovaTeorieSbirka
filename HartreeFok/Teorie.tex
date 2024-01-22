@@ -1,0 +1,111 @@
+Systém $N$ nerozlišitelných částic interagujících nanejvýš dvoučásticovými interakcemi je popsaný Hamiltoniánem
+    \begin{equation}
+        \operator{H}=\operator{T}+\operator{V}^{(1)}+\operator{V}^{(2)},
+    \end{equation}
+    kde
+    \begin{equation}
+        \operator{T}=\sum_{j=1}^{N}\operator{t}_{j}=\sum_{j=1}^{N}\frac{\vectoroperator{p}_{j}^{2}}{2M},\quad
+        \operator{V}^{(1)}=\sum_{j=1}^{N}\operator{v}^{(1)}_{j},\quad
+        \operator{V}^{(2)}=\sum_{j<k}\operator{v}^{(2)}_{jk},
+    \end{equation}
+    jsou jednočásticové operátory kinetické energie a interakce s vnějším polem a dvoučásticový operátor popisující vzájemnou interakci mezi konstituenty.
+
+    Základní stav se hledá ve tvaru
+    \begin{equation}
+        \ket{\Psi}=\operatorconjugate{a}_{N}\dotsb\operatorconjugate{a}_{1}\ket{0}.
+    \end{equation}
+    variační metodou.
+    To vede na \emph{Hartree-Fokovu rovnici} pro jednočásticové stavy $\ket{\phi_{n}}\equiv\operatorconjugate{a}_{n}\ket{0}$ a jednočásticové energie $\epsilon_{n}$ systému nerozlišitelných fermionů
+    \begin{equation}
+        \left(\operator{t}+\operator{v}^{(1)}+\operator{v}^{\text{HF}}\right)\ket{\phi_{n}}=\epsilon_{n}\ket{\phi_{n}},
+        \label{eq:HFequation}
+    \end{equation}
+    kde $\operator{v}^{\text{HF}}$ je operátor Hartree-Fokova středního pole, pro který platí
+    \begin{equation}
+        \matrixelement{\phi_{m}}{\operator{v}^{\text{HF}}}{\phi_{n}}
+            =\sum_{k=1}^{N}\left[\matrixelement{\phi_{k}\phi_{m}}{\operator{v}^{(2)}}{\phi_{k}\phi_{n}}-\matrixelement{\phi_{m}\phi_{k}}{\operator{v}^{(2)}}{\phi_{k}\phi_{n}}\right].
+        \label{eq:HFvHF1}
+    \end{equation}
+    Energie $\epsilon_{\text{F}}\equiv\epsilon_{N}$ se nazývá Fermiho energie.
+
+    Vyřešením rovnice~\eqref{eq:HFequation} se získá aproximace energie základního stavu,
+    \begin{equation}
+        E_{0}^{\text{HF}}
+            =\matrixelement{\Psi}{\operator{H}}{\Psi}
+            =\sum_{k=1}^{N}\matrixelement{\phi_{k}}{\operator{t}+\operator{v}^{(1)}}{\phi_{k}}
+                +\frac{1}{2}\sum_{k,l=1}^{N}\left[\matrixelement{\phi_{k}\phi_{l}}{\operator{v}^{(2)}}{\phi_{k}\phi_{l}}-\matrixelement{\phi_{l}\phi_{k}}{\operator{v}^{(2)}}{\phi_{k}\phi_{l}}\right].
+        \label{eq:HFGroundState}
+    \end{equation}
+
+\sec{Řešení v zadané bázi}
+    Pokud jednotlivé jednočásticové stavy vyjádříme v jednočásticové bázi $\mathcal{B}\equiv\{\ket{d}\}$
+    \begin{equation}
+        \ket{\phi_{n}}=\sum_{d}C_{nd}\ket{d},
+    \end{equation}
+    kde $d$ probíhá přes všechny kombinace všech použitých kvantových čísel a $C_{nd}\in\mathbb{C}$ jsou koeficienty rozvoje tvořící komponenty matice dimenze $N_{\mathcal{B}}=\dim\mathcal{B}$, dostaneme z~\eqref{eq:HFvHF1}\footnote{
+        $\ket{dc}$ je zkratka pro $\ket{d}^{(1)}\otimes\ket{c}^{(2)}$, takže $\ket{dc}\neq\ket{cd}$.
+    }
+    \begin{align}
+        \sum_{ac}\bra{a}C_{ma}^{*}\operator{v}^{\text{HF}}C_{nc}\ket{c}
+            &=\sum_{k=1}^{N}\sum_{ac}\sum_{bd}\left[\bra{ba}C_{kb}^{*}C_{ma}^{*}\operator{v}^{(2)}C_{kd}C_{nc}\ket{dc}
+                -\bra{ab}C_{ma}^{*}C_{kb}^{*}\operator{v}^{(2)}C_{kd}C_{nc}\ket{dc}\right],
+    \end{align}
+    neboli pro jednotlivé elementy sumy
+    \begin{align}
+        v_{ac}^{\text{HF}}\equiv\matrixelement{a}{\operator{v}^{\text{HF}}}{c}
+            &=\sum_{k=1}^{N}\sum_{bd}C_{kb}^{*}C_{kd}\left[\matrixelement{ba}{\operator{v}^{(2)}}{dc}-\matrixelement{ab}{\operator{v}^{(2)}}{dc}\right]\nonumber\\
+            &=\sum_{k=1}^{N}\sum_{bd}C_{kb}^{*}C_{kd}\left[\matrixelement{ab}{\operator{v}^{(2)}}{cd}-\matrixelement{ba}{\operator{v}^{(2)}}{cd}\right],
+        \label{eq:HFvHF}
+    \end{align}
+    neboť díky nerozlišitelnosti částic musí platit
+    \begin{equation}
+        \matrixelement{ab}{\operator{v}^{(2)}}{cd}=\matrixelement{ba}{\operator{v}^{(2)}}{dc}.
+    \end{equation}
+    Hartree-Fokovu rovnici~\eqref{eq:HFequation} lze tedy přepsat do tvaru
+    \begin{gather}
+        \sum_{c}\bra{a}\left(\operator{t}+\operator{v}^{(1)}+\operator{v}^{\text{HF}}\right)C_{nc}\ket{c}
+            =\sum_{c}\epsilon_{n}C_{nc}\braket{a}{c}
+            =\epsilon_{n}C_{na}\\
+            \important{
+                \sum_{c}\left(t_{ac}+v_{ac}^{(1)}+v_{ac}^{\text{HF}}\right)C_{nc}=\epsilon_{n}C_{na},
+            }
+        \label{eq:HFequationB}
+    \end{gather}
+    což je (maticová) Hartree-Fokova rovnice v bázi $\mathcal{B}$.
+    Za tuto bázi se nejčastěji volí báze harmonického oscilátoru nebo báze atomu vodíku.
+    V molekulové fyzice se také s oblibou používají aproximace vlnových funkcí pomocí součtu Gaussovských funkcí, protože s nimi se velmi dobře pracuje a je snadné pro ně počítat maticové elementy $\matrixelement{ab}{\vectoroperator{v}^{(2)}}{cd}$, i když jsou jednotlivé jednočásticové vlnové funkce vůči sobě posunuté (odpovídají různým atomům).\footnote{
+        Tato báze se označuje STO-nG, což je zkratka pro Slater-type orbital, $n$ je počet Gaussovek, které se pro vlnovou funkci používají, a $G$ znamená Gaussovka.
+    }
+    Hledaná energie základního stavu pak z~\eqref{eq:HFGroundState} vychází
+    \begin{equation}
+        \important{
+            E_{0}^{\text{HF}}=\sum_{k=1}^{N}\sum_{ac}C_{ka}^{*}C_{kc}\matrixelement{a}{\operator{t}+\operator{v}^{(1)}}{c}
+                +\frac{1}{2}\sum_{k,l=1}^{N}\sum_{abcd}C_{ka}^{*}C_{lb}^{*}C_{kc}C_{ld}\left[\matrixelement{ab}{\operator{v}^{(2)}}   {cd}-\matrixelement{ba}{\operator{v}^{(2)}}{cd}\right].
+        }
+        \label{eq:HFE0B}
+    \end{equation}
+
+    Hartree-Fokova rovnice~\eqref{eq:HFequationB} se řeší iterativní cestou.
+    \begin{enumerate}
+        \item Začne se s nějakým nástřelem matice $C_{nc}$.
+        
+        \item Z matice $C_{nc}$ se napočte Hartree-Fokovo pole $v_{ac}^{\text{HF}}$ podle vztahu~\eqref{eq:HFvHF} následně matice Hamiltoniánu
+        \begin{equation}
+            h_{ac}=t_{ac}+v_{ac}^{(1)}+v_{ac}^{\text{HF}},\qquad a,c=1,\dotsc,N_{\mathcal{B}},
+        \end{equation} 
+        kde $N_{\mathcal{B}}$ je počet bázových prvků použité báze $\mathcal{B}$.
+
+        \item
+            Diagonalizací matice $h_{ac}$ získáme novou matici vlastních vektorů $C_{nc}$ a odpovídajících jedno\-čás\-ti\-cových energií $\epsilon_{n}$.
+
+        \item
+            Jednočásticové vlastní stavy seřadíme vzestupně podle jejich energií.
+
+        \item Spočítáme aproximovanou energii základního stavu $E_{0}^{\text{HF}}$ podle~\eqref{eq:HFE0B} a porovnáme ji s hodnotou z předchozí iterace.
+        Pokud se tyto hodnoty liší o méně než zadané $\delta$, výpočet ukončíme. 
+
+        \item Vrátíme se k bodu 2, přičemž novou matici $C_{nc}$ použijeme jako vstup pro výpočet nového Hartree-Fokova pole.  
+        
+    \end{enumerate}
+    Tato iterativní metoda obvykle rychle konverguje.
+    

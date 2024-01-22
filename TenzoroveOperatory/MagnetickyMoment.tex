@@ -1,0 +1,46 @@
+\subsection{Magnetický moment}
+	Dva nezávislé impulsmomenty $\vectoroperator{L}$ (například orbitální moment hybnosti) a $\vectoroperator{S}$ (vnitřní spin systému) splňující $\commutator{\vectoroperator{L}}{\vectoroperator{S}}=0$ se složí na celkový impulsmoment
+	\begin{equation}
+		\vectoroperator{J}=\vectoroperator{L}+\vectoroperator{S}.
+	\end{equation}
+	Stavem $\ket{(ls)jm}$ označme vlastní vektory operátorů $\vectoroperator{L}^{2}$, $\vectoroperator{S}^{2}$, $\vectoroperator{J}^{2}$, $\operator{J}_{3}$:
+    \begin{subequations}
+        \begin{align}
+            \vectoroperator{L}^{2}\ket{(ls)jm}&=l(l+1)\ket{(ls)jm},\\
+            \vectoroperator{S}^{2}\ket{(ls)jm}&=s(s+1)\ket{(ls)jm},\\
+            \vectoroperator{J}^{2}\ket{(ls)jm}&=j(j+1)\ket{(ls)jm},\\
+            \operator{J}_{3}\ket{(ls)jm}&=m\ket{(ls)jm}.
+        \end{align}            
+        \label{eq:LSEigenvalues}
+    \end{subequations}
+	Definujme operátor magnetického momentu\footnote{
+		Magnetický moment je vyjádřen v jednotkách Bohrova (jaderného) magnetonu
+		\begin{equation}
+			\mu_{0}=\frac{e\hbar}{2M},
+		\end{equation}
+		kde $e$ je elementární náboj, $M$ je hmotnost elektronu (nukleonu).
+		Uvedený výraz platí v jednotkách SI, v Gaussovských elektromagnetických jednotkách se objevuje ještě rychlost světla $c$ ve jmenovateli.
+	}
+	\begin{equation}
+		\vectoroperator{\mu}=g_{L}\vectoroperator{L}+g_{S}\vectoroperator{S},
+	\end{equation}
+	přičemž $g_{L}$, $g_{S}$ jsou reálné parametry, které se nazývají gyromagnetické faktory ($g$-faktory).\footnote{
+		Jejich číselné hodnoty jsou
+		\begin{align}
+			g_{\mathrm{elektron}}&=-2.00231930419922\approx2 \\
+			g_{\mathrm{mion}}&=-2.0023318414\approx2 \\
+			g_{\mathrm{neutron}}&=-3.82608545\\
+			g_{\mathrm{proton}}&=5.585694702
+		\end{align}
+		(znaménka $g_{L,S}$ a $\mu_{0}$ bývají občas definována obráceně).
+	}
+
+	Spočítejte diagonální maticový element\footnote{
+		Veličina s největší projekcí $j=m$ se nazývá \emph{magnetický moment částice},
+		\begin{equation}
+			\mu\equiv\matrixelement{(ls)jj}{\mu_{z}}{(ls)jj}.
+		\end{equation}
+	}
+	\begin{equation}
+		\matrixelement{(ls)jm}{\vectoroperator{\mu}}{(ls)jm}.
+	\end{equation}

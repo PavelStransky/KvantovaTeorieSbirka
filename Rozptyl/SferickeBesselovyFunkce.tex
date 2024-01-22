@@ -1,0 +1,151 @@
+\subsection*{Sférické Besselovy funkce}
+Sférické Besselovy funkce jsou dvě linárně nezávislá řešení diferenciální rovnice 2. řádu 
+(někdy nazývané Helmholtzova rovnice)
+\begin{equation}\label{eq:Helmholtz}
+    \important{
+        \left[\frac{\d^{2}}{\d z^{2}}+\frac{2}{z}\frac{\d}{\d z}+
+                \left(1-\frac{l(l+1)}{z^{2}}\right)\right]
+                \begin{array}{c}
+                    j_{l}(z)\\
+                    n_{l}(z)
+                \end{array}
+            =0
+    }.
+\end{equation}
+\begin{itemize}
+\item
+    $j_{l}(z)$ se nazývá \emph{sférická Besselova funkce} nebo
+    \emph{sférická Besselova funkce 1. druhu}.
+    
+\item
+    $n_{l}(z)$ se nazývá \emph{sférická Neumannova funkce} nebo
+    \emph{sférická Besselova funkce 2. druhu}.
+    
+\item
+    Definují se také \emph{sférické Hankelovy funkce 1. a 2. druhu} vztahy
+    \begin{subequations}
+        \begin{align}
+            h_{l}^{(1)}(z)
+                &\equiv j_{l}(z)+\im n_{l}(z),\\
+            h_{l}^{(2)}(z)
+                &\equiv j_{l}(z)-\im n_{l}(z).
+        \end{align}					
+    \end{subequations}
+\end{itemize}
+$l$ je parametr (převážně celočíselný nezáporný, což budeme předpokládat v dalších výrazech, ale obecně může být reálný).
+
+\note Sférické Besselovy funkce mají vztah k Besselovým (cylindrickým) funkcím 
+\begin{subequations}
+    \begin{align}
+        j_{l}(z)&=\sqrt{\frac{\pi}{2z}}J_{l+\frac{1}{2}}(z),\\
+        n_{l}(z)&=\sqrt{\frac{\pi}{2z}}N_{l+\frac{1}{2}}(z).
+    \end{align}
+\end{subequations}
+
+\subsubsection*{Symetrie}
+    \begin{subequations}
+        \begin{align}
+            j_{l}(z)&=\minus{l}j_{l}(-z),\\
+            n_{l}(z)&=\minus{l+1}n_{l}(-z),\\
+            h_{l}^{(1,2)}(z)&=\minus{l}h_{l}^{(1,2)}(-z).
+        \end{align}				
+    \end{subequations}
+
+\subsection*{Vztah Besselových a Neumannových funkcí}
+    \begin{subequations}
+        \begin{align}
+            l_{l}(z)&=\minus{l}n_{-l-1}(z)\\
+            n_{l}(z)&=\minus{l+1}j_{-l-1}(z).
+        \end{align}
+        \label{eq:BesselNeumann}
+    \end{subequations}
+
+\subsubsection*{Vyjádření pomocí řady}
+    \begin{subequations}
+        \begin{align}
+            j_{l}(z)
+                &=z^{l}\sum_{n=0}^{\infty}\frac{1}{n!\left(2l+2n+1\right)!!}\left(-\frac{z^{2}}{2}\right)^{n}\\
+            n_{l}(z)
+                &=-\frac{1}{z^{l+1}}\left\{
+                    \sum_{n=0}^{l-1}\frac{\left(2l-2n-1\right)!!}{n!}\left(-\frac{z^{2}}{2}\right)^{n}
+                    +\frac{1}{l!}\left(\frac{z^{2}}{2}\right)^{l}
+                    +\minus{l}\sum_{n=l+1}^{\infty}\frac{1}{n!\left(2n-2l-1\right)!!}\left(-\frac{z^{2}}{2}\right)^{n}
+                    \right\}
+        \end{align}        
+    \end{subequations}
+
+\subsubsection*{Vyjádření pomocí goniometrických funkcí}
+    \begin{subequations}
+        \begin{align}
+            j_{l}(z)
+                &=(-z)^{l}\left(\frac{1}{z}\frac{\d}{\d z}\right)^{l}\frac{\sin{z}}{z}\\					
+            n_{l}(z)
+                &=-(-z)^{l}\left(\frac{1}{z}\frac{\d}{\d z}\right)^{l}\frac{\cos{z}}{z}
+        \end{align}        
+    \end{subequations}
+
+\subsubsection*{Asymptotika $z\rightarrow0$}
+    \begin{equation}\label{eq:SphericalBessel0}
+        \important{
+            \begin{aligned}
+                j_{l}(z)
+                    &\xrightarrow{z\rightarrow0}\frac{z^{l}}{(2l+1)!!}\\
+                n_{l}(z)
+                    &\xrightarrow{z\rightarrow0}
+                        \begin{cases}
+                            -\frac{1}{z} & \text{pokud } l=0\\
+                            -\frac{(2l-1)!!}{z^{l+1}} & \text{pokud } l>0
+                        \end{cases}
+            \end{aligned}
+        }
+    \end{equation}			
+    Za předpokladu $l\geq0$ divergují sférické Neumannovy funkce pro $z\rightarrow0$.
+
+\subsubsection*{Asymptotika $z\rightarrow\infty$}
+    \begin{equation}\label{eq:SphericalBesselInfinity}
+        \important{
+            \begin{aligned}
+                j_{l}(z)
+                    \xrightarrow{z\rightarrow\infty}\frac{\sin\left(z-l\frac{\pi}{2}\right)}{z}\\
+                n_{l}(z)
+                    \xrightarrow{z\rightarrow\infty}-\frac{\cos\left(z-l\frac{\pi}{2}\right)}{z}
+            \end{aligned}
+        }
+    \end{equation}
+
+\subsubsection*{Relace ortogonality}
+\begin{equation}\label{eq:SphericalBesselOrtogonality}
+    \int_{0}^{\infty}j_{l}(kr)j_{l}(k'r)r^{2}\d r
+        =\frac{\pi}{2k^{2}}\delta(k-k')
+\end{equation}
+
+\subsubsection*{Rozklad exponenciály}
+\begin{align}
+    \e^{\im\vector{k}\cdot\vector{r}}
+        &=4\pi\sum_{l=0}^{\infty}\sum_{m=-l}^{l}\im^{l}j_{l}(kr)
+            Y_{lm}^{*}\left(\frac{\vector{k}}{k}\right)
+            Y_{lm}\left(\frac{\vector{r}}{r}\right)=\nonumber\\
+        &=\sum_{l=0}^{\infty}\im^{l}(2l+1)j_{l}(kr)P_{l}(\cos{\theta}),
+\end{align}
+kde $P_{l}$ jsou Legenedreovy polynomy a souřadná soustava je orientována tak, že osa $z$ je rovnoběžná s vektorem $\vector{r}$,
+\begin{equation}
+    \vector{k}\cdot\vector{r}=kr\cos{\theta}.
+\end{equation}		
+
+\subsubsection*{Explicitní vyjádření nejnižších Besselových funkcí}
+    \begin{subequations}
+        \begin{align}
+            j_{0}(z)
+                &=\frac{\sin{z}}{z}
+            &n_{0}(z)
+                &=-\frac{\cos{z}}{z}\\
+            j_{1}(z)
+                &=\frac{\sin{z}}{z^{2}}-\frac{\cos{z}}{z}
+            &n_{1}(z)
+                &=-\frac{\cos{z}}{z^{2}}-\frac{\sin{z}}{z}\\
+            j_{2}(z)
+                &=\left(\frac{3}{z^{3}}-\frac{1}{z}\right)\sin{z}-\frac{3}{z^{2}}\cos{z}
+            &n_{2}(z)
+                &=-\left(\frac{3}{z^{3}}-\frac{1}{z}\right)\cos{z}-\frac{3}{z^{2}}\sin{z}
+        \end{align}            
+    \end{subequations}

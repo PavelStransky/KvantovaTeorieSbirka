@@ -1,0 +1,30 @@
+\subsection{Projekční teorém}
+	Dokažte, že pro maticové elementy diagonální v $J$ a pro libovolný vektorový operátor $\vectoroperator{V}$ platí rovnost
+	\begin{equation}
+		\label{eq:ProjectionTheorem}
+		\boxed{
+			\matrixelement{a,J\,M}{\vectoroperator{V}}{b,J\,m}=\matrixelement{a,J\,M}{\frac{\vectoroperator{J}\cdot\vectoroperator{V}}{\vectoroperator{J}^{2}}\,\vectoroperator{J}}{b,J\,m}
+		}\,.
+	\end{equation}
+
+\begin{solution}
+    Na obou stranách jsou maticové elementy tenzorových operátorů, lze tedy využít Wigner-Eckartův teorém a tvrzení dokázat jen pro jednu komponentu operátorů.
+
+	Levá strana [za využití znalosti Clebsch-Gordanova koeficientu~\eqref{eq:ClebschGordan10j}]:
+	\begin{align}
+		&\matrixelement{a,J\,M}{\operator{V}_{3}}{b,J\,m}=\nonumber\\
+		&\qquad=\delta_{Mm}\frac{\minus{J+1-J}}{\sqrt{2J+1}}\clebsch{1}{0}{J}{M}{J}{M}\reducedmatrixelement{a,J}{\tensoroperator{V}{1}}{b,J}=\nonumber\\
+		&\qquad=\delta_{Mm}\frac{M}{\sqrt{J(J+1)(2J+1)}}\,\reducedmatrixelement{a,J}{\tensoroperator{V}{1}}{b,J}
+	\end{align}
+	
+	Pravá strana (využitím výsledku předchozího příkladu):
+	\begin{align}
+		&\matrixelement{a,J\,M}{\frac{\vectoroperator{J}\cdot\vectoroperator{V}}{\vectoroperator{J}^{2}}\,\operator{J}_{3}}{b,J\,m}=\nonumber\\
+		&\qquad=\delta_{Mm}\frac{M}{J(J+1)}\matrixelement{a,J\,M}{\vectoroperator{J}\cdot\vectoroperator{V}}{b,J\,M}=\nonumber\\
+		&\qquad=\delta_{Mm}\frac{M}{J(J+1)}\minus{J+0-J}\frac{\clebsch{0}{0}{J}{M}{J}{M}}{\sqrt{2J+1}}\,\reducedmatrixelement{a,J}{\tensoroperator{V}{1}\cdot\tensoroperator{J}{1}}{b,J}=\nonumber\\
+		&\qquad=\delta_{Mm}\frac{M}{J(J+1)\sqrt{2J+1}}\sqrt{J(J+1)}\,\reducedmatrixelement{a,J}{\tensoroperator{V}{1}}{b,J}=\nonumber\\
+		&\qquad=\delta_{Mm}\frac{M}{\sqrt{J(J+1)(2J+1)}}\,\reducedmatrixelement{a,J}{\tensoroperator{V}{1}}{b,J}.
+	\end{align}
+
+	Obě strany se rovnají.
+\end{solution}

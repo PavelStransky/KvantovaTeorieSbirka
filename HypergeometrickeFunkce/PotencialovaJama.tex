@@ -1,0 +1,327 @@
+\subsection{Nekonečně hluboká nepravoúhlá jáma}
+Určete energetické spektrum částice o hmotnosti $M$ nacházející se v jednorozměrném potenciálu
+\begin{equation}
+	V(x)=\frac{V_{0}}{\tan^{2}\frac{\pi x}{a}}\,,\qquad 0<x<a\,,
+\end{equation}
+kde parametr $V_{0}>0$ určuje strmost a $a>0$ šířku jámy.
+Nalezněte energii základního stavu a normalizovanou vlnovou funkci.
+
+\begin{solution}
+	Cílem je převést Schrödingerovu rovnici pro vlnovou funkci $\psi=\psi(x)$
+	\begin{equation}
+		\label{eq:Tan2Schrodinger}
+		-\frac{\hbar^{2}}{2M}\psi_{xx}+\left[V(x)-E\right]\psi=0
+	\end{equation}
+	(značíme zde $\psi_{x}\equiv\d\psi/\d x$) do tvaru pro hypergeometrickou funkci~\eqref{eq:HypergeometricEquation}.
+	K tomu je třeba provést postupně několik substitucí.
+	
+	\begin{enumerate}
+	\item
+		Nejprve zavedeme bezrozměrnou proměnnou souřadnice
+		\begin{equation}
+			\label{eq:Tan2Xi}
+			\xi\equiv\frac{\pi x}{a}
+		\end{equation}
+		a energie
+		\begin{equation}
+			\label{eq:Tan2Energy}
+			\qquad\epsilon=\frac{\pi^{2}\hbar^{2}}{2Ma^{2}}\,,
+			\qquad e\equiv\frac{E}{\epsilon}\,,
+			\qquad v_{0}\equiv\frac{V_{0}}{\epsilon}\,,
+			\qquad v(\xi)\equiv\frac{V(\xi)}{\epsilon}=\frac{v_{0}}{\tan^{2}\xi}\,,
+		\end{equation}		
+		čímž převedeme Schrödingerovu rovnici~\eqref{eq:Tan2Schrodinger} na tvar
+		\begin{equation}
+			\label{eq:Tan2SchrodingerXi}
+			\psi_{\xi\xi}+\left[e-v(\xi)\right]\psi=0\,.
+		\end{equation}
+	
+	\item
+		Vlnovou funkci budeme hledat ve tvaru
+		\begin{equation}
+			\label{eq:Tan2u}
+			\psi(\xi)=u(\xi)\sin^{\alpha}\xi\,,
+		\end{equation}
+		kde $\alpha$ bude prozatím volný parametr.
+		Zavedeme zjednodušené označení
+		\begin{equation}
+			s\equiv\sin{\xi}\,,\qquad c\equiv\cos{\xi}\,.
+		\end{equation}
+		První a druhá derivace vlnové funkce pak jsou
+		\begin{subequations}
+			\begin{align}
+				\psi_{\xi}
+					&=u_{\xi}\,s^{\alpha}+\alpha\,u\,s^{\alpha-1}c\,,\\
+				\psi_{\xi\xi}
+					&=u_{\xi\xi}\,s^{\alpha}+2\alpha\,u_{\xi}\,s^{\alpha-1}c
+						+\alpha(\alpha-1)\,u\,s^{\alpha-2}\underbrace{c^{2}}_{1-s^{2}}
+						-\alpha\,u\,s^{\alpha}\nonumber\\
+					&=u_{\xi\xi}\,s^{\alpha}+2\alpha\,u_{\xi}\,s^{\alpha-1}c
+						+\alpha(\alpha-1)\,u\,s^{\alpha-2}
+						-\alpha^{2}\,u\,s^{\alpha}\,.
+			\end{align}				
+		\end{subequations}
+		Potenciál rozepíšeme jako
+		\begin{equation}
+			v(x)
+				=v_{0}\frac{c^{2}}{s^{2}}
+				=v_{0}\frac{1-s^{2}}{s^{2}}
+				=\frac{v_{0}}{s^{2}}-v_{0}\,.
+		\end{equation}
+		Schrödingerova rovnice~\eqref{eq:Tan2SchrodingerXi} pak zní
+		\begin{equation}
+			u_{\xi\xi}\,s^{\alpha}
+				+2\alpha\,u_{\xi}\,s^{\alpha-1}c
+				-\alpha^{2}\,u\,s^{\alpha}
+				+\underbrace{\left(e+v_{0}\right)}_{\nu^{2}}u\,s^{\alpha}
+				+\left[\alpha(\alpha-1)-v_{0}\right]u\,s^{\alpha}
+				-v_{0}\,u\,s^{\alpha-2}=0\,,
+		\end{equation}
+		a po vydělení výrazem $s^{\alpha}$ a po přerovnání členů dostaneme
+		\begin{equation}
+			u_{\xi\xi}
+				+2\alpha\,u_{x}\,\frac{c}{s}
+				+\left(\nu^{2}-\alpha^{2}\right)u
+				+\left[\alpha(\alpha-1)-v_{0}\right]u\,s^{-2}=0\,.
+		\end{equation}
+		
+		Konstanta $\alpha$ byla doposud libovolné číslo.
+		Nyní ji zvolíme tak, aby vynulovala člen úměrný $s^{-2}$.
+		Řešíme tedy rovnici
+		\begin{equation}
+			\alpha(\alpha-1)=v_{0}\,,
+		\end{equation}
+		jejíž kořeny jsou
+		\begin{equation}
+			\label{eq:Tan2Alpha}
+			\alpha_{\pm}=\frac{1}{2}\left(1\pm\sqrt{4v_{0}+1}\right)\,.
+		\end{equation}
+		V následujícím výpočtu budeme uvažovat pouze kořen $\alpha\equiv\alpha_{-}<0$.
+		
+		V této fázi dostáváme tedy Schrödingerovu rovnici ve tvaru
+		\begin{equation}
+		\label{eq:Tan2SchrodingerUXi}
+			u_{\xi\xi}
+				+2\alpha\,u_{x}\,\frac{c}{s}
+				+\left(\nu^{2}-\alpha^{2}\right)u=0\,.
+		\end{equation}		
+		
+	\item
+		Zavedeme novou nezávislou proměnnou\footnote{
+			Správně bychom měli psát substituci ve tvaru
+			\begin{equation}
+				\sqrt{z}=\cos\xi\,,
+			\end{equation}
+			což je narozdíl od~\eqref{eq:Tan2z} prosté zobrazení převádějící $\xi\in(0,\pi)$
+			na $\sqrt{z}\in(-1,1)$.
+		}
+		\begin{equation}
+			\label{eq:Tan2z}
+			z=\cos^{2}\xi=c^{2}\,,
+		\end{equation}
+		Jelikož
+		\begin{subequations}
+			\begin{align}
+				u_{\xi}
+					&\equiv\derivative{u}{\xi}=\derivative{u}{z}\derivative{z}{\xi}=u_{z}z_{\xi}\,,\\
+				u_{\xi\xi}
+					&\equiv\derivative[2]{u}{\xi}=\derivative[2]{u}{z}\left(\derivative{z}{\xi}\right)^{2}+\derivative{u}{z}\derivative[2]{z}{\xi}
+						=u_{zz}z_{\xi}^{2}+u_{z}z_{\xi\xi}
+			\end{align}				
+		\end{subequations}
+		a
+		\begin{subequations}
+			\begin{align}
+				z_{\xi}&=-2sc\,,\\
+				z_{\xi\xi}&=-2\left(c^{2}-s^{2}\right)\,,
+			\end{align}				
+		\end{subequations}
+		dostaneme Schrödingerovu rovnici~\eqref{eq:Tan2SchrodingerUXi} do tvaru
+		\begin{equation}
+			4\,u_{zz}\underbrace{s^{2}}_{1-z}\underbrace{c^{2}}_{z}
+				-2\,u_{z}\underbrace{\left(c^{2}-s^{2}\right)}_{2z-1}
+				-4\alpha\,u_{z}\underbrace{c^{2}}_{z}
+				+\left(\nu^{2}-\alpha^{2}\right)u=0\,,
+		\end{equation}
+		\begin{equation}
+			\label{eq:Tan2SchrodingerFinal}
+			z(1-z)u_{zz}
+				+\left[\frac{1}{2}-\left(1+\alpha\right)z\right]u_{z}
+				+\frac{1}{4}\left(\nu^{2}-\alpha^{2}\right)=0\,.
+		\end{equation}
+		Toto je rovnice pro hypergeometrické funkce~\eqref{eq:HypergeometricEquation} s hodnotami
+		parametrů
+		\begin{subequations}
+			\begin{align}
+				a+b&=\alpha\,,\\
+				ab&=\frac{1}{4}\left(\nu^{2}-\alpha^{2}\right)\,,\\
+				c&=\frac{1}{2}\,,
+			\end{align}				
+		\end{subequations}
+		kde z prvních dvou rovnic obdržíme\footnote{
+			Druhé možné řešení této soustavy rovnic je
+			\begin{subequations}
+				\begin{align}
+					a&=\frac{1}{2}\left(\alpha+\nu\right)\,,\\
+					b&=\frac{1}{2}\left(\alpha-\nu\right)\,,
+				\end{align}					
+			\end{subequations}
+			které však s ohledem na symetrii hypergeometrických funkcí vůči záměně prvního
+			a druhého argumentu dá totožné řešení diferenciální rovnice~\eqref{eq:Tan2SchrodingerFinal}.
+		}
+		\begin{subequations}
+			\begin{align}
+				a&=\frac{1}{2}\left(\alpha-\nu\right)\,,\\
+				b&=\frac{1}{2}\left(\alpha+\nu\right)\,.
+			\end{align}				
+		\end{subequations}
+	\end{enumerate}
+	
+	Dvě lineárně nezávislá řešení diferenciální rovnice~\eqref{eq:Tan2SchrodingerFinal} jsou
+	dány hypergeometrickými funkcemi
+	\begin{subequations}
+		\begin{align}
+			u_{1}(z)
+				&=\2F1{\frac{1}{2}\left(\alpha-\nu\right)}{\frac{1}{2}\left(\alpha+\nu\right)}
+					{\frac{1}{2}}{z}\,,\\
+			u_{2}(z)
+				&=\sqrt{z}\2F1{\frac{1}{2}(\alpha-\nu+1)}{\frac{1}{2}(\alpha+\nu+1)}{\frac{3}{2}}{z}\,.
+		\end{align}			
+	\end{subequations}
+	
+	Nyní budeme studovat konvergenci řešení.
+	Požadujeme, aby v bodě $z=1$, který odpovídá $x=a$, byla vlnová funkce $\psi$ nulová.
+	K tomu využijeme identitu~\eqref{eq:2F1Identity2} postupně na obě dvě lineárně nezávislá řešení.
+	
+	\begin{itemize}
+	\item Řešení $u_{1}$:
+		\begin{equation}
+			u_{1}(z)
+				=(1-z)^{\frac{1}{2}(\nu-\alpha)}
+					\2F1{\frac{1}{2}(\alpha-\nu)}{\frac{1}{2}(1-\alpha-\nu)}{\frac{1}{2}}
+						{\frac{z}{z-1}}\,.
+		\end{equation}
+		Po uvážení substitucí~\eqref{eq:Tan2u} a~\eqref{eq:Tan2z} 
+		\begin{align}
+			\psi_{1}
+				&=s^{\alpha}s^{\nu-\alpha}
+					\2F1{\frac{1}{2}(\alpha-\nu)}{\frac{1}{2}(1-\alpha-\nu)}
+						{\frac{1}{2}}{\frac{c^{2}}{-s^{2}}}\nonumber\\
+				&=s^{\nu}\sum_{m=0}^{\infty}(-1)^{m}\frac{c_{m}}{m!}\frac{c^{2m}}{s^{2m}}\,.
+		\end{align}
+		Pokud nemá řada konečný počet členů, diverguje v bodě $x=0$ a $x=a$.
+		Abychom divergenci zabránili, musí být buď první, nebo druhý argument hypergeometrické
+		funkce rovný nekladnému celému číslu.
+		Pokud
+		\begin{align}
+			\frac{1}{2}(\alpha-\nu)&=-n\,,\ n\in\mathbb{N}_{0}
+				&\Longrightarrow&&\nu&=2n+\alpha<2n
+		\end{align}
+		(zvolili jsme $\alpha<0$)	takže v tomto případě vlnová funkce konvergovat nebude
+		(v konečné řadě bude vždy víc členů s funkcí $\sin\xi$ ve jmenovateli, 
+		než kolik je mocnina v prefaktoru).
+		Naopak pokud uvážíme druhý argument hypergeometrické funkce,
+		\begin{align}
+			\frac{1}{2}(1-\alpha-\nu)&=-n\,,\ n\in\mathbb{N}_{0}
+				&\Longrightarrow&&\nu&=2n-\alpha+1>2n\,,
+		\end{align}
+		dostaneme dobře konvergující řešení.
+		
+		Dosadíme-li nyní za $\nu=\sqrt{e+v_{0}}$, můžeme vyjádřit energii jako
+		\begin{equation}
+			\label{eq:Tan2Odd}
+			E_{n,1}
+				=\epsilon\left[(2n+1)^{2}-2\alpha(2n+1)+\alpha\right]\,,\quad n\in\mathbb{N}_{0}\,,
+		\end{equation}
+		kde $\alpha$ je záporný kořen~\eqref{eq:Tan2Alpha}\footnote{
+			Pokud bychom zvolili kladný kořen~\eqref{eq:Tan2Alpha}, $\alpha_{+}=1-\alpha_{-}$,
+			dobře se chovající řešení by bylo dáno z prvního argumentu hypergeometrické funkce,
+			avšak spektrum bychom dostali zcela stejné (a rovněž i vlnovou funkci).
+		}
+		a $\epsilon$ je energetická škála~\eqref{eq:Tan2Energy}.
+		Odpovídající nenormovaná vlnová funkce v proměnné $x$ zní
+		\begin{equation}
+			\psi_{n,1}(x)=\sin^{\alpha}\frac{\pi x}{a}
+				\2F1{\alpha-n-\frac{1}{2}}{n+\frac{1}{2}}{\frac{1}{2}}
+				{\cos^{2}\frac{\pi x}{a}}\,.
+		\end{equation}
+	
+	\item Řešení $u_{2}$:
+	
+		Postupujeme analogicky jako u $u_{1}$.
+		Aplikací identity~\eqref{eq:2F1Identity2} postupně dostaneme
+		\begin{equation}
+			u_{2}(z)=\sqrt{z}(1-z)^{\frac{1}{2}(\nu-\alpha-1)}
+				\2F1{\frac{1}{2}(\alpha-\nu+1)}{1-\frac{1}{2}(\alpha+\nu)}{\frac{3}{2}}
+				{\frac{z}{z-1}}\,,
+		\end{equation}
+		\begin{align}
+			\psi_{2}
+				&=s^{\alpha}cs^{\nu-\alpha-1}
+					\2F1{\frac{1}{2}(\alpha-\nu+1)}{1-\frac{1}{2}(\alpha+\nu)}{\frac{3}{2}}
+					{\frac{c^{2}}{-s^{2}}}\nonumber\\
+				&=cs^{\nu-1}\sum_{m=0}^{\infty}(-1)^{m}\frac{c_{m}}{m!}\frac{c^{2m}}{s^{2m}}\,,
+		\end{align}
+		kde ukončení řady pomocí druhého parametru hypergeometrické funkce vede k řešení
+		s požadovanými okrajovými podmínkami,
+		\begin{align}
+			1-\frac{1}{2}(\alpha+\nu)&=-n\,,\ n\in\mathbb{N}_{0}
+			&\Longrightarrow&&\nu=2n+2-\alpha\,,
+		\end{align}
+		což vede na kvantovací podmínku pro energie
+		\begin{equation}
+			\label{eq:Tan2Even}
+			E_{n,2}=\epsilon\left[(2n+2)^{2}-2\alpha(2n+2)+\alpha\right]\,,\quad n\in\mathbb{N}_{0}
+		\end{equation}
+		a vlnové funkce ve tvaru
+		\begin{equation}
+		\psi_{n,2}(x)=\sin^{\alpha}\frac{\pi x}{a}\cos\frac{\pi x}{a}
+			\2F1{\alpha-n-\frac{1}{2}}{n+\frac{3}{2}}{\frac{3}{2}}{\cos^{2}\frac{\pi x}{a}}\,.
+		\end{equation}
+	\end{itemize}
+	
+	Řešení~\eqref{eq:Tan2Odd} a~\eqref{eq:Tan2Even} lze zkombinovat dohromady do
+	\begin{equation}
+		E_{m}=\epsilon\left[m^{2}-2\alpha m+\alpha\right]\,,\quad m\in\mathbb{N}\,,
+	\end{equation}
+	přičemž pro $m$ liché je vlnová funkce ve tvaru $\psi_{n=(m-1)/2,1}(x)$ a pro $m$ sudé
+	$\psi_{n=m/2-1,2}(x)$.
+	
+	Energie základního stavu je
+	\begin{equation}
+		E_{1}=\frac{\pi^{2}\hbar^{2}}{4Ma^{2}}
+			\left(1-\sqrt{\frac{8Ma^{2}V_{0}}{\pi^{2}\hbar^{2}}+1}\right)
+	\end{equation}
+	a odpovídající vlnová funkce
+	\begin{align}
+		\psi_{1}(x)\equiv\psi_{0,1}(x)
+			&=N_{1}\sin^{\alpha}\frac{\pi x}{a}
+				\underbrace{\2F1{\alpha-\frac{1}{2}}{\frac{1}{2}}{\frac{1}{2}}{z}}
+					_{(1-z)^{\frac{1}{2}-\alpha}}\nonumber\\
+			&=N_{1}\sin^{1-\alpha}\frac{\pi x}{a}\,,
+	\end{align}
+	kde jsme využili znalosti~\eqref{eq:2F1Fraction}.
+	Normalizační faktor $N_{1}$ získáme integrací
+	\begin{equation}
+		N_{1}
+			=\frac{1}{\sqrt{\int_{0}^{a}\sin^{2-2\alpha}\frac{\pi x}{a}\d x}}
+			=\sqrt{\frac{\pi}{a}\frac{\Gamma(1-\alpha)}
+				{\Gamma\left(\frac{1}{2}\right)\Gamma\left(\frac{3}{2}-\alpha\right)}}\,.
+	\end{equation}
+	
+	\begin{note}
+		Pokud $V_{0}\rightarrow0$, dostaneme $\alpha\rightarrow0$ a výraz pro energie se zjednoduší
+		na
+		\begin{equation}
+			E_{m}=\frac{\pi^{2}\hbar^{2}}{2Ma^{2}}m^{2}\,,\quad m\in\mathbb{N}\,,
+		\end{equation}
+		což jsou energie pravoúhlé jámy.
+		
+		Naopak pro $V_{0}\rightarrow\infty$ je $\alpha\rightarrow-\infty$ a v tom případě dostaneme
+		\begin{equation}
+			E_{m}=\hbar\Omega\left(m-\frac{1}{2}\right)\,,
+				\quad\Omega\equiv\frac{\pi}{a}\sqrt{\frac{2V_{0}}{M}}\,,
+		\end{equation}
+		energie harmonického oscilátoru aproximující dno jámy.
+	\end{note}
+\end{solution}

@@ -1,0 +1,78 @@
+\section{Stacionární poruchová metoda}
+\label{sec:PoruchovaMetoda}
+\begin{theory}   
+    Mějme Hamiltonián $\operator{H}$, který lze rozložit na součet
+    \begin{equation}
+        \operator{H}=\operator{H}_{0}+\lambda\operator{H}_{\ti{I}}
+    \end{equation}
+    tak, že spektrum $\operator{H}_{0}$ je známé a {\bf nedegenerované},
+    \begin{subequations}
+        \begin{align}
+            \operator{H}_{0}\ket{\phi_{m}}&=E_{m}^{\hi{0}}\ket{\phi_{m}},\\
+            \braket{\phi_{m}}{\phi_{n}}&=\delta_{mn},\\
+            \sum_{m}\ket{\phi_{m}}\bra{\phi_{m}}&=\operator{1},
+        \end{align}
+    \end{subequations}
+    a $\operator{H}_{\ti{I}}$ je malá porucha (interakce) řízená parametrem $\lambda$ 
+    ($\lambda=0$ v neporušeném případě, řešení pro $\lambda=1$ hledáme; mocnina $\lambda$ ve výsledku koresponduje s řádem opravy).
+
+    Předpokládáme, že vlastní vektor Hamiltoniánu $\operator{H}$ a příslušné vlastní energie lze vyjádřit ve tvaru součtu
+    \begin{subequations}
+        \begin{align}
+            \ket{\chi_{m}(\lambda)}&=\sum_{n=0}^{\infty}\lambda^{n}\ket{\chi_{m}^{\hi{n}}},\\
+            E_{m}(\lambda)&=\sum_{n=0}^{\infty}\lambda^{n}E_{m}^{\hi{n}},\\
+            \operator{H}\ket{\chi_{m}(\lambda)}&=E_{m}(\lambda)\ket{\chi_{m}(\lambda)}
+        \end{align}
+    \end{subequations}
+    přičemž platí $\ket{\chi_{m}^{\hi{0}}}\equiv\ket{\phi_{m}}$), kde $n$ udává řád opravy.
+    Upustili jsme od normalizace vektorů $\ket{\chi_{m}^{\hi{n}}}$, avšak požadujeme, aby
+    \begin{equation}
+        \braket{\phi_{m}}{\chi_{m}(\lambda)}=1.
+    \end{equation}
+    V tomto označení platí pro první opravu 
+    \begin{equation}
+        \label{eq:Perturbation1}
+        \important{
+            \begin{aligned}
+                E_{m}^{\hi{1}}&=\matrixelement{\phi_{m}}{\operator{H}_{\ti{I}}}{\phi_{m}}\\
+                \ket{\chi_{m}^{\hi{1}}}&=\sum_{n\neq m}\frac{\matrixelement{\phi_{n}}{\operator{H}_{\ti{I}}}{\phi_{m}}}{E_{m}^{\hi{0}}-E_{n}^{\hi{0}}}\,\ket{\phi_{n}}
+            \end{aligned}
+        }
+    \end{equation}
+    a pro druhou opravu
+    \begin{equation}
+        \label{eq:Perturbation2}
+        \important{
+            E_{m}^{\hi{2}}=\sum_{n\neq m}\frac{\abss{\matrixelement{\phi_{n}}{\operator{H}_{\ti{I}}}{\phi_{m}}}}{E_{m}^{\hi{0}}-E_{n}^{\hi{0}}}\,.
+        }
+    \end{equation}
+    Druhá oprava k základnímu stavu je vždy záporná.
+    Výsledné stavy vyjádřené do daného řádu $N$ lze následně nanormovat.
+
+    Pokud je spektrum $H_{0}$ {\bf degenerované}, pak uvedenou metodu nelze použít (to lze triviálně nahlédnout například z toho, že v prvním z výrazů v \eqref{eq:Perturbation1} by byla nejednoznačnost ve volbě vlastního vektoru $\ket{\phi_{m}}$, a také že ve jmenovatelích výrazů \eqref{eq:Perturbation1} a \eqref{eq:Perturbation2} bychom dostávali nuly).
+    Předpokládejme, že platí
+    \begin{subequations}
+        \begin{align}
+            \operator{H}_{0}\ket{\phi_{mj}}&=E_{m}\ket{\phi_{mj}},\\
+            \braket{\phi_{mj}}{\phi_{mk}}&=\delta_{jk}\,.
+        \end{align}
+    \end{subequations}
+    Všechny vlastní vektory v charakteristickém podprostoru operátoru $\operator{H}_{0}$ příslušejícím k vlastní hodnotě $E_{m}$ jsou indexovány druhým indexem. 
+    První opravu $E_{mj}^{(1)}$ a příslušné vlastní vektory na tomto podprostoru získáme diagonalizací
+    \begin{equation}
+        \label{eq:PerturbationDegenerate}
+        \important{
+            \det\makematrix{
+            \matrixelement{\phi_{m1}}{\operator{H}_{\ti{I}}}{\phi_{m1}} - E_{m}^{\hi{1}} & 
+            \matrixelement{\phi_{m1}}{\operator{H}_{\ti{I}}}{\phi_{m2}} & \dotso \\
+            \matrixelement{\phi_{m2}}{\operator{H}_{\ti{I}}}{\phi_{m1}} & 
+            \matrixelement{\phi_{m2}}{\operator{H}_{\ti{I}}}{\phi_{m2}} - E_{m}^{\hi{1}} & \dotso \\
+            \vdots & \vdots & \ddots
+            }=0
+        }.
+    \end{equation}
+    Porucha může degeneraci sejmout buď úplně, nebo jen částečně.
+\end{theory}
+
+\input{PriblizneMetody/HarmonickyOscilator.tex}
+\input{PriblizneMetody/VanDerWaals.tex}

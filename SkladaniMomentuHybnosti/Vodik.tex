@@ -1,0 +1,137 @@
+\subsection{Moment hybnosti atomu vodíku}
+	Jádro atomu vodíku (proton) má spin $s_{p}=\frac{1}{2}$, 
+	spin obíhajícího elektronu je $s_{e}=\frac{1}{2}$ a elektron se nachází na orbitalu $d$
+	(orbitální moment hybnosti je tedy $l=2$).
+	Operátor celkového momentu hybnosti označíme
+	\begin{equation}
+		\vectoroperator{J}=\vectoroperator{S}^{(p)}+\vectoroperator{S}^{(e)}+\vectoroperator{L}\,.
+	\end{equation}
+	
+	\begin{enumerate}
+	\item
+		Určete celkový počet kvantových stavů, kterých může moment hybnosti $\vectoroperator{J}$ nabývat.
+		
+	\item
+		Určete, jaké hodnoty může mít celkový moment hybnosti $j$ 
+		a kolik stavů přísluší každé jeho hodnotě.
+		
+	\item
+		Určete normalizované stavy
+		\begin{equation}
+			\ket{j\,m}=\left\{\begin{array}{l} \ket{3\,3} \\ \ket{3\,2} \\ \ket{3\,1} \end{array}\right.\,,
+		\end{equation}
+		kde $m$ značí projekci celkového momentu hybnosti $\vectoroperator{J}$ na třetí souřadnou osu.
+		
+	\item
+		Určete střední hodnotu
+		\begin{equation}
+			\matrixelement{3\,2}{\vectoroperator{S}^{(e)}\cdot\vectoroperator{S}^{(p)}}{3\,2}\,.
+		\end{equation}
+
+\emph{Nápověda:}
+	Skalární součin operátorů $\vectoroperator{S}^{(e)}\cdot\vectoroperator{S}^{(p)}$ vyjádřete pomocí
+	operátorů	$\operator{S}^{(e,p)}_{\pm}$ a $\operator{S}_{3}^{(e,p)}$.	
+	\end{enumerate}
+    
+\begin{solution}
+	\begin{enumerate}
+	\item
+		Pro obecnou hodnotu momentu hybnosti $j$ existuje $2j+1$ odlišných stavů, takže
+		\begin{itemize}
+		\item
+			$s_{p}=\frac{1}{2}$ dává 2 možné stavy,
+			
+		\item
+			$s_{e}=\frac{1}{2}$ dává také 2 možné stavy a
+			
+		\item 
+			$l=2$ dává 5 možných stavů,
+		\end{itemize}
+		celkem tedy $2\times2\times5=20$ stavů.
+		
+	\item
+		Složení dvou momentů hybnosti $j_{1}$ a $j_{2}$ vede díky trojúhelníkové nerovnosti~\eqref{eq:AngularMomentumSelectionRules} na celkový moment hybnosti s možnými hodnotami od $\abs{j_{1}-j_{2}}$ do $j_{1}+j_{2}$.
+		Složení dvou spinů $s_{p}$ a $s_{e}$ dá tedy dvě možné hodnoty momentu hybnosti $s=0$ a $s=1$.
+		Pokud se k mezivýsledku $s=0$ přidá orbitální moment hybnosti $l=2$, výsledkem bude jediná možná hodnota $j=2$ (5 možných stavů).
+		Přidá-li se orbitální moment hybnosti k mezivýsledku $s=1$, budou možné tři různé hodnoty $j=1$ (3 možné stavy), $j=2$ (5 možných stavů) a $j=3$ (7 možných stavů).
+		Platí tedy:
+		\begin{itemize}
+		\item
+			$j=1$ dává 3 možné stavy,
+		\item
+			$j=2$ dává 10 možných stavů (5 pro $s=0$ a 5 pro $s=1$) a
+		\item
+			$j=3$ dává 7 možných stavů,
+		\end{itemize}
+		celkem tedy $3+10+7=20$ stavů, což souhlasí s výsledkem předchozího bodu.
+		
+	\item
+		Stav $\ket{j\,m}=\ket{3\,3}$ je jedinečný (je to stav s nejvyšší váhou), který má v bázi jednotlivých momentů hybnosti vyjádření
+		\begin{equation}
+			\ket{3\,3}=\ket{\frac{1}{2}\,\frac{1}{2}}_{p}\otimes\ket{\frac{1}{2}\,\frac{1}{2}}_{e}\otimes\ket{2\,2}_{J}\,.
+		\end{equation}
+		Stav $\ket{3\,2}$ se získá působením posunovacího operátoru $\operator{J}_{-}=\operator{S}_{p-}+\operator{S}_{e-}+\operator{J}_{-}$ na obě strany rovnosti za využití vzorců~\eqref{eq:AngularMomentumShiftOperator} (pro zjednodušení zápisu vynecháváme znak tenzorového součinu):
+		\begin{align}
+			\sqrt{6}\ket{3\,2}
+				&=\ket{\frac{1}{2}\,-\frac{1}{2}}_{p}\ket{\frac{1}{2}\,\frac{1}{2}}_{e}\ket{2\,2}_{J}
+					+\ket{\frac{1}{2}\,\frac{1}{2}}_{p}\ket{\frac{1}{2}\,-\frac{1}{2}}_{e}\ket{2\,2}_{J}\nonumber\\
+				&\quad+2\ket{\frac{1}{2}\,\frac{1}{2}}_{p}\ket{\frac{1}{2}\,\frac{1}{2}}_{e}\ket{2\,1}_{J},
+		\end{align}
+		z čehož se vyjádří stav $\ket{3\,2}$ vydělením $\sqrt{6}$.
+				
+		Opakované působení operátorem $\operator{J}_{-}$ dá zbývající hledané stavy
+		\begin{align}
+			\ket{3\,1}
+				&=\frac{1}{2\sqrt{15}}\bigg(
+					\ket{\frac{1}{2}\,-\frac{1}{2}}_{p}\ket{\frac{1}{2}\,-\frac{1}{2}}_{e}\ket{2\,2}_{J}
+					+2\ket{\frac{1}{2}\,-\frac{1}{2}}_{p}\ket{\frac{1}{2}\,\frac{1}{2}}_{e}\ket{2\,1}_{J}\nonumber\\
+				&\qquad\qquad+\ket{\frac{1}{2}\,-\frac{1}{2}}_{p}\ket{\frac{1}{2}\,-\frac{1}{2}}_{e}\ket{2\,2}_{J}
+					+2\ket{\frac{1}{2}\,\frac{1}{2}}_{p}\ket{\frac{1}{2}\,-\frac{1}{2}}_{e}\ket{2\,1}_{J}\nonumber\\
+				&\qquad\qquad+2\ket{\frac{1}{2}\,-\frac{1}{2}}_{p}\ket{\frac{1}{2}\,\frac{1}{2}}_{e}\ket{2\,1}_{J}
+					+2\ket{\frac{1}{2}\,\frac{1}{2}}_{p}\ket{\frac{1}{2}\,-\frac{1}{2}}_{e}\ket{2\,1}_{J}\nonumber\\
+				&\qquad\qquad+2\sqrt{6}\ket{\frac{1}{2}\,\frac{1}{2}}_{p}\ket{\frac{1}{2}\,\frac{1}{2}}_{e}\ket{2\,0}_{J}\bigg)\nonumber\\
+				&=\frac{1}{\sqrt{15}}\bigg(
+					\ket{\frac{1}{2}\,-\frac{1}{2}}_{p}\ket{\frac{1}{2}\,-\frac{1}{2}}_{e}\ket{2\,2}_{J}
+					+2\ket{\frac{1}{2}\,-\frac{1}{2}}_{p}\ket{\frac{1}{2}\,\frac{1}{2}}_{e}\ket{2\,1}_{J}\nonumber\\
+				&\qquad\qquad+2\ket{\frac{1}{2}\,\frac{1}{2}}_{p}\ket{\frac{1}{2}\,-\frac{1}{2}}_{e}\ket{2\,1}_{J}
+					+\sqrt{6}\ket{\frac{1}{2}\,\frac{1}{2}}_{p}\ket{\frac{1}{2}\,\frac{1}{2}}_{e}\ket{2\,0}_{J}\bigg).					
+		\end{align}				
+				
+	\item
+		Pro dva obecné momenty hybnosti $\vectoroperator{A}$, $\vectoroperator{B}$ platí \trick{rozklad}
+		\begin{equation}
+			\label{eq:AngularMomentumHydrogenScalar}
+			\vectoroperator{A}\cdot\vectoroperator{B}=\operator{A}_{1}\operator{B}_{1}+\operator{A}_{2}\operator{B}_{2}+\operator{A}_{3}\operator{B}_{3}=\frac{1}{2}\left(\operator{A}_{+}\operator{B}_{-}+\operator{A}_{-}\operator{B}_{+}\right)+\operator{A}_{3}\operator{B}_{3}\,,
+		\end{equation}
+		takže speciálně pro $\vectoroperator{A}=\vectoroperator{S}_{p}$ a $\vectoroperator{B}=\vectoroperator{S}_{e}$ se dostane
+		\begin{subequations}
+			\begin{align}
+				\operator{S}_{p3}\operator{S}_{e3}\ket{3\,2}
+					&=\frac{1}{\sqrt{6}}\bigg(-\frac{1}{4}\ket{\frac{1}{2}\,-\frac{1}{2}}_{p}\ket{\frac{1}{2}\,\frac{1}{2}}_{e}\ket{2\,2}_{J}
+						-\frac{1}{4}\ket{\frac{1}{2}\,\frac{1}{2}}_{p}\ket{\frac{1}{2}\,-\frac{1}{2}}_{e}\ket{2\,2}_{J}\nonumber\\
+					&\quad+\frac{1}{2}\ket{\frac{1}{2}\,\frac{1}{2}}_{p}\ket{\frac{1}{2}\,\frac{1}{2}}_{e}\ket{2\,1}_{J}\bigg)\,,\\
+				\operator{S}_{p+}\operator{S}_{e-}\ket{3\,2}
+					&=\frac{1}{\sqrt{6}}\ket{\frac{1}{2}\,\frac{1}{2}}_{p}\ket{\frac{1}{2}\,-\frac{1}{2}}_{e}\,\ket{2,2}_{J}\,,\\
+				\operator{S}_{p-}\operator{S}_{e+}\ket{3\,2}
+					&=\frac{1}{\sqrt{6}}\ket{\frac{1}{2}\,-\frac{1}{2}}_{p}\ket{\frac{1}{2}\,\frac{1}{2}}_{e}\,\ket{2,2}_{J}\,,
+			\end{align}
+		\end{subequations}		
+		Dílčí maticové elementy pro rozklad~\eqref{eq:AngularMomentumHydrogenScalar} jsou
+		\begin{subequations}
+			\begin{align}
+				\matrixelement{3\,2}{\operator{S}_{p3}\operator{S}_{e3}}{3\,2}
+					&=\frac{1}{6}\left(-\frac{1}{4}-\frac{1}{4}+1\right)=\frac{1}{12}\,,\\
+				\matrixelement{3\,2}{\operator{S}_{p+}\operator{S}_{e-}}{3\,2}
+					&=\matrixelement{3\,2}{\operator{S}_{p-}\operator{S}_{e+}}{3\,2}=\frac{1}{6}\,,
+			\end{align}
+		\end{subequations}
+		a hledaný maticový element má tedy hodnotu
+		\begin{equation}
+			\matrixelement{3\,2}{\vectoroperator{S}_{p}\cdot\vectoroperator{S}_{e}}{3\,2}=\frac{1}{2}\left(\frac{1}{6}+\frac{1}{6}\right)+\frac{1}{12}=\frac{1}{4}\,.
+		\end{equation}	
+	\end{enumerate}
+	
+\begin{note}
+    Příklad je převzat ze sbírky~\cite{Cini2012}, příklad 3.12.
+\end{note}
+\end{solution}

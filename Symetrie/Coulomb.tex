@@ -1,0 +1,157 @@
+\subsection{Algebraické řešení atomu vodíku}
+\label{sec:CoulombAlgebraic}
+	Klasický Hamiltonián částice o hmotnosti $M$ pohybující se v Coulombickém poli má tvar
+	\begin{equation}
+		H=\frac{\vector{p}^{2}}{2M}-\frac{\gamma}{r}\,,
+	\end{equation}
+	kde $r=\sqrt{x_{1}^{2}+x_{2}^{2}+x_{3}^{2}}$ a $\gamma=e^{2}/(4\pi\epsilon_{0})$.
+	Kromě impulsmomentu $\vector{L}$ existuje ještě jeden integrál pohybu,
+	tzv. \emph{Runge-Lenzův vektor}
+	\begin{equation}
+		\vector{R}=\frac{1}{M}\left(\vector{p}\times\vector{L}\right)-\gamma\frac{\vector{x}}{r},
+	\end{equation}
+	který směřuje vždy ve směru hlavní poloosy pohybu. 
+	Jeho neměnnost v Coulombickém (případně gravitačním) poli souvisí 
+	s dodatečnou symetrií systému a důsledkem je, že trajektorie pro $E<0$ 
+	jsou uzavřené elipsy a nedochází k jejich precesi.
+
+	V kvantovém případě musí být operátor Runge-Lenzova vektoru hermitovský, 
+	čehož se docílí rozepsáním 
+	\begin{equation}
+		\vector{p}\times\vector{L}
+			\longmapsto\frac{1}{2}\left(\vector{\operator{p}}\times\vector{\operator{L}}-\vector{\operator{L}}\times\vector{\operator{p}}\right),
+	\end{equation}
+	kde $\vector{\operator{L}}=\vector{\operator{x}}\times\vector{\operator{p}}$.
+
+	\begin{enumerate}
+	\item 
+		Ukažte, že operátor Runge-Lenzova vektoru
+		\begin{equation}
+			\vector{\operator{R}}
+				=\frac{1}{2M}\left(\vector{\operator{p}}\times\vector{\operator{L}}
+					-\vector{\operator{L}}\times\vector{\operator{p}}\right)
+					-\gamma\frac{\vector{\operator{x}}}{\operator{r}}
+		\end{equation}
+		je samosdružený (označili jsme 
+		$\operator{r}=\abs{\vector{\operator{x}}}=\sqrt{\operator{x}_{1}^{2}+\operator{x}_{2}^{2}+\operator{x}_{3}^{2}}$).
+
+	\item 
+		V úloze~\ref{sec:CommutatorXP} bylo dokázáno, že $\commutator{f(\operator{x})}{\operator{p}}=\im\hbar f'(\operator{x})$. 
+		To lze zobecnit pro operátor souřadnice ve 3D prostoru:
+		\begin{equation}
+			\commutator{f(\vector{\operator{x}})}{\vector{\operator{p}}}=\im\hbar\,\nabla f(\vector{\operator{x}}).
+		\end{equation}
+		Odvoďte, čemu se rovnají komutátory
+		\begin{equation}
+		 \commutator{\operator{L}_{k}}{f(\operator{r})}\qquad\mathrm{a}\qquad
+		 \commutator{\frac{\operator{x}_{j}}{\operator{r}}}{\operator{p}_{k}}.
+		\end{equation}
+
+	\item 
+		Ukažte, že $\vector{\operator{R}}$ je integrálem pohybu, tj. že $\commutator{\operator{H}}{\vector{\operator{R}}}=0$.
+
+	\item 
+		Ukažte, že $\vector{\operator{R}}\cdot\vector{\operator{L}}=\vector{\operator{L}}\cdot\vector{\operator{R}}=0$.
+
+	\item 
+		Nalezněte, čemu se rovná $\vector{\operator{R}}^{2}$, a vyjádřete tento operátor 
+		jen pomocí operátorů $\operator{H}$, $\vector{\operator{L}}$ a konstant.
+
+	\item 
+		Spočítejte komutátory $\commutator{\operator{L}_{j}}{\operator{R}_{k}}$ a $\commutator{\operator{R}_{j}}{\operator{R}_{k}}$.
+
+	\end{enumerate}
+	
+	Uvažujte nadále jen vázané stavy, tj. stavy s $E<0$.
+	Jelikož
+	\begin{equation}
+	\operator{H}\ket{E\alpha}=E\ket{E\alpha},
+	\end{equation}
+	kde $E$ jsou energie a $\alpha$ další indexy číslující vlastní vektory, 
+	lze ve všech výrazech nahrazovat $\operator{H}\mapsto E$.
+
+	\begin{enumerate}
+	\setcounter{enumi}{6}
+	\item 
+		Ukažte, že operátory $\vector{\operator{L}}$ a $\vector{\operator{Q}}$, kde
+		\begin{equation}
+			\vector{\operator{Q}}=\sqrt{\frac{M}{-2E}}\,\vector{\operator{R}},
+		\end{equation}
+		splňují komutační relace
+        \begin{subequations}
+            \begin{align}
+                \commutator{\operator{L}_{j}}{\operator{L}_{k}}
+                    =&\im\hbar\epsilon_{jkl}L_{l},\\
+                \commutator{\operator{L}_{j}}{\operator{Q}_{k}}
+                    =\commutator{\operator{Q}_{j}}{\operator{L}_{k}}=&\im\hbar\epsilon_{jkl}Q_{l},\\
+                \commutator{\operator{Q}_{j}}{\operator{Q}_{k}}
+                    =&\im\hbar\epsilon_{jkl}L_{l}.
+            \end{align}                    
+        \end{subequations}
+		Tyto komutační relace jsou relace pro generátory grupy $\group{SO}(4)$.
+
+	\item 
+		Ukažte, že složky operátorů 
+        \begin{subequations}
+            \begin{align}
+                \vector{\operator{A}}=&\frac{1}{2}\left(\operator{\mathbf{L}}+\operator{\mathbf{Q}}\right),\\
+                \vector{\operator{B}}=&\frac{1}{2}\left(\operator{\mathbf{L}}-\operator{\mathbf{Q}}\right)
+            \end{align}                
+        \end{subequations}
+		splňují
+        \begin{subequations}
+            \begin{align}
+                \commutator{\operator{A}_{j}}{\operator{A}_{k}}&=\im\hbar\epsilon_{jkl}A_{l},\\
+                \commutator{\operator{B}_{j}}{\operator{B}_{k}}&=\im\hbar\epsilon_{jkl}B_{l},\\
+                \commutator{\operator{A}_{j}}{\operator{B}_{k}}&=0,
+            \end{align}                
+        \end{subequations}
+		což jsou komutační relace pro dva nezávislé impulsmomenty---generátory grupy 
+		$\group{SU}(2)$\footnote{
+		Vztah mezi operátory $(\vector{\operator{L}},\vector{\operator{Q}})$ a $(\vector{\operator{A}},\vector{\operator{B}})$ 
+		souvisí se skutečností, že grupu $\group{SO}(4)$ lze rozložit na direktní součet 
+		$\group{SO}(4)=\group{SU}(2)\oplus\group{SU}(2)$}.
+		Díky těmto komutačním relacím můžeme hledat vlastní stavy ve tvaru
+        \begin{subequations}
+            \begin{align}
+                \vector{\operator{A}}^{2}\ket{Eab}=&\hbar^{2}a(a+1)\ket{Eab}\\
+                \vector{\operator{B}}^{2}\ket{Eab}=&\hbar^{2}b(b+1)\ket{Eab},
+            \end{align}                
+        \end{subequations}
+		kde $a,b=0,\frac{1}{2},1,\dots$ jsou kladná polocelá čísla.
+
+	\item 
+		Ukažte, že Casimirovy operátory grupy $\group{SO}(4)$ se dají vyjádřit jako
+        \begin{subequations}
+            \begin{align}
+                \operator{C}_{1}[\group{SO}(4)]
+                    =&\vector{\operator{A}}^{2}+\vector{\operator{B}}^{2}=-\frac{1}{2}-\frac{M\gamma^{2}}{2\hbar^{2}E},\\
+                \operator{C}_{2}[\group{SO}(4)]
+                    =&\frac{1}{2\hbar^{2}}\sqrt{\frac{M}{-2E}}
+                    \left(\operator{\mathbf{L}}\cdot\operator{\mathbf{R}}+\operator{\mathbf{R}}\cdot\operator{\mathbf{L}}\right)=0
+            \end{align}                
+        \end{subequations}
+		přičemž identická nulovost $\operator{C}_{2}$ plyne z výše zmíněné ortogonality vektorů 
+		$\operator{\mathbf{L}}$ a $\operator{\mathbf{R}}$.
+
+	\item 
+		Jelikož $\operator{C}_{2}=0$, dokažte, že $a=b$.
+
+	\item 
+		Dopočítejte energii a vyjádřete ji ve tvaru
+		\begin{equation}
+			E_{n}=-\frac{M\gamma^{2}}{2\hbar^{2}n^{2}},
+		\end{equation}
+		kde $n\equiv 2a+1$, $n=1,2,\dots$ jsou přirozená čísla.
+
+	Tímto jsme určili energetické spektrum částice v Coulombickém poli 
+	jen pomocí algebraických metod, aniž bychom museli hledat analytické řešení Schrödingerovy diferenciální rovnice, a ukázali, že dynamická symetrie tohoto systému je $\group{SO}(4)$, tj. vyšší než jen rotační symetrie $\group{SO}(3)$.
+\end{enumerate}
+
+\emph{Poznámka:} K výpočtu mohou hodit vztahy pro Levi-Civitův symbol
+    \begin{subequations}
+        \begin{align}
+            \epsilon_{jkl}\epsilon_{jmn}&=\delta_{km}\delta_{ln}-\delta_{kn}\delta_{lm},\\
+            \epsilon_{jkl}\epsilon_{jkm}&=2\delta_{lm}.
+        \end{align}    
+    \end{subequations}

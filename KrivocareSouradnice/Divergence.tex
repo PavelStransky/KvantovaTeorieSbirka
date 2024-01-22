@@ -1,0 +1,33 @@
+\sec{Divergence}
+Divergenci v křivočarých souřadnicích odvodíme z kovariantní derivace:
+\begin{equation}
+	\divergence{\vector{F}}
+		={F^{k}}_{;k}
+		=\partialderivative{F^{k}}{q^{k}}+\Gamma^{k}_{kj}F^{j}.
+\end{equation}
+Zúžený Christoffelův symbol je
+\begin{equation}
+	\Gamma^{k}_{kj}
+		=\frac{1}{2}g^{kl}\left(\partialderivative{g_{kl}}{q^{j}}
+			+\underbrace{\partialderivative{g_{jl}}{q^{k}}-\partialderivative{g_{kj}}{q^{l}}}_{0}\right)
+		=\frac{1}{2}g^{kl}\partialderivative{g_{kl}}{q^{j}}
+		=\frac{1}{2}\trace{\matrix{g}^{-1}\partialderivative{\matrix{g}}{q^{j}}}
+\end{equation}
+(druhý a třetí člen závorky jsou antisymetrické vůči záměně $k\leftrightarrow l$, 
+takže při násobení symetrickou maticí $g^{kl}$ dají nulu)
+a použití vztahu~\eqref{eq:LogDet} dá
+\begin{equation}
+	\Gamma^{k}_{kj}
+		=\frac{1}{2}\partialderivative{}{q^{j}}\ln{\det{\matrix{g}}}
+		=\frac{1}{2\det{\matrix{g}}}\partialderivative{}{q^{j}}\det{\matrix{g}}
+		\left(=\partialderivative{}{q^{j}}\ln{\sqrt{\det{\matrix{g}}}}\right),
+\end{equation}
+takže
+\begin{equation}
+	\label{eq:Divergence}
+	\divergence{\vector{F}}
+		=\partialderivative{F^{k}}{q^{k}}+\left(\frac{1}{2\det{\matrix{g}}}\partialderivative{}{q^{j}}\det{\matrix{g}}\right)F^{j}
+		=\frac{1}{\sqrt{\det{\matrix{g}}}}\partialderivative{}{q^{k}}\sqrt{\det{\matrix{g}}}\,F^{k}\,,
+\end{equation}
+přičemž poslední rovnost se dokáže rozderivováním součinu 
+(jak $\det{\matrix{g}}$, tak $F^{k}$ závisejí na $\vector{q}$).

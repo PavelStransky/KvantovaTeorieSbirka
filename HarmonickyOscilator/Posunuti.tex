@@ -1,0 +1,120 @@
+\subsection{Posunutí harmonického oscilátoru}
+Je zadán operátor
+\begin{equation}
+    \operator{T}(\alpha)
+        =\e^{-\alpha\left(\operator{a}-\conjugate{\operator{a}}\right)},
+\end{equation}
+kde $\operator{a}$, $\conjugate{\operator{a}}$ jsou posunovací operátory splňující komutační relace~\eqref{eq:ShiftOperatorCommutator} a $\alpha$ je reálný parametr.
+
+\begin{enumerate}
+\item
+    Ověřte, že operátor $\operator{T}(\alpha)$ je unitární.
+    
+\item
+    Ukažte, čemu se rovná $\operator{T}^{-1}(\alpha)\,\operator{a}\,\operator{T}(\alpha)$ a $\operator{T}^{-1}(\alpha)\,\conjugate{\operator{a}}\,\operator{T}(\alpha)$.
+            
+\item
+    Ukažte, čemu se rovná $\operator{T}^{-1}(\alpha)\,\operator{x}\,\operator{T}(\alpha)$ a $\operator{T}^{-1}(\alpha)\,\operator{p}\,\operator{T}(\alpha)$.
+    
+\item
+    Ukažte, čemu se rovná $\operator{H}'=\operator{T}^{-1}(\alpha)\,\operator{H}\,\operator{T}(\alpha)$, kde $\operator{H}$ je operátor harmonického oscilátoru~\eqref{eq:HOHamiltonianXY}.
+    Určete spektrum $\operator{H}'$.
+
+\item
+    Nalezněte střední hodnotu operátoru souřadnice, je-li harmonický oscilátor ve stavu $\ket{n;\alpha}=\operator{T}(\alpha)\ket{n}$, kde $\ket{n}$ je vlastní vektor harmonického oscilátoru příslušející k energii $E_{n}$.            
+\end{enumerate}
+	
+\begin{solution}
+	\begin{enumerate}
+	\item
+		Unitarita se ověří přímo z definice za využití vztahu~\eqref{eq:CommutatorExp} (v obou exponenciálách se vyskytuje stejný operátor $\operator{A}\equiv\operator{a}-\conjugate{\operator{a}}$, který samozřejmě komutuje sám se sebou)
+		\begin{equation}
+			\conjugate{\operator{T}}(\alpha)\operator{T}(\alpha)
+				=\e^{-\alpha\left(\conjugate{\operator{a}}-\operator{a}\right)}\e^{-\alpha\left(\operator{a}-\conjugate{\operator{a}}\right)}
+				=\e^{\alpha\left(\operator{a}-\conjugate{\operator{a}}\right)-\alpha\left(\operator{a}-\conjugate{\operator{a}}\right)}
+				=\e^{\operator{0}}=\operator{1}.
+		\end{equation}
+		
+	\item
+		Z BCH\index{formule!Baker-Campbell-Hausdorffova} formule~\eqref{eq:BCH} plyne
+		\begin{align}
+			\operator{T}^{-1}(\alpha)\operator{a}\operator{T}(\alpha)
+				&=\e^{\alpha\left(\operator{a}-\conjugate{\operator{a}}\right)}\operator{a}
+					\e^{-\alpha\left(\operator{a}-\conjugate{\operator{a}}\right)}+\dotsb\nonumber\\
+				&=\operator{a}+\commutator{\alpha\left(\operator{a}-\conjugate{\operator{a}}\right)}{\operator{a}}+\dotsb\nonumber\\
+				&=\operator{a}+\alpha\underbrace{\commutator{\operator{a}}{\operator{a}}}_{0}
+					+\alpha\underbrace{\commutator{\operator{a}}{\conjugate{\operator{a}}}}_{1}+\dotsb\nonumber\\
+				&=\operator{a}+\alpha
+				\label{eq:TranslationTaT}
+		\end{align}
+		(ostatní členy v rozvoji jsou nulové, jelikož komutátor odpovídající operátoru $\operator{K}_{1}$ je číslo, a tudíž vnořené komutátory vymizí).
+		Stejný výraz vyjde i pro operátor $\conjugate{\operator{a}}$:
+		\begin{equation}\label{eq:TranslationTadT}
+			\operator{T}^{-1}(\alpha)\conjugate{\operator{a}}\operator{T}(\alpha)=\conjugate{\operator{a}}+\alpha.
+		\end{equation}
+		
+	\item
+		Operátor souřadnice $\operator{x}$ se vyjádří pomocí posunovacích operátorů~\eqref{eq:ShiftOperatorToPX} a poté se využije výsledků z předchozího bodu:
+		\begin{align}
+			\operator{T}^{-1}(\alpha)\operator{x}\operator{T}(\alpha)
+				&=\sqrt{\frac{\hbar}{2M\Omega}}\operator{T}^{-1}(\alpha)
+					\left(\conjugate{\operator{a}}+\operator{a}\right)\operator{T}(\alpha)\nonumber\\
+				&=\sqrt{\frac{\hbar}{2M\Omega}}\left(\conjugate{\operator{a}}+\operator{a}+2\alpha\right)\nonumber\\
+				&=\operator{x}+\alpha\sqrt{\frac{2\hbar}{M\Omega}}.
+		\end{align}
+		Operátor $\operator{T}(\alpha)$ je speciální verze operátoru posunutí~\eqref{eq:TranslationOperator}\index{operátor!posunutí} o vzdálenost
+		\begin{equation}
+            d
+                =\alpha\sqrt{\frac{2\hbar}{M\Omega}}
+                =\sqrt{2}\,\alpha\,x_{0}.
+		\end{equation}
+		To lze nahlédnout i přímo ze zkutečnosti, že v argumentu exponenciály operátoru	$\operator{T}$ lze vyjádřit rozdíl $\operator{a}-\conjugate{\operator{a}}$ pomocí operátoru hybnosti~\eqref{eq:ShiftOperatorToPX},
+		\begin{equation}
+            \operator{a}-\conjugate{\operator{a}}
+                =\im\sqrt{\frac{2}{\hbar M\Omega}}\,\operator{p},
+		\end{equation}
+		takže
+		\begin{equation}
+			\operator{T}(\alpha)
+				=\e^{-\frac{\im}{\hbar}\sqrt{\frac{2\hbar}{M\Omega}}\,\operator{p}}
+				=\e^{-\frac{\im}{\hbar}d\operator{p}},
+		\end{equation}
+		což je forma ekvivalentní s~\eqref{eq:TranslationOperator}.
+		Jelikož operátor posunutí komutuje s operátorem hybnosti, je
+		\begin{equation}
+            \operator{T}^{-1}(\alpha)\operator{p}\operator{T}(\alpha)
+                =\operator{p}.
+		\end{equation}		
+
+	\item
+		Ze vztahů~\eqref{eq:TranslationTaT} a~\eqref{eq:TranslationTadT} vyplývá:
+		\begin{align}
+			\operator{H}'
+				&=\operator{T}^{-1}(\alpha)\hbar\Omega\left(\conjugate{\operator{a}}\operator{a}+\frac{1}{2}\right)\operator{T}(\alpha)\nonumber\\
+				&=\hbar\Omega\left(\operator{T}^{-1}(\alpha)\conjugate{\operator{a}}
+					\underbrace{\operator{T}(\alpha)\operator{T}^{-1}(\alpha)}_{\operator{1}}
+					\operator{a}\operator{T}(\alpha)+\frac{1}{2}\right)\nonumber\\
+				&=\hbar\Omega\left[\left(\conjugate{\operator{a}}+\alpha\right)\left(\operator{a}+\alpha\right)
+					+\frac{1}{2}\right]\nonumber\\
+				&=\hbar\Omega\left(\conjugate{\operator{a}}\operator{a}+\frac{1}{2}\right)
+					+\alpha\hbar\Omega
+					\underbrace{\left(\conjugate{\operator{a}}+\operator{a}\right)}_{\sqrt{\frac{2M\Omega}{\hbar}}\,\operator{x}}
+					+\alpha^{2}\hbar\Omega\nonumber\\
+				&=\operator{H}+\alpha\Omega\sqrt{2\hbar\Omega M}\,\operator{x}+\alpha^{2}\hbar\Omega.
+				\label{eq:HamiltonianHOTranslated}
+		\end{align}
+		Hamiltonián $\operator{H}'$ má stejné vlastní hodnoty jako $\operator{H}$, jelikož oba dva spolu souvisí unitární transformací danou operátorem $\operator{T}(\alpha)$.
+		Vlastní vektory posunutého Hamiltoniánu $\operator{H}'$ jsou
+		\begin{equation}
+			\ket{n;\alpha}\equiv\operator{T}^{-1}(\alpha)\ket{n}.
+		\end{equation}
+		
+	\item
+		Střední hodnota operátoru $\operator{x}$ pro harmonický oscilátor ve stavu $\ket{n;\alpha}$ vychází
+		\begin{equation}
+			\matrixelement{n;\alpha}{\operator{x}}{n;\alpha}
+				=\matrixelement{n}{\underbrace{\operator{T}^{-1}(\alpha)\operator{x}\operator{T}(\alpha)}_{\operator{x}+d}}{n}
+				=\underbrace{\matrixelement{n}{\operator{x}}{n}}_{0}+d\underbrace{\braket{n}{n}}_{1}=d.
+		\end{equation}
+	\end{enumerate}
+\end{solution}

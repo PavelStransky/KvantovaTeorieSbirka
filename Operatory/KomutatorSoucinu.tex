@@ -1,0 +1,38 @@
+\subsection{Komutátor součinu}
+Pomocí jednoduchých komutátorů vyjádřete komutátor $\commutator{\operator{A}\operator{B}}{\operator{C}}$.
+
+\begin{solution}
+	Komutátor se rozepíše podle své definice~\eqref{eq:Commutator}.
+	Poté se k němu \trick{přičte a odečte} vhodně zvolený člen a získaný výraz se sdruží do dvou nových jednodušších komutátorů:
+	\begin{subequations}
+	\begin{align}
+		\commutator{\operator{A}\operator{B}}{\operator{C}}
+			&=\operator{A}\operator{B}\operator{C}-\operator{C}\operator{A}\operator{B}
+				\underbrace{+\operator{A}\operator{C}\operator{B}-\operator{A}\operator{C}\operator{B}}_{=0}\nonumber\\
+            &=\operator{A}\left(\operator{B}\operator{C}-\operator{C}\operator{B}\right)
+				+\left(\operator{A}\operator{C}-\operator{C}\operator{A}\right)\operator{B}\nonumber\\
+			&=\operator{A}\commutator{\operator{B}}{\operator{C}}+\commutator{\operator{A}}{\operator{C}}\operator{B}.
+    	\label{eq:CommutatorAB,C}
+	\end{align}
+	Stejným způsobem se ukáže, že
+    \begin{equation}
+		\commutator{\operator{A}}{\operator{B}\operator{C}}
+            =\commutator{\operator{A}}{\operator{B}}\operator{C}
+                +\operator{B}\commutator{\operator{A}}{\operator{C}},
+        \label{eq:CommutatorA,BC}
+	\end{equation}
+	a nakonec pro čtyři operátory
+	\begin{align}
+		\commutator{\operator{A}\operator{B}}{\operator{C}\operator{D}}
+            &=\operator{A}\commutator{\operator{B}}{\operator{C}}\operator{D}
+                +\operator{A}\operator{C}\commutator{\operator{B}}{\operator{D}}
+                +\commutator{\operator{A}}{\operator{C}}\operator{D}\operator{B}
+                +\operator{C}\commutator{\operator{A}}{\operator{D}}\operator{B}\nonumber\\
+            &=\operator{A}\commutator{\operator{B}}{\operator{C}}\operator{D}
+                +\operator{C}\operator{A}\commutator{\operator{B}}{\operator{D}}
+                +\commutator{\operator{A}}{\operator{C}}\operator{B}\operator{D}
+                +\operator{C}\commutator{\operator{A}}{\operator{D}}\operator{B}.			
+		\label{eq:CommutatorAB,CD}
+	\end{align}		
+	\end{subequations}
+\end{solution}

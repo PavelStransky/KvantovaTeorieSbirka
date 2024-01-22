@@ -1,0 +1,146 @@
+\subsection{Spin a prostředí}
+	Spinový (dvouhladinový) systém, popsaný stavem z Hilbertova prostoru 
+	\begin{equation}
+		\hilbert{H}_{s}=\{\ket{+},\ket{-}\}
+	\end{equation}
+	je v interakci s prostředím
+	\begin{equation}
+		\hilbert{H}_{e}=\{\ket{e_{j}},j=1,2,\dotsc\}.
+	\end{equation}
+	Časový vývoj složeného systému je dán předpisem
+    \begin{subequations}
+        \begin{align}
+            \ket{+}\otimes\ket{e_{j}}
+                &\stackrel{t}{\rightarrow}\ket{+}\otimes\ket{e_{j}^{(+)}(t)},\nonumber\\
+            \ket{-}\otimes\ket{e_{j}}
+                &\stackrel{t}{\rightarrow}\ket{-}\otimes\ket{e_{j}^{(-)}(t)},\\
+        \end{align}            
+        \label{eq:DecoherenceU}
+    \end{subequations}
+	kde $\ket{e_{j}^{\pm}(t)}\in\hilbert{H}_{e}$.
+	
+	Na počátku v čase $t=0$ je dvouhladinový systém v obecném čistém stavu
+	\begin{equation}
+		\label{eq:DecoherenceInitial}
+		\ket{\psi_{i}}=\alpha\ket{+}+\beta\ket{-}
+	\end{equation}
+    odpovídajícímu matici hustoty
+	\begin{align}
+		\operator{\rho}_{s}(0)
+			&=\ket{\psi_{i}}\bra{\psi_{i}}\nonumber\\
+			&=\abs{\alpha}^{2}\ket{+}\bra{+}+\alpha\beta^{*}\ket{+}\bra{-}+\alpha^{*}\beta\ket{-}\bra{+}+\abs{\beta}^{2}\ket{-}\bra{-}\nonumber\\
+			&=\makematrix{\abs{\alpha}^{2} & \alpha\beta^{*} \\ \alpha^{*}\beta & \abs{\beta}^{2}}
+	\end{align}
+	(poslední výraz je maticové vyjádření v bázi $\ket{\pm}$),
+    zatímco prostředí je v obecném smíšeném stavu
+	\begin{equation}
+		\operator{\rho}_{e}(0)=\sum_{j}w_{j}\ket{e_{j}}\bra{e_{j}}.
+	\end{equation}
+    Celkový stav systému a prostředí je na počátku separovaný, je tedy popsaný maticí hustoty
+	\begin{equation}
+		\label{eq:DecoherenceDensityMatrix}
+		\operator{\rho}_{se}(0)=\operator{\rho}_{s}(0)\otimes\operator{\rho}_{e}(0).
+	\end{equation}
+	
+	\begin{enumerate}
+	\item
+		Určete matici hustoty $\operator{\rho}_{se}(t)$.
+		
+	\item
+		Určete redukovanou matici hustoty $\operator{\rho}_{s}(t)$.
+		
+	\item
+		Spočítejte $\trace_{s}\operator{\rho}_{s}^{2}(t)$.
+
+	\item
+		Předpokládejte, že spin na počátku míří ve směru daném jednotkovým vektorem $\vector{\hat{n}}$.
+		Ukažte, že v průběhu času spin nemůže změnit komponentu ve směru osy $z$, avšak důsledkem dekoherence 
+		mohou vymizet komponenty ve směru os $x$ a $y$.
+		
+	\end{enumerate}
+	
+\begin{solution}
+	\begin{enumerate}
+	\item
+		Matice hustoty~\eqref{eq:DecoherenceDensityMatrix} se rozepíše a využije se předpisu pro časový vývoj~\eqref{eq:DecoherenceU}:
+		\begin{align}
+			\operator{\rho}_{se}(t)
+				&=\sum_{j}w_{j}\bigg[\abs{\alpha}^{2}\ket{+}\bra{+}\otimes\ket{e_{j}^{(+)}(t)}\bra{e_{j}^{(+)}(t)}+\alpha\beta^{*}\ket{+}\bra{-}\otimes\ket{e_{j}^{(+)}(t)}\bra{e_{j}^{(-)}(t)}\nonumber\\
+				&\quad+\alpha^{*}\beta\ket{-}\bra{+}\otimes\ket{e_{j}^{(-)}(t)}\bra{e_{j}^{(+)}(t)}+\abs{\beta}^{2}\ket{-}\bra{-}\otimes\ket{e_{j}^{(-)}(t)}\bra{e_{j}^{(-)}(t)}\bigg]
+		\end{align}
+	
+	\item
+		Parciální stopa je
+		\begin{align}
+			\operator{\rho}_{s}(t)
+				&=\trace_{e}\operator{\rho}_{se}(t)=\sum_{k}\matrixelement{e_{k}}{\operator{\rho}_{se}(t)}{e_{k}}=\nonumber\\
+				&=\abs{\alpha}^{2}\ket{+}\bra{+}\underbrace{\sum_{jk}w_{j}\braket{e_{k}}{e_{j}^{(+)}(t)}\braket{e_{j}^{(+)}(t)}{e_{k}}}_{1}\nonumber\\
+				&+\alpha\beta^{*}\ket{+}\bra{-}\underbrace{\sum_{jk}w_{j}\braket{e_{k}}{e_{j}^{(+)}(t)}\braket{e_{j}^{(-)}(t)}{e_{k}}}_{\sum_{j}w_{j}\braket{e_{j}^{(-)}(t)}{e_{j}^{(+)}(t)}\equiv D(t)}\nonumber\\
+				&+\alpha^{*}\beta\ket{-}\bra{+}\underbrace{\sum_{jk}w_{j}\braket{e_{k}}{e_{j}^{(-)}(t)}\braket{e_{j}^{(+)}(t)}{e_{k}}}_{\sum_{j}w_{j}\braket{e_{j}^{(+)}(t)}{e_{j}^{(-)}(t)}=D^{*}(t)}\nonumber\\
+				&+\abs{\beta}^{2}\ket{-}\bra{-}\underbrace{\sum_{jk}w_{j}\braket{e_{k}}{e_{j}^{(-)}(t)}\braket{e_{j}^{(-)}(t)}{e_{k}}}_{1}\nonumber\\
+				&=\makematrix{\abs{\alpha}^{2} & \alpha\beta^{*}D(t) \\ \alpha^{*}\beta D^{*}(t) & \abs{\beta}^{2}}\,,
+			\label{eq:DecoherenceS}
+		\end{align}
+		kde díky trojúhelníkové nerovnosti
+		\begin{equation}
+			\abs{D(t)}\leq\sum_{j}w_{j}\abs{\braket{e_{j}^{(-)}(t)}{e_{j}^{(+)}(t)}}\leq 1.
+		\end{equation}
+	
+	\item
+		Umocnění~\eqref{eq:DecoherenceS} dává
+		\begin{equation}
+			\operator{\rho}_{s}^{2}(t)=\makematrix{\abs{\alpha}^{4}+\abs{\alpha}^{2}\abs{\beta}^{2}\abs{D(t)}^{2} & \left(\abs{\alpha}^{2}+\abs{\beta}^{2}\right)\alpha\beta^{*}D(t) \\
+				\left(\abs{\alpha}^{2}+\abs{\beta}^{2}\right)\alpha^{*}\beta D^{*}(t) & \abs{\beta}^{4}+\abs{\alpha}^{2}\abs{\beta}^{2}\abs{D(t)}^{2}}.
+		\end{equation}
+		a stopa kvadrátu matice hustoty pak je
+		\begin{align}
+			\trace_{s}\operator{\rho}_{s}^{2}(t)
+				&=\abs{\alpha}^{4}+2\abs{\alpha}^{2}\beta^{2}\abs{D(t)}^{2}+\abs{\beta}^{4}\nonumber\\
+				&=\left(\abs{\alpha}^{2}+\abs{\beta}^{2}\right)-2\abs{\alpha}^{2}\abs{\beta}^{2}\left[1-\abs{D(t)}^{2}\right].
+		\end{align}
+		$\trace_{s}\operator{\rho}_{s}^{2}(t)=1$, tj. spin bude v čistém stavu za podmínky $\abs{D(t)}=1$ (v tom případě musí platit, že $\abs{\braket{e_{j}^{(-)}(t)}{e_{j}^{(+)}(t)}}=1$, tj. $\ket{e_{j}^{(+)}(t)}=\e^{\im\phi}\ket{e_{j}^{(-)}(t)}$ pro všechna $j=1,2,\dotsc$) nebo $\alpha\beta=0$ (to znamená, že spin je na počátku ve vlastním stavu $\ket{+}$ nebo $\ket{-}$).
+		V ostatních případech bude spín ve smíšeném stavu.
+
+		Pokud je prostředí velké, je $\abs{D(t)}$ obvykle velmi rychle klesající funkce v čase, což plyne z toho, že stavy $\ket{e_{j}^{(+)}(t)}$ a $\ket{e_{j}^{(-)}(t)}$ se vzdalují a jejich skalární
+		součin se zmenšuje k nule.
+		Z počátečního čistého stavu~\eqref{eq:DecoherenceInitial} se po čase $t$ systém vyvine do smíšeného stavu popsaného maticí hustoty~\eqref{eq:DecoherenceS}:
+		\begin{equation}
+			\operator{\rho}_{s}(t)=\abs{\alpha}^{2}\ket{+}\bra{+}+\abs{\beta}^{2}\ket{-}\bra{-}.
+		\end{equation}
+		
+	\item
+		Pokud spin na počátku míří ve směru daném jednotkovým vektorem $\vector{\hat{n}}$, je podle výsledků cvičení~\ref{sec:Pauli} jeho stav
+		\begin{equation}
+			\ket{\psi_{i}}=\underbrace{\e^{-\im\phi}\cos{\frac{\theta}{2}}}_{\alpha}\ket{+}+\underbrace{\sin{\frac{\theta}{2}}}_{\beta}\ket{-}
+		\end{equation}
+		Parametrizace funkce $D(t)$ pomocí velikosti a fáze
+		\begin{equation}
+			D(t)=\abs{D(t)}\e^{\im\chi(t)}
+		\end{equation}
+		dá po dosazení do~\eqref{eq:DecoherenceS} redukovanou matici hustoty
+		\begin{equation}
+			\operator{\rho}_{s}(t)=\makematrix{\abs{\alpha}^{2} & \alpha\beta^{*}\abs{D(t)}\e^{\im\chi(t)} \\ \alpha^{*}\beta \abs{D(t)}\e^{-\im\chi(t)} & \abs{\beta}^{2}}.
+		\end{equation}
+		Srovnáním s maticí hustoty spinového systému~\eqref{eq:PauliRho} dostaneme směr spinu v čase $t$:
+		\begin{equation}
+			\operator{\rho}_{s}(t)=\frac{1}{2}\left[\operator{1}+\vector{n}(t)\cdot\vector{\operator{\sigma}}\right]=\frac{1}{2}\makematrix{1+n_{3}(t) & n_{1}(t)-\im n_{2}(t) \\ n_{1}(t)+\im n_{2}(t) & 1-n_{3}(t)},
+		\end{equation}
+		takže
+		\begin{align}
+			\abs{\alpha}^{2}
+				&=\cos^{2}{\frac{\theta}{2}}=\frac{1}{2}\left[1+n_{3}(t)\right]\,,\nonumber\\
+			\alpha\beta^{*}\abs{D(t)}\e^{\im\chi}
+				&=\sin{\frac{\theta}{2}}\cos{\frac{\theta}{2}}\e^{-\im\phi}\abs{D(t)}\e^{\im\chi}\nonumber\\
+				&=\frac{1}{2}\sin{\theta}\left\{\cos{\left[\phi-\chi(t)\right]}-\im\sin{\left[\phi-\chi(t)\right]}\right\}\nonumber\\
+				&=\frac{1}{2}\left[n_{1}(t)-\im n_{2}(t)\right],
+		\end{align}
+		neboli spin míří do směru
+		\begin{equation}
+			\vector{n}(t)=\makematrix{\abs{D(t)}\sin{\theta}\cos{\left[\phi-\chi(t)\right]} \\ \abs{D(t)}\sin{\theta}\sin{\left[\phi-\chi(t)\right]} \\ \cos{\theta}}.
+		\end{equation}
+		Pro velké časy se může předpokládat $\abs{D(t)}\stackrel{t\rightarrow\infty}{\rightarrow}0$, což dá
+		\begin{equation}
+			\vector{n}(t)\approx\makematrix{0 \\ 0 \\ \cos{\theta}}.
+		\end{equation}		
+	\end{enumerate}
+\end{solution}

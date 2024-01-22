@@ -1,0 +1,102 @@
+\subsection[Hustota hladin 1D oscilátoru]{Hustota hladin jednorozměrného harmonického oscilátoru}
+Spočítejte hustotu hladin jednorozměrného harmonického oscilátoru.
+
+\begin{solution}
+    Klasická Hamiltonova funkce harmonického oscilátoru je
+    \begin{equation}
+        H(p,q)=\frac{1}{2M}p^{2}+\frac{1}{2}kq^{2}.
+    \end{equation}
+    Objem enegetické nadplochy klasického fázového prostoru podle \eqref{eq:PhaseSpaceVolume} bude
+    \begin{align}\label{eq:PhaseSpaceVolumeHO}
+    \Omega(E)
+        &=\int\delta(E-\frac{1}{2M}p^{2}-\frac{1}{2}kq^{2})\d q\d p
+        &&\equationcomment{
+                \pi=\sqrt{\frac{1}{2M}}\,p & \d p=\sqrt{2M}\d\pi\\
+                \xi=\sqrt{\frac{k}{2}}\,q & \d q=\sqrt{\frac{2}{k}}\d\xi
+            }\nonumber\\
+        &=\sqrt{\frac{4M}{k}}\int\delta(E-\pi^{2}-\xi^{2})\d\xi\d\pi
+        &&\equationcomment{\textrm{Polární souřadnice} \\ r^{2}=\pi^{2}+\xi^{2}\\ \d\xi\d\pi=r\d r\d\varphi}\nonumber\\
+        &=\frac{2}{\omega}\int_{0}^{2\pi}\d\varphi\int_{0}^{\infty}\delta(E-r^{2})\,r\d r
+        &&\equationcomment{\delta(E-r^{2})=\frac{1}{2\sqrt{E}}\left(\delta(r-\sqrt{E})+\delta(r+\sqrt{E})\right)}\nonumber\\
+        &=\frac{2\pi}{\omega\sqrt{E}}\int_{0}^{\infty}\left[\delta(r-\sqrt{E})+\delta(r+\sqrt{E})\right]\,r\d r\nonumber\\
+        &=\frac{2\pi}{\omega},
+    \end{align}
+    přičemž se využily vlastnosti $\delta$ funkce~\eqref{eq:Deltaf} a označení $\omega=\sqrt{\frac{k}{M}}$.
+    
+    Hustota kvantových hladin tedy je konstantní, nezávisí na energii:
+    \begin{equation}
+        \rho(E)
+            =\frac{2\pi}{h\omega}=\frac{1}{\hbar\omega}
+    \end{equation}
+    Získaný výsledek je v souladu se známou skutečností, že jednorozměrný harmonický oscilátor má ekvidistantní spektrum.
+    
+    \begin{flushleft}
+        \emph{Jiný způsob řešení:}
+    \end{flushleft}
+    
+    Vyjde se z relací~\eqref{eq:LevelDensity1D}). 
+    Body obratu jsou
+    \begin{equation}
+        q_{\ti{min}}
+            =-\sqrt{\frac{2E}{k}},
+            \qquad 
+        q_{\ti{max}}
+            =\sqrt{\frac{2E}{k}},
+    \end{equation}
+    takže
+    \begin{align}
+        \Omega(E)
+            &=\sqrt{2M}\int_{-\sqrt{\frac{2E}{k}}}^{\sqrt{\frac{2E}{k}}}\frac{1}{\sqrt{E-\frac{1}{2}kq^{2}}}\d q
+            &&\equationcomment{a=\sqrt{\frac{k}{2E}}\,q & \d a=\sqrt{\frac{k}{2E}}\d q}\nonumber\\
+            &=\sqrt{\frac{4M}{k}}\int_{-1}^{1}\frac{1}{\sqrt{1-a^{2}}}\d a\nonumber\\
+            &=\frac{2}{\omega}\left[\arcsin{a}\right]_{-1}^{1}\nonumber\\
+            &=\frac{2\pi}{\omega}.
+    \end{align}
+    To je ve shodě s řešením \eqref{eq:PhaseSpaceVolumeHO}.
+    
+    \begin{flushleft}
+        \emph{Jiný způsob řešení:} % Marek Pechal, 2008
+    \end{flushleft}
+    
+    Vyjde se vztahu~\eqref{eq:LevelDensityTheta},
+    \begin{align}
+        \Omega(E)
+            &=\frac{\partial}{\partial E}\int\Theta(E-H(p,q))\d p\d q.
+    \end{align}
+    V případě $1D$ harmonického oscilátoru dává integrál povrch elipsy $S=\pi a b$ s poloosami 
+    \begin{equation}
+        a=\sqrt{\frac{2E}{k}},
+        \qquad 
+        b=\sqrt{2ME},
+    \end{equation}
+    takže po dosazení
+    \begin{equation}
+        \Omega(E)
+            =\frac{\partial}{\partial E}\left(\pi\sqrt{\frac{4M}{k}}\,E\right)
+            =\frac{2\pi}{\omega},
+    \end{equation}
+    což je opět ve shodě s~\eqref{eq:PhaseSpaceVolumeHO}).
+    
+    \begin{flushleft}
+    \emph{Jiný způsob řešení:} % Martin Váňa, 2008
+    \end{flushleft}
+    
+    Využije se Fourierova transformace $\delta$-funkce:
+    \begin{equation}
+        \delta(q)
+            =\frac{1}{2\pi}\int_{-\infty}^{\infty}\e^{\im\kappa q}\d\kappa
+    \end{equation}
+    Po dosazení do vztah~\eqref{eq:PhaseSpaceVolume} vychází pro zadaný jednorozměrný harmonický oscilátor
+    \begin{align}
+        \Omega(E)
+            &=\frac{1}{2\pi}\iiint\e^{\im\kappa\left(E-\frac{1}{2M}p^{2}-\frac{1}{2}kq^{2}\right)}\d\kappa\d p\d q\nonumber\\
+            &=\frac{1}{2\pi}\int\e^{-\im\kappa\frac{p^{2}}{2M}}\d p
+                \int\e^{-\im\kappa\frac{kq^{2}}{2M}}\d q
+                \int\e^{\im\kappa E}\d k\nonumber\\
+            &=\frac{1}{2\pi}\int\left(\sqrt{\frac{2\pi M}{\im\kappa}}\right)
+                \left(\sqrt{\frac{2\pi}{\im\kappa k}}\right)\e^{\im\kappa E}\d\kappa\nonumber\\
+            &=\frac{1}{\omega}\int\frac{\e^{\im\kappa E}}{\im\kappa}\d\kappa\nonumber\\
+            &=\frac{2\pi}{\omega}.
+    \end{align}
+    Žádné překvapení se nekoná.
+\end{solution}

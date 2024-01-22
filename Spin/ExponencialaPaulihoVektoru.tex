@@ -1,0 +1,49 @@
+\subsection{Exponenciála Pauliho vektoru}
+Dokažte, že
+\begin{equation}
+    \important{
+        \e^{\im\alpha\left(\vector{n}\cdot\vector{\matrix{\sigma}}\right)}
+            =\matrix{1}\cos{\alpha}+\im\left(\vector{n}\cdot\vector{\matrix{\sigma}}\right)\sin{\alpha},
+    }
+    \label{eq:SigmaExp}
+\end{equation}
+kde $\alpha$ je reálný parametr.
+
+\begin{solution}
+	Dokazovaný vztah~\eqref{eq:SigmaExp} nabízí \trick{rozvést exponenciálu} na levé straně \trick{do řady}~\eqref{eq:OperatorExp}.
+	V řadě se budou kromě číselných koeficientů vyskytovat celočíselné mocniny spinové matice $\matrix{\sigma}_{\vector{n}}^{k}=\left(\vector{n}\cdot\vector{\matrix{\sigma}}\right)^k$, $k\in\mathbb{N}_{0}$.
+	Druhá mocnina $k=2$ je rovna jednotkové matici,
+	\begin{align}
+		\left(\vector{n}\cdot\vector{\matrix{\sigma}}\right)^{2}
+			&=\makematrix{\cos{\theta} & \e^{-\im\phi}\sin{\theta} 
+					\\ \e^{\im\phi}\sin{\theta} & -\cos{\theta}}
+				\makematrix{\cos{\theta} & \e^{-\im\phi}\sin{\theta} 
+					\\ \e^{\im\phi}\sin{\theta} & -\cos{\theta}}\nonumber\\
+			&=\makematrix{\cos^{2}\theta+\sin^{2}\theta & 0 \\ 0 & \cos^{2}\theta+\sin^{2}\theta}\nonumber\\
+			&=\matrix{1},
+	\end{align}
+	z čehož indukcí vyplývá, že
+	\begin{equation}
+        \left(\vector{n}\cdot\vector{\matrix{\sigma}}\right)^{2n}
+            =\matrix{1},\quad
+        \left(\vector{n}\cdot\vector{\matrix{\sigma}}\right)^{2n+1}
+            =\vector{n}\cdot\vector{\matrix{\sigma}}.
+	\end{equation}
+	Rozvoj exponenciály se rozpadne na sudé a liché členy (podobně jako v příkladu~\ref{sec:RotationOperator}),
+	které se vysčítají na goniometrické funkce cosinus a sinus,
+	\begin{align}
+		\e^{\im\alpha\left(\vector{n}\cdot\vector{\matrix{\sigma}}\right)}
+			&=\sum_{k=0}^{\infty}\frac{\im^{k}}{k!}
+				\alpha^{k}\left(\vector{n}\cdot\vector{\matrix{\sigma}}\right)^{k}\nonumber\\
+			&=\matrix{1}\sum_{k=0}^{\infty}\frac{\minus{k}}{(2k)!}\alpha^{2k}
+				+\im\left(\vector{n}\cdot\vector{\matrix{\sigma}}\right)
+					\sum_{k=0}^{\infty}\frac{\minus{k}}{(2k+1)!}\alpha^{2k+1}\nonumber\\
+			&=\matrix{1}\cos{\alpha}+\im\left(\vector{n}\cdot\vector{\matrix{\sigma}}\right)\sin{\alpha}.
+	\end{align}
+    Vztah~\eqref{eq:SigmaExp} je tímto dokázán.
+    
+    \begin{note}
+        Důkaz lze provést i na základě vyjádření funkce operátoru pomocí spektrálního rozkladu~\eqref{eq:OperatorFncSylvester}.
+        To je v obecnosti provedeno v následujícím příkladu~\ref{sec:PauliFunction}.
+    \end{note}
+\end{solution}

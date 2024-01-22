@@ -1,0 +1,45 @@
+\sec{Ireducibilní tenzorový operátor}
+	Složky $\tensoroperatorcomponent{T}{\lambda}{\mu}$ libovolného \emph{ireducibilního}\footnote{
+		Ireducibilního proto, že se transformuje podle příslušné 
+		ireducibilní reprezentace grupy $\group{SO}(3)$ pomocí Wignerových $D$-funkcí
+		\begin{subequations}
+			\begin{align}
+				\operator{T}_{\mu}^{(\lambda)'}
+					&=\sum_{\mu'}D_{\mu'\mu}^{\lambda}(\phi,\theta,\psi)\tensoroperatorcomponent{T}{\lambda}{\mu'},\\
+				D_{\mu'\mu}^{\lambda}(\phi,\theta,\psi)
+					&\equiv\matrixelement{\lambda\mu'}{\operator{\mathcal{R}}_{3}(\psi)\operator{\mathcal{R}}_{2}(\theta)
+						\operator{\mathcal{R}}_{3}(\phi)}{\lambda\mu}
+					=\e^{-\im(\mu'\psi+\mu\phi)}d^{\lambda}_{\mu'\mu}(\theta),
+			\end{align}				
+		\end{subequations}
+		narozdíl např. od tenzoru vzniklého vzniklého dyadickým součinem dvou vektorů, 
+		který se transformuje běžnými rotačními maticemi
+		\begin{equation}
+			\operator{T}_{j'k'l'\dotsc}=\sum_{jkl\dotsc}\operator{R}_{j'j}(\psi,\theta,\phi)
+				\operator{R}_{k'k}(\psi,\theta,\phi)\operator{R}_{l'l}(\psi,\theta,\phi)\operator{T}_{jkl\dotsc}.
+		\end{equation}
+		Symboly $\psi,\theta,\phi$ označují Eulerovy úhly.
+	} 
+	\emph{tenzorového operátoru}\footnote{
+		Nazývá se také zkráceně sférický tenzor.
+	}\index{operátor!ireducibilní tenzorový}
+	$\tensoroperator{T}{\lambda}$, $\lambda=0,1,\dotsc$\footnote{
+		Formálně lze zavést i ireducibilní tenzorový operátor poločíselného řádu 
+		$\lambda=\frac{1}{2},\frac{3}{2},\dotsc$.
+		Jeho střední hodnota by však byla dvojznačná, a proto nemůže odpovídat žádné pozorovatelné.
+	}, $\mu=-\lambda,\dotsc,\lambda$
+	splňují komutační relace
+	\begin{subequations}
+		\begin{align}
+			\commutator{\operator{J}_{3}}{\tensoroperatorcomponent{T}{\lambda}{\mu}}
+				&=\mu\tensoroperatorcomponent{T}{\lambda}{\mu}\\
+			\commutator{\operator{J}_{\pm}}{\tensoroperatorcomponent{T}{\lambda}{\mu}}
+				&=\alpha^{(\pm)}(\lambda,\mu)\tensoroperatorcomponent{T}{\lambda}{\mu\pm1},
+		\end{align}			
+		\label{eq:IrreducibleTensor}
+	\end{subequations}
+	kde $\vectoroperator{J}$ je operátor impulsmomentu, $\operator{J}_{\pm}=\operator{J}_{1}\pm\im\operator{J}_{2}$ a
+	\begin{equation}
+		\alpha^{(\pm)}(\lambda,\mu)
+			\equiv\sqrt{\lambda(\lambda+1)-\mu(\mu\pm1)}.
+	\end{equation}

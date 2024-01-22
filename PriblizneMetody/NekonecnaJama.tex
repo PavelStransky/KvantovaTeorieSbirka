@@ -1,0 +1,72 @@
+\subsection[Nekonečně hluboká jáma]{Aproximace základního stavu nekonečně hluboké potenciálové jámy}
+Pomocí variačního principu nalezněte nejlepší aproximaci základního stavu nekonečně hluboké potenciálové jámy pološířky $a$
+\begin{equation}
+    V(x)=
+    \begin{cases}	
+        0 & \abs{x}<a \\ \infty & \abs{x}>a
+    \end{cases}
+\end{equation}
+s testovací funkcí
+\begin{equation}
+    \theta_{\lambda}(x)=\braket{x}{\theta(\lambda)}=a^{\lambda}-\abs{x}^{\lambda}
+\end{equation}
+a srovnejte s přesným řešením 
+\begin{subequations}
+    \begin{align}
+        E_{1}&=\frac{\hbar^{2}}{2m}\frac{\pi^{2}}{4a^{2}},\\
+        \phi_{1}(x)&=\frac{1}{\sqrt{a}}\,\cos{\frac{\pi x}{2a}}.
+    \end{align}
+\end{subequations}
+
+\begin{solution}
+	K řešení se využije vztah~\eqref{eq:Ritz}, kde se minimalizace bude provádět přes jediný parametr $\lambda$.
+	Výpočet spočívá ve dvou krocích:
+	\begin{enumerate}
+	\item
+		\emph{Výpočet střední hodnoty Hamiltoniánu pro vlnovou funkci $\theta_{\lambda}(x)$:}
+		\begin{align}
+			\bar{H}(\lambda)
+				&\equiv\frac{\matrixelement{\theta(\lambda)}{\operator{H}}{\theta(\lambda)}}{\braket{\theta(\lambda)}{\theta(\lambda)}}
+					=\frac{-\frac{\hbar^{2}}{2m}\int_{-a}^{a}\theta^{*}_{\lambda}(x)\frac{\d^{2}}{\d x^{2}}\theta_{\lambda}(x)\d x}
+					{\int_{-a}^{a}\abs{\theta_{\lambda}(x)}^{2}\d x}=\nonumber\\
+				&=\equationcomment{\text{v čitateli i jmenovateli integrujeme sudé funkce} \\ \text{-- stačí počítat na intervalu }(0; a)}=\nonumber\\
+				&=-\frac{\hbar^{2}}{2m}\frac{\int_{0}^{a}\left(a^{\lambda}-x^{\lambda}\right)
+					\frac{\d^{2}}{\d x^{2}}\left(a^{\lambda}-x^{\lambda}\right)\d x}
+					{\int_{0}^{a}\left(a^{\lambda}-x^{\lambda}\right)^{2}\d x}=\nonumber\\
+				&=\frac{\hbar^{2}}{2m}\,\lambda(\lambda-1)
+					\frac{\int_{0}^{a}\left(a^{\lambda}-x^{\lambda}\right)x^{\lambda-2}\d x}
+					{\int_{0}^{a}\left(a^{2\lambda}-2x^{\lambda}a^{\lambda}+x^{2\lambda}\right)\d x}=\nonumber\\
+				&=\frac{\hbar^{2}}{2m}\,\lambda(\lambda-1)
+					\frac{\left[\frac{1}{\lambda-1}a^{\lambda}x^{\lambda-1}-\frac{1}{2\lambda-1}x^{2\lambda-1}\right]_{0}^{\lambda}}
+					{\left[a^{2\lambda}x-\frac{2}{\lambda+1}a^{\lambda}x^{\lambda+1}+\frac{1}{2\lambda+1}x^{2\lambda+1}\right]}=\nonumber\\
+				&=\frac{\hbar^{2}}{2ma^{2}}\,\lambda(\lambda-1)
+					\frac{\frac{1}{\lambda-1}-\frac{1}{2\lambda-1}}{1-\frac{2}{\lambda+1}+\frac{1}{2\lambda+1}}=\nonumber\\
+				&=\frac{\hbar^{2}}{2ma^{2}}\,\lambda(\lambda-1)
+					\frac{\frac{2\lambda-1-\lambda+1}{(\lambda-1)(2\lambda-1)}}
+					{\frac{(\lambda+1)(2\lambda+1)-2(2\lambda+1)+\lambda+1}{(\lambda+1)(2\lambda+1)}}=\nonumber\\
+				&=\frac{\hbar^{2}}{4ma^{2}}
+					\frac{(\lambda+1)(2\lambda+1)}{(2\lambda-1)}.
+		\end{align}
+
+	\item
+		\emph{Výpočet minima funkce $\bar{H}(\lambda)$:}
+		\begin{align}
+			\frac{\partial{\bar{H}(\lambda)}}{\partial\lambda}&=0\nonumber\\
+			(2\lambda+2+2\lambda+1)(2\lambda-1)-2(\lambda+1)(2\lambda+1)&=0\nonumber\\
+			4\lambda^{2}-4\lambda-5&=0
+		\end{align}
+		Minimum je dáno kladným kořenem
+		\begin{equation}
+			\lambda_{\ti{min}}=\frac{1+\sqrt{6}}{2}\approx1,\!723.
+		\end{equation}
+		Po dosazení vychází
+		\begin{align}
+			E_{\ti{min}}\equiv\bar{H}(\lambda_{\ti{min}})&=\frac{\hbar^{2}}{4ma^{2}}\frac{2\sqrt{6}+5}{2}=\nonumber\\
+				&=\frac{2\sqrt{6}+5}{\pi^{2}}\,E_{0}\approx\nonumber\\
+				&\approx1,\!00298 E_{0}
+		\end{align}
+	\end{enumerate}
+
+	Za pozornost stojí, že i velice jednoduchá testovací funkce závislá jen na jednom jediném parametru
+	dává velice přesný odhad energie základního stavu.
+\end{solution}

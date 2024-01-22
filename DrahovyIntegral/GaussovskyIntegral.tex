@@ -1,0 +1,27 @@
+\subsection{Gaussovský integrál}
+\begin{enumerate}
+\item Nechť $\matrix{A}$ je reálná, symetrická, pozitivně definitní matice. 
+Dokažte, že pak platí
+\begin{equation}\label{GI}
+\int\d^{d}\vector{x}\,\exp\left(-\frac{1}{2}\vector{x}^{T}\cdot\matrix{A}\cdot\vector{x}\right)=\left(\det{\frac{\matrix{A}}{2\pi}}\right)^{-\frac{1}{2}}
+\end{equation}
+($d$ je dimenze prostoru).
+
+\item Nechť navíc $\vector{b}$ je libovolný vektor, $c$ libovolný skalár.
+Označme $K(\vector{x})=\frac{1}{2}\vector{x}^{T}\cdot\matrix{A}\cdot\vector{x}+\vector{b}\cdot\vector{x}+c$.
+V tomto případě se přesvědčte, že
+\begin{equation}
+\int\d^{d}\vector{x}\,\e^{-K(x)}=\left(\det{\frac{\matrix{A}}{2\pi}}\right)^{-\frac{1}{2}}\,\exp\left(\frac{1}{2}\vector{b}^{T}\cdot\matrix{A}^{-1}\cdot\vector{b}-c\right).
+\end{equation}
+
+\item Ukažte, že poslední uvedený integrál lze také vyjádřit takto:
+\begin{equation}\label{GIstac}
+\int\d^{d}\vector{x}\,\e^{-K(x)}=\left(\det{\frac{\matrix{A}}{2\pi}}\right)^{-\frac{1}{2}}\,\e^{-K_{\mathrm{stac}}},
+\end{equation}
+kde $K_{\mathrm{stac}}$ je stacionární bod výrazu $K(\vector{x})$, tj. bod, pro který $\nabla K(\vector{x})=0$.
+
+Tento výsledek vlastně znamená, že počítáme-li propagátor systému s maximálně kvadratickou akcí, 
+dá se vyjádřit jen pomocí akce klasické trajektorie (pro klasickou trajektorii je akce extremální).
+
+\end{enumerate}
+

@@ -1,0 +1,55 @@
+\subsection{Rozptyl dvou částic se spinem}
+Interakce dvou \emph{rozlišitelných} částic o hmotnosti $M$ se spinem $\frac{1}{2}$ je popsána potenciálem
+\begin{equation}
+    V=V_{0}(r)+V_{\ti{s}}(r)\,\vector{\sigma}^{(1)}\cdot\vector{\sigma}^{(2)}
+\end{equation}
+kde $r$ je vzájemná vzdálenost obou částic,
+\begin{subequations}
+    \begin{align}
+        \vector{\sigma}^{(1)}
+            &\equiv\vector{\sigma}\otimes\matrix{1},\\
+        \vector{\sigma}^{(2)}
+            &\equiv\matrix{1}\otimes\vector{\sigma}
+    \end{align}        
+\end{subequations}
+jsou operátory na Hilbertově prostoru $\hilbert{H}=\hilbert{H}^{(1)}\otimes\hilbert{H}^{(2)}$ a	$\vector{\sigma}=(\sigma_{1},\sigma_{2},\sigma_{3})$ jsou Pauliho matice.
+Potenciály $V_{0}(r)$, $V_{\ti{s}}(r)$ nejsou blíže specifikovány, předpokládejte pouze, že interakce jsou krátkodosahové, takže integrály
+\begin{subequations}
+    \begin{align}
+        v_{0}(\vector{q})
+            =\int\e^{\im\vector{q}\cdot\vector{r}}V_{0}(r)\d^{3}\vector{r}=\frac{4\pi}{q}\int_{0}^{\infty}rV_{0}(r)\sin{qr}\,\d r,\\
+        v_{\ti{s}}(\vector{q})
+            =\int\e^{\im\vector{q}\cdot\vector{r}}V_{\ti{s}}(r)\d^{3}\vector{r}=\frac{4\pi}{q}\int_{0}^{\infty}rV_{s}(r)\sin{qr}\,\d r,
+    \end{align}        
+\end{subequations}
+kde $\vector{q}=\vector{k}-\vector{k'}$, existují a jsou konečné.
+
+\begin{enumerate}
+    \item
+        V rámci 1. Bornovy aproximace vyjádřete amplitudy rozptylu 
+        \begin{align*}
+            &f_{\uparrow\uparrow\longrightarrow\uparrow\uparrow}(\theta)
+            &&f_{\downarrow\downarrow\longrightarrow\downarrow\downarrow}(\theta)\\
+            &f_{\uparrow\downarrow\longrightarrow\uparrow\downarrow}(\theta)
+            &&f_{\uparrow\downarrow\longrightarrow\downarrow\uparrow}(\theta)            
+        \end{align*}
+        a příslušné diferenciální účinné průřezy $\frac{\d\sigma}{\d\Omega}$.
+        $\theta$ označuje úhel mezi vektory $\vector{k}$ a $\vector{k'}$ a šipky udávají orientace jednotlivých spinů před interakcí a po interakci (poslední amplituda rozptylu udává případ, kdy si jednotlivé částice prohodí spin).
+
+    \item 
+        Jak se změní diferenciální účinné průřezy, pokud obě částice budou~\emph{nerozlišitelné fermiony}?
+
+    \item
+        Uvažujte speciální případ Gaussovské interakce 
+        \begin{equation}
+            V_{0}(r)=V_{s}(r)=v\e^{-\mu r^2}
+        \end{equation}
+        Nalezněte, pro jaké úhly $\theta$ budou diferenciální účinné průřezy 
+        \begin{align}
+            &\left.\derivative{\sigma}{\Omega}\right|_{\uparrow\uparrow\longrightarrow\uparrow\uparrow}
+            &&\left.\derivative{\sigma}{\Omega}\right|_{\uparrow\downarrow\longrightarrow\uparrow\downarrow}
+            &&\left.\derivative{\sigma}{\Omega}\right|_{\uparrow\downarrow\longrightarrow\downarrow\uparrow}
+        \end{align}
+        maximální, a to jak v případě rozlišitelných částic, tak v případě částic nerozlišitelných.
+\end{enumerate}
+

@@ -1,0 +1,269 @@
+\subsection{Ramseyův přístroj}
+\label{sec:Ramsey}
+Částice se spinem $1/2$ a velikostí magnetického momentu $\mu$, popsaná vlnovou funkcí (spinorem)
+\begin{equation}
+    \ket{\psi}(t)=\psi_{\uparrow}(t)\ket{\uparrow}+\psi_{\downarrow}(t)\ket{\downarrow}=\makematrix{\psi_{\uparrow}(t) \\ \psi_{\downarrow}(t)}\,,
+\end{equation}
+se pohybuje v zařízení složeném ze tří oblastí.
+V první oblasti (1. Ramseyova oblast) je zapnuté magnetické pole složené ze stacionární složky $\vector{B}_{0}$ směřující podél osy $z$ 
+a rotující složky $\vector{B}_{1}(t)$ v rovině $(x,y)$
+\begin{subequations}
+	\begin{align}
+		\vector{B}_{0}&=(0,0,B_{0}),\\
+		\vector{B}_{1}(t)&=(B_{1}\cos{\omega t},-B_{1}\sin{\omega t},0),
+	\end{align}
+\end{subequations}
+a částice v ní stráví dobu dobu $\tau$.
+V druhé oblasti je rotující pole vypnuto a po dobu $T$ se částice pohybuje pouze ve stacionárním poli $\vector{B}_{0}$.
+Poté (2. Ramseyova oblast) je rotující pole zapnuto, a to opět na dobu $\tau$\footnote{
+    Experiment navrhl v 50. letech 20. století Norman Foster Ramsley a v roce 1989 za něj dostal Nobelovu cenu.
+}.
+
+\begin{enumerate}		
+\item
+    Napište Hamiltonián v Ramseyově oblasti.
+
+\item
+    Nalezněte složky evolučního operátoru~\cite{Cejnar2013}
+    \begin{equation}
+        \label{eq:URamseyDef}
+        \matrix{U}(t)=\e^{\im\frac{\omega t}{2}\matrix{\sigma}_{3}}\e^{-\im\frac{\Omega t}{2}\left(\vector{\hat{n}}_{\Omega}\cdot\vector{\matrix{\sigma}}\right)}
+    \end{equation}
+    kde
+    \begin{align}
+        \label{eq:RamseyOmega}
+        \Omega&=\sqrt{(\omega-\omega_{0})^{2}+\omega_{1}^{2}}\,, &
+        \vector{\hat{n}}_{\Omega}&=\frac{1}{\Omega}\makematrix{-\omega_{1} \\ 0 \\ \omega-\omega_{0}}\,, &
+        \omega_{0,1}&=\frac{2\mu}{\hbar}B_{0,1}\,.
+    \end{align}
+    
+\item
+    Nalezněte složky evolučního operátoru $\matrix{U}(t;t_{0})$, který vyvíjí systém z času $t_{0}$ do času $t$.
+    
+\item
+    Nalezněte složky evolučního operátoru $\matrix{U}_{0}(\tau+T;\tau)$ oblasti, kde je vypnuté pole $\vector{B}_{1}$.
+    
+\item
+    Proces průchodu zařízením složeným z dvou Ramseyových oblastí s mezioblastí s vypnutým polem $B_{1}$ je dán evolučním operátorem
+    \begin{equation}
+        \matrix{U}_{F}=\matrix{U}(2\tau+T;\tau+T)\matrix{U}_{0}(\tau+T;\tau)\matrix{U}(\tau;0)\,.
+    \end{equation}
+    Nalezněte amplitudu pravděpodobnosti $A_{\downarrow\uparrow}$ a pravděpodobnost $p_{\downarrow\uparrow}$, že systém připravený na počátku ve stavu, kdy projekce spinu na osu $z$ je $+1/2$,
+    \begin{equation}
+        \label{eq:Ramseypsii}
+        \ket{\psi_{i}}=\ket{\uparrow}=\makematrix{1 \\ 0}\,,
+    \end{equation}
+    bude po průchodu zařízením ve stavu, kdy projekce spinu bude $-1/2$ (dojde k překlopení spinu\footnote{Spin flip.}):
+    \begin{equation}
+        \label{eq:Ramseypsif}
+        \ket{\psi_{f}}=\ket{\downarrow}=\makematrix{0 \\ 1}\,.
+    \end{equation}
+    
+\item
+    Nalezněte amplitudu pravděpodobnosti $A_{\downarrow\uparrow}^{(1)}$ ($A_{\uparrow\uparrow}^{(1)}$), že k přehození spinu dojde (nedojde) po průchodu 1. Ramseyovou oblastí a oblastí bez oscilujícího pole.
+    
+\item
+    Nalezněte amplitudu pravděpodobnosti $A_{\downarrow\uparrow}^{(2)}$ ($A_{\downarrow\downarrow}^{(2)}$), že k přehození spinu dojde (nedojde) po průchodu 2. Ramseyovou oblastí.
+    
+\item
+    Ověřte, že složením amplitud pravděpodobnosti z předchozích dvou bodů dostanete amplitudu pravděpodobnosti $A_{12}$.
+    Ukažte, že pravděpodobnost obsahuje interferenční člen.
+
+\item
+    V rezonančním případě, kdy je úhlová frekvence oscilujícího pole $\omega$ stejná jako Larmorova frekvence $\omega_0$,
+    najděte matici pravděpodobností přechodu $\matrix{p}^{\ti{rez}}$, jejíž složky $p_{fi}^{\ti{rez}}$ udávají pravděpodobnosti, že spin, který vlétá do zařízení s polarizací $i\in\{\uparrow,\downarrow\}$
+    vylétne s polarizací $f\in\{\uparrow,\downarrow\}$.    
+\end{enumerate}
+
+\begin{note}
+	Příklad je přejat z monografie~\cite{Manoukian2006}, kapitola 8.8.
+\end{note}
+    
+\begin{solution}
+	\begin{enumerate}
+	\item
+		Pauliho matice $\vector{\matrix{\sigma}}$ jsou dány vztahy~\eqref{eq:Sigma}.
+		Matice Hamiltoniánu v Ramseyově oblasti je
+		\begin{align}
+			\matrix{H}
+				&=-\mu\,\vector{\matrix{\sigma}}\cdot\vector{B}(t)\nonumber\\
+				&=-\mu\makematrix{B_{0} & B_{1}(\cos{\omega t}+\im\sin{\omega t}) \\ B_{1}(\cos{\omega t}-\im\sin{\omega t}) & -B_{0}}\nonumber\\
+				&=-\makematrix{\frac{\hbar\omega_{0}}{2} & \frac{\hbar\omega_{1}}{2}\e^{\im\omega t} \\ \frac{\hbar\omega_{1}}{2}\e^{-\im\omega t} & -\frac{\hbar\omega_{0}}{2}}.
+		\end{align}
+		
+	\item
+		Evoluční operátor~\eqref{eq:URamseyDef} se vypočítá pomocí vztahu~\eqref{eq:SigmaExp}\sfootnote{Vztah~\eqref{eq:SigmaExp} je možné použít jen v případě, že $\abs{\vector{\hat{n}}}=1$.
+		To je zaručeno normalizačním faktorem $\frac{1}{\Omega}$ ve vyjádření vektoru $\vector{\hat{n}}$ v~\eqref{eq:RamseyOmega}.}.
+		Jeho použití vede na\sfootnote{
+			První vztah lze určit i přímo díky tomu, že matice $\sigma_{3}$ je diagonální.
+		}
+		\begin{subequations}
+			\begin{align}
+				\label{eq:URamsey1}
+				\e^{\im\frac{\omega t}{2}\matrix{\sigma}_{3}}
+					&=\cos{\frac{\omega t}{2}}+\im\makematrix{1 & 0 \\ 0 & -1}\sin{\frac{\omega t}{2}}=\makematrix{\e^{\im\frac{\omega t}{2}} & 0 \\ 0 & \e^{-\im\frac{\omega t}{2}}},\\
+				\e^{-\im\frac{\Omega t}{2}\left(\vector{\hat{n}}_{\Omega}\cdot\vector{\matrix{\sigma}}\right)}
+					&=\cos{\frac{\Omega t}{2}}-\im\left(\vector{\hat{n}}_{\Omega}\cdot\vector{\matrix{\sigma}}\right)\sin{\frac{\Omega t}{2}}\nonumber\\
+					&=\cos{\frac{\Omega t}{2}}-\frac{\im}{\Omega}\makematrix{\omega-\omega_{0} & -\omega_{1} \\ -\omega_{1} & -\left(\omega-\omega_{0}\right)}\sin{\frac{\Omega t}{2}}\nonumber\\
+					&=\makematrix{\cos{\frac{\Omega t}{2}}-\frac{\im}{\Omega}\left(\omega-\omega_{0}\right)\sin{\frac{\Omega t}{2}} & \im\frac{\omega_{1}}{\Omega}\sin{\frac{\Omega t}{2}} \\
+						\im\frac{\omega_{1}}{\Omega}\sin{\frac{\Omega t}{2}} & \cos{\frac{\Omega t}{2}}+\frac{\im}{\Omega}\left(\omega-\omega_{0}\right)\sin{\frac{\Omega t}{2}}}
+				\label{eq:URamsey2}
+			\end{align}				
+		\end{subequations}
+		a vynásobení těchto dvou matic dává
+		\begin{equation}
+			\label{eq:URamsey}
+			\matrix{U}(t)=\makematrix{\left[\cos{\frac{\Omega t}{2}}-\im\frac{\Delta\omega}{\Omega}\sin{\frac{\Omega t}{2}}\right]\e^{\im\frac{\omega t}{2}} & \im\frac{\omega_{1}}{\Omega}\sin{\frac{\Omega t}{2}}\e^{\im\frac{\omega t}{2}} \\
+					\im\frac{\omega_{1}}{\Omega}\sin{\frac{\Omega t}{2}}\e^{-\im\frac{\omega t}{2}} & \left[\cos{\frac{\Omega t}{2}}+\im\frac{\Delta\omega}{\Omega}\sin{\frac{\Omega t}{2}}\right]\e^{-\im\frac{\omega t}{2}}}\,,
+		\end{equation}
+		kde $\Delta\omega\equiv\omega-\omega_{0}$.
+		
+	\item
+		Evoluční operátor~\eqref{eq:URamsey} vyvíjí systém z času $t_{0}=0$ do času $t$, jedná se tedy formálně o operátor $\matrix{U}(t;0)$.
+		Operátor $\matrix{U}(t;t_{0})$ je díky unitaritě evolučního operátoru a díky Stoneově teorému
+		\begin{equation}
+			\matrix{U}(t;t_{0})=\matrix{U}(t;0)\matrix{U}(0;t_{0})=\matrix{U}(t;0)\matrix{U^{-1}}(t_{0};0)=\matrix{U}(t;0)\matrix{U^{\dagger}}(t_{0};0)\,.
+		\end{equation}
+		Výsledek lze získat buď přímým pronásobením odpovídajících matic~\eqref{eq:URamsey},
+		nebo z definičního vztahu~\eqref{eq:URamseyDef}
+		\begin{align}
+			\matrix{U}(t;t_{0})
+				&=\e^{\im\frac{\omega t}{2}\matrix{\sigma}_{3}}\e^{-\im\frac{\Omega t}{2}\left(\vector{\hat{n}}_{\Omega}\cdot\vector{\matrix{\sigma}}\right)}
+				\e^{\im\frac{\Omega t_{0}}{2}\left(\vector{\hat{n}}_{\Omega}\cdot\vector{\matrix{\sigma}}\right)}\e^{-\im\frac{\omega t_{0}}{2}\matrix{\sigma}_{3}}\nonumber\\
+				&=\e^{\im\frac{\omega t}{2}\matrix{\sigma}_{3}}\e^{-\im\frac{\Omega\left(t-t_{0}\right)}{2}\left(\vector{\hat{n}}_{\Omega}\cdot\vector{\matrix{\sigma}}\right)}\e^{-\im\frac{\omega t_{0}}{2}\matrix{\sigma}_{3}}\,,
+		\end{align}
+		což po dosazení matic~\eqref{eq:URamsey1} a~\eqref{eq:URamsey2} vede na
+		\begin{subequations}
+			\begin{align}
+				U_{11}(t;t_{0})
+					&=\left[\cos{\frac{\Omega\left(t-t_{0}\right)}{2}}-\im\frac{\Delta\omega}{\Omega}\sin{\frac{\Omega\left(t-t_{0}\right)}{2}}\right]\e^{\im\frac{\omega\left(t-t_{0}\right)}{2}},\\
+				U_{12}(t;t_{0})
+					&=-U_{21}^{*}(t;t_{0})
+					=\im\frac{\omega_{1}}{\Omega}\sin{\frac{\Omega\left(t-t_{0}\right)}{2}}\e^{\im\frac{\omega\left(t+t_{0}\right)}{2}},\\
+				U_{22}(t;t_{0})
+					&=\left[\cos{\frac{\Omega\left(t-t_{0}\right)}{2}}+\im\frac{\Delta\omega}{\Omega}\sin{\frac{\Omega\left(t-t_{0}\right)}{2}}\right]\e^{-\im\frac{\omega\left(t-t_{0}\right)}{2}}
+			\end{align}
+		\label{eq:URamseytt0}
+		\end{subequations}
+		(v exponenciálách mimodiagonálních prvků je \emph{součet} časů $t+t_{0}$).
+	
+	\item
+		Evoluční operátor v oblasti vypnutého pole $\vector{B}_{1}$ lze získat například přímým výpočtem z~\eqref{eq:URamseytt0}.
+		V~této oblasti je $\omega_{1}=0$, takže $\Omega=\omega-\omega_{0}=\Delta\omega$ a
+		\begin{equation}
+			U_{0}(\tau+T;\tau)=\makematrix{\e^{-\im\frac{\Delta\omega T}{2}}\e^{\im\frac{\omega T}{2}} & 0 \\
+				0 & \e^{\im\frac{\Delta\omega T}{2}}\e^{-\im\frac{\omega T}{2}}}
+				=\makematrix{\e^{\im\frac{\omega_{0}T}{2}} & 0 \\
+				0 & \e^{-\im\frac{\omega_{0}T}{2}}}\,.
+		\end{equation}
+		Jelikož v této oblasti Hamiltonián nezávisí na čase, tak evoluční operátor závisí jen na rozdílu počátečního a koncového času.
+	
+	\item
+		Cílem je najít amplitudu pravděpodobnosti
+		\begin{equation}
+			A_{\downarrow\uparrow}=\matrixelement{\psi_{f}}{\operator{U}_{F}}{\psi_{i}}=\makematrix{0 & 1}\matrix{U}_{F}\makematrix{1 \\ 0}\,.
+		\end{equation}
+		Výpočet se rozdělí na dvě části:
+		\begin{align}
+			\matrix{U}_{0}(\tau+T;\tau)\matrix{U}(\tau;0)\makematrix{1 \\ 0}
+				&=\makematrix{\e^{\im\frac{\omega_{0}T}{2}} & 0 \\ 0 & \e^{-\im\frac{\omega_{0}T}{2}}}
+					\makematrix{\left(\cos{\frac{\Omega\tau}{2}}-\im\frac{\Delta\omega}{\Omega}\sin{\frac{\Omega\tau}{2}}\right)\e^{\im\frac{\omega\tau}{2}} \\
+					\im\frac{\omega_{1}}{\Omega}\sin{\frac{\Omega\tau}{2}}\e^{-\im\frac{\omega\tau}{2}}}\nonumber\\
+				&=\makematrix{\left(\cos{\frac{\Omega\tau}{2}}-\im\frac{\Delta\omega}{\Omega}\sin{\frac{\Omega\tau}{2}}\right)\e^{\im\frac{\omega\tau}{2}}\e^{\im\frac{\omega_{0}T}{2}} \\
+					\im\frac{\omega_{1}}{\Omega}\sin{\frac{\Omega\tau}{2}}\e^{-\im\frac{\omega\tau}{2}}\e^{-\im\frac{\omega_{0}T}{2}}}
+			\label{eq:URamseys1}
+		\end{align}
+		a
+		\begin{align}
+			\makematrix{0 & 1}\matrix{U}(2\tau+T;\tau+T)
+				&=\makematrix{\im\frac{\omega_{1}}{\Omega}\sin{\frac{\Omega\tau}{2}}\e^{-\im\frac{\omega\left(3\tau+2T\right)}{2}} \\
+					\left(\cos{\frac{\Omega\tau}{2}}+\im\frac{\Delta\omega}{\Omega}\sin{\frac{\Omega\tau}{2}}\right)\e^{-\im\frac{\omega\tau}{2}}}\,.
+			\label{eq:URamseys2}
+		\end{align}
+		Vzájemné vynásobení těchto dvou výrazů vede na hledaný výsledek
+		\begin{align}
+			A_{\downarrow\uparrow}
+				&=\im\frac{\omega_{1}}{\Omega}\sin{\frac{\Omega\tau}{2}}\e^{-\im\omega\tau}\e^{-\im\frac{\omega T}{2}}\\
+				&\quad*\left[
+					\left(\cos{\frac{\Omega\tau}{2}}-\im\frac{\Delta\omega}{\Omega}\sin{\frac{\Omega\tau}{2}}\right)\e^{-\im\frac{\Delta\omega T}{2}}
+					+\left(\cos{\frac{\Omega\tau}{2}}+\im\frac{\Delta\omega}{\Omega}\sin{\frac{\Omega\tau}{2}}\right)\e^{\im\frac{\Delta\omega T}{2}}
+				\right]\,.\nonumber
+		\end{align}
+		Pravděpodobnost přehození spinu je tedy (v průběhu výpočtu je pro zjednodušení použito značení $s\equiv\sin{\frac{\Omega\tau}{2}}$, $c\equiv\cos{\frac{\Omega\tau}{2}}$, $f\equiv\frac{\Delta\omega T}{2}$)
+		\begin{align}
+			P_{\downarrow\uparrow}
+				&=A_{\downarrow\uparrow}^{*}A_{\downarrow\uparrow}\nonumber\\
+				&=\left(\frac{\omega_{1}}{\Omega}\right)^{2}s^{2}\left[\left(c-\im\frac{\Delta\omega}{\Omega}s\right)\e^{-\im f}+\left(c+\im\frac{\Delta\omega}{\Omega}s\right)\e^{\im f}\right]^{2}\nonumber\\
+				&=\left(\frac{\omega_{1}}{\Omega}\right)^{2}s^{2}
+					\left[\left(c^{2}-\frac{2\im\Delta\omega}{\Omega}cs-\frac{\Delta\omega^{2}}{\Omega^{2}}\right)\e^{-2\im f}+\left(c^{2}+\frac{2\im\Delta\omega}{\Omega}cs-\frac{\Delta\omega^{2}}{\Omega^{2}}\right)\e^{2\im f}\right.\nonumber\\
+				&\qquad\qquad\qquad\left.+2\left(c^{2}+\frac{\Delta\omega^{2}}{\Omega^{2}}s^{2}\right)\right]\nonumber\\
+				&=\left(\frac{\omega_{1}}{\Omega}\right)^{2}s^{2}
+					\left[c^{2}\left(\e^{2\im f}+\e^{-2\im f}+2\right)-\frac{\Delta\omega^{2}}{\Omega^{2}}s^{2}\left(\e^{2\im f}+\e^{-2\im f}-2\right)+\frac{2\im\Delta\omega}{\Omega}cs\left(\e^{2\im f}+\e^{-2\im f}\right)\right]\nonumber\\
+				&=\left(\frac{\omega_{1}}{\Omega}\right)^{2}s^{2}
+					\left[c^{2}\left(2+2\cos{2f}\right)+\frac{\Delta\omega^{2}}{\Omega^{2}}s^{2}\left(2-2\cos{2f}\right)-\frac{4\Delta\omega}{\Omega}cs\sin{2f}\right]\nonumber\\
+				&=\left(\frac{\omega_{1}}{\Omega}\right)^{2}s^{2}
+					\left(4c^{2}\cos^{2}{f}+4\frac{\Delta\omega^{2}}{\Omega^{2}}s^{2}\sin^{2}{f}-\frac{8\Delta\omega}{\Omega}cs\cos{f}\sin{f}\right)\nonumber\\
+				&=4\left(\frac{\omega_{1}}{\Omega}\right)^{2}\sin^{2}{\frac{\Omega\tau}{2}}
+					\left(\cos{\frac{\Omega\tau}{2}}\cos{\frac{\Delta\omega T}{2}}-\frac{\Delta\omega}{\Omega}\sin{\frac{\Omega\tau}{2}}\sin{\frac{\Delta\omega T}{2}}\right)^{2}\,.
+		\end{align}
+	
+	\item
+		K výpočtu amplitud $A_{\downarrow\uparrow}^{(1)}$ a $A_{\uparrow\uparrow}^{(1)}$ se využije mezivýsledku~\eqref{eq:URamseys1}:
+		\begin{subequations}
+			\begin{align}
+				A_{\downarrow\uparrow}^{(1)}&=\makematrix{0 & 1}\matrix{U}_{0}(\tau+T;\tau)\matrix{U}(\tau;0)\makematrix{1 \\ 0}=\im\frac{\omega_{1}}{\Omega}\sin{\frac{\Omega\tau}{2}}\e^{-\im\frac{\omega\tau}{2}}\e^{-\im\frac{\omega_{0}T}{2}},\\
+				A_{\uparrow\uparrow}^{(1)}&=\makematrix{1 & 0}\matrix{U}_{0}(\tau+T;\tau)\matrix{U}(\tau;0)\makematrix{1 \\ 0}=\left(\cos{\frac{\Omega\tau}{2}}-
+					\im\frac{\Delta\omega}{\Omega}\sin{\frac{\Omega\tau}{2}}\right)\e^{\im\frac{\omega\tau}{2}}\e^{\im\frac{\omega_{0}T}{2}}.
+			\end{align}
+			\label{eq:RamseyA1}
+		\end{subequations}
+	
+	\item
+		K výpočtu amplitud $A_{\downarrow\uparrow}^{(2)}$ a $A_{\downarrow\downarrow}^{(2)}$ se využije mezivýsledku~\eqref{eq:URamseys2}:
+		\begin{subequations}
+			\begin{align}
+				A_{\downarrow\uparrow}^{(2)}&=\makematrix{0 & 1}\matrix{U}(2\tau+T; \tau+T)(\tau;0)\makematrix{1 \\ 0}=\im\frac{\omega_{1}}{\Omega}\sin{\frac{\Omega\tau}{2}}\e^{-\im\frac{\omega\left(3\tau+2T\right)}{2}},\\
+				A_{\downarrow\downarrow}^{(2)}&=\makematrix{0 & 1}\matrix{U}(2\tau+T; \tau+T)(\tau;0)\makematrix{0 \\ 1}=\left(\cos{\frac{\Omega\tau}{2}}+\im\frac{\Delta\omega}{\Omega}\sin{\frac{\Omega\tau}{2}}\right)\e^{-\im\frac{\omega\tau}{2}}.
+			\end{align}
+			\label{eq:RamseyA2}
+		\end{subequations}
+	
+	\item
+		Přímé dosazení předchozích výsledků dává
+		\begin{equation}
+			\label{eq:RamseyInterference}
+			A_{\downarrow\uparrow}=\underbrace{A_{\downarrow\uparrow}^{(2)}A_{\uparrow\uparrow}^{(1)}}_{A_{\downarrow\uparrow\uparrow}}+\underbrace{A_{\downarrow\downarrow}^{(2)}A_{\downarrow\uparrow}^{(1)}}_{A_{\downarrow\downarrow\uparrow}}\,.
+		\end{equation}
+		Pravděpodobnost přehození spinu tedy je
+		\begin{equation}
+			\label{eq:RamseyP}
+			p_{\downarrow\uparrow}=\abs{A_{\downarrow\uparrow\uparrow}}^{2}+\abs{A_{\downarrow\downarrow\uparrow}}^{2}+\underbrace{A_{\downarrow\uparrow\uparrow}^{*}A_{\downarrow\downarrow\uparrow}+A_{\downarrow\uparrow\uparrow}A_{\downarrow\downarrow\uparrow}^{*}}_{\textrm{interferenční člen}}\,.
+		\end{equation}
+		
+	\item
+		V rezonančním případě je podle~\eqref{eq:RamseyOmega} $\Omega=\omega_{1}$ a $\Delta\omega=0$, takže 
+		\begin{equation}
+			p_{\downarrow\uparrow}^{\ti{rez}}=4\sin^{2}{\frac{\omega_{1}\tau}{2}}\cos^{2}{\frac{\omega_{1}\tau}{2}}=\sin^{2}{\omega_{1}\tau}\,.
+		\end{equation}
+		K výpočtu ostatních pravděpodobností se využije vlastností
+		\begin{align}
+			p_{\downarrow\downarrow}+p_{\downarrow\uparrow}&=1=p_{\uparrow\downarrow}+p_{\uparrow\uparrow}=1\nonumber\\
+			p_{\downarrow\uparrow}&=p_{\uparrow\downarrow}
+		\end{align}
+		(první vztah vyplývá z toho, že spin musí projít v jednom ze dvou možných ortogonálních stavů, druhý vztah plyne ze symetrie systému).
+		Všechny hledané pravděpodobnosti lze zapsat ve tvaru matice
+		\begin{equation}
+			\important{\matrix{p}^{\ti{rez}}=\makematrix{\cos^{2}{\omega_{1}\tau} & \sin^{2}{\omega_{1}\tau} \\ \sin^{2}{\omega_{1}\tau} & \cos^{2}{\omega_{1}\tau}}}\,.
+		\end{equation}
+		
+		Speciální případy:
+			\begin{align}
+				\omega_{1}\tau&=k\pi & \matrix{p}^{\ti{rez}}&=\makematrix{1 & 0 \\ 0 & 1} && \textrm{-- spin projde bez překlopení}\nonumber\\
+				\omega_{1}\tau&=\left(k+\frac{1}{2}\right)\pi & \matrix{p}^{\ti{rez}}&=\makematrix{0 & 1 \\ 1 & 0} && \textrm{-- $100\%$ pravděpodobnost překlopení spinu}\nonumber\\
+				\omega_{1}\tau&=\frac{1}{2}\left(k+\frac{1}{2}\right)\pi & \matrix{p}^{\ti{rez}}&=\makematrix{\frac{1}{2} & \frac{1}{2} \\ \frac{1}{2} & \frac{1}{2}} &&
+				\label{eq:RamseyPS}
+			\end{align}			
+			přičemž $k\in\mathbb{Z}$.
+		
+	\end{enumerate}
+\end{solution}

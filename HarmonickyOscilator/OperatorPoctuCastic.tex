@@ -1,0 +1,221 @@
+\subsection[Vlastnosti posunovacích operátorů]{Spektrum operátoru $\operator{n}=\operatorconjugate{a}\operator{a}$}\index{operátor!počtu}\label{sec:ShiftOperators}
+Je zadán operátor $\operator{a}$ a operátor $\operatorconjugate{a}$ k němu sdružený, které mezi sebou splňují komutační relace\footnote{
+    Vztahu~\eqref{eq:ShiftOperatorCommutator} je třeba rozumět ve smyslu $\commutator{\operator{a}}{\conjugate{\operator{a}}}=\operator{1}$, kde $\operator{1}$ je operátor identity, podobně jako je tomu například u komutačních relací samosdružených operátorů souřadnice a hybnosti $\commutator{\operator{x}}{\operator{p}}=\im\hbar\operator{1}$, které se běžně zkráceně zapisují $\commutator{\operator{x}}{\operator{p}}=\im\hbar$.
+}\footnote{
+    Obecněji lze uvažovat komutační relace
+    \begin{equation}
+        \commutator{\operator{A}}{\conjugate{\operator{A}}}
+            =m,\qquad 
+        m\in\mathbb{R}^{+}.
+    \end{equation}
+    Ty přejdou na~\eqref{eq:ShiftOperatorCommutator} přeškálováním $\operator{a}=\operator{A}/\sqrt{m}$.		
+}
+\begin{equation}
+    \commutator{\operator{a}}{\conjugate{\operator{a}}}
+        =1.
+    \label{eq:ShiftOperatorCommutator}
+\end{equation}
+Definujme operátor 
+\begin{equation}
+    \operator{n}
+        \equiv\conjugate{\operator{a}}\operator{a}.
+    \label{eq:NumberOperator}
+\end{equation}
+
+\begin{enumerate}
+\item 
+    Ukažte, že operátor $\operator{n}$ je samosdružený a pozitivně definitní.
+
+\item
+    Nalezněte, čemu se rovnají komutátory $\commutator{\operator{n}}{\operator{a}^{k}}$ a $\commutator{\operator{n}}{\left(\conjugate{\operator{a}}\right)^{k}}$ pro $k\in{\mathbb N}$.
+
+\item
+    Ukažte, čemu se rovná $\conjugate{\operator{a}}\ket{n}$, $\operator{a}\ket{n}$, kde $\ket{n}$ je vlastní vektor operátoru $\operator{n}$ příslušející vlastní hodnotě $n$.
+
+\item
+    Nalezněte všechny vlastní hodnoty $n$ operátoru $\operator{n}$.
+    
+\item 
+    Nalezněte normalizované vlastní vektory operátoru $\operator{n}$.
+    
+\item 
+    Nalezněte tvar operátorů $\operator{a}$ a $\conjugate{\operator{a}}$ v maticové realizaci.
+\end{enumerate}
+
+\begin{solution}
+	\begin{enumerate}	
+	\item 
+		Samosdruženost plyne z identit\index{operátor!samosdružený}
+		\begin{equation}
+			\operatorconjugate{n}
+				=\conjugate{\left(\operatorconjugate{a}\operator{a}\right)}
+				=\conjugate{\operator{a}}\conjugate{\left(\operatorconjugate{a}\right)}
+				=\operatorconjugate{a}\operator{a}=\operator{n}.
+		\end{equation}
+        \trick{Díky samosdruženosti existuje spektrální rozklad} operátoru $\operator{n}$,
+		\begin{equation}
+            \operator{n}\ket{n}=n\ket{n},
+            \label{eq:NumberOperatorSpectrum}
+		\end{equation}
+        kde $n$ je reálné číslo a $\ket{n}$ odpovídající normalizovaný vlastní vektor, $\braket{n}{n}=1$.
+        
+        Pozitivita operátoru $\operator{n}$ znamená, že všechny jeho vlastní hodnoty jsou nezáporné.\index{operátor!pozitivně definitní}
+		Platí
+		\begin{equation}
+			\matrixelement{n}{\operator{n}}{n}
+				=n\braket{n}{n}
+				=n
+		\end{equation}
+		a zároveň
+		\begin{equation}
+			\matrixelement{n}{\operator{n}}{n}
+				=\matrixelement{n}{\conjugate{\operator{a}}\operator{a}}{n}
+				=\abss{\operator{a}\ket{n}}
+				\geq0,
+		\end{equation}
+		takže opravdu
+		\begin{equation}
+			n\geq0.
+		\end{equation}
+	
+	\item
+		Pro $k=1$ je
+		\begin{equation}
+			\commutator{\operator{n}}{\operator{a}}
+				=\commutator{\conjugate{\operator{a}}\operator{a}}{\operator{a}}
+				=\conjugate{\operator{a}}\underbrace{\commutator{\operator{a}}{\operator{a}}}_{0}
+					+\underbrace{\commutator{\conjugate{\operator{a}}}{\operator{a}}}_{-1}\operator{a}
+				=-\operator{a},
+			\label{eq:NACommutator}
+		\end{equation}
+		kde druhá rovnost platí díky rozvoji komutátoru~\eqref{eq:CommutatorAB,C} a poslední rovnost vyplývá ze vztahu~\eqref{eq:ShiftOperatorCommutator}.
+		Induktivní opakování tohoto postupu vede na
+		\begin{align}
+			\commutator{\operator{n}}{\operator{a}^{k}}
+				&=\commutator{\operator{n}}{\operator{a}^{k-1}\operator{a}}
+				 =\operator{a}^{k-1}\underbrace{\commutator{\operator{n}}{\operator{a}}}_{-\operator{a}}
+					+\commutator{\operator{n}}{\operator{a}^{k-1}}\operator{a}\nonumber\\
+				&=-\operator{a}^{k}+\commutator{\operator{n}}{\operator{a}^{k-2}\operator{a}}\operator{a}
+				 =-\operator{a}^{k}+\operator{a}^{k-2}\underbrace{\commutator{\operator{n}}{\operator{a}}}_{-\operator{a}}\operator{a}
+					+\commutator{\operator{n}}{\operator{a}^{k-2}}\operator{a}^{2}\nonumber\\
+				&=-2\operator{a}^{k}+\commutator{\operator{n}}{\operator{a}^{k-3}\operator{a}}\operator{a}^{2}=\dotsb=-k\operator{a}^{k}.
+		\end{align}
+		Zcela analogicky se ukáže, že
+		\begin{equation}
+            \commutator{\operator{n}}{\left(\conjugate{\operator{a}}\right)^{k}}
+                =k\left(\conjugate{\operator{a}}\right)^{k}.
+		\end{equation}
+	
+	\item
+        Vlastní hodnoty a vlastní vektory operátoru $\operator{n}$ splňují rovnici~\eqref{eq:NumberOperatorSpectrum}, kde $n\geq0$.
+        Za předpokladu $n\neq0$ a díky vztahu~\eqref{eq:NACommutator} platí
+		\begin{equation}
+            \operator{n}\operator{a}\ket{n}
+                =\left(\operator{a}\operator{n}-\operator{a}\operator{n}+\operator{n}{\operator{a}}\right)\ket{n}
+				=\left(\operator{a}\operator{n}+\commutator{\operator{n}}{\operator{a}}\right)\ket{n}
+				=\left(\operator{a}\operator{n}-\operator{a}\right)\ket{n}
+				=\left(n-1\right)\operator{a}\ket{n}.
+		\end{equation}
+        Analogicky pak
+		\begin{equation}
+            \operator{n}\conjugate{\operator{a}}\ket{n}
+                =\left(n+1\right)\conjugate{\operator{a}}\ket{n}.
+		\end{equation}
+		Vektory $\operator{a}\ket{n}$ a $\conjugate{\operator{a}}\ket{n}$ jsou tedy oba vlastními stavy operátoru 
+		$\operator{n}$ příslušejícími vlastním hodnotám $n-1$, respektive $n+1$.
+		Norma těchto vektorů je
+        \begin{subequations}
+            \begin{align}
+                \abs{\matrixelement{n}{\conjugate{\operator{a}}\operator{a}}{n}}
+                    &=\abs{\matrixelement{n}{\operator{n}}{n}}=n\abs{\braket{n}{n}}=n,\\
+                \abs{\matrixelement{n}{\operator{a}\conjugate{\operator{a}}}{n}}
+                    &=\abs{\matrixelement{n}{\conjugate{\operator{a}}\operator{a}+1}{n}}=n+1.
+            \end{align}                
+        \end{subequations}
+        Normované vlastní vektory operátoru $\operator{n}$ jsou tedy navzájem svázány operátory $\operator{a}$ a $\conjugate{\operator{a}}$:
+        \begin{subequations}
+            \begin{empheq}[box=\fbox]{align}
+                \ket{n-1}&\equiv\frac{1}{\sqrt{n}}\,\operator{a}\ket{n},\\
+                \ket{n+1}&\equiv\frac{1}{\sqrt{n+1}}\,\conjugate{\operator{a}}\ket{n}.
+            \end{empheq}
+            \label{eq:AN}
+        \end{subequations}
+        
+	\item
+		$k$-násobným opakovaným působení operátoru $\operator{a}$ na stav $\ket{n}$ se dospěje k normovanému vektoru
+		\begin{equation}
+			\ket{n-k}\equiv\frac{1}{\sqrt{n(n-1)\dotsb(n-k)}}\,\operator{a}^{k}\ket{n},
+		\end{equation}
+		což je vlastní vektor operátoru $\operator{n}$ příslušející vlastní hodnotě $n-k$.
+        \trick{Pozitivita operátoru však omezuje hodnoty $k$: Pro žádné $k$ není povoleno získat vektor, který by měl odpovídat záporné vlastní hodnotě.}
+        Jelikož $k$ lze volit libovolně, musí spektrum operátoru bezpodmínečně obsahovat hodnotu $0$, tj. musí existovat vektor $\ket{0}$ takový, že
+		\begin{equation}
+			\operator{n}\ket{0}=0\ket{0}=0,
+        \end{equation}        
+        a tedy $\operator{a}\ket{0}=0$.       
+        Další aplikace operátoru $\operator{a}$ dají identicky nulu.
+
+		Spektrum operátoru $\operator{n}$ tedy tvoří všechna nezáporná celá čísla $n\in\mathbb{N}_{0}$.
+		
+	\item
+		Všechny normalizované vlastní vektory $\ket{n}$ lze nagenerovat ze stavu $\ket{0}$ pomocí vícenásobného použití operátoru $\conjugate{\operator{a}}$ podle~\eqref{eq:AN}:
+		\begin{equation}
+			\important{
+				\ket{n}=\frac{\left(\conjugate{\operator{a}}\right)^{n}}{\sqrt{n!}}\ket{0}.			
+			}
+			\label{eq:EigenstateNumberOperator}
+		\end{equation}		
+        
+    \item
+        Dimenze Hilbertova prostoru, na kterém působí operátory $\operator{a}$ a $\conjugate{\operator{a}}$, je nekonečná, přičemž za jeho bázi lze zvolit vektory $\ket{n}$. 
+        V maticové realizaci lze tento vektor vyjádřit jako nekonečný sloupec
+        \begin{equation}
+            \ket{n}\equiv
+            \begin{blockarray}{cc}  
+                \begin{block}{(c)c}
+                    0 & \\ 
+                    \Vdots & \\ 
+                    0 & \\ 
+                    1 & \dotsb\ n\text{-tá pozice}\\ 
+                    0 & \\ 
+                    \Vdots & \\
+                \end{block}
+            \end{blockarray}                        
+        \end{equation}
+        Z algebraického vztahu mezi bázovými vektory~\eqref{eq:AN} vyplývá
+        \begin{align}
+            \label{eq:ANMatrix}
+            \matrix{a}&=\makematrix{
+                    0 & 1 & 0 & 0 & 0 & \\
+                    0 & 0 & \sqrt{2} & 0 & 0 & \\
+                    0 & 0 & 0 & \sqrt{3} & 0 & \dotsb \\ 
+                    0 & 0 & 0 & 0 & \sqrt{4} & \\ 
+                    0 & 0 & 0 & 0 & 0 & \\
+                      &   &   & \vdots & & \ddots }, &
+            \conjugate{\matrix{a}}&=\makematrix{
+                    0 & 0 & 0 & 0 & 0 & \\
+                    1 & 0 & 0 & 0 & 0 & \\
+                    0 & \sqrt{2} & 0 & 0 & 0 & \dotsb \\ 
+                    0 & 0 & \sqrt{3} & 0 & 0 & \\ 
+                    0 & 0 & 0 & \sqrt{4} & 0 & \\
+                    &   &   & \vdots & & \ddots }\equiv\transpose{\matrix{a}}.
+        \end{align}
+        Operátor $\operator{n}$ je v této bázi diagonální a jeho maticové vyjádření je
+        \begin{equation}
+            \matrix{n}=\makematrix{
+                    0 & 0 & 0 & 0 & 0 & \\
+                    0 & 1 & 0 & 0 & 0 & \\
+                    0 & 0 & 2 & 0 & 0 & \dotsb \\
+                    0 & 0 & 0 & 3 & 0 & \\
+                    0 & 0 & 0 & 0 & 4 & \\
+                    &   &   & \vdots & & \ddots }.
+        \end{equation}
+        K tomuto vztahu lze rovněž dospět pronásobením nekonečných matic~\eqref{eq:ANMatrix}, tj. $\matrix{n}=\conjugate{\matrix{a}}\matrix{a}$.
+    \end{enumerate}
+\end{solution}
+
+\begin{note}
+    Operátory $\operator{a}$, $\conjugate{\operator{a}}$ posouvají vlastní stav operátoru $\operator{n}$
+    z vyšší vlastní hodnoty na nižší a naopak, proto se obvykle nazývají \emph{posunovací operátory}\index{operátor!posunovací}.
+    Při využití těchto operátorů nad Fokovými prostory (kapitola~\ref{sec:ManyBody}), kde vytvářejí a ruší částice daných vlastností, se nazývají \emph{anihilační a kreační operátory}.
+\end{note}

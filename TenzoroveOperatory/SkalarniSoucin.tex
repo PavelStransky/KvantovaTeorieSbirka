@@ -1,0 +1,22 @@
+\subsection{Skalární součin vektorových operátorů}
+	Ukažte, že definice skalárního součinu dvou tenzorových operátorů 1. řádu je identická se skalárním součinem vektorového operátoru vyjádřeného v kartézských komponentách:
+	\begin{equation}
+		\tensoroperator{U}{1}\cdot\tensoroperator{V}{1}=\vectoroperator{U}\cdot\vectoroperator{V}=\sum_{j=1}^{3}\operator{U}_{j}\operator{V}_{j}.
+	\end{equation}
+
+\begin{solution}
+    Důkaz se provede přímým dosazením~\eqref{eq:VectorTensor} do definice skalárního součinu tenzorových operátorů:
+	\begin{align*}
+		\tensoroperator{U}{1}\cdot\tensoroperator{V}{1}
+			&=\sum_{\mu}(-1)^{\mu}\tensoroperatorcomponent{U}{1}{\mu}\tensoroperatorcomponent{V}{1}{-\mu}
+			 =-\tensoroperatorcomponent{U}{1}{-1}\tensoroperatorcomponent{V}{1}{1}+\tensoroperatorcomponent{U}{1}{0}\tensoroperatorcomponent{V}{1}{0}
+				-\tensoroperatorcomponent{U}{1}{1}\tensoroperatorcomponent{V}{1}{-1}\\
+			&=\frac{1}{2}\underbrace{\left(\operator{U}_{1}-\im\operator{U}_{2}\right)
+				\left(\operator{V}_{1}+\im\operator{V}_{2}\right)}_{\operator{U}_{1}\operator{U}_{2}
+				+\im\left(\operator{U}_{1}\operator{V}_{2}-\operator{U}_{2}\operator{V}_{1}\right)+\operator{U}_{2}\operator{V}_{2}}
+				+\operator{U}_{3}\operator{V}_{3}+\frac{1}{2}\underbrace{\left(\operator{U}_{1}+\im\operator{U}_{2}\right)
+				\left(\operator{V}_{1}-\im\operator{V}_{2}\right)}_{\operator{U}_{1}\operator{U}_{2}
+				+\im\left(-\operator{U}_{1}\operator{V}_{2}+\operator{U}_{2}\operator{V}_{1}\right)+\operator{U}_{2}\operator{V}_{2}}\\
+			&=\operator{U}_{1}\operator{V}_{1}+\operator{U}_{2}\operator{V}_{2}+\operator{U}_{3}\operator{V}_{3}=\vectoroperator{U}\cdot\vectoroperator{V}.
+	\end{align*}
+\end{solution}

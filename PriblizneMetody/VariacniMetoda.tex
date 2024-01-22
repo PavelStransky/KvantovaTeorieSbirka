@@ -1,0 +1,29 @@
+\section{Variační metoda}
+
+\begin{theory}
+    Variační metoda\footnote{Běžně se označuje také jako \emph{Ritzova variační metoda}.} je jedna z přibližných časově nezávislých metod v kvantové mechanice.
+    Dalším přibližným metodám --- stacionární a nestacionární poruchové metodě --- se věnují sekce~\ref{sec:PoruchovaMetoda} a~\ref{sec:NestacionarniPT}.
+
+    Nechť $E_{0}$ je přesná energie základního stavu systému popsaného Hamiltoniánem $\operator{H}$.
+    Pak pro libovolný (normalizovatelný) vektor $\ket{\psi}$ z Hilbertova prostoru $\hilbert{H}$ tohoto systému platí
+    \begin{equation}
+        E_{0}\leq\frac{\matrixelement{\psi}{\operator{H}}{\psi}}{\braket{\psi}{\psi}}.
+    \end{equation}
+    Pokud máme nějakou množinu testovacích funkcí $\ket{\theta}\in\mathcal{M}\subset\hilbert{H}$, 
+    pak nám základní stav nejlépe aproximuje minumum funkcionálu
+    \begin{equation*}
+        E_{\ti{min}}=\min_{\ket{\theta}\in\mathcal{M}}E[\ket{\theta}]=\frac{\matrixelement{\theta}{\operator{H}}{\theta}}{\braket{\theta}{\theta}}.
+    \end{equation*}
+    V praxi se užívá takové množiny vektorů $\ket{\theta(\vector{\lambda})}$, 
+    která je zcela parametrizována sadou čísel $\vector{\lambda}$.
+    Pak
+    \begin{equation}
+        \label{eq:Ritz}
+        \important{
+            E_{\ti{min}}=\min_{\vector{\lambda}}E(\vector{\lambda})
+            =\frac{\matrixelement{\theta(\vector{\lambda})}{\operator{H}}{\theta(\vector{\lambda})}}{\braket{\theta(\vector{\lambda})}{\theta(\vector{\lambda})}}
+        }.
+    \end{equation}
+\end{theory}
+
+\input{PriblizneMetody/NekonecnaJama.tex}

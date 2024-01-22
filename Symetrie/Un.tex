@@ -1,0 +1,89 @@
+\subsection{Vlastnosti grupy $\group{U}(n)$}\label{U(n)}
+	Grupa $\group{U}(n)$ je grupou všech unitárních matic (matic $\matrix{U}$, pro které platí $\matrix{U}^{-1}=\matrix{U}^{\dagger}$) rozměru $n\times n$. 
+	Tyto matice zachovávají normu komplexního vektoru:
+	\begin{equation}
+		\vector{z}'=\matrix{U}{\vector{x}},\qquad \abs{\vector{z}'}^{2}=\sum_{j=1}^{n}z_{j}^{'*}z_{j}^{'}=\sum_{j=1}^{n}z_{j}^{*}z_{j}=\abs{\vector{z}}^{2}, \qquad z_{i}\in\mathbb{C}.
+	\end{equation}
+
+	\begin{enumerate}
+	\item 
+		Nalezněte počet nezávislých reálných složek unitární matice $\matrix{U}$ rozměru $n\times n$.
+
+        \item 
+		Ověřte, že generující matice~\eqref{eq:UnCommutator} splňují komutační relace
+		\begin{equation}
+			\label{eq:UnCommutator}
+			\commutator{\matrix{G}^{(jk)}}{\matrix{G}^{(lm)}} = \matrix{G}^{(jm)}\delta_{kl}-\matrix{G}^{(lk)}\delta_{jm}.
+		\end{equation}
+		Tyto komutační relace udávají strukturní koeficienty grupy $\group{U}(n)$. 
+
+		Jelikož jsou strukturní koeficienty nezávislé na realizaci grupy, lze opustit relizaci maticovou a brát za generátory libovolné operátory $\operator{G}_{jk}$ z nějakého Hilbertova prostoru $\hilbert{H}$, které splňují komutační relace~\eqref{eq:UnCommutator}. 
+
+	\item 
+		Nalezněte generátory $\operator{G}_{jk}^{\ti{f}}$ \emph{funkční realizace} působící na prostoru kvadraticky integrovatelných funkcí $\hilbert{H}=\mathcal{L}^{2}(\mathbb{C}^{n})$, která je definována takto:
+		\begin{equation}
+			f'(\vector{z})\equiv\operator{U}^{\ti{f}}f(\vector{z})=f(\matrix{U}^{-1}\vector{z})\,,
+		\end{equation}
+		kde $f(\vector{z})\in\mathcal{L}^{2}(\mathbb{C}^{n})$, $\vector{z}\in\mathbb{C}^{n}$ a $\matrix{U}$ je unitární matice rozměru $n\times n$.
+		Generátory hledejte pomocí infinitezimální transformace 
+		\begin{equation}
+			\matrix{U}^{-1}\approx\mathbb{1}-\im\epsilon\matrix{H}
+		\end{equation}
+		kde $\matrix{H}$ je Hermitovská matice a $\epsilon$ malé reálné číslo.
+
+	\item 
+		Ukažte, že $\operator{G}_{jk}^{\ti{f}}$ splňují komutační relace~\eqref{eq:UnCommutator}, a jsou tudíž generátory grupy $\group{U}(n)$.
+
+	\item 
+		Ukažte, že také operátory $\operator{G}_{jk}^{\ti{a}}=\operatorconjugate{a}_{j}\operator{a}_{k}$, $j,k=1,\dotsc,n$, kde
+		\begin{align}
+			\commutator{\operatorconjugate{a}_{j}}{\operator{a}_{k}}=&\delta_{jk} &
+			\commutator{\operator{a}_{j}}{\operator{a}_{k}}=&\commutator{\operatorconjugate{a}_{j}}{\operatorconjugate{a}_{k}}=0\,,
+		\end{align}
+		splňují komutační relace~\eqref{eq:UnCommutator}.
+		Tato realizace grupy $\group{U}(n)$ se nazývá \emph{bosonová realizace}.
+		Operátory $\operatorconjugate{a}_{j}$, $\operator{a}_{j}$ jsou posunovací operátory lineárního harmonického oscilátoru
+		nebo kreační a anihilační operátory bosonových excitací.
+
+	\item 
+		Dokažte pomocí Bakery-Campbellovy-Hausdorffovy formule~\eqref{eq:BCH}, že posunovací operátory bosonové realizace lze transformovat
+		\begin{equation}
+			\operator{U}^{-1}\operatorconjugate{a}_{k}\operator{U}=\sum_{j}(\exp{\matrix{c}})_{jk}\operatorconjugate{a}_{j},
+		\end{equation}
+		kde $\operator{U}=\exp\left(-\im\sum_{jk}c_{jk}\operator{G}_{jk}^{\ti{a}}\right)$ a koeficienty $c_{jk}$ tvoří Hermitovskou matici $\matrix{c}$, takže matice $\exp{\matrix{c}}$ je unitární.
+
+	\item 
+		Rank grupy $\group{U}(n)$ je $n$, a tedy každá realizace této grupy obsahuje celkem $n$ nezávislých Casimirových operátorů, což jsou operátory, které komutují se všemi generátory.
+		Ukažte, že první dva Casimirovy operátory (lineární a kvadratický Casimirův operátor) jsou
+		\begin{align}
+			\operator{C}_{1}[\group{U}(n)]=&\sum_{j=1}^{n}\operator{G}_{jj}\,,\nonumber\\
+			\operator{C}_{2}[\group{U}(n)]=&\sum_{j,k=1}^{n}\operator{G}_{jk}\operator{G}_{kj}\,,
+		\end{align}
+		tj. dokažte, že tyto operátory komutují se všemi generátory.
+	\end{enumerate}
+
+\begin{solution}
+    \begin{enumerate}
+    \item
+        Každá unitární matice $\matrix{U}$ se dá vyjádřit pomocí exponenciály
+        \begin{equation}
+            \matrix{U}=\e^{\im\sum_{jk}c_{jk}\matrix{G}^{(jk)}},
+        \end{equation}
+        kde $\matrix{G}^{(jk)}$ je $n^{2}$ lineárně nezávislých matic rozměru $n\times n$ ($G^{(jk)}_{\alpha\beta}$, kde $\alpha,\beta=1,\dotsc,n$, jsou jejich složky), $c_{jk}$ je $n^{2}$ parametrů a součet $\sum_{jk}c_{jk}\matrix{G}^{(jk)}$ je hermitovská matice. 
+        Hermiticity lze dosáhnout například těmito dvěma způsoby: 
+        \begin{itemize}
+        \item 
+            Budeme-li chápat koeficienty $c_{jk}$ jako složky matice $\matrix{c}$ a tato matice bude hermitovská, pak stačí, 
+            aby $\matrix{G}^{(jk)\dagger}=\matrix{G}^{(kj)}$, což splňují reálné matice
+            \begin{equation}
+                \label{eq:Ungen}
+                G^{(jk)}_{\alpha\beta}=\delta_{j\alpha}\delta_{k\beta}
+            \end{equation}
+            (matice, které mají pouze jednu jedničku na pozici $j,k$, zatímco ostatní jejich elementy jsou nulové).
+
+        \item 
+            Budou-li koeficienty $c_{jk}$ reálné a matice $\matrix{G}^{(jk)}$ hermitovské.
+        \end{itemize}
+    Oba způsoby vedou na $n^{2}$ nezávislých reálných parametrů a $n^{2}$ generujících matic $\matrix{G}^{(jk)}$, $j,k=1,\dotsc,n$.
+    \end{enumerate}
+\end{solution}

@@ -1,0 +1,52 @@
+WKB\footnote{
+    Metodu rozpracovali fyzici Gregor Wentzel, Hendrik Kramers, Léon Brillouin (1926) a paralelně matematik Harold Jeffreys (1923), někdy se proto též nazývá JWKB nebo WKBJ metoda.
+    Poprvé ji však popsali o století dříve Joseph Liouville a George Green (1837) a v některých zdrojích se tudíž uvádí jako LG metoda.
+    Přínos autorů WKBJ byl v zavedení navazovacích podmínek v bodech obratu.
+}\index{aproximace!WKB}
+je kvaziklasická aproximace jednorozměrné Schrödingerovy rovnice
+\begin{equation}
+    -\frac{\hbar^{2}}{2M}\psi''(x)+V(x)\psi(x)=E\psi(x).
+\end{equation}
+Rovnice se přepíše do tvaru
+\begin{equation}
+    \label{eq:WKBSchrodingerp}
+    \psi''(x)=-\frac{p^{2}}{\hbar^{2}}\psi(x),
+\end{equation}
+kde
+\begin{equation}
+    p=\pm\sqrt{2M\left[E-V(x)\right]}
+\end{equation}
+je klasická hybnost částice.
+Vlnová funkce se následně hledá ve tvaru
+\begin{equation}
+    \psi(x)=A(x)\e^{\frac{\im}{\hbar}S(x)},
+\end{equation}
+kde obě funkce $A(x), S(x)$ jsou reálné; udávají tedy amplitudu a fázi.
+Dosazení do Schrödingerovy rovnice~\eqref{eq:WKBSchrodingerp} vede na dvě rovnice (jednu pro reálnou a druhou pro imaginární část)
+\begin{subequations}
+    \begin{align}
+        \hbar^{2}\frac{A''(x)}{A(x)}-\left[S'(x)\right]^{2}&=-p^{2},\\
+        2A'(x)S'(x)+A(x)S''(x)&=0.
+    \end{align}        
+\end{subequations}
+Řešení druhé rovnice je 
+\begin{align}
+    \left[A^{2}(x)S'(x)\right]'&=0 && \Longrightarrow & A(x)&=\frac{C}{S'(x)}.
+\end{align}
+V první rovnici se zanedbá člen $\hbar^{2}$ a navíc se předpokládá, že \uv{oscilace} amplitudy $A(x)$ jsou mnohem menší než amplituda sama.
+Tím se rovnice zjednoduší a funkci $S(x)$ lze nalézt integrováním
+\begin{align}
+    \left[S'(x)\right]^{2}&=p^{2} && \Longrightarrow & S'(x)&=\pm\abs{p(x)} && \Longrightarrow & S(x)=\pm\int_{x_{0}}^{x}\abs{p(x')}\d x',
+\end{align}
+což je výraz pro klasickou akci.\index{akce!klasická}
+
+WKB vlnová funkce má tedy tvar
+\begin{equation}
+    \psi(x)=\frac{1}{\sqrt{\abs{p(x)}}}\left[C\e^{\frac{\im}{\hbar}\int_{x_{0}}^{x}\abs{p(x')}\d x'}+D\e^{-\frac{\im}{\hbar}\int_{x_{0}}^{x}\abs{p(x')}\d x'}\right],
+\end{equation}
+kde $x_{0}$ je libovolný bod, od kterého se integruje, a $C,D$ jsou normalizační konstanty (změna integrační meze $x_0$ pouze změní celkovou fázi vlnové funkce).
+
+V kinematicky nedostupné oblasti, ve které je $E<V(x)$, vlnová funkce přejde od oscilujícího řešení k~exponenciálně ubývajícím řešením
+\begin{equation}
+    \psi(x)=\frac{1}{\sqrt{\abs{p(x)}}}\left[E\e^{\frac{1}{\hbar}\int_{x_{0}}^{x}\abs{p(x')}\d x'}+F\e^{-\frac{1}{\hbar}\int_{x_{0}}^{x}\abs{p(x')}\d x'}\right].
+\end{equation}

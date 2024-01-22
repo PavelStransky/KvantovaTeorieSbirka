@@ -1,0 +1,98 @@
+\subsection{Rozvoj amplitudy rozptylu do parciálních vln}
+Asymptotická vlnová funkce částice rozptylující se na potenciálu $V(\vector{r})$
+je dána superpozicí rovinné vlny s vlnovým vektorem $\vector{k}$ a rozptýlené kulové vlny\footnote{
+    Lippmann-Schwingerova rovnice v $x$ reprezentaci.
+}
+\begin{equation}\label{eq:ScatteringPsiPlus}
+    \important{
+    \psi_{\vector{k}}^{(+)}(\vector{r})
+        \equiv\braket{\vector{r}}{\psi_{\vector{k}}^{(+)}}
+        =\frac{1}{(2\pi)^{\frac{3}{2}}}
+            \left[\e^{\im\vector{k}\cdot\vector{r}}+f(\vector{k}',\vector{k})\frac{\e^{\im kr}}{r}\right]
+    },
+\end{equation}
+přičemž $k=k'$ a $\vector{k}'=k\vector{r}/r$.
+Amplituda rozptylu\index{amplituda!rozptylu} je
+\begin{align}
+    f(\vector{k}',\vector{k})
+        &=-\frac{1}{4\pi}\frac{2M}{\hbar^{2}}(2\pi)^{3}\matrixelement{\vector{k}'}{\operator{V}}{\psi_{\vector{k}}^{(+)}}\nonumber\\
+        &\approx-\frac{4\pi^{2}M}{\hbar^{2}}\matrixelement{\vector{k}'}{\operator{V}}{\vector{k}}=\boxed{-\frac{M}{2\pi\hbar^{2}}\int\e^{\im\left(\vector{k}-\vector{k}'\right)\cdot\vector{r}}V(\vector{r})\d^{3}\vector{r}}\,,
+        \label{eq:Born}
+\end{align}
+kde poslední řádek je tzv. \emph{Bornova aproximace}\index{aproximace!Bornova} (1. člen Bornovy řady).\footnote{
+    Jedná se vlastně o Fourierovu transformaci rozptylového potenciálu.
+}
+Diferenciální účinný průřez rozptylu je kvadrát absolutní hodnoty amplitudy rozptylu,
+\begin{equation}\label{eq:ScatteringCrossSection}
+    \frac{\d\sigma}{\d\Omega}
+        =\abss{f(\vector{k}',\vector{k})}.
+\end{equation}
+
+Pro sféricky symetrický potenciál se amplituda rozptylu rozkládá do \emph{parciálních vln}\index{vlny!parciální}
+\begin{equation}
+    \label{eq:PartialScatteringAmplitude}
+    \boxed{
+        f(\vector{k}',\vector{k})
+            =\sum_{l=0}^{\infty}(2l+1)f_{l}(k)P_{l}(\cos{\psi})
+    }
+\end{equation}
+kde $\cos{\psi}$ je úhel mezi směrem dopadající rovinné vlny daným vektorem $\vector{k}$
+a polohovým vektorem $\vector{r}$
+\begin{equation}
+    \cos{\psi}
+        =\frac{\vector{k}\cdot\vector{r}}{kr},
+\end{equation}
+$P_{l}$ je Legendreův polynom a $f_{l}(k)$ je \emph{amplituda rozptylu $l$-té parciální vlny}.
+Dosazením tohoto rozvoje do \eqref{eq:ScatteringPsiPlus} a využitím asymptotiky a srovnání s volnou částicí vyjde vztah mezi $f_{l}(k)$ a fázovým posunutím $\delta_{l}(k)$,
+\begin{equation}
+    \label{eq:PhaseShiftFull}
+    \important{\begin{aligned}
+        f_{l}(k)
+            &=\frac{1}{k}\sin{\delta_{l}(k)}\e^{\im\delta_{l}(k)}\\
+        \delta_{l}(k)
+            &=\frac{1}{2\im}\ln\left[2\im kf_{l}(k)+1\right]
+    \end{aligned}
+    }.
+\end{equation}	
+Amplituda rozptylu $l$-té parciální vlny se získá po přeintegrování plné amplitudy rozptylu~\eqref{eq:PartialScatteringAmplitude} s $l$-tým Legendreovým polynomem 
+\begin{align}
+    \int_{-1}^{1}f(\vector{k}',\vector{k})P_{l}(\cos{\psi})\,\d\cos{\psi}
+        &=\sum_{m=0}^{\infty}(2m+1)f_{m}(k)\int_{-1}^{1}P_{l}(\cos{\psi})P_{m}(\cos{\psi})\,\d\cos{\psi}\nonumber\\
+        &=\sum_{m=0}^{\infty}(2m+1)f_{m}(k)\frac{2}{2m+1}\delta_{ml}
+         =2f_{l}(k),
+\end{align}		
+kde se využilo relací ortogonality Legendreových polynomů
+\begin{equation}
+    \int_{-1}^{1}P_{m}(x)P_{l}(x)\d x=\frac{2}{2m+1}\delta_{ml}\,.
+\end{equation}
+Parciální amplituda rozptylu se tedy vypočítá jako
+\begin{equation}
+    \label{eq:PartialScatteringAmplitudef}
+    \important{
+        f_{l}(k)=\frac{1}{2}\int_{0}^{\pi}f(\vector{k}',\vector{k})P_{l}(\cos{\psi})\sin{\psi}\,\d\psi
+    }.
+\end{equation}
+                        
+V první Bornově aproximaci se předpokládá, že je amplituda rozptylu malá.
+Logaritmus v~\eqref{eq:PhaseShiftFull} lze tudíž aproximovat pomocí prvního členu Taylorova rozvoje $\ln(1+x)\approx x$, platný pro $x\ll1$, což vede na jednoduchý vztah pro fázové posunutí
+\begin{equation}
+    \label{eq:PhaseShiftApprox}
+    \boxed{\delta_{l}(k)=k f_{l}(k)}.
+\end{equation}
+
+Přeintegrování vztahu pro diferenciální účiný průřez \eqref{eq:ScatteringCrossSection} dá vztah mezi účinným průřezem pro $l$-tou parciální vlnu a jejím fázovým posunutím
+\begin{equation}\label{eq:ScatteringSigmal}
+    \important{
+        \sigma_{l}(k)
+            =\frac{4\pi}{k^{2}}(2l+1)\sin^{2}\delta_{l}(k)\\
+    }.
+\end{equation}
+Celkový účinný průřez je pak
+\begin{equation}
+    \sigma(k)
+        =\sum_{l=0}^{\infty}\sigma_{l}(k).
+\end{equation}
+
+Fázové posunutí je kladné pro přitažlivé síly (záporný potenciál) a záporné pro odpudivé síly.\footnote{
+    Srovnejte s jednoduchými 1D rozptylovými příklady~\ref{sec:Delta} a~\ref{sec:DoubleDelta}.
+}

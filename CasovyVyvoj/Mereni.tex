@@ -1,0 +1,286 @@
+\section{Měření}
+\subsection{Ramseyův přístroj s měřením}
+	Tento příklad navazuje na příklad~\ref{sec:Ramsey}.
+	
+	Předpokládejme, že na oblasti s vypnutým oscilujícím polem $\vector{B}_{1}$ provedeme měření pomocí dvouhladinového systému (například pomocí další částice se spinem $1/2$).
+	Namísto Hamiltoniánu
+	\begin{equation}
+		\matrix{H}_{0}=-\mu\matrix{\sigma}_{3}B_{0}
+	\end{equation}
+	budeme uvažovat Hamiltonián
+	\begin{equation}
+		\matrix{H}_{0}'=\left\{
+			\begin{array}{ll}
+				-\mu B_{0}\matrix{\sigma}_{3}\otimes\left(\matrix{1}+\lambda\matrix{m}\right)\,, & \tau\leq t<\tau+T_{0}\,, \\
+				-\mu B_{0}\matrix{\sigma}_{3}\otimes\matrix{1}\,, & \tau+T_{0}\leq t<\tau+T\,,
+			\end{array}\right.
+	\end{equation}
+	kde
+	\begin{equation}
+		\matrix{m}\equiv\frac{1}{2}\left(\matrix{1}-\matrix{\sigma}_{1}\right)=\frac{1}{2}\makematrix{1 & -1 \\ -1 & 1}\,.
+	\end{equation}
+	Tento Hamiltonián působí na Hilbertově prostoru $\hilbert{H}=\hilbert{H}_{s}\otimes\hilbert{H}_{m}$, což je tenzorový součin Hilbertova prostoru $\hilbert{H}_{s}$ spinu prolétajícího
+	Ramseyovým přístrojem a Hilbertova prostoru $\hilbert{H}_{m}$ měřícího dvouhladinového systému.
+	
+	Dobu $T_{0}$ zvolíme speciálně jako 
+	%(při využití notace~\eqref{eq:RamseyOmega})
+	(při využití notace (11.1.4) zimního semestru)
+	\begin{equation}
+		\label{eq:RamseyT0}
+		T_{0}=\frac{\hbar\pi}{2\mu B_{0}\lambda}=\frac{\pi}{\omega_{0}\lambda}\,,
+	\end{equation}
+	což, jak se ukáže během řešení, je doba potřebná k tomu, aby na sebe měřící zařízení přijalo kvantovou informaci o směru prolétavajícího spinu.
+	
+	\begin{enumerate}
+	\item
+		Nalezněte evoluční operátor $\matrix{U}_{0}'(T)$ v oblasti mezi dvěma Ramseyovými zónami.
+		
+	\item
+		Za počáteční stav měřícího zařízení budeme uvažovat
+		\begin{equation}
+			\ket{\phi_{i}}=\frac{1}{2}\makematrix{1-\im \\ 1+\im}\,.
+		\end{equation}
+		V případě, že by měřící zařízení byl spin $1/2$, ukažte, do jakého směru by mířil.		
+	
+	\item
+		Ukažte, že pro počáteční stav ve tvaru
+		\begin{equation}
+			\ket{\psi_{i}'}=\ket{\psi_{i}}\otimes\ket{\phi_{i}}=\makematrix{1 \\ 0}\otimes\frac{1}{2}\makematrix{1-\im \\ 1+\im}
+		\end{equation}
+		lze pravděpodobnost naměření koncového stavu, ve kterém je spin, který prolétl Ramseyovým zařízením otočený dolů bez ohledu na to, jaký je stav měřícího zařízení, vyjádřit jako
+		\begin{equation}
+			p_{\downarrow\uparrow}=\abss{A_{\downarrow\uparrow\uparrow}}+\abss{A_{\downarrow\downarrow\uparrow}},
+		\end{equation}
+		kde $A_{\downarrow\uparrow\uparrow}$ a $A_{\downarrow\downarrow\uparrow}$ jsou definovány ve výrazu~\eqref{eq:RamseyInterference}.
+		Měřením tedy vymizí interferenční člen.
+	\end{enumerate}
+	
+\begin{solution}
+	\begin{enumerate}
+	\item
+		Evoluční operátor pro část Hamiltoniánu
+		\begin{equation}
+			\matrix{h}\equiv-\underbrace{\mu B_{0}}_{\frac{\hbar\omega_{0}}{2}}\lambda\,\sigma_{3}\otimes\matrix{m}
+		\end{equation}
+		se spočítá rozvinutím do řady:
+		\begin{equation}
+			\matrix{u}\equiv\e^{-\frac{\im}{\hbar}\matrix{h}T_{0}}
+				=\sum_{j=0}^{\infty}\bigg(\underbrace{\frac{\im\omega_{0}\lambda T_{0}}{2}}_{a}\bigg)^{j}\frac{1}{j!}\left(\matrix{\sigma}_{3}\otimes\matrix{m}\right)^{j}.
+		\end{equation}
+		Jelikož
+		\begin{align}
+			\matrix{\sigma}_{3}^{2}&=\matrix{1},\\
+			\matrix{m}^{2}&=\matrix{m},
+		\end{align}
+		vychází
+		\begin{align}
+			\matrix{u}
+				&=\matrix{1}+\sum_{j=0}^{\infty}\frac{a^{2j+1}}{(2j+1)!}\matrix{\sigma}_{3}\otimes\matrix{m}+\sum_{j=1}^{\infty}\frac{a^{2j}}{(2j)!}\matrix{1}\otimes\matrix{m}\nonumber\\
+				&=\matrix{1}\otimes\matrix{1}+\left[\im\matrix{\sigma}_{3}\sin{\frac{\omega_{0}\lambda T_{0}}{2}}+\matrix{1}\left(\cos{\frac{\omega_{0}\lambda T_{0}}{2}}-1\right)\right]\otimes\matrix{m}.
+		\end{align}
+		Speciální volba $T_{0}$ podle~\eqref{eq:RamseyT0} vede na
+		\begin{equation}
+			\matrix{u}=\matrix{1}\otimes\matrix{1}+\left(\im\matrix{\sigma}_{3}-\matrix{1}\right)\otimes\matrix{m}.
+		\end{equation}
+		
+		Jelikož $\matrix{h}$ komutuje s $\matrix{H}_{0}=-\mu B_{0}\matrix{\sigma}_{3}\otimes\matrix{1}$, lze psát
+		\begin{align}
+			\matrix{U}_{0}'(T)
+				&=\e^{-\frac{\im}{\hbar}\matrix{H}_{0}T}\e^{-\frac{\im}{\hbar}\matrix{h}T}\nonumber\\
+				&=\left[\makematrix{\e^{\im\frac{\omega_{0}T}{2}} & 0 \\ 0 & \e^{-\im\frac{\omega_{0}T}{2}}}\otimes\matrix{1}\right]\left[\matrix{1}\otimes\matrix{1}+\left(\im\matrix{\sigma}_{3}-\matrix{1}\right)\otimes\matrix{m}\right]\nonumber\\
+				&=\makematrix{\e^{\im\frac{\omega_{0}T}{2}} & 0 \\ 0 & \e^{-\im\frac{\omega_{0}T}{2}}}\otimes\matrix{1}-\makematrix{(1-\im)\e^{\im\frac{\omega_{0}T}{2}} & 0 \\ 0 & (1+\im)\e^{-\im\frac{\omega_{0}T}{2}}}\otimes\matrix{m}\,.
+		\end{align}
+		
+	\item
+		Lze využít dvou postupů:
+		\begin{itemize}
+		\item
+			V příkladu~\ref{sec:Pauli} bylo ukázáno, že normalizovaný vektor spinu orientovaného do směru jednotkového vektoru $\vector{\hat{n}}=(\sin{\theta}\cos{\phi},\sin{\theta}\sin{\phi},\cos{\theta})$
+			popsaného pomocí sférických úhlů $(\theta,\phi)$ je
+			\begin{equation}
+				\ket{\vector{\hat{n}}}=\makematrix{\e^{-\im\phi}\cos{\frac{\theta}{2}} \\ \sin{\frac{\theta}{2}}}\,.
+			\end{equation}
+			Poměr složek 
+			\begin{equation}
+				z=\e^{-\im\phi}\cot{\frac{\theta}{2}}
+			\end{equation} tedy udává úhly $(\theta,\phi)$ (stereografická projekce v~\cite{Cejnar2013}).
+			V případě tohoto příkladu je
+			\begin{equation}
+				z=\frac{1-\im}{1+\im}=-\im=(\cos{\phi}-\im\sin{\phi})\cot{\frac{\theta}{2}}\,,
+			\end{equation}
+			takže $\phi=\pi/2$ a $\theta=0$. 
+			To odpovídá projekci spinu podél souřadné osy $y$.
+			
+		\item
+			Druhý způsob výpočtu spočívá ve vyjádření matice hustoty spinového stavu
+			\begin{equation}
+				\important{
+					\matrix{\rho}_{\vector{n}}=\ket{\vector{n}}\bra{\vector{n}}=\frac{1}{2}\left(\matrix{1}+\vector{n}\cdot\vector{\matrix{\sigma}}\right)
+				}
+				\label{eq:PauliRho}
+			\end{equation}
+			($\abs{\vector{n}}=1$ pro čistý stav, $\abs{\vector{n}}<1$ pro smíšený stav).
+			V případě zadaného stavu je
+			\begin{align}
+				\matrix{\rho}_{\phi_{i}}
+					&=\ket{\phi_{i}}\bra{\phi_{i}}
+					 =\frac{1}{2}\makematrix{1-\im \\ 1+\im}\frac{1}{2}\makematrix{1+\im & 1-\im}\nonumber\\
+					&=\frac{1}{2}\makematrix{1 & -\im \\ \im & 1}
+					 =\frac{1}{2}\left(\matrix{1}+\matrix{\sigma}_{2}\right)\,,
+			\end{align}
+			což opět udává orientaci spinu podél osy $y$.\footnote{
+				Platí tedy, že stav $\ket{\phi_{i}}$ je vlastním stavem matice $\matrix{\sigma}_{2}$.
+			}
+		\end{itemize}
+				
+	\item
+		Koncový stav systému, který vyvíjí počáteční stav $\ket{\psi_{i}'}$, je
+		\begin{equation}
+			\ket{\psi_{F}'}\equiv\ket{\psi'(T+2\tau)}=\operator{U}'_{F}\ket{\psi_{i}'},
+		\end{equation}
+		kde
+		\begin{equation}
+			\operator{U}'_{F}\equiv\operator{U}(2\tau+T,\tau+T)\operator{U_{0}'}(T)\operator{U}(\tau,0).
+		\end{equation}
+		Hledaná pravděpodobnost je
+		\begin{equation}
+			p'_{\downarrow\uparrow}=\matrixelement{\psi_{F}'}{\operator{P}}{\psi_{F}'},
+		\end{equation}
+		kde $\operator{P}$ je projektor na koncový stav,
+		\begin{equation}
+			\operator{P}=\projector{\psi_{f}}\otimes\operator{1}_{m}
+			=\projector{\psi_{f}}\otimes\left(\projector{\uparrow}+\projector{\downarrow}\right)
+			=\projector{\downarrow\uparrow}+\projector{\downarrow\downarrow}.
+		\end{equation}
+		Pravděpodobnost se tedy dá rozepsat jako
+		\begin{align}
+			p'_{\downarrow\uparrow}
+				&=\matrixelement{\psi_{i}'}{\operator{U}_{F}^{'\dagger}}{\downarrow\uparrow}
+				 \matrixelement{\downarrow\uparrow}{\operator{U}'_{F}}{\psi_{i}'}
+				 +\matrixelement{\psi_{i}'}{\operator{U}_{F}^{'\dagger}}{\downarrow\downarrow}
+				 \matrixelement{\downarrow\downarrow}{\operator{U}'_{F}}{\psi_{i}'}\nonumber\\
+				&=\matrixelement{\uparrow\otimes}{\operator{U}_{F}^{'\dagger}}{\downarrow\uparrow}
+				 \matrixelement{\downarrow\uparrow}{\operator{U}'_{F}}{\uparrow\otimes}
+				 +\matrixelement{\uparrow\otimes}{\operator{U}_{F}^{'\dagger}}{\downarrow\downarrow}
+				 \matrixelement{\downarrow\downarrow}{\operator{U}'_{F}}{\uparrow\otimes}\nonumber\\
+				&=\abss{A_{\downarrow\uparrow}^{'\uparrow}}+\abss{A_{\downarrow\uparrow}^{'\downarrow}},
+				\label{eq:RamseyMP}
+		\end{align}
+		kde horní index značí, jaký stav bude mít výsledný spin, a $\ket{\phi_{i}}\equiv\ket{\otimes}$.
+		Analogicky s~\eqref{eq:RamseyInterference} lze jednotlivé amplitudy dále rozepsat jako
+		\begin{subequations}\begin{align}
+			A_{\downarrow\uparrow}^{'\uparrow}
+				&=\matrixelement{\downarrow\uparrow}{\operator{U}'_{F}}{\uparrow\otimes}\nonumber\\
+				&=\matrixelement{\downarrow\uparrow}{\operator{U}(2\tau+T,\tau+T)\left(\projector{\uparrow_{s}}+\projector{\downarrow_{s}}\right)\otimes\left(\projector{\uparrow_{m}}+\projector{\downarrow_{m}}\right)\operator{U}_{0}'(T)\operator{U}(\tau,0)}{\uparrow\otimes}\nonumber\\
+				&=\matrixelement{\downarrow\uparrow}{\operator{U}(2\tau+T,\tau+T)}{\uparrow\uparrow}\matrixelement{\uparrow\uparrow}{\operator{U}_{0}'(T)\operator{U}(\tau,0)}{\uparrow\otimes}
+				+\underbrace{\matrixelement{\downarrow\uparrow}{\operator{U}(2\tau+T,\tau+T)}{\uparrow\downarrow}}_{0}\matrixelement{\uparrow\downarrow}{\operator{U}_{0}'(T)\operator{U}(\tau,0)}{\uparrow\otimes}\nonumber\\
+				&\quad+\matrixelement{\downarrow\uparrow}{\operator{U}(2\tau+T,\tau+T)}{\downarrow\uparrow}\matrixelement{\downarrow\uparrow}{\operator{U}_{0}'(T)\operator{U}(\tau,0)}{\uparrow\otimes}
+				+\underbrace{\matrixelement{\downarrow\uparrow}{\operator{U}(2\tau+T,\tau+T)}{\downarrow\downarrow}}_{0}\matrixelement{\downarrow\downarrow}{\operator{U}_{0}'(T)\operator{U}(\tau,0)}{\uparrow\otimes}\nonumber\\
+				&=A_{\downarrow\uparrow}^{(2)}A_{\uparrow\uparrow}^{'\uparrow(1)}
+				+A_{\downarrow\downarrow}^{(2)}A_{\downarrow\uparrow}^{'\uparrow(1)},\\
+			A_{\downarrow\uparrow}^{'\downarrow}
+			&=A_{\downarrow\uparrow}^{(2)}A_{\uparrow\uparrow}^{'\downarrow(1)}
+				+A_{\downarrow\downarrow}^{(2)}A_{\downarrow\uparrow}^{'\downarrow(1)},
+		\end{align}\end{subequations}
+		kde vyznačené elementy jsou nulové díky ortogonalitě a díky tomu, že operátor $\operator{U}$ nemění stav měřícího spinu, a $A_{\downarrow\uparrow}^{(2)},A_{\downarrow\downarrow}^{(2)}$ jsou dány vztahy~\eqref{eq:RamseyA2}.
+
+		Využití vztahů~\eqref{eq:RamseyA1} pro Ramseyův přístroj v první Ramseyově oblasti vede k amplitudám
+		\begin{subequations}\begin{align}
+			A_{\uparrow\uparrow}^{'\uparrow(1)}
+				&=\left[\makematrix{1 & 0}\otimes\makematrix{1 & 0}\right]\matrix{U}_{0}'(T)\matrix{U}(\tau;0)\left[\makematrix{1 \\ 0}\otimes\ket{\phi_{i}}\right]\nonumber\\
+				&=\left[\makematrix{\e^{\im\frac{\omega_{0}T}{2}} & 0}\otimes\makematrix{1 & 0}-(1-\im)\makematrix{\e^{\im\frac{\omega_{0}T}{2}} & 0}\otimes\frac{1}{2}\makematrix{1 & -1}\right]\matrix{U}(\tau;0)\left[\makematrix{1 \\ 0}\otimes\frac{1}{2}\makematrix{1-\im \\ 1+\im}\right]\nonumber\\
+				&=\left[\makematrix{\e^{\im\frac{\omega_{0}T}{2}} & 0}\otimes\frac{1}{2}\makematrix{1+\im & 1-\im}\right]\matrix{U}(\tau;0)\left[\makematrix{1 \\ 0}\otimes\frac{1}{2}\makematrix{1-\im \\ 1+\im}\right]\nonumber\\
+				&=A_{\uparrow\uparrow}^{(1)}\frac{1}{2}\makematrix{1+\im & 1-\im}\frac{1}{2}\makematrix{1-\im \\ 1+\im}\nonumber\\
+				&=A_{\uparrow\uparrow}^{(1)},\\
+			A_{\downarrow\uparrow}^{'\uparrow(1)}
+				&=\left[\makematrix{0 & 1}\otimes\makematrix{1 & 0}\right]\matrix{U}_{0}'(T)\matrix{U}(\tau;0)\left[\makematrix{1 \\ 0}\otimes\ket{\phi_{i}}\right]\nonumber\\
+				&=A_{\downarrow\uparrow}^{(1)}\frac{1}{2}\makematrix{1-\im & 1+\im}\frac{1}{2}\makematrix{1-\im \\ 1+\im}\nonumber\\
+				&=0,\\
+			A_{\uparrow\uparrow}^{'\downarrow(1)}
+				&=0,\\
+			A_{\downarrow\uparrow}^{'\downarrow(1)}
+				&=A_{\downarrow\uparrow}^{(1)},
+		\end{align}\end{subequations}
+		takže
+		\begin{subequations}\begin{align}
+			A_{\downarrow\uparrow}^{'\uparrow}
+				&=A_{\downarrow\uparrow}^{(2)}A_{\uparrow\uparrow}^{(1)}=A_{\downarrow\uparrow\uparrow},\\
+			A_{\downarrow\uparrow}^{'\downarrow}
+				&=A_{\downarrow\downarrow}^{(2)}A_{\downarrow\uparrow}^{(1)}=A_{\downarrow\downarrow\uparrow}.			
+		\end{align}\end{subequations}
+		Hledaná pravděpodobnost překlopení spinu je tedy podle~\eqref{eq:RamseyMP}
+		\begin{equation}
+			p_{\downarrow\uparrow}=\abs{A_{\downarrow\uparrow\uparrow}}^{2}+\abs{A_{\downarrow\downarrow\uparrow}}^{2}.
+			\label{eq:RamseyMA}
+		\end{equation}
+		Začlenění měřícího přístroje tedy zničí interferenci.
+		Vývoj je však unitární, kvantová informace se přenese na měřící spin.
+		Měřící spin se bude nacházet ve stavu $\ket{\uparrow}$, pokud se spin procházející přístrojem nachází za 1. Ramseyovou oblastí ve stavu $\ket{\uparrow}$, a obdobně pro spin mířící dolů.
+
+		Výpočet se dá provést i jinak.
+		Jelikož stav měřícího spinu ovlivňuje pouze oblast bez oscilujícího magnetického pole $\vector{B}_{1}$, stačí určit
+		\begin{align}
+			\matrix{U}_{0}'(T)\left[\matrix{1}\otimes\ket{\phi_{i}}\right]
+				&=\makematrix{\e^{\im\frac{\omega_{0}T}{2}} & 0 \\ 0 & \e^{-\im\frac{\omega_{0}T}{2}}}\otimes\frac{1}{2}\makematrix{1-\im \\ 1+\im}\nonumber\\
+					&\quad-\makematrix{(1-\im)\e^{\im\frac{\omega_{0}T}{2}} & 0 \\ 0 & (1+\im)\e^{-\im\frac{\omega_{0}T}{2}}}\otimes
+						\underbrace{\left[\frac{1}{2}\makematrix{1 & -1 \\ -1 & 1}\frac{1}{2}\makematrix{1-\im \\ 1+\im}\right]}_{\frac{\im}{2}\makematrix{-1 \\ 1}}\nonumber\\
+				&=\frac{1}{2}\makematrix{\e^{\im\frac{\omega_{0}T}{2}}\makematrix{1-\im \\ 1+\im} & 0 \\ 0 & \e^{-\im\frac{\omega_{0}T}{2}}\makematrix{1-\im \\ 1+\im}}\nonumber\\
+					&\quad-\frac{1}{2}\makematrix{(\im+1)\e^{\im\frac{\omega_{0}T}{2}}\makematrix{-1 \\ 1} & 0 \\ 0 & (\im-1)\e^{-\im\frac{\omega_{0}T}{2}}\makematrix{-1 \\ 1}}\nonumber\\
+				&=\makematrix{\e^{\im\frac{\omega_{0}T}{2}}\makematrix{1 \\ 0} & 0 \\ 0 & \e^{-\im\frac{\omega_{0}T}{2}}\makematrix{0 \\ 1}}\nonumber\\
+				&=\makematrix{\e^{\im\frac{\omega_{0}T}{2}} & 0 \\ 0 & 0}\otimes\makematrix{1 \\ 0}+\makematrix{0 & 0 \\ 0 & \e^{-\im\frac{\omega_{0}T}{2}}}\otimes\makematrix{0 \\ 1}.\nonumber
+		\end{align}
+		Z tohoto výrazu již vyplývají výše uvedené výsledky.		
+    \end{enumerate}
+	
+\begin{note}
+	Formálně jednodušší přístup je pomocí matice hustoty.
+	Pokud se použije Ramseyův přístroj bez měřícího zařízení, vyvine se spin z počátečního stavu~\eqref{eq:Ramseypsii} do stavu
+	\begin{equation}
+		\ket{\psi_{F}}=\ket{\psi_{i}(T_{F})}=
+			\left(A_{\uparrow\uparrow\uparrow}+A_{\uparrow\downarrow\uparrow}\right)\ket{\uparrow}+\left(A_{\downarrow\uparrow\uparrow}+A_{\downarrow\downarrow\uparrow}\right)\ket{\downarrow},
+	\end{equation}
+	kde $T_{f}\equiv2\tau+T$,
+	takže matice hustoty bude
+	\begin{align}
+		&\operator{\rho}_{i}(T_{f})
+			=\ket{\psi_{i}(T_{f})}\bra{\psi_{i}(T_{f})}\nonumber\\
+			&\quad=\makematrix{\abs{A_{\uparrow\uparrow\uparrow}+A_{\uparrow\downarrow\uparrow}}^{2} & \left(A_{\uparrow\uparrow\uparrow}+A_{\uparrow\downarrow\uparrow}\right)\left(A_{\downarrow\uparrow\uparrow}+A_{\downarrow\downarrow\uparrow}\right)^{*} \\
+			\left(A_{\uparrow\uparrow\uparrow}+A_{\uparrow\downarrow\uparrow}\right)^{*}\left(A_{\downarrow\uparrow\uparrow}+A_{\downarrow\downarrow\uparrow}\right) & \abs{A_{\downarrow\uparrow\uparrow}+A_{\downarrow\downarrow\uparrow}}^{2}}
+	\end{align}
+	a pravděpodobnost naměření stavu $\ket{\psi_{f}}$~\eqref{eq:Ramseypsif} je
+	\begin{equation}
+		p_{\downarrow\uparrow}=\matrixelement{\psi_{f}}{\operator{\rho}_{i}(T_{f})}{\psi_{f}}=\abs{A_{\downarrow\uparrow\uparrow}+A_{\downarrow\downarrow\uparrow}}^{2},
+	\end{equation}
+	což je výsledek~\eqref{eq:RamseyP}.
+	
+	Při zapnutém měřícím přístroji je koncový stav
+	\begin{align}
+		\ket{\psi_{i}(T_{f})}
+			=&A_{\uparrow\uparrow\uparrow}\ket{\uparrow}\otimes\ket{\uparrow}+A_{\uparrow\downarrow\uparrow}\ket{\uparrow}\otimes\ket{\downarrow}\nonumber\\
+			 &+A_{\downarrow\uparrow\uparrow}\ket{\downarrow}\otimes\ket{\uparrow}+A_{\downarrow\downarrow\uparrow}\ket{\downarrow}\otimes\ket{\downarrow}.
+	\end{align}	
+	Matice hustoty se zapnutým měřícím přístrojem má tedy složky
+	\begin{equation}
+		\rho_{ab,cd}'(T_{f})=A_{ab\uparrow}A_{cd\uparrow}^{*},
+	\end{equation}
+	kde první index $a,c\in\{\uparrow,\downarrow\}$ odpovídá stavu spinu, druhý index $b,d\in\{\uparrow,\downarrow\}$ měřícímu přístroji.
+	
+	V koncovém stavu nás nezajímá stav měřícího přístroje, což formálně znamená, že všechnu informaci nese parciální stopa matice hustoty přes $\hilbert{H}_{m}$:
+	\begin{align}
+		\operator{\rho}'_{s}(T_{F})&=\trace_{m}\operator{\rho}'(T_{F})\nonumber\\
+			&=\matrixelement{\uparrow_{m}}{\operator{\rho}'(T_{F})}{\uparrow_{m}}+\matrixelement{\downarrow_{m}}{\operator{\rho}'(T_{F})}{\downarrow_{m}}\nonumber\\
+			&=\makematrix{\rho'_{\uparrow\uparrow,\uparrow\uparrow}(T_{F})+\rho'_{\uparrow\downarrow,\uparrow\downarrow}(T_{F}) & \rho'_{\uparrow\uparrow,\downarrow\uparrow}(T_{F})+\rho'_{\uparrow\downarrow,\downarrow\downarrow}(T_{F}) \\
+				\rho'_{\downarrow\uparrow,\uparrow\uparrow}(T_{F})+\rho'_{\downarrow\downarrow,\uparrow\downarrow}(T_{F}) & \rho'_{\downarrow\uparrow,\downarrow\uparrow}(T_{F})+\rho'_{\downarrow\downarrow,\downarrow\downarrow}(T_{F})}\nonumber\\
+			&=\makematrix{\abs{A_{\uparrow\uparrow\uparrow}}^{2}+\abs{A_{\uparrow\downarrow\uparrow}}^{2} 
+				& A_{\uparrow\uparrow\uparrow}A_{\downarrow\uparrow\uparrow}^{*}+A_{\uparrow\downarrow\uparrow}A_{\downarrow\downarrow\uparrow}^{*} \\
+				A_{\downarrow\uparrow\uparrow}A_{\uparrow\uparrow\uparrow}^{*}+A_{\downarrow\downarrow\uparrow}A_{\uparrow\downarrow\uparrow}^{*} & \abs{A_{\downarrow\uparrow\uparrow}}^{2}+\abs{A_{\downarrow\downarrow\uparrow}}^{2}}
+	\end{align}
+	Hledaná pravděpodobnost je pak
+	\begin{equation}
+		p'_{\downarrow\uparrow}
+			=\matrixelement{\downarrow_{s}}{\rho'_{s}(T_{F})}{\downarrow_{s}}=\abs{A_{\downarrow\uparrow\uparrow}}^{2}+\abs{A_{\downarrow\downarrow\uparrow}}^{2},
+	\end{equation}
+    v souladu s~\eqref{eq:RamseyMA}.
+\end{note}
+\end{solution}
+

@@ -1,0 +1,66 @@
+\subsection{Gaussovská porucha bosonového systému}\label{sec:IdenticalBosons}
+	Dva nerozlišitelné bosony se pohybují v poli jednorozměrného harmonického oscilátoru
+	\begin{equation}
+		\operator{H}_{0}
+			=\frac{1}{2M}\left(\operator{p}_{1}^{2}+\operator{p}_{2}^{2}\right)
+				+\frac{1}{2}M\Omega^{2}\left(\operator{x}_{1}^{2}+\operator{x}_{2}^{2}\right)\,.
+	\end{equation}
+	Jejich vzájemná interakce je popsána Gausovským Hamiltoniánem
+	\begin{equation}
+		\operator{H}_{\ti{I}}
+			=v\e^{-\alpha\left(\operator{x}_{1}-\operator{x}_{2}\right)^{2}}\,,
+	\end{equation}
+	kde $v$, $\alpha>0$ jsou reálné parametry.
+	
+	Uvažujte interakci za malou poruchu a spočítejte do prvního řádu poruchové teorie 
+	opravu k energii základního stavu.
+	
+\begin{solution}
+	Úlohu budeme řešit v $x$-reprezentaci.
+	Jednočásticová vlnová funkce základního stavu je
+	\begin{equation}
+		\phi_{0}(x)
+			=\sqrt[4]{\frac{M\Omega}{2\pi\hbar}}\e^{-\frac{M\Omega}{2\hbar}x^{2}}
+	\end{equation}
+	V případě dvou bosonů musí být vlnová funkce symetrická vůči záměně dvou částic.
+	To splňuje jednoduchý součin
+	\begin{equation}\label{eq:IdenticalBosonsWaveFunction}
+		\psi_{0}^{\ti{B}}(x_{1},x_{2})
+			=\phi_{0}(x_{1})\phi_{0}(x_{2})
+			=\sqrt{\frac{M\Omega}{2\pi\hbar}}\e^{-\frac{M\Omega}{2\hbar}\left(x_{1}^{2}+x_{2}^{2}\right)}
+	\end{equation}			
+	Neporušená energie základního stavu soustavy dvou bosonů je
+	\begin{equation}
+		E_{0}^{\ti{B}(0)}
+			=2\hbar\Omega\left(0+\frac{1}{2}\right)
+			=\hbar\Omega
+	\end{equation}
+	Oprava k energii základního stavu podle poruchové teorie~\eqref{eq:Perturbation1} je\footnote{
+		Transformace k proměnným $X$, $x$ je speciálním případem přechodu k \emph{Jacobiho souřadnicím}\index{souřadnice!Jacobiho}
+		oddělujícím těžišťový a relativní pohyb.
+		Pro tři částice tato transformace zní
+        \begin{subequations}
+            \begin{align}
+                y_{12}&=x_{1}-x_{2}\\
+                y_{123}&=\frac{x_{1}+x_{2}}{2}-x_{3}\\
+                Y&=\frac{x_{1}+x_{2}+x_{3}}{3}
+            \end{align}                
+        \end{subequations}
+	}
+	\begin{align}
+		E_{0}^{\ti{B}(1)}
+			&=\iint\psi^{\ti{B}*}_{0}(x_{1},x_{2})\operator{H}_{\ti{I}}\psi_{0}^{\ti{B}}(x_{1},x_{2})\d x_{1}\d x_{2}=\nonumber\\
+			&=v\frac{M\Omega}{2\pi\hbar}\iint\e^{-\frac{M\Omega}{\hbar}\left(x_{1}^{2}+x_{2}^{2}\right)}
+				\e^{-\alpha\left(x_{1}-x_{2}\right)^{2}}\d x_{1}\d x_{2}=\nonumber\\
+			&=v\frac{M\Omega}{2\pi\hbar}\iint\e^{-\frac{M\Omega}{2\hbar}
+				\left[\left(x_{1}+x_{2}\right)^{2}+\left(x_{1}-x_{2}\right)^{2}\right]}
+				\e^{-\alpha\left(x_{1}-x_{2}\right)^{2}}\d x_{1}\d x_{2}=\nonumber\\
+			&=\equationcomment{X=\frac{x_{1}+x_{2}}{2} & \text{Jakobián} \\
+				x=x_{1}-x_{2} & \text{transformace je 1}}=\nonumber\\
+			&=v\frac{M\Omega}{2\pi\hbar}\int\e^{-\frac{2M\Omega}{\hbar}X^{2}}\d X
+				\int\e^{-\left(\frac{M\Omega}{2\hbar}+\alpha\right)x^{2}}\d x=\nonumber\\
+			&=v\frac{M\Omega}{2\pi\hbar}\sqrt{\frac{\pi\hbar}{2M\Omega}}
+				\sqrt{\frac{\pi}{\frac{M\Omega}{2\hbar}+\alpha}}=\nonumber\\
+			&=\frac{v}{2}\sqrt{\frac{M\Omega}{M\Omega+2\hbar\alpha}}.
+	\end{align} 
+\end{solution}

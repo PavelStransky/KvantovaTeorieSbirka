@@ -1,0 +1,24 @@
+\subsection{Redukovaný maticový element skalárního operátoru}
+	Určete redukovaný maticový element operátoru $\tensoroperator{S}{0}$.
+
+\begin{solution}
+	Z Wigner-Eckartova teorému~\eqref{eq:WignerEckart} vyplývá
+	\begin{equation}
+		\matrixelement{a,J\,M}{\tensoroperatorcomponent{S}{0}{0}}{b,j\,m}
+			=\frac{(-1)^{J-j}}{\sqrt{2J+1}}\underbrace{\clebsch{0}{0}{j}{m}{J}{M}}
+				_{\delta_{jJ}\delta_{mM}\text{ podle výsledku předchozí úlohy}}
+				\reducedmatrixelement{a,J}{\tensoroperator{S}{0}}{b,j}\,.
+	\end{equation}
+	Skalární operátor komutuje s $\vectoroperator{J}$, takže na levé straně rovnosti dostaneme
+	\begin{equation}
+		\matrixelement{a,J\,M}{\tensoroperatorcomponent{S}{0}{0}}{b,j\,m}=f(a,b)\delta_{jJ}\delta_{mM}\,,
+	\end{equation}
+	kde $f(a,b)\equiv\matrixelement{a}{\tensoroperatorcomponent{S}{0}{0}}{b}$ je funkce \uv{nerotačních} kvantových čísel 
+	$a,b$.
+	Srovnáním obou rovností dostaneme
+	\begin{equation}
+		\boxed{
+			\reducedmatrixelement{a,J}{\tensoroperator{S}{0}}{b,j}=f(a,b)\delta_{Jj}\sqrt{2J+1}\,.
+		}
+	\end{equation}
+\end{solution}

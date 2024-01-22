@@ -1,0 +1,64 @@
+\subsection{Maticová realizace operátoru momentu hybnosti}
+	Nalezněte maticovou realizaci operátoru $\vectoroperator{J}$ pro částici se spinem $j=\frac{3}{2}$.
+	
+\begin{solution}
+	Hilbertův prostor všech stavů je čtyřrozměrný a jeho bázi tvoří vektory $\ket{\frac{3}{2}\,m}$, kde $m\in\left\{-\frac{3}{2},-\frac{1}{2},\frac{1}{2},\frac{3}{2}\right\}$.
+	Operátory $\operator{J}_{j}$ budou tedy realizovány maticemi $4\times4$.
+	Stavy $\ket{\frac{3}{2}\,m}$ se přiřadí k vektorům
+	\begin{subequations}
+		\begin{align}
+			\ket{\frac{3}{2},\frac{3}{2}}&\equiv\makematrix{1 \\ 0 \\ 0 \\ 0} 
+			& \ket{\frac{3}{2},\frac{1}{2}}&\equiv\makematrix{0 \\ 1 \\ 0 \\ 0} \\ 
+			\ket{\frac{3}{2},-\frac{1}{2}}&\equiv\makematrix{0 \\ 0 \\ 1 \\ 0} 
+			& \ket{\frac{3}{2},-\frac{3}{2}}&\equiv\makematrix{0 \\ 0 \\ 0 \\ 1}\,.
+		\end{align}
+	\end{subequations}	
+	Jelikož $\operator{J}_{3}\ket{j\,m}=m\ket{j\,m}$, matice $\matrix{J}_{3}$ bude diagonální, přičemž na diagonále budou vlastní hodnoty $m$:
+	\begin{equation}
+		\matrix{J}_{3}
+			=\makematrix{\frac{3}{2} & 0 & 0 & 0 \\
+				0 & \frac{1}{2} & 0 & 0 \\
+				0 & 0 & -\frac{1}{2} & 0 \\
+				0 & 0 & 0 & -\frac{3}{2}}\,.
+	\end{equation}
+	Pro výpočet $\matrix{J}_{1}$ a $\matrix{J}_{2}$ se využijeme vlastností operátorů $\operator{J}_{\pm}\equiv\operator{J}_{1}\pm\im\operator{J}_{2}$~\eqref{eq:AngularMomentumShiftOperator}:
+	\begin{subequations}
+	\begin{equation}
+		\matrix{J}_{-}\makematrix{1 \\ 0 \\ 0 \\ 0}
+			=\alpha^{(-)}\left(\frac{3}{2},\frac{3}{2}\right)\makematrix{0 \\ 1 \\ 0 \\ 0}
+			=\sqrt{\frac{3}{2}\left(\frac{3}{2}+1\right)-\frac{3}{2}\left(\frac{3}{2}-1\right)}\makematrix{0 \\ 1 \\ 0 \\ 0}
+			=\sqrt{3}\makematrix{0 \\ 1 \\ 0 \\ 0},
+	\end{equation}
+	a podobně
+	\begin{align}
+		\matrix{J}_{-}\makematrix{0 \\ 1 \\ 0 \\ 0}
+			&=\alpha^{(-)}\left(\frac{3}{2},\frac{1}{2}\right)\makematrix{0 \\ 0 \\ 1 \\ 0}
+			=2\makematrix{0 \\ 0 \\ 1 \\ 0}\,,\\
+		\matrix{J}_{-}\makematrix{0 \\ 0 \\ 1 \\ 0}
+			&=\alpha^{(-)}\left(\frac{3}{2},-\frac{1}{2}\right)\makematrix{0 \\ 0 \\ 0 \\ 1}
+			=\sqrt{3}\makematrix{0 \\ 0 \\ 0 \\ 1},
+	\end{align}		
+	\end{subequations}
+	takže
+	\begin{align}
+		\matrix{J}_{-}
+			&=\makematrix{0 & 0 & 0 & 0 \\ \sqrt{3} & 0 & 0 & 0 \\ 0 & 2 & 0 & 0 \\ 0 & 0 & \sqrt{3} & 0},
+		&\matrix{J}_{+}
+			&=\matrix{J}_{-}^{\dagger}
+			 =\makematrix{0 & \sqrt{3} & 0 & 0 \\ 0 & 0 & 2 & 0 \\ 0 & 0 & 0 & \sqrt{3} \\ 0 & 0 & 0 & 0}
+	\end{align}
+	a z inverzních vztahů k definici $\operator{J}_{\pm}$ se dostane
+	\begin{subequations}
+		\begin{align}
+			\matrix{J}_{1}=\frac{\matrix{J}_{+}+\matrix{J}_{-}}{2}
+				&=\frac{1}{2}\makematrix{0 & \sqrt{3} & 0 & 0 \\ \sqrt{3} & 0 & 2 & 0 
+					\\ 0 & 2 & 0 & \sqrt{3} \\ 0 & 0 & \sqrt{3} & 0}\,,\\
+			\matrix{J}_{2}=\frac{\matrix{J}_{+}-\matrix{J}_{-}}{2\im}
+				&=\frac{\im}{2}\makematrix{0 & -\sqrt{3} & 0 & 0 \\ 
+					\sqrt{3} & 0 & -2 & 0 \\ 0 & 2 & 0 & -\sqrt{3} \\ 0 & 0 & \sqrt{3} & 0}\,.
+		\end{align}
+	\end{subequations}
+	Přímým výpočtem se lze přesvědčit, že tyto matice splňují komutační relace pro impulsmoment
+	$\commutator{\matrix{J}_{j}}{\matrix{J}_{k}}=\im\epsilon_{jkl}\matrix{J}_{l}$.
+	Jedná se o čtyřrozměrnou reprezentaci rotační grupy $\group{SO}(3)$.
+\end{solution}

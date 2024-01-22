@@ -1,0 +1,195 @@
+\subsection{Ramseyův přístroj pro spin 1}
+	Částice se spinem $1$ a velikostí magnetického momentu $\mu$, popsaná vlnovou funkcí
+	\begin{equation}
+		\ket{\psi(t)}=\psi_{+1}(t)\ket{+1}+\psi_{0}(t)\ket{0}+\psi_{-1}(t)\ket{-1}=\makematrix{\psi_{+1}(t) \\ \psi_{0}(t) \\ \psi_{-1}(t)},
+	\end{equation}
+	kde dolní index určuje projekci spinu na osu $z$,
+	se pohybuje v zařízení složeném ze tří oblastí.
+	V~první oblasti (1. Ramseyova oblast) je zapnuté magnetické pole složené ze stacionární složky $\vector{B}_{0}$ směřující podél osy $z$ 
+	a rotující složky $\vector{B}_{1}(t)$ v rovině $(x,y)$,
+	\begin{align}
+		\vector{B}_{0}&=(0,0,B_{0}),&
+		\vector{B}_{1}(t)&=(B_{1}\cos{\omega t},-B_{1}\sin{\omega t},0),
+	\end{align}
+	a částice v ní stráví dobu dobu $\tau$.
+	V druhé oblasti je rotující pole vypnuto a po dobu $T$ se částice pohybuje pouze ve stacionárním poli $\vector{B}_{0}$.
+	Poté (2. Ramseyova oblast) je rotující pole zapnuto, a to opět na dobu $\tau$.
+	
+	\begin{enumerate}
+	\item
+		Matice generující rotace částice se spinem $1$ jsou $\matrix{S}_{j}^{(1)}=\hbar\matrix{s}_{j}$, kde
+		\begin{align}
+			\matrix{s}_{1}&=\frac{1}{\sqrt{2}}\makematrix{0 & 1 & 0 \\ 1 & 0 & 1 \\ 0 & 1 & 0}\,, &
+			\matrix{s}_{2}&=\frac{1}{\sqrt{2}}\makematrix{0 & -\im & 0 \\ \im & 0 & -\im \\ 0 & \im & 0}\,, &
+			\matrix{s}_{3}&=\makematrix{1 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & -1}\,.
+		\end{align}
+		Ukažte, že tyto matice splňují komutační relace pro moment hybnosti
+		\begin{equation}
+			\commutator{\matrix{s}_{j}}{\matrix{s}_{k}}=\im\epsilon_{jkl}\matrix{s}_{l}\,.
+		\end{equation}
+		(Matice $\matrix{s}_{j}$ jsou analogické k Pauliho maticím $\matrix{\sigma}_{j}$ popisujícím částici se spinem $1/2$ a tvoří generátory jednorozměrné ireducibilní reprezentace grupy $\group{SO}(3)$.)
+		
+	\item
+		Dokažte, že pro matice $\matrix{s}_{j}$ platí $\matrix{s}_{j}^{n+2}=\matrix{s}_{j}^{n}$, 
+		kde $n\in\mathbb{N}$, a na základě tohoto vztahu vyjádřete exponenciálu
+		\begin{equation}
+			\label{eq:ExpS1}
+			\e^{\im\phi\left(\vector{\hat{n}}\cdot\vector{\matrix{s}}\right)}=?
+		\end{equation}
+		kde $\vector{\hat{n}}$ je jednotkový vektor určující osu rotace, okolo které se systém otočí o úhel $\phi$, a
+		\begin{equation}
+			\vector{\hat{n}}\cdot\vector{\matrix{s}}\equiv\hat{n}_{1}\matrix{s}_{1}+\hat{n}_{2}\matrix{s}_{2}+\hat{n}_{3}\matrix{s}_{3}\,.
+		\end{equation}
+		
+	\item
+		Vyjádřete složky evolučního operátoru
+		\begin{equation}
+			\matrix{U}(t)=\e^{\im\omega t\matrix{s}_{3}}\e^{-\im\Omega t\left(\vector{\hat{n}}_{\Omega}\cdot\vector{\matrix{s}}\right)},
+		\end{equation}
+		kde
+		\begin{align}
+			\Omega&=\sqrt{(\omega-\omega_{0})^{2}+\omega_{1}^{2}}\,, &
+			\vector{\hat{n}}_{\Omega}&=\frac{1}{\Omega}\makematrix{-\omega_{1} \\ 0 \\ \omega-\omega_{0}}\,, &
+			\omega_{0,1}&=\frac{2\mu}{\hbar}B_{0,1}\,.
+		\end{align}
+		
+	\item
+		Vyjádřete složky evolučního operátoru $\matrix{U}(t;t_{0})$, který vyvíjí systém z času $t_{0}$ do času $t$.
+		
+	\item
+		Vyjádřete složky evolučního operátoru $\matrix{U}_{0}(\tau+T;\tau)$ oblasti, kde je vypnuté pole $\vector{B}_{1}$.
+			
+	\item
+		Proces průchodu zařízením složeným z dvou Ramseyových oblastí s mezioblastí s vypnutým polem $B_{1}$ je dán evolučním operátorem
+		\begin{equation}
+			\matrix{U}_{F}=\matrix{U}(2\tau+T;\tau+T)\matrix{U}_{0}(\tau+T;\tau)\matrix{U}(\tau;0)\,.
+		\end{equation}
+		Vyjádřete složky evolučního operátoru $\matrix{U}_{F}^{\ti{rez}}$ pro speciální případ $\omega=\omega_{0}$ (frekvence oscilujícího magnetického pole $\vector{B}_{1}$ je v rezonanci s Larmorovou frekvencí $\omega_{0}$).
+		
+	\item
+		Vypočítejte matici $\matrix{P}^{\ti{rez}}$ se složkami $P^{\ti{rez}}_{fi}$,
+		které udávají pravděpodobnosti, že systém připravený na před vstupem do přístroje ve stavu 
+		s projekcí spinu na osu $z$ rovnou $i\in\{+1,0,-1\}$, 
+		naměříme po průchodu zařízením ve stavu s projekcí spinu $f\in\{+1,0,-1\}$.	
+	\end{enumerate}
+
+\begin{solution}
+	\begin{enumerate}
+	\item
+		Důkaz se provede prostým dosazením.
+		
+	\item
+		Vztah $\matrix{s}_{j}^{n+2}=\matrix{s}_{j}^{n}$ se dokáže dosazením.
+		Pro mocniny matice $\vector{\hat{n}}\cdot\vector{\matrix{s}}$ platí
+		\begin{subequations}
+			\begin{align}
+				\vector{\hat{n}}\cdot\vector{\matrix{s}}
+					&=\makematrix{n_{3} & \frac{1}{\sqrt{2}}\left(n_{1}-\im n_{2}\right) & 0 
+					\\ \frac{1}{\sqrt{2}}\left(n_{1}+\im n_{2}\right) & 0 & \frac{1}{\sqrt{2}}\left(n_{1}-\im n_{2}\right) 
+					\\ 0 & \frac{1}{\sqrt{2}}\left(n_{1}+\im n_{2}\right) & -n_{3}},\\
+				\left(\vector{\hat{n}}\cdot\vector{\matrix{s}}\right)^{2}			
+					&=\makematrix{\frac{1}{2}\left(n_{1}^{2}+n_{2}^{2}\right)+n_{3}^{2} & \frac{n_{3}}{\sqrt{2}}\left(n_{1}-\im n_{2}\right) & \frac{1}{2}\left(n_{1}^{2}-n_{2}^{2}-2\im n_{1}n_{2}\right) \\
+					\frac{n_{3}}{\sqrt{2}}\left(n_{1}+\im n_{2}\right) & n_{1}^{2}+n_{2}^{2} & -\frac{n_{3}}{\sqrt{2}}\left(n_{1}-\im n_{2}\right) \\
+					\frac{1}{2}\left(n_{1}^{2}-n_{2}^{2}+2\im n_{1}n_{2}\right) & -\frac{n_{3}}{\sqrt{2}}\left(n_{1}+\im n_{2}\right) & \frac{1}{2}\left(n_{1}^{2}+n_{2}^{2}\right)+n_{3}^{2}},\\
+				\left(\vector{\hat{n}}\cdot\vector{\matrix{s}}\right)^{3}
+					&=\makematrix{n_{3} & \frac{1}{\sqrt{2}}\left(n_{1}-\im n_{2}\right) & 0 
+					\\ \frac{1}{\sqrt{2}}\left(n_{1}+\im n_{2}\right) & 0 & \frac{1}{\sqrt{2}}\left(n_{1}-\im n_{2}\right) 
+					\\ 0 & \frac{1}{\sqrt{2}}\left(n_{1}+\im n_{2}\right) & -n_{3}}=\vector{\hat{n}}\cdot\vector{\matrix{s}},
+			\end{align}				
+		\end{subequations}
+		a tedy
+		\begin{subequations}
+			\begin{align}
+				\left(\vector{\hat{n}}\cdot\vector{\matrix{s}}\right)^{2j+1}
+					&=\vector{\hat{n}}\cdot\vector{\matrix{s}},\\
+				\left(\vector{\hat{n}}\cdot\vector{\matrix{s}}\right)^{2j}
+					&=\left(\vector{\hat{n}}\cdot\vector{\matrix{s}}\right)^{2},
+			\end{align}				
+		\end{subequations}
+		kde $j\in\mathbb{N}$.
+		Rozvinutí exponenciály do řady pak vede po úpravách na hledaný výsledek\sfootnote{Viz též příklady 9.3 a 9.28 ve sbírce~\cite{Capri2002}.}
+		\begin{align}
+			\e^{\im\phi\left(\vector{\hat{n}}\cdot\matrix{s}\right)}
+				&=\sum_{j=0}^{\infty}\frac{\left(\im\phi\right)^{j}}{j!}\left(\vector{\hat{n}}\cdot\vector{\matrix{s}}\right)^{j}\nonumber\\
+				&=\matrix{1}+\sum_{j=0}^{\infty}\frac{\left(\im\phi\right)^{2j+1}}{(2j+1)!}\left(\vector{\hat{n}}\cdot\vector{\matrix{s}}\right)^{2j+1}
+					+\sum_{j=1}^{\infty}\frac{\left(\im\phi\right)^{2j}}{(2j)!}\left(\vector{\hat{n}}\cdot\vector{\matrix{s}}\right)^{2j}\nonumber\\
+				&=\matrix{1}+\im\sum_{j=0}^{\infty}\frac{(-1)^{j}\phi^{2j+1}}{(2j+1)!}\left(\vector{\hat{n}}\cdot\vector{\matrix{s}}\right)
+					+\sum_{j=1}^{\infty}\frac{(-1)^{j}\phi^{2j}}{(2j)!}\left(\vector{\hat{n}}\cdot\vector{\matrix{s}}\right)^{2}\nonumber\\
+				&=\matrix{1}+\im\left(\vector{\hat{n}}\cdot\vector{\matrix{s}}\right)\sin{\phi}+\left(\vector{\hat{n}}\cdot\vector{\matrix{s}}\right)^{2}\left(\cos{\phi}-1\right).
+		\end{align}
+		
+	\item
+		Složky evolučního operátoru $\matrix{U}(t)$ se dostanou ze vzorce~\eqref{eq:RamseyU1} dosazením $t_{0}=0$.
+		
+	\item
+		Postup je zcela stejný jako v příkladu~\ref{sec:Ramsey}.
+		Vychází se ze vztahu~\eqref{eq:ExpS1}, což vede na
+		\begin{subequations}
+			\begin{align}
+				U_{11}(t;t_{0})&=\left[1-\im\frac{\Delta\omega}{\Omega}\sin{\Omega\left(t-t_{0}\right)}
+					-\left(\frac{2\Delta\omega^{2}}{\Omega^{2}}+\frac{\omega_{1}^{2}}{\Omega^{2}}\right)
+					\sin^{2}{\frac{\Omega\left(t-t_{0}\right)}{2}}\right]\e^{\im\omega\left(t-t_{0}\right)},\\
+				U_{12}(t;t_{0})&=\frac{\omega_{1}}{\sqrt{2}\Omega}\left[\im\sin{\Omega\left(t-t_{0}\right)}
+					+\frac{2\Delta\omega}{\Omega}\sin^{2}{\frac{\Omega\left(t-t_{0}\right)}{2}}\right]\e^{\im\omega t},\\
+				U_{13}(t;t_{0})&=-\frac{\omega_{1}^{2}}{\Omega^{2}}\sin^{2}{\frac{\Omega\left(t-t_{0}\right)}{2}}
+					\e^{\im\omega\left(t+t_{0}\right)},\\
+				U_{21}(t;t_{0})&=\frac{\omega_{1}}{\sqrt{2}\Omega}\left[\im\sin{\Omega\left(t-t_{0}\right)}
+					+\frac{2\Delta\omega}{\Omega}\sin^{2}{\frac{\Omega\left(t-t_{0}\right)}{2}}\right]\e^{-\im\omega t_{0}},\\
+				U_{22}(t;t_{0})&=1-\frac{\omega_{1}^{2}}{\Omega^{2}}\sin^{2}{\frac{\Omega\left(t-t_{0}\right)}{2}},\\
+				U_{23}(t;t_{0})&=\frac{\omega_{1}}{\sqrt{2}\Omega}\left[\im\sin{\Omega\left(t-t_{0}\right)}
+					-\frac{2\Delta\omega}{\Omega}\sin^{2}{\frac{\Omega\left(t-t_{0}\right)}{2}}\right]\e^{\im\omega t_{0}},\\
+				U_{31}(t;t_{0})&=-\frac{\omega_{1}^{2}}{\Omega^{2}}\sin^{2}{\frac{\Omega\left(t-t_{0}\right)}{2}}
+					\e^{-\im\omega\left(t+t_{0}\right)},\\
+				U_{32}(t;t_{0})&=\frac{\omega_{1}}{\sqrt{2}\Omega}\left[\im\sin{\Omega\left(t-t_{0}\right)}
+					-\frac{2\Delta\omega}{\Omega}\sin^{2}{\frac{\Omega\left(t-t_{0}\right)}{2}}\right]\e^{-\im\omega t},\\
+				U_{33}(t;t_{0})&=\left[1+\im\frac{\Delta\omega}{\Omega}\sin{\Omega\left(t-t_{0}\right)}
+					-\left(\frac{2\Delta\omega^{2}}{\Omega^{2}}+\frac{\omega_{1}^{2}}{\Omega^{2}}\right)
+					\sin^{2}{\frac{\Omega\left(t-t_{0}\right)}{2}}\right]\e^{-\im\omega\left(t-t_{0}\right)},
+			\end{align}
+			\label{eq:RamseyU1}
+		\end{subequations}
+	\item
+		Dosazení $\omega_{1}=0$ do~\eqref{eq:RamseyU1} dává
+		\begin{equation}
+			\matrix{U}_{0}(\tau+T;\tau)=\makematrix{\e^{\im\omega_{0}T} & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & \e^{-\omega_{0}T}}
+		\end{equation}
+	
+	\item
+		V rezonančním případě $\omega=\omega_{0}$ je $\Delta\omega=0$ a $\Omega=\omega_{1}$, čímž se~\eqref{eq:RamseyU1} zjednoduší na
+		\begin{align}
+			\matrix{U}^{\ti{rez}}(t;t_{0})
+				&=\makematrix{\e^{\im\omega\left(t-t_{0}\right)}\cos^{2}{\frac{\omega_{1}\left(t-t_{0}\right)}{2}}
+					& \frac{\im}{\sqrt{2}}\e^{\im\omega t}\sin{\omega_{1}\left(t-t_{0}\right)}
+					& -\e^{\im\omega\left(t+t_{0}\right)}\sin^{2}{\frac{\omega_{1}\left(t-t_{0}\right)}{2}}
+					\\ \frac{\im}{\sqrt{2}}\e^{-\im\omega t_{0}}\sin{\omega_{1}\left(t-t_{0}\right)}
+					& \cos{\omega_{1}\left(t-t_{0}\right)}
+					& \frac{\im}{\sqrt{2}}\e^{\im\omega t_{0}}\sin{\omega_{1}\left(t-t_{0}\right)}
+					\\ -\e^{-\im\omega\left(t+t_{0}\right)}\sin^{2}{\frac{\omega_{1}\left(t-t_{0}\right)}{2}}
+					& \frac{\im}{\sqrt{2}}\e^{-\im\omega t}\sin{\omega_{1}\left(t-t_{0}\right)}
+					& \e^{-\im\omega\left(t-t_{0}\right)}\cos^{2}{\frac{\omega_{1}\left(t-t_{0}\right)}{2}}}
+		\end{align}
+		a matice celkového evolučního operátoru pak získá tvar
+		\begin{equation}
+			\matrix{U}_{F}^{\ti{rez}}
+				=\makematrix{\e^{\im\omega(2\tau+T)}\cos^{2}{\omega_{1}\tau} & \frac{\im}{\sqrt{2}}\e^{\im\omega(2\tau+T)}\sin{2\omega_{1}\tau} & -\e^{\im\omega(2\tau+T)}\sin^{2}{\omega_{1}\tau} \\
+					\frac{\im}{\sqrt{2}}\sin{2\omega_{1}\tau} & \cos{2\omega_{1}\tau} & \frac{\im}{\sqrt{2}}\sin{2\omega_{1}\tau} \\
+					-\e^{-\im\omega(2\tau+T)}\sin^{2}{\omega_{1}\tau} & \frac{\im}{\sqrt{2}}\e^{-\im\omega(2\tau+T)}\sin{2\omega_{1}\tau} & \e^{-\im\omega(2\tau+T)}\cos^{2}{\omega_{1}\tau}}\,.			
+		\end{equation}
+
+	\item
+		Matice pravděpodobností v rezonančním případě má složky
+		\begin{equation}
+			\matrix{P}^{\ti{rez}}=\makematrix{\cos^{4}{\omega_{1}\tau} & \frac{1}{2}\sin^{2}{2\omega_{1}\tau} & \sin^{4}{\omega_{1}\tau} \\
+				\frac{1}{2}\sin^{2}{2\omega_{1}\tau} & \cos^{2}{2\omega_{1}\tau} & \frac{1}{2}\sin^{2}{2\omega_{1}\tau} \\
+				\sin^{4}{\omega_{1}\tau} & \frac{1}{2}\sin^{2}{2\omega_{1}\tau} & \cos^{4}{\omega_{1}\tau}}\,.
+		\end{equation}
+		
+		Při speciálním naladění frekvence $\omega_{1}$ a doby $\tau$ vychází podobně jako v Ramseyově přístroji pro spin $\frac{1}{2}$~\eqref{eq:RamseyPS}
+			\begin{align}
+				\omega_{1}\tau&=k\pi & \matrix{P}^{\ti{rez}}&=\makematrix{1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1} && \textrm{-- spin projde bez změny}\nonumber\\
+				\omega_{1}\tau&=\left(k+\frac{1}{2}\right)\pi & \matrix{P}^{\ti{rez}}&=\makematrix{0 & 0 & 1 \\ 0 & 1 & 0 \\ 1 & 0 & 0} && \textrm{-- $100\%$ pravděpodobnost překlopení spinu}\nonumber\\
+				\omega_{1}\tau&=\frac{1}{2}\left(k+\frac{1}{2}\right)\pi & \matrix{P}^{\ti{rez}}&=\makematrix{\frac{1}{4} & \frac{1}{2} & \frac{1}{4} \\ \frac{1}{2} & 0 & \frac{1}{2} \\ \frac{1}{4} & \frac{1}{2} & \frac{1}{4}} &&
+			\end{align}			
+			kde $k\in\mathbb{Z}$.
+    \end{enumerate}	
+\end{solution}
