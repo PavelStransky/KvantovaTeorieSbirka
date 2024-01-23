@@ -261,3 +261,6 @@ TSWLatexianTemp*
 
 # standalone packages
 *.sta
+
+!Sbirka.pdf
+!Ukoly.pdf

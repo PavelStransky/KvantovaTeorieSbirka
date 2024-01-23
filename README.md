@@ -1,2 +1,2 @@
-# Sbirka
- Sbírka příkladů z kvantové mechaniky
+# Sbírka
+ Sbírka řešených příkladů ke cvičení Kvantová teorie (MFF UK)
