@@ -33,11 +33,11 @@
 
 \graphicspath{{figures/}}
 
-%\usepackage{showlabels}                 %% Temporarily show the names of labels
+%\usepackage{showlabels}                 %% Zobrazí názvy pojmenovaných objektů (label)
 %\renewcommand{\showlabelfont}{\tiny\bfseries\color{black}}
 
 \usepackage{mathtools}
-%\mathtoolsset{showonlyrefs}            %% Remove equation number of unrefferenced equations
+%\mathtoolsset{showonlyrefs}            %% Odstraní čísla rovnic, na které není v textu nikde odkazováno
 
 \usepackage[unicode]{hyperref}			%% Hypertextové odkazy
 \hypersetup{
@@ -51,8 +51,13 @@
 	filecolor=magenta
 }
 
+\input{LaTeX_defs/defs}
+
+%% Zkopíruje soubor s referencemi (pokud existuje)
+\filecopy{S:/Fyzika/Bibliography/References.bib}{Global.bib}
+
 \usepackage[sorting=none,style=phys]{biblatex}
-\addbibresource{S:/Fyzika/Bibliography/References.bib}
+\addbibresource{Global.bib}
 \addbibresource{References.bib}
 
 % Velikost stránky
@@ -69,34 +74,15 @@
 
 \pagestyle{fancy}
 
-\input{LaTeX_defs/defs}
-
-%\excludecomment{solution}
-%\includecomment{note}
-
-% Homework - části, které jsou (byly) za domácí úkol, a proto by se neměly vyskytnout ve sbírce
-% \newenvironment{homework}{}{}
-% \excludecomment{homework}
-
-% homeworknote - části, které jsou navázané na řešení; část s domácím úkolem; vzájemně exklusivní s prostředním homework
-% \newenvironment{homeworknote}{}{}
-
 % 0 pro číslování stránek průběžné
 % 1 pro číslování stránek po sekcích
 \def\secpage{1}
 
 \includecomment{theory}
 
-% solution - část s řešením
-%\excludecomment{solution}
-%\excludecomment{theory}
-
 \newenvironment{solution}{\begin{addmargin}{0.5cm}\color{gray}\subsubsection*{Řešení:}\small}{\end{addmargin}\vspace*{0.3cm}}
-
 \newenvironment{example}{\textbf{\textit{Příklad:}}}{}
-
 \newenvironment{note}[1][]{\vspace*{0.2cm}\noindent\textbf{\textit{\ifthenelse{\isempty{#1}}{Poznámka: }{#1}}}}{}
-%\newenvironment{theory}{}{}
 
 \def\sec#1{\subsubsection*{#1}}
 \def\sfootnote#1{\footnote{\color{gray}#1}}
@@ -106,7 +92,6 @@
 \ifthenelse{\equal{\secpage}{1}}
 	{\newcommand{\np}{\clearpage\setcounter{page}{1}\newpage}}
 	{\newcommand{\np}{\clearpage\newpage}}
-%\newcommand{\np}{}\newcommand{\minput}[1]{\input{#1}}
 
 \makeindex
 
@@ -122,7 +107,7 @@
 %\@addtoreset{page}{section}
 \makeatother
 
-\title{Cvičení k přednášce Kvantová teorie}
+\title{Sbírka úloh pro cvičení k přednášce Kvantová teorie}
 \date{\today}
 \author{Pavel Stránský}
 
@@ -141,7 +126,7 @@ Většina příkladů klade spíše důraz na technickou stránku věci, což od
 Příklady byly převzaty či adaptovány z různých sbírek či zdrojů na webu.
 Zmínil bych zde zejména publikace Antona Capriho~\cite{Capri2002}, Jeana-Luise Basdevanta a Jeana Dalibarda~\cite{Basdevant2000}, Kyriakose Tamvakise\cite{Tamvakis2005} a cvičení k alternující přednášce Martina Čížka~\cite{CizekWWW1,CizekWWW2}.
 
-Chtěl bych zde poděkovat všem studentům, kteří mi byli během cvičení kolegy a partnery a bez nichž by tato sbírka nevznikla. 
+Chtěl bych zde poděkovat všem studentům, kteří mi byli během cvičení kolegy a partnery a bez nichž by tato sbírka nevznikla.
 Speciální poděkování patří pak těm, kteří mi pomohli vyladit řešení jednotlivých příkladů a odstranit množství chyb a překlepů.
 
 \np
@@ -155,7 +140,6 @@ Speciální poděkování patří pak těm, kteří mi pomohli vyladit řešení
 
 \input{SkladaniMomentuHybnosti/SkladaniMomentuHybnosti}\np
 \input{DeltaFunkce/DeltaFunkce}\np
-%\input{DeltaFunkce/DeltaFunkce2}\np
 
 \input{KoherentniStavy/KoherentniStavy}\np
 \input{CasovyVyvoj/CasovyVyvoj}\np
@@ -165,8 +149,6 @@ Speciální poděkování patří pak těm, kteří mi pomohli vyladit řešení
 
 \input{NestacionarniPT/NestacionarniPT}\np
 \input{Rozptyl/Rozptyl}\np
-
-%\setcounter{section}{15}
 
 \input{TenzoroveOperatory/TenzoroveOperatory}\np
 \input{NerozlisitelneCastice/NerozlisitelneCastice}\np
@@ -184,8 +166,6 @@ Speciální poděkování patří pak těm, kteří mi pomohli vyladit řešení
 
 \printindex
 
-%\bibliography{Z:/Share/Fyzika/Bibliography/References.bib}
 \printbibliography
-%\input{refs}
 
 \end{document}
