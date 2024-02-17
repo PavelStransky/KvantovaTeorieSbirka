@@ -68,7 +68,7 @@
 
 \newcommand{\exercise}[2][]{\ifthenelse{\isempty{#1}}
 	{\np\section{#2}}
-	{\np\section{#2}\small{\it{(termín odevzdání: {#1})}\newline}}
+	{\np\section[#2]{{#2} \small{\it{(termín odevzdání: {#1})}}}}
 }
 
 \begin{document}
@@ -563,6 +563,89 @@
         \emph{Nápověda:} Napočítejte matici evolučního operátoru pro $N=2$ a $N=3$ a \uv{uhodněte} její tvar pro obecné $N$.
     \end{enumerate}
 
+\exercise[14.3.2024]{Dvouhladinový systém s periodickou poruchou}
+\label{sec:TwoLevelTD}
+    Dvouhladinový systém je popsaný Hamiltoniánem
+    \begin{align*}
+        \operator{H}(t)
+            &=\operator{H}_{0}+\operator{H}_{\ti{I}}(t),\\
+        \operator{H}_{0}
+            &=\makematrix{E_{1}^{\hi{0}} & 0 \\ 0 & E_{2}^{\hi{0}}}
+                \equiv E_{1}^{\hi{0}}\ket{\phi_{1}}\bra{\phi_{1}}
+                +E_{2}^{\hi{0}}\ket{\phi_{2}}\bra{\phi_{2}},\\
+        \operator{H}_{\ti{I}}(t)
+            &\equiv \Theta(t)\makematrix{0 & \gamma\e^{\im\omega t} \\ \gamma\e^{-\im\omega t} & 0}
+                =\Theta(t)\left[\gamma\e^{\im\omega t}\ket{\phi_{1}}\bra{\phi_{2}}
+                    +\gamma\e^{-\im\omega t}\ket{\phi_{2}}\bra{\phi_{1}}\right],
+    \end{align*}
+    přičemž operátor $\operator{H}_{\ti{I}}(t)$ představuje periodickou poruchu, která je zapnuta v čase $t_{0}=0$ (formálně zapsáno pomocí Heavisideovy skokové funkce $\Theta$), $\gamma$ je reálný parametr, který určuje sílu poruchy, a $E_{1,2}^{(0)}$ jsou neporušené energie.
+
+    Před zapnutím poruchy v čase $t\leq0$ je systém ve stavu $\ket{\phi_{i}}\equiv\ket{\phi_{1}}=\makematrix{1\\0}$.
+
+    \begin{enumerate}
+    \item 
+        Spočítejte neporuchově pravděpodobnost $\mathcal{P}_{1\rightarrow2}(t)$, že systém v čase v čase $t>0$ přejde do stavu $\ket{\phi_{2}}$.
+        Vzorec, který dostanete, se nazývá \emph{Rabiho formule}.
+
+        \item 
+            Řešte totéž do druhého řádu nestacionární poruchové teorie a získanou pravděpodobnost srovnejte s přesným řešením.
+            Za jaké podmínky toto přibližné řešení dobře aproximuje přesný výsledek?
+
+        \item 
+            Za jaké podmínky lze v čase $t>0$ naměřit systém ve stavu $\ket{\phi_{2}}$ s pravděpodobností jedna?
+    \end{enumerate}
+            
+\exercise[11.4.2024]{Rozptyl na $\frac{1}{r^{2}}$ potenciálu}
+    Uvažujte rozptyl částice o hmotnosti $M$ na potenciálu
+    \begin{equation*}
+        V(r)=\frac{v}{r^{2}},
+    \end{equation*}
+    kde parametr $v$ může být kladný (pro odpudivou sílu) nebo záporný (pro sílu přitažlivou).
+    
+    \begin{itemize}
+        \item 
+            Řešením Schrödingerovy rovnice nalezněte vlnovou funkci pro energii $E>0$.
+            
+        \item
+            Spočítejte fázové posunutí $\delta_{l}(k)$ $l$-té parciální vlny 
+            a načrtněte jeho závislost na $k$ (nebo na energii $E$).
+            
+        \item
+            Nalezněte totální účinný průřez pro $l$-tou parciální vlnu $\sigma_{l}(k)$.
+            Diskutujte fyzikální příčinu skutečnosti, že pro $k\rightarrow0$ účinný průřez diverguje.
+    \end{itemize}    
+    
+\exercise[9.5.2024]{Interakce způsobená nerozlišitelností částic}
+    Uvažujte dvě bezspinové volné nerozlišitelné částice o hmotnosti $M$ pohybující se na přímce.
+    Jejich vlnové funkce jsou dány gaussovskými balíky dobře lokalizovanými okolo bodů $-b$ a $+b$ (obrázek),
+    \begin{equation}
+        \psi_{\pm}(x)=\frac{1}{\sqrt[4]{\pi\sigma^{2}}}\e^{-\frac{1}{2\sigma^{2}}(x\mp b)^{2}},
+    \end{equation}
+    kde $\sigma\ll b$ určuje určuje šířku balíku.
+    
+    \begin{figure}[htbp!]
+        \centering
+        \includegraphics[width=0.5\linewidth]{Identical.png}
+    \end{figure}
+
+    \begin{enumerate}
+        \item 
+            Určete vlnovou funkci $\psi(x_{1},x_{2})$ systému těchto dvou nerozlišitelných částic a spočítejte její normalizaci.
+            Částice mohou být bosony nebo fermiony. 
+            Uvažujte oba dva případy.
+        
+        \item Spočítejte střední hodnotu energie systému dvou nerozlišitelných částic
+            \begin{equation}
+                E=\matrixelement{\psi}{\operator{H}}{\psi}=\int\psi^{*}(x_{1},x_{2})H\psi(x_{1},x_{2})\d x_{1}\d x_{2}.
+            \end{equation}
+
+        \item Spočítejte efektivní sílu
+            \begin{equation}
+                F\equiv-\frac{\partial E}{\partial b}.
+            \end{equation}
+            Bude tato síla přitažlivá nebo odpudivá a jak závisí na typu nerozlišitelných částic (bosony, fermiony)?
+    \end{enumerate}
+
 \appendix
 \chapter{Úkoly z dřívějších let}
 \exercise{Hladká konečně hluboká potenciálová jáma}
@@ -610,71 +693,6 @@
             z=-\sinh^{2}\frac{x}{a}\,.
         \end{equation*}	
 
-\exercise{Interakce způsobená nerozlišitelností částic}
-    Uvažujte dvě bezspinové volné nerozlišitelné částice o hmotnosti $M$ pohybující se na přímce.
-    Jejich vlnové funkce jsou dány gaussovskými balíky dobře lokalizovanými okolo bodů $-b$ a $+b$ (obrázek),
-    \begin{equation}
-        \psi_{\pm}(x)=\frac{1}{\sqrt[4]{\pi\sigma^{2}}}\e^{-\frac{1}{2\sigma^{2}}(x\mp b)^{2}},
-    \end{equation}
-    kde $\sigma\ll b$ určuje určuje šířku balíku.
-    
-    \begin{figure}[htbp!]
-        \centering
-        \includegraphics[width=0.5\linewidth]{Identical.png}
-    \end{figure}
-
-    \begin{enumerate}
-        \item 
-            Určete vlnovou funkci $\psi(x_{1},x_{2})$ systému těchto dvou nerozlišitelných částic a spočítejte její normalizaci.
-            Částice mohou být bosony nebo fermiony. 
-            Uvažujte oba dva případy.
-        
-        \item Spočítejte střední hodnotu energie systému dvou nerozlišitelných částic
-            \begin{equation}
-                E=\matrixelement{\psi}{\operator{H}}{\psi}=\int\psi^{*}(x_{1},x_{2})H\psi(x_{1},x_{2})\d x_{1}\d x_{2}.
-            \end{equation}
-
-        \item Spočítejte efektivní sílu
-            \begin{equation}
-                F\equiv-\frac{\partial E}{\partial b}.
-            \end{equation}
-            Bude tato síla přitažlivá nebo odpudivá a jak závisí na typu nerozlišitelných částic (bosony, fermiony)?
-    \end{enumerate}
-
-\exercise{Dvouhladinový systém s periodickou poruchou}
-\label{sec:TwoLevelTD}
-    Dvouhladinový systém je popsaný Hamiltoniánem
-    \begin{align*}
-        \operator{H}(t)
-            &=\operator{H}_{0}+\operator{H}_{\ti{I}}(t),\\
-        \operator{H}_{0}
-            &=\makematrix{E_{1}^{\hi{0}} & 0 \\ 0 & E_{2}^{\hi{0}}}
-                \equiv E_{1}^{\hi{0}}\ket{\phi_{1}}\bra{\phi_{1}}
-                +E_{2}^{\hi{0}}\ket{\phi_{2}}\bra{\phi_{2}},\\
-        \operator{H}_{\ti{I}}(t)
-            &\equiv \Theta(t)\makematrix{0 & \gamma\e^{\im\omega t} \\ \gamma\e^{-\im\omega t} & 0}
-                =\Theta(t)\left[\gamma\e^{\im\omega t}\ket{\phi_{1}}\bra{\phi_{2}}
-                    +\gamma\e^{-\im\omega t}\ket{\phi_{2}}\bra{\phi_{1}}\right],
-    \end{align*}
-    přičemž operátor $\operator{H}_{\ti{I}}(t)$ představuje periodickou poruchu, která je zapnuta v čase $t_{0}=0$ (formálně zapsáno pomocí Heavisideovy skokové funkce $\Theta$), $\gamma$ je reálný parametr, který určuje sílu poruchy, a $E_{1,2}^{(0)}$ jsou neporušené energie.
-
-    Před zapnutím poruchy v čase $t\leq0$ je systém ve stavu $\ket{\phi_{i}}\equiv\ket{\phi_{1}}=\makematrix{1\\0}$.
-
-    \begin{enumerate}
-    \item 
-        Spočítejte neporuchově pravděpodobnost $\mathcal{P}_{1\rightarrow2}(t)$, že systém v čase v čase $t>0$ přejde do stavu $\ket{\phi_{2}}$.
-        Vzorec, který dostanete, se nazývá \emph{Rabiho formule}.
-
-        \item 
-            Řešte totéž do druhého řádu nestacionární poruchové teorie a získanou pravděpodobnost srovnejte s přesným řešením.
-            Za jaké podmínky toto přibližné řešení dobře aproximuje přesný výsledek?
-
-        \item 
-            Za jaké podmínky lze v čase $t>0$ naměřit systém ve stavu $\ket{\phi_{2}}$ s pravděpodobností jedna?
-    \end{enumerate}
-        
-    \printbibliography
-
 \exercise{Stimulovaná emise}
     Atom vodíku popsaný Hamiltoniánem
     \begin{equation*}
@@ -704,26 +722,6 @@
             Jak se se tento směr liší podle hodnoty kvantového čísla $m$ v počátečním stavu?
     \end{enumerate}      
         
-\exercise{Rozptyl na $\frac{1}{r^{2}}$ potenciálu}
-    Uvažujte rozptyl částice o hmotnosti $M$ na potenciálu
-    \begin{equation*}
-        V(r)=\frac{v}{r^{2}},
-    \end{equation*}
-    kde parametr $v$ může být kladný (pro odpudivou sílu) nebo záporný (pro sílu přitažlivou).
-    
-    \begin{itemize}
-        \item 
-            Řešením Schrödingerovy rovnice nalezněte vlnovou funkci pro energii $E>0$.
-            
-        \item
-            Spočítejte fázové posunutí $\delta_{l}(k)$ $l$-té parciální vlny 
-            a načrtněte jeho závislost na $k$ (nebo na energii $E$).
-            
-        \item
-            Nalezněte totální účinný průřez pro $l$-tou parciální vlnu $\sigma_{l}(k)$.
-            Diskutujte fyzikální příčinu skutečnosti, že pro $k\rightarrow0$ účinný průřez diverguje.
-    \end{itemize}    
-
     \exercise[26.4.2022]{Magnetický moment}
 	Dva nezávislé impulsmomenty $\vectoroperator{L}$ (například orbitální moment hybnosti) a $\vectoroperator{S}$ (vnitřní spin systému) splňující $\commutator{\vectoroperator{L}}{\vectoroperator{S}}=0$ se složí na celkový impulsmoment
 	\begin{equation*}
