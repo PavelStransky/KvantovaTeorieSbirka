@@ -285,7 +285,7 @@
                 \left\langle\vector{E}^{2}\right\rangle
                     &=4\abs{A_{0}}^{2}\omega^{2}\left\langle\sin^{2}\left(\vector{\kappa}\cdot\vector{r}-\omega t\right)\right\rangle=2\abs{A_{0}}^{2}\omega^{2},\\
                 \left\langle\vector{B}^{2}\right\rangle
-                    &=2\abs{A_{0}}^{2}\kappa^{2}=2\abs{A_{0}}^{2}\omega^{2}.
+                    &=2\abs{A_{0}}^{2}\kappa^{2}=2\abs{A_{0}}^{2}\frac{\omega^{2}}{c^{2}}.
             \end{align}                
         \end{subequations}
 		To dává
@@ -359,12 +359,12 @@
 	\end{equation}
 	Tato funkce nabývá maxima pro $\phi=0$, tj. v rovině polarizace dopadající elektromagnetické vlny, a pro $\theta$ dané rovnicí
 	\begin{align}
-		\frac{\d}{\d\theta}\frac{\sin^{2}\theta}{\left(1-\frac{v}{c}\cos{\theta}\right)}
+		\frac{\d}{\d\theta}\frac{\sin^{2}\theta}{\left(1-\frac{v}{c}\cos{\theta}\right)^{4}}
 			&=0\nonumber\\
 		2\sin{\theta}\cos{\theta}\left(1-\frac{v}{c}\cos{\theta}\right)^{4}
 			-4\frac{v}{c}\sin^{2}\theta\sin{\theta}\left(1-\frac{v}{c}\cos{\theta}\right)^{3}
 			&=0\nonumber\\
-		2\cos{\theta}-2\frac{v}{c}\cos^{2}\theta-\frac{v}{c}\sin^{2}\theta
+		\cos{\theta}-\frac{v}{c}\cos^{2}\theta-2\frac{v}{c}\sin^{2}\theta
 			&=0
 	\end{align}
 	tj.
@@ -373,7 +373,7 @@
 			=\frac{-1\pm\sqrt{1+8\left(\frac{v}{c}\right)^{2}}}{2\frac{v}{c}}
 			\approx\frac{c}{2v}\left[-1\pm1\pm4\left(\frac{v}{c}\right)^{2}\right]
 			\approx\begin{cases}
-				{\displaystyle \frac{c}{v}} & \\ {\displaystyle 2\frac{v}{c}} &
+				{\displaystyle -\frac{c}{v}} & \\ {\displaystyle 2\frac{v}{c}} &
 			\end{cases}.
 	\end{equation}
 	První řešení nevyhovuje, neboť cosinus by musel být větší než 1, což pro reálné úhly $\theta$ nelze splnit.
