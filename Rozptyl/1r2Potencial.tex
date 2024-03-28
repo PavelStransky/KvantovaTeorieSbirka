@@ -18,3 +18,113 @@ kde parametr $v$ může být kladný (pro odpudivou sílu) nebo záporný (pro s
 		Nalezněte totální účinný průřez pro $l$-tou parciální vlnu $\sigma_{l}(k)$.
 		Diskutujte fyzikální příčinu skutečnosti, že pro $k\rightarrow0$ účinný průřez diverguje.
 \end{enumerate}
+
+
+\begin{solution}
+	\begin{enumerate}
+		\item 
+		Potenciál je sféricky symetrický, úhlová část vlnové funkce je tedy dána kulovými funkcemi.
+
+		Schrödingerova rovnice pro radiální část vlnové funkce je
+		\begin{equation}\label{eq:1r2SchrodingerR}
+			\left[\derivative[2]{}{r}+\frac{2}{r}\derivative{}{r}+k^{2}-\frac{l(l+1)}{r^{2}}-\frac{2Mv}{\hbar^{2}r^{2}}\right]R_{kl}(r)=0,
+		\end{equation}
+		kde $k^{2}=2ME/\hbar^{2}$. 
+		Pokud $v=0$, jedná se o rovnici pro volnou částici ve sférických souřadnicích, jejíž obecné řešení je dáno vztahem~\eqref{eq:FreeParticleRadialWFBessel}.
+		Pro nenulové $v$ se zavede substituce $\lambda=\lambda(l)$ daná rovnicí
+		\begin{equation}\label{eq:Kvadr}
+			\lambda(\lambda+1)=l(l+1)+\frac{2Mv}{\hbar^{2}},
+		\end{equation}
+		čímž rovnice~\ref{eq:1r2SchrodingerR} formálně přejde na rovnici pro volnou částici
+		\begin{equation}
+			\left[\derivative[2]{}{r}+\frac{2}{r}\derivative{}{r}+k^{2}-\frac{\lambda(\lambda+1)}{r^{2}}\right]R_{kl}(r)=0,
+		\end{equation}
+		jejíž obecné řešení je dáno lineární kombinací sférické Besselovy a Neumannovy funkce
+		\begin{equation}
+			R_{kl}(r)=a_{\lambda}(k)j_{\lambda}(kr)+b_{\lambda}(k)n_{\lambda}(kr)
+		\end{equation}
+	
+		Kvadratická rovnice~\eqref{eq:Kvadr} má dvě řešení
+		\begin{equation}
+			\lambda_{\pm}=-\frac{1}{2}\pm\frac{1}{2}\sqrt{1+4l(l+1)+\frac{8Mv}{\hbar^{2}}}.
+		\end{equation}
+		To, že nyní $\lambda$ není přirozené číslo (obecně může být dokonce komplexní) vůbec nevadí, Besselova funkce to snese. 
+	
+		Nadále se omezíme na případ, kdy $\lambda_{\pm}\in\mathbb{R}$ (to nastává vždy v případě odpudivého potenciálu $v>0$ a pro nepříliš silné přitažlivé potenciály).
+		Jelikož platí, že
+		\begin{equation}
+			\lambda_{+}+\lambda_{-}=-1,
+		\end{equation}
+		je díky identitě~\eqref{eq:BesselNeumann} jedno, jestli se vybere $\lambda_{+}$ a sférickou Besselovu funkci, nebo $\lambda_{-}$ a sférickou Neumannovu funkci.
+		Zvolme kořen $\lambda_{+}$.
+
+		\emph{Asymptotika v bodě $r=0$} (vlnová funkce zde nesmí divergovat, aby byla normalizovatelná k $\delta$ funkci) navíc vyžaduje, aby $\lambda\geq0$, tj.
+		\begin{equation}
+			\frac{\hbar^{2}}{2M}l(l+1)\geq-v,
+		\end{equation}        
+		Normalizovaná radiální část vlnové funkce je pak
+		\begin{equation}\label{eq:1r2PotencialR}
+			\important{
+				R_{kl}(r)=\sqrt{\frac{2}{\pi}}kj_{\lambda}(kr),\quad\lambda=-\frac{1}{2}+\frac{1}{2}\sqrt{1+4l(l+1)+\frac{8Mv}{\hbar^{2}}}
+			}.
+		\end{equation}
+
+	\item
+		Asymptotika radiální části vlnové funkce (sférické Besselovy funkce) pro $kr\rightarrow\infty$ je v případě volné částice~\eqref{eq:SphericalBesselInfinity}
+		\begin{equation}
+			j_{l}(kr)\sim\frac{\sin\left(kr-l\frac{\pi}{2}\right)}{kr}.
+		\end{equation}
+		Analogicky pro částici v potenciálu~\eqref{eq:1r2PotentialV}
+		\begin{equation}
+			j_{\lambda}(kr)
+				\sim\frac{\sin\left(kr-\lambda\frac{\pi}{2}\right)}{kr}
+				=\frac{\sin\left(kr-l\frac{\pi}{2}+\delta_{l}\right)}{kr},
+		\end{equation}
+		kde
+		\begin{equation}
+			\delta_{l}=(l-\lambda)\frac{\pi}{2}
+		\end{equation}
+		je hledaný fázový posuv ($\lambda$ je dáno v rovnici~\eqref{eq:1r2PotencialR}).
+		Z výrazu je ihned vidět, že $\delta_l$ nezávisí na $k$, a tedy ani na energii.
+		To souvisí se skutečností, že systém je škálově invariantní vůči přeškálování souřadnice a energie
+		\begin{equation}
+			r\mapsto ar, \quad k\mapsto k/a
+		\end{equation}
+		(vlnová funkce závisí jen na součinu $kr$).
+
+		Fázový posuv je také možné počítat v 1. Bornově aproximaci.
+		Výpočet je však celkem zdlouhavý a vede jen přibližné řešení.  
+		Navíc je zde diskutabilní platnost Bornovy aproximace (důvody plynou z diskuze v Poznámkách níže).
+
+	\item
+		Stačí jen dosadit do vzorečku
+		\begin{equation}
+			\sigma_{l}(k)=\frac{4\pi}{k^{2}}(2l+1)\sin^{2}\delta_l.
+		\end{equation}
+\end{enumerate}
+\end{solution}
+
+\begin{note}
+	Ač potenciál~\eqref{eq:1r2PotentialV} vypadá celkem nevinně, je to skrytá bestie.
+	Problematické není jeho chování v $r\rightarrow\infty$ (potenciál není dlouhodosahový\footnote{
+		Dlouhodosahový je Coulombický potenciál, všechny rychleji klesající již jsou krátkodosahové.
+		Krátkodosahovost potenciálu~\eqref{eq:1r2PotentialV} je patrná z toho, že částice ovlivněná tímto potenciálem se asymptoticky chová jako volná částice. 
+		To v případě Coulombického potenciálu není pravda.
+	}), nýbrž chování v bodě $r=0$.
+	Už v klasické fyzice je chování potenciálu divoké: pro přitažlivý potenciál $v<0$ částice s energií $E<0$ vždy spadne do středu, přičemž spadne do něj dokonce za konečný čas, avšak vykoná při tom nekonečně mnoho otáček okolo středu a dopadne s nekonečnou rychlostí (spočítejte si to, je to poučné).
+	Potenciál totiž svou silou překoná i centrifugální bariéru.
+	V kvantové fyzice je Hamiltonián pro $v<0$ a $E<0$ nesamosdružený.
+	Kdybyste přesto počítali jeho spektrum, dospěli byste k výsledku, že energie systému není omezená zdola (základní stav by ležel v $-\infty$).
+
+	Patologie potenciálu se projeví i v rozptylu, a to právě tím, že pro malé energie účinný průřez diverguje.
+	Divergence je způsobena chováním potenciálu v počátku.
+	A to jsme tiše pominuli případ, kdy $\lambda$ je komplexní číslo, což odpovídá případu, kdy centrifugální bariéra nestačí a částice se přes ni dostane k singularitě rozptylového centra.
+
+	Chceme-li s potenciálem~\eqref{eq:1r2PotentialV} pracovat realisticky, je potřeba ho nějakým způsobem \uv{regulari\-zo\-vat}.
+	To je možné například tak, že částici nedovolíme přiblížit se k počátku a pro $r<\rho$ potenciál nahradíme bariérou $V(r)=\infty$.
+
+	Potenciál~\eqref{eq:1r2PotentialV} popisuje například interakci bodového náboje s dipólem.
+	Dipól však není bodová částice a je tedy jasné, že pro $r\approx0$ model přestává platit a je potřeba uvažovat složitější tvar interakce.
+
+	O matematických vlastnostech potenciálu $\frac{1}{r^{2}}$ se dočtete více například v článcích~\cite{Coon2002} či~\cite{Frank1971}.
+\end{note}
