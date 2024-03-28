@@ -595,26 +595,45 @@
             Za jaké podmínky lze v čase $t>0$ naměřit systém ve stavu $\ket{\phi_{2}}$ s pravděpodobností jedna?
     \end{enumerate}
             
-\exercise[11.4.2024]{Rozptyl na $\frac{1}{r^{2}}$ potenciálu}
-    Uvažujte rozptyl částice o hmotnosti $M$ na potenciálu
+    \exercise[11.4.2024]{Rozptyl nerozlišitelných částic}
+    Interakce dvou částic s hmotností $M$ a spinem $s=\frac{1}{2}$ je popsána potenciálem
     \begin{equation*}
-        V(r)=\frac{v}{r^{2}},
+        V(r)=V_{0}(r)-V_{\ti{s}}(r)\vector{\sigma}\hi{1}\cdot\vector{\sigma}\hi{2}
     \end{equation*}
-    kde parametr $v$ může být kladný (pro odpudivou sílu) nebo záporný (pro sílu přitažlivou).
+    kde $r$ je vzájemná vzdálenost obou částic a $\frac{\hbar}{2}\vector{\sigma}\hi{1,2}$ jsou spinové operátory (dané Pauliho maticemi) odpovídající jednotlivým částicím.
+    Potenciály $V_{0}(r)$, $V_{\ti{s}}(r)$ nejsou pro začátek blíže specifikovány. 
+    Předpokládejte pouze, že interakce jsou dostatečně krátkodosahové, takže integrály
+    \begin{align*}
+        v_{0}(\vector{q})
+            =\int\e^{\im\vector{q}\cdot\vector{r}}V_{0}(r)\d^{3}\vector{r},\\
+        v_{\ti{s}}(\vector{q})
+            =\int\e^{\im\vector{q}\cdot\vector{r}}V_{\ti{s}}(r)\d^{3}\vector{r},
+    \end{align*}
+    existují a jsou konečné ($\vector{q}=\vector{k}-\vector{k'}$ je rozdíl vlnového vektoru libovolné z částic před a po interakci, počítaný v těžišťové soustavě).
     
     \begin{itemize}
-        \item 
-            Řešením Schrödingerovy rovnice nalezněte vlnovou funkci pro energii $E>0$.
-            
-        \item
-            Spočítejte fázové posunutí $\delta_{l}(k)$ $l$-té parciální vlny 
-            a načrtněte jeho závislost na $k$ (nebo na energii $E$).
-            
-        \item
-            Nalezněte totální účinný průřez pro $l$-tou parciální vlnu $\sigma_{l}(k)$.
-            Diskutujte fyzikální příčinu skutečnosti, že pro $k\rightarrow0$ účinný průřez diverguje.
-    \end{itemize}    
+        \item Uvažujte nejprve, že částice jsou rozlišitelné. 
+            V rámci 1. Bornovy aproximace vyjádřete amplitudy rozptylu
+            \begin{align*}
+                &f_{\uparrow\uparrow\longrightarrow\uparrow\uparrow}(\vector{k}',\vector{k}),
+                &&f_{\downarrow\downarrow\longrightarrow\downarrow\downarrow}(\vector{k}',\vector{k}),\\
+                &f_{\uparrow\downarrow\longrightarrow\uparrow\downarrow}(\vector{k}',\vector{k}),
+                &&f_{\uparrow\downarrow\longrightarrow\downarrow\uparrow}(\vector{k}',\vector{k}),
+            \end{align*}
+            a odpovídající diferenciální účinné průřezy, přičemž šipky udávají orientace jednotlivých spinů před interakcí a po interakci; poslední případ odpovídá procesu, kdy si jednotlivé částice během interakce prohodí spin.
+        
+        \item Pokud částice budou \emph{nerozlišitelné}, po účinných průřezech jakých procesů má smysl se ptát?
     
+        \item Pro speciální případ interakce Yukawova typu
+            \begin{equation*}
+                V_{0}(r)=\frac{\rho}{r}\e^{-\mu r},\quad
+                V_{s}(r)=\frac{\rho}{r}\e^{-\nu r},
+            \end{equation*}
+            kde $\rho,\mu,\nu>0$, spočítejte nenulové účinné průřezy pro rozlišitelné i nerozlišitelné částice.
+            Diskutujte obdržené výsledky.
+    \end{itemize}		
+    
+
 \exercise[9.5.2024]{Interakce způsobená nerozlišitelností částic}
     Uvažujte dvě bezspinové volné nerozlišitelné částice o hmotnosti $M$ pohybující se na přímce.
     Jejich vlnové funkce jsou dány gaussovskými balíky dobře lokalizovanými okolo bodů $-b$ a $+b$ (obrázek),
@@ -645,6 +664,7 @@
             \end{equation}
             Bude tato síla přitažlivá nebo odpudivá a jak závisí na typu nerozlišitelných částic (bosony, fermiony)?
     \end{enumerate}
+
 
 \appendix
 \chapter{Úkoly z dřívějších let}
@@ -722,7 +742,7 @@
             Jak se se tento směr liší podle hodnoty kvantového čísla $m$ v počátečním stavu?
     \end{enumerate}      
         
-    \exercise[26.4.2022]{Magnetický moment}
+\exercise{Magnetický moment}
 	Dva nezávislé impulsmomenty $\vectoroperator{L}$ (například orbitální moment hybnosti) a $\vectoroperator{S}$ (vnitřní spin systému) splňující $\commutator{\vectoroperator{L}}{\vectoroperator{S}}=0$ se složí na celkový impulsmoment
 	\begin{equation*}
 		\vectoroperator{J}=\vectoroperator{L}+\vectoroperator{S}.
@@ -766,5 +786,26 @@
 	\begin{equation*}
 		\matrixelement{(ls)jm}{\vectoroperator{\mu}}{(ls)jm}.
 	\end{equation*}
-	    
+
+\exercise{Rozptyl na $\frac{1}{r^{2}}$ potenciálu}
+    Uvažujte rozptyl částice o hmotnosti $M$ na potenciálu
+    \begin{equation*}
+        V(r)=\frac{v}{r^{2}},
+    \end{equation*}
+    kde parametr $v$ může být kladný (pro odpudivou sílu) nebo záporný (pro sílu přitažlivou).
+    
+    \begin{itemize}
+        \item 
+            Řešením Schrödingerovy rovnice nalezněte vlnovou funkci pro energii $E>0$.
+            
+        \item
+            Spočítejte fázové posunutí $\delta_{l}(k)$ $l$-té parciální vlny 
+            a načrtněte jeho závislost na $k$ (nebo na energii $E$).
+            
+        \item
+            Nalezněte totální účinný průřez pro $l$-tou parciální vlnu $\sigma_{l}(k)$.
+            Diskutujte fyzikální příčinu skutečnosti, že pro $k\rightarrow0$ účinný průřez diverguje.
+    \end{itemize}    
+    
+
 \end{document}
