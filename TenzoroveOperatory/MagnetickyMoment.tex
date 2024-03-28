@@ -44,3 +44,48 @@
 	\begin{equation}
 		\matrixelement{(ls)jm}{\vectoroperator{\mu}}{(ls)jm}.
 	\end{equation}
+
+\begin{solution}
+	Předně z výběrových pravidel pro projekci impulsmomentu Wigner-Eckartova teorému vyplývá, že
+	\begin{equation}
+		\matrixelement{(ls)jm}{\operator{\mu}_{x}}{(ls)jm}=\matrixelement{(ls)jm}{\operator{\mu}_{y}}{(ls)jm}=0,
+	\end{equation}
+	neboť $\operator{\mu}_{x,y}$ jsou zapsané ve sférických komponentách pomocí lineární kombinace $\tensoroperatorcomponent{\mu}{1}{\pm1}$
+	a $m\pm1\neq m$.
+
+	K výpočtu maticového elementu $\operator{\mu}_{z}$ se využije projekční teorém~\eqref{eq:ProjectionTheorem}:
+	\begin{align}
+		&\matrixelement{(ls)jm}{\operator{\mu}_{z}}{(ls)jm}=\nonumber\\
+		&\qquad=\matrixelement{(ls)jm}{\frac{\vectoroperator{J}\cdot\vectoroperator{\mu}}{\vectoroperator{J}^{2}}\,\operator{J}_{z}}{(ls)jm}=\nonumber\\
+		&\qquad=\frac{m}{j(j+1)}\,\matrixelement{(ls)jm}{\vectoroperator{J}\cdot\vectoroperator{\mu}}{(ls)jm}
+	\end{align}
+	Dále
+	\begin{align}
+		\vectoroperator{J}\cdot\vectoroperator{\mu}&=(\vectoroperator{L}+\vectoroperator{S})\cdot(g_{L}\vectoroperator{L}+g_{S}\vectoroperator{S})=\nonumber\\
+		&=g_{L}\vectoroperator{L}^{2}+g_{S}\vectoroperator{S}^{2}+(g_{L}+g_{S})\,\vectoroperator{L}\cdot\vectoroperator{S}
+	\end{align}
+	a k vyjádření $\vectoroperator{L}\cdot\vectoroperator{S}$ využijeme standardní \trick{trik (spin-orbitální vazba)}
+	\begin{equation}
+		\vectoroperator{J}^{2}=(\vectoroperator{L}+\vectoroperator{S})\cdot(\vectoroperator{L}+\vectoroperator{S})=\vectoroperator{L}^{2}+\vectoroperator{S}^{2}+2\,\vectoroperator{L}\cdot\vectoroperator{S},
+	\end{equation}
+	takže
+	\begin{equation}
+		\vectoroperator{L}\cdot\vectoroperator{S}=\frac{1}{2}(\vectoroperator{J}^{2}-\vectoroperator{L}^{2}-\vectoroperator{S}^{2}).
+	\end{equation}
+	Po dosazení a využití relací~\eqref{eq:LSEigenvalues} vychází
+	\begin{align}
+		\vectoroperator{J}\cdot\vectoroperator{\mu}
+			&=g_{L}\vectoroperator{L}^{2}+g_{S}\vectoroperator{S}^{2}+\frac{1}{2}\left(g_{L}+g_{S}\right)\left(\vectoroperator{J}^{2}-\vectoroperator{L}^{2}-\vectoroperator{S}^{2}\right)\nonumber\\
+			&=\frac{1}{2}\left(g_{L}+g_{S}\right)\vectoroperator{J}^{2}+\frac{1}{2}\left(g_{L}\vectoroperator{L}^{2}+g_{S}\vectoroperator{S}^{2}-g_{L}\vectoroperator{S}^{2}-g_{S}\vectoroperator{L}^{2}\right)\nonumber\\
+			&=\frac{1}{2}\left(g_{L}+g_{S}\right)\vectoroperator{J}^{2}+\frac{1}{2}\left(g_{L}-g_{S}\right)\left(\vectoroperator{L}^{2}-\vectoroperator{S}^{2}\right),
+	\end{align}
+	a tedy konečný výsledek je
+	\begin{equation}
+		\boxed{
+			\matrixelement{(ls)jm}{\operator{\mu}_{z}}{(ls)jm}
+			=\frac{m}{2}\left\{g_{L}+g_{S}+\frac{g_{L}-g_{S}}{j(j+1)}\left[l\left(l+1\right)-s\left(s+1\right)\right]\right\}\equiv g_{J}m,
+		}
+	\end{equation}
+	kde $g_{J}$ se nazývá \emph{Landéův $g$-faktor}.\index{faktor!Landéův}
+\end{solution}
+		
