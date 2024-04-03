@@ -1,0 +1,28 @@
+\section{Kvantové počítání}
+
+\subsection{Kvantová hradla}
+
+\begin{table}[!h]
+    \begin{tabular}{|c|c|c|}
+    \hline
+    Hradlo & Symbol & Maticové vyjádření \\
+    \hline
+    \hline
+    Hadamard &
+    \begin{quantikz}&\gate{H}&\end{quantikz} 
+    & $\matrix{H}=\frac{1}{2}\makematrix{1 & 1 \\ 1 & -1}$ \\
+    \hline
+    Kontrolované NOT &
+    \begin{quantikz}&\ctrl{1}& \\ &\targ{}&\end{quantikz} &
+    $\matrix{C}_{\mathrm{NOT}}=\makematrix{1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 0 & 1 \\ 0 & 0 & 0 & -1}$ \\
+    \hline 
+    Kontrolovaná unitární transformace &
+    \begin{quantikz}&\ctrl{1}& \\ &\gate{U}&\end{quantikz} &
+    \\
+    \hline
+    Měření &
+    \begin{quantikz}&\meter{}&\end{quantikz} & \\
+    \hline
+    \end{tabular}
+    \caption{Najčastěji používaná hradla a objekty.}
+\end{table}
