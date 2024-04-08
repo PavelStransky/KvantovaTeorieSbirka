@@ -1,6 +1,6 @@
 \subsection{$\alpha$ rozpad}
 	Rozpad $\alpha$, například rozpad radia na radon\footnote{
-		Použitá notace je ${}^{A}_{Z}\mathrm{X}$, kde $A=N+Z$ je celkový počet nukeonů nuklidu $\mathrm{X}$, $N$ je počet neutronů a $Z$ počet protonů = náboj jádra.
+		Použitá notace je ${}^{A}_{Z}\mathrm{X}$, kde $A=N+Z$ je celkový počet nukleonů nuklidu $\mathrm{X}$ \emph{(nukleonové nebo hmotnostní číslo)}\index{číslo!nukleonové}, $N$ je počet neutronů \emph{(neutronové číslo)}\index{číslo!neutronové} a $Z$ počet protonů \emph{(protonové číslo)}\index{číslo!protonové} = náboj jádra.
 	}
 	\begin{equation}
 		{}^{224}_{\ 88}\mathrm{Ra}\stackrel{T_{1/2}=3.6\text{ dní}}{\longrightarrow}{}^{220}_{\ 86}\mathrm{Rn}+{}^{4}_{2}\mathrm{He}
@@ -30,7 +30,7 @@
 
 	\begin{enumerate}
 		\item 
-			Ve WKB přiblížení odvoďte tzv. \emph{Gammovův koeficient průchodu}\index{koeficient průchodu!Gammovův}
+			Ve WKB přiblížení odvoďte tzv. \emph{Gamovův koeficient průchodu}\index{koeficient průchodu!Gamovův}
 			\begin{equation}
 				\label{eq:Gammov}
 				\important{
@@ -73,7 +73,10 @@
 			Je WKB aproximace oprávněná?
 		
 	\end{enumerate}
-	
+\begin{note}
+	Podrobná diskuze různých přístupů k $\alpha$ rozpadu včetně WKB aproximace je v~\cite{Holstein1996}.
+\end{note}
+
 \begin{solution}
 	\begin{enumerate}
 	\item
@@ -116,8 +119,8 @@
 		Do oblasti I se následně naváže pomocí sešívacích podmínek~\eqref{eq:WKBConnectionUp1}---\eqref{eq:WKBConnectionUp2}:
 		\begin{align}
 			\psi_{\mathrm{I}}(x)
-				&=\frac{2\lambda}{F}\sin\left[I_{a}^{x}+\frac{\pi}{4}\right]+\frac{\im}{2}\lambda F\cos\left[I_{a}^{x}+\frac{\pi}{4}\right]\nonumber\\										
-				&=\underbrace{-C\left(\frac{1}{F}-\frac{F}{4}\right)\e^{\im\frac{\pi}{4}}}_{A}\frac{1}{\sqrt{\abs{p(x)}}}\e^{\im I_{x}^{a}}
+				&=\frac{2\lambda}{F}\sin\left[I_{x}^{a}+\frac{\pi}{4}\right]+\frac{\im}{2}\lambda F\cos\left[I_{x}^{a}+\frac{\pi}{4}\right]\nonumber\\										
+				&=\underbrace{-\im C\left(\frac{1}{F}-\frac{F}{4}\right)\e^{\im\frac{\pi}{4}}}_{A}\frac{1}{\sqrt{\abs{p(x)}}}\e^{\im I_{x}^{a}}
 					+\underbrace{\im C\left(\frac{1}{F}+\frac{F}{4}\right)\e^{-\im\frac{\pi}{4}}}_{B}\frac{1}{\sqrt{\abs{p(x)}}}\e^{-\im I_{x}^{a}}.						
 		\end{align}
 		Transmisní koeficient tedy vychází
@@ -245,7 +248,8 @@
 		\end{align}
 		To je v souladu s experimentálně pozorovanou závislostí
 		\begin{equation}
-			(\ln{\tau})_{\mathrm{exp}}=C_{1}\left(\frac{Z}{\sqrt{E_{\alpha}}}-Z^{\frac{2}{3}}\right)-C_{2}\,.
+			(\ln{\tau})_{\mathrm{exp}}=C_{1}\left(\frac{Z}{\sqrt{E_{\alpha}}}-\zeta Z^{\frac{2}{3}}\right)-C_{2},
 		\end{equation}
+		která se nazývá \emph{Geigerova-Nuttallova závislost}~\cite{Geiger1911} a ve které se konstanty $C_{1,ě}$ a $\zeta$ určují z experimentu.
 	\end{note}
 \end{solution}
