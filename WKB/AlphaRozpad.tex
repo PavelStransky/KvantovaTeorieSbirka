@@ -93,7 +93,7 @@
 		V oblasti III vně jádra je nenulová jen ta část vlnové funkce, která odpovídá prošlé částici vzdalující se od atomu,
 		\begin{align}
 			\psi_{\mathrm{III}}(x)
-				&=\frac{C}{\sqrt{\abs{p(x)}}}\e^{\frac{\im}{\hbar}\int_{b}^{x}\abs{p(x')}\d x'+\im\frac{\pi}{4}}
+				&=\frac{\mathcal{C}}{\sqrt{\abs{p(x)}}}\e^{\frac{\im}{\hbar}\int_{b}^{x}\abs{p(x')}\d x'+\im\frac{\pi}{4}}
 				 =\lambda\e^{\im\left(I_{b}^{x}+\frac{\pi}{4}\right)}\nonumber\\
 				&=\lambda\cos{\left[I_{b}^{x}+\frac{\pi}{4}\right]}+\im\lambda\sin{\left[I_{b}^{x}+\frac{\pi}{4}\right]},
 		\end{align}
@@ -112,7 +112,7 @@
 		\begin{equation}
 			F\equiv\e^{-I_{a}^{b}}=\e^{-\frac{1}{\hbar}\int_{a}^{b}\abs{p(x)}\d x},
 		\end{equation}
-		vlnová funkce přejde do tvaru
+		přejde vlnová funkce do tvaru
 		\begin{equation}
 			\psi_{\mathrm{II}}(x)=\frac{\lambda}{F}\e^{-I_{a}^{x}}+\frac{\im}{2}\lambda F\e^{I_{a}^{x}}.
 		\end{equation}
@@ -120,18 +120,18 @@
 		\begin{align}
 			\psi_{\mathrm{I}}(x)
 				&=\frac{2\lambda}{F}\sin\left[I_{x}^{a}+\frac{\pi}{4}\right]+\frac{\im}{2}\lambda F\cos\left[I_{x}^{a}+\frac{\pi}{4}\right]\nonumber\\										
-				&=\underbrace{-\im C\left(\frac{1}{F}-\frac{F}{4}\right)\e^{\im\frac{\pi}{4}}}_{A}\frac{1}{\sqrt{\abs{p(x)}}}\e^{\im I_{x}^{a}}
-					+\underbrace{\im C\left(\frac{1}{F}+\frac{F}{4}\right)\e^{-\im\frac{\pi}{4}}}_{B}\frac{1}{\sqrt{\abs{p(x)}}}\e^{-\im I_{x}^{a}}.						
+				&=\underbrace{-\im \mathcal{C}\left(\frac{1}{F}-\frac{F}{4}\right)\e^{\im\frac{\pi}{4}}}_{\mathcal{A}}\frac{1}{\sqrt{\abs{p(x)}}}\e^{\im I_{x}^{a}}
+					+\underbrace{\im \mathcal{C}\left(\frac{1}{F}+\frac{F}{4}\right)\e^{-\im\frac{\pi}{4}}}_{\mathcal{B}}\frac{1}{\sqrt{\abs{p(x)}}}\e^{-\im I_{x}^{a}}.						
 		\end{align}
 		Transmisní koeficient tedy vychází
 		\begin{equation}
-			T=\abs{\frac{C}{A}}^{2}=\frac{1}{\left(\frac{1}{F}-\frac{F}{4}\right)^{2}}\approx F^{2}\,,
+			T=\abs{\frac{\mathcal{C}}{\mathcal{A}}}^{2}=\frac{1}{\left(\frac{1}{F}-\frac{F}{4}\right)^{2}}\approx F^{2}\,,
 		\end{equation}
 		přičemž poslední rovnost platí za předpokladu $F\ll1$, což musí být splněno, aby bylo vůbec možné pro tento typ úlohy WKB aproximaci použít.
-		Dosazení za $F$ dá hledaný Gammovův faktor~\eqref{eq:Gammov}.
+		Dosazení za $F$ dá hledaný Gamovův faktor~\eqref{eq:Gammov}.
 		
 	\item
-		Do právě odvozeného Gammova vztahu pro pravděpodobnost průniku bariérou dosadíme potenciál~\eqref{eq:AlphaDecayPotential}.
+		Do právě odvozeného Gamovova vztahu pro pravděpodobnost průniku bariérou se dosadí modelový potenciál~\eqref{eq:AlphaDecayPotential}.
 		Klasická hybnost $\alpha$ částice o energii $E_{\alpha}$ v oblasti Coulombické části potenciálu je
 		\begin{equation}
 			p(x)=\sqrt{2M\left(E_{\alpha}-\frac{Z_{\alpha}Z\gamma}{x}\right)}.
@@ -204,7 +204,7 @@
 			\end{tabular}
 		\end{center}
 		Tento velmi zjednodušený výpočet tedy dává o několik řádů delší poločasy rozpadu, než jsou naměřené hodnoty ze zadání příkladu.
-		Mnohem lepší shody se dosáhne, pokud se uvažuje $a_{0}=1.6$ fm, což v sobě může zahrnout difuzivitu jaderného povrchu.
+		Mnohem lepší shody se dosáhne, pokud se uvažuje $a_{0}=1.6$ fm, což se dá fyzikálně interpretovat jako započtení difuzivity jaderného povrchu.
 		
 	\item
 		De Broglieovy vlnové délky $\alpha$ částic jsou
@@ -250,6 +250,6 @@
 		\begin{equation}
 			(\ln{\tau})_{\mathrm{exp}}=C_{1}\left(\frac{Z}{\sqrt{E_{\alpha}}}-\zeta Z^{\frac{2}{3}}\right)-C_{2},
 		\end{equation}
-		která se nazývá \emph{Geigerova-Nuttallova závislost}~\cite{Geiger1911} a ve které se konstanty $C_{1,ě}$ a $\zeta$ určují z experimentu.
+		která se nazývá \emph{Geigerův-Nuttallův zákon}\index{zákon!Geigerův-Nuttallův} a ve které se konstanty $C_{1,2}$ a $\zeta$ fitují z dostupných experimentálních dat~\cite{Geiger1911}.
 	\end{note}
 \end{solution}

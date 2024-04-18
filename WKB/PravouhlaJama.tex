@@ -40,20 +40,26 @@ Nalezněte WKB vlnovou funkci a spektrum pro $E>V_{0}$.
                 &=\int_{0}^{\frac{a}{2}}p_{\mathrm{I}}\d x'+\int_{\frac{a}{2}}^{x}p_{\mathrm{II}}\d x'=\frac{a}{2}p_{\mathrm{I}}+\left(x-\frac{a}{2}\right)p_{\mathrm{II}}.
         \end{align}            
     \end{subequations}
-	Vlnová funkce tedy je
+	Vlnová funkce v jednotlivých oblastech má tedy vyjádření
     \begin{subequations}
         \begin{align}
-            \psi_{\mathrm{I}}(x)&=\frac{1}{\sqrt{\abs{p_{\mathrm{I}}}}}\left[C\sin{\frac{S_{\mathrm{I}}(x)}{\hbar}}+D\cos{\frac{S_{\mathrm{I}}(x)}{\hbar}}\right],\\
-            \psi_{\mathrm{II}}(x)&=\frac{1}{\sqrt{\abs{p_{\mathrm{II}}}}}\left[C\sin{\frac{S_{\mathrm{II}}(x)}{\hbar}}+D\cos{\frac{S_{\mathrm{II}}(x)}{\hbar}}\right]
+            \psi_{\mathrm{I}}(x)&=\frac{1}{\sqrt{\abs{p_{\mathrm{I}}}}}\left[\mathcal{A}_{\mathrm{I}}\sin{\frac{S_{\mathrm{I}}(x)}{\hbar}}+\mathcal{B}_{\mathrm{I}}\cos{\frac{S_{\mathrm{I}}(x)}{\hbar}}\right],\\
+            \psi_{\mathrm{II}}(x)&=\frac{1}{\sqrt{\abs{p_{\mathrm{II}}}}}\left[\mathcal{A}_{\mathrm{II}}\sin{\frac{S_{\mathrm{II}}(x)}{\hbar}}+\mathcal{B}_{\mathrm{II}}\cos{\frac{S_{\mathrm{II}}(x)}{\hbar}}\right]
         \end{align}            
     \end{subequations}
 	(komplexní exponenciály byly rozepsány pomocí funkcí $\sin$, $\cos$).
-	Díky tomu, že se obě akce počítají od stejného počátečního bodu $x_{0}=0$, jsou konstanty $C,D$ pro vlnové funkce v obou oblastech stejné.
+	Díky tomu, že se obě akce počítají od stejného počátečního bodu $x_{0}=0$, jsou konstanty $\mathcal{A},\mathcal{B}$ pro vlnové funkce v obou oblastech stejné,
+	\begin{subequations}
+		\begin{align}
+			\mathcal{A}_{\mathrm{I}}&=\mathcal{A}_{\mathrm{II}}\equiv\mathcal{A},\\
+			\mathcal{B}_{\mathrm{I}}&=\mathcal{B}_{\mathrm{II}}\equiv\mathcal{B}.
+		\end{align}
+	\end{subequations}
 	
 	V dalším kroku se aplikují okrajové podmínky:
 	\begin{subequations}
 		\begin{align}
-			\psi_{\mathrm{I}}(0)&=0 && \Longrightarrow & D&=0,\\
+			\psi_{\mathrm{I}}(0)&=0 && \Longrightarrow & \mathcal{B}&=0,\\
 			\psi_{\mathrm{II}}(a)&=0 && \Longrightarrow & \sin{\frac{S_{\mathrm{II}}(x)}{\hbar}}&=0.
 		\end{align}			
 	\end{subequations}
@@ -72,11 +78,11 @@ Nalezněte WKB vlnovou funkci a spektrum pro $E>V_{0}$.
 	Explicitně vyjádřená vlnová funkce je
 	\begin{subequations}
 		\begin{align}
-			\psi_{\mathrm{I},n}(x)&=\frac{c}{\sqrt[4]{2M\left(E_{n}-V_{0}\right)}}\sin{\left\{\frac{\sqrt{2M\left(E_{n}-V_{0}\right)}}{\hbar}x\right\}},\\
-			\psi_{\mathrm{II},n}(x)&=\frac{c}{\sqrt[4]{2ME_{n}}}\sin{\left\{\frac{\sqrt{2M\left(E_{n}-V_{0}\right)}}{\hbar}\frac{a}{2}+\frac{\sqrt{2ME_{n}}}{\hbar}\left(x-\frac{1}{2}\right)\right\}}\,,
+			\psi_{\mathrm{I},n}(x)&=\frac{\mathcal{C}}{\sqrt[4]{2M\left(E_{n}-V_{0}\right)}}\sin{\left\{\frac{\sqrt{2M\left(E_{n}-V_{0}\right)}}{\hbar}x\right\}},\\
+			\psi_{\mathrm{II},n}(x)&=\frac{\mathcal{C}}{\sqrt[4]{2ME_{n}}}\sin{\left\{\frac{\sqrt{2M\left(E_{n}-V_{0}\right)}}{\hbar}\frac{a}{2}+\frac{\sqrt{2ME_{n}}}{\hbar}\left(x-\frac{1}{2}\right)\right\}},
 		\end{align}			
 	\end{subequations}
-	kde energie jsou dány vzorcem~\eqref{eq:WKBStepEnergy}.
+	kde energie jsou dány vzorcem~\eqref{eq:WKBStepEnergy} a $\mathcal{C}$ je normovací konstanta.
 	
 	WKB vlnová funkce \emph{není spojitá} v bodě $x=\frac{a}{2}$, což je patrné z příkladu na obrázku~\ref{fig:WKBStep}.
 \end{solution}

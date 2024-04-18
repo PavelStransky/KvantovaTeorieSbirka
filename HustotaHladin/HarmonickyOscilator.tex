@@ -9,15 +9,15 @@ Spočítejte hustotu hladin jednorozměrného harmonického oscilátoru.
     Objem enegetické nadplochy klasického fázového prostoru podle \eqref{eq:PhaseSpaceVolume} bude
     \begin{align}\label{eq:PhaseSpaceVolumeHO}
     \Omega(E)
-        &=\int\delta(E-\frac{1}{2M}p^{2}-\frac{1}{2}kq^{2})\d q\d p
+        &=\int\delta\left(E-\frac{1}{2M}p^{2}-\frac{1}{2}kq^{2}\right)\d q\d p
         &&\equationcomment{
                 \pi=\sqrt{\frac{1}{2M}}\,p & \d p=\sqrt{2M}\d\pi\\
                 \xi=\sqrt{\frac{k}{2}}\,q & \d q=\sqrt{\frac{2}{k}}\d\xi
             }\nonumber\\
-        &=\sqrt{\frac{4M}{k}}\int\delta(E-\pi^{2}-\xi^{2})\d\xi\d\pi
+        &=\sqrt{\frac{4M}{k}}\int\delta\left(E-\pi^{2}-\xi^{2}\right)\d\xi\d\pi
         &&\equationcomment{\textrm{Polární souřadnice} \\ r^{2}=\pi^{2}+\xi^{2}\\ \d\xi\d\pi=r\d r\d\varphi}\nonumber\\
-        &=\frac{2}{\omega}\int_{0}^{2\pi}\d\varphi\int_{0}^{\infty}\delta(E-r^{2})\,r\d r
-        &&\equationcomment{\delta(E-r^{2})=\frac{1}{2\sqrt{E}}\left(\delta(r-\sqrt{E})+\delta(r+\sqrt{E})\right)}\nonumber\\
+        &=\frac{2}{\omega}\int_{0}^{2\pi}\d\varphi\int_{0}^{\infty}\delta\left(E-r^{2}\right)\,r\d r
+        &&\equationcomment{\delta(E-r^{2})=\frac{1}{2\sqrt{E}}\left(\delta\left(r-\sqrt{E}\right)+\delta\left(r+\sqrt{E}\right)\right)}\nonumber\\
         &=\frac{2\pi}{\omega\sqrt{E}}\int_{0}^{\infty}\left[\delta(r-\sqrt{E})+\delta(r+\sqrt{E})\right]\,r\d r\nonumber\\
         &=\frac{2\pi}{\omega},
     \end{align}
@@ -78,7 +78,7 @@ Spočítejte hustotu hladin jednorozměrného harmonického oscilátoru.
     což je opět ve shodě s~\eqref{eq:PhaseSpaceVolumeHO}).
     
     \begin{flushleft}
-    \emph{Jiný způsob řešení:} % Martin Váňa, 2008
+    \emph{Ještě jiný způsob řešení:} % Martin Váňa, 2008
     \end{flushleft}
     
     Využije se Fourierova transformace $\delta$-funkce:
@@ -86,7 +86,7 @@ Spočítejte hustotu hladin jednorozměrného harmonického oscilátoru.
         \delta(q)
             =\frac{1}{2\pi}\int_{-\infty}^{\infty}\e^{\im\kappa q}\d\kappa
     \end{equation}
-    Po dosazení do vztah~\eqref{eq:PhaseSpaceVolume} vychází pro zadaný jednorozměrný harmonický oscilátor
+    Po dosazení do vztahu~\eqref{eq:PhaseSpaceVolume} vychází pro zadaný jednorozměrný harmonický oscilátor
     \begin{align}
         \Omega(E)
             &=\frac{1}{2\pi}\iiint\e^{\im\kappa\left(E-\frac{1}{2M}p^{2}-\frac{1}{2}kq^{2}\right)}\d\kappa\d p\d q\nonumber\\

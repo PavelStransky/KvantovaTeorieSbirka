@@ -21,7 +21,7 @@ Pro praktické výpočty se více hodí vztah, kdy Diracovu $\delta$ funkci nahr
     \rho(E)=\frac{1}{(2\pi\hbar)^{f}}\partialderivative{}{E}\int\Theta(E-H(\vector{p},\vector{q}))\d^{f}\vector{p}\,\d^{f}\vector{q}
         =\frac{1}{(2\pi\hbar)^{f}}\partialderivative{}{E}\int_{H(\vector{p},\vector{q})\leq E}\d^{f}\vector{p}\,\d^{f}\vector{q},
 \end{equation} 
-kde poslední integrál je vlastně Lesbegueova míra (\uv{objem}) energetické nadplochy fázového prostoru.  
+kde poslední integrál je vlastně \emph{Lesbegueova míra}\index{míra!Lesbegueova} (\uv{objem}) energetické nadplochy fázového prostoru.  
 
 % Jonáš Dujava 2022
 V případě Hamiltoniánu se standardním kinetickým členem a potenciálem závisejícím jen na souřadnici,
@@ -33,7 +33,7 @@ lze vztah~\eqref{eq:LevelDensityTheta} dále upravit.
 Integraci přes souřadnice a přes hybnosti lze provést nezávisle,
 \begin{align}
     \rho(E)
-        &=\frac{1}{(2\pi\hbar)^{f}}\partialderivative{}{E}\int_{E>V(\vector{q})}\d^{f}\vector{q}\underbrace{\int_{0}^{\sqrt{2M[E-V(\vector{q})]}}p^{f-1}\d\Omega_{f}\d p}_{\text{objem }d\text{-rozměrné koule}}\nonumber\\
+        &=\frac{1}{(2\pi\hbar)^{f}}\partialderivative{}{E}\int_{E>V(\vector{q})}\d^{f}\vector{q}\underbrace{\int_{0}^{\sqrt{2M[E-V(\vector{q})]}}p^{f-1}\d\Omega_{f}\d p}_{\text{objem }f\text{-rozměrné koule}}\nonumber\\
         &=\frac{1}{(2\pi\hbar)^{f}}\partialderivative{}{E}\int_{E>V(\vector{q})}\left[\frac{\pi^{\frac{f}{2}}}{\Gamma\left(\frac{f}{2}+1\right)}p^{f}\right]_{0}^{\sqrt{2M\left[E-V(\vector{q})\right]}}\d\vector{q}\nonumber\\
         &=\frac{1}{(2\pi\hbar)^{f}}\frac{(2\pi M)^{\frac{f}{2}}}{\Gamma\left(\frac{f}{2}+1\right)}\int_{E>V(\vector{q})}\partialderivative{}{E}\left[E-V(\vector{q})\right]^{\frac{f}{2}}\d\vector{q}\nonumber\\
         &=\frac{1}{(2\pi\hbar)^{f}}\frac{(2\pi M)^{\frac{f}{2}}}{\Gamma\left(\frac{f}{2}\right)}\int_{E>V(\vector{q})}\left[E-V(\vector{q})\right]^{\frac{f}{2}-1}\d\vector{q}.
@@ -47,7 +47,7 @@ Pro speciální případ $f=1$ platí
 \end{align}
 kde $T$ je perioda trajektorie s energií $E$.
 
-Pokud máte radši $\delta$ funkce, lze vyjít ze vztahu~\eqref{eq:PhaseSpaceVolume}.
+Fanoušci $\delta$ funkce mohou poslední vztah odvodit jinak.
 Pro speciální případ $f=1$ se využije vztahu pro složenou $\delta$ funkci 
 \begin{subequations}
     \begin{align}
@@ -58,11 +58,11 @@ Pro speciální případ $f=1$ se využije vztahu pro složenou $\delta$ funkci
     \end{align}
     \label{eq:Deltaf}        
 \end{subequations}
-a provede se integrace přes hybnost:
+a v rovnici~\eqref{eq:PhaseSpaceVolume} se provede integrace přes hybnost:
 \begin{align}
     \Omega(E)
-        &=\int\delta\left(E-\frac{1}{2M}p^{2}-V(q)\right)\d q\d p
-        &&\equationcomment{
+        &=\int\delta\left(E-\frac{1}{2M}p^{2}-V(q)\right)\d q\d p\nonumber\\
+        &\equationcomment{
                 \delta\left(E-\frac{1}{2M}p^{2}-V(q)\right)=\frac{M}{P(q)}\left[\delta(p-P(q))+\delta(p+P(q))\right]\\
                 P(q)=\sqrt{2M[E-V(q)]}
             }\nonumber\\

@@ -23,16 +23,16 @@ Pokud $p'(x_{1,2})\neq0$ a zároveň $p'(x)$ je spojitá v bodech $x_{1,2}$, pak
     V bodě obratu $x_{1}$, ve kterém potenciál klesá, $V'(x_{1})<0$, viz obrázek~\ref{fig:WKBConnection}(a), se mění fáze vlnové funkce o $\frac{\pi}{4}$ a zdvojnásobuje se amplituda u sinové části:
     \begin{subequations}
         \begin{align}
-            \psi_{\mathrm{II}_{1}}(x)&=\frac{C_{1}}{\sqrt{\abs{p(x)}}}\e^{-\frac{1}{\hbar}\int_{x}^{x_{1}}\abs{p(x')}\d x'},\\
-            \psi_{\mathrm{I}_{1}}(x)&=\frac{2C_{1}}{\sqrt{\abs{p(x)}}}\sin\left[\frac{1}{\hbar}\int_{x_{1}}^{x}p(x')\d x'+\frac{\pi}{4}\right]
+            \psi_{\mathrm{II}_{1}}(x)&=\frac{\mathcal{A}_{-}}{\sqrt{\abs{p(x)}}}\e^{-\frac{1}{\hbar}\int_{x}^{x_{1}}\abs{p(x')}\d x'},\\
+            \psi_{\mathrm{I}_{1}}(x)&=\frac{2\mathcal{A}_{-}}{\sqrt{\abs{p(x)}}}\sin\left[\frac{1}{\hbar}\int_{x_{1}}^{x}p(x')\d x'+\frac{\pi}{4}\right]
         \end{align}            
         \label{eq:WKBConnectionDown1}
     \end{subequations}
     a
     \begin{subequations}
         \begin{align}
-            \psi_{\mathrm{II}_{1}}(x)&=\frac{D_{1}}{\sqrt{\abs{p(x)}}}\e^{\frac{1}{\hbar}\int_{x}^{x_{1}}\abs{p(x')}\d x'},\\
-            \psi_{\mathrm{I}_{1}}(x)&=\frac{D_{1}}{\sqrt{\abs{p(x)}}}\cos\left[\frac{1}{\hbar}\int_{x_{1}}^{x}p(x')\d x'+\frac{\pi}{4}\right],
+            \psi_{\mathrm{II}_{1}}(x)&=\frac{\mathcal{A}_{+}}{\sqrt{\abs{p(x)}}}\e^{\frac{1}{\hbar}\int_{x}^{x_{1}}\abs{p(x')}\d x'},\\
+            \psi_{\mathrm{I}_{1}}(x)&=\frac{\mathcal{A}_{+}}{\sqrt{\abs{p(x)}}}\cos\left[\frac{1}{\hbar}\int_{x_{1}}^{x}p(x')\d x'+\frac{\pi}{4}\right],
         \end{align}		            
         \label{eq:WKBConnectionDown2}
     \end{subequations}
@@ -45,16 +45,16 @@ Pokud $p'(x_{1,2})\neq0$ a zároveň $p'(x)$ je spojitá v bodech $x_{1,2}$, pak
     }
     \begin{subequations}
         \begin{align}
-            \psi_{\mathrm{I}_{2}}(x)&=\frac{2C_{2}}{\sqrt{\abs{p(x)}}}\sin\left[\frac{1}{\hbar}\int_{x}^{x_{2}}p(x')\d x'+\frac{\pi}{4}\right],\\
-            \psi_{\mathrm{II}_{2}}(x)&=\frac{C_{2}}{\sqrt{\abs{p(x)}}}\e^{-\frac{1}{\hbar}\int_{x_{2}}^{x}\abs{p(x')}\d x'}\,,
+            \psi_{\mathrm{I}_{2}}(x)&=\frac{2\mathcal{B}_{-}}{\sqrt{\abs{p(x)}}}\sin\left[\frac{1}{\hbar}\int_{x}^{x_{2}}p(x')\d x'+\frac{\pi}{4}\right],\\
+            \psi_{\mathrm{II}_{2}}(x)&=\frac{\mathcal{B}_{-}}{\sqrt{\abs{p(x)}}}\e^{-\frac{1}{\hbar}\int_{x_{2}}^{x}\abs{p(x')}\d x'}\,,
         \end{align}            
         \label{eq:WKBConnectionUp1}
     \end{subequations}
     nebo
     \begin{subequations}
         \begin{align}
-            \psi_{\mathrm{I}_{2}}(x)&=\frac{D_{2}}{\sqrt{\abs{p(x)}}}\cos\left[\frac{1}{\hbar}\int_{x}^{x_{2}}p(x')\d x'+\frac{\pi}{4}\right],\\
-            \psi_{\mathrm{II}_{2}}(x)&=\frac{D_{2}}{\sqrt{\abs{p(x)}}}\e^{\frac{1}{\hbar}\int_{x_{2}}^{x}\abs{p(x')}\d x'},
+            \psi_{\mathrm{I}_{2}}(x)&=\frac{\mathcal{B}_{+}}{\sqrt{\abs{p(x)}}}\cos\left[\frac{1}{\hbar}\int_{x}^{x_{2}}p(x')\d x'+\frac{\pi}{4}\right],\\
+            \psi_{\mathrm{II}_{2}}(x)&=\frac{\mathcal{B}_{+}}{\sqrt{\abs{p(x)}}}\e^{\frac{1}{\hbar}\int_{x_{2}}^{x}\abs{p(x')}\d x'},
         \end{align}            
         \label{eq:WKBConnectionUp2}
     \end{subequations}
@@ -66,12 +66,12 @@ Pokud $p'(x_{1,2})\neq0$ a zároveň $p'(x)$ je spojitá v bodech $x_{1,2}$, pak
     \begin{subequations}
         \begin{align}
             \psi_{\mathrm{I}}(x)
-                &=C\frac{\e^{-\pi\epsilon}}{\sqrt{p(x)}}
+                &=\mathcal{C}\frac{\e^{-\pi\epsilon}}{\sqrt{p(x)}}
                 \e^{\pm\frac{\im}{\hbar}\int_{x}^{a}p(x')\d x'\mp\im\frac{\pi}{4}}
-                +C\frac{\sqrt{1+\e^{-2\pi\epsilon}}}{\sqrt{p(x)}}
+                +\mathcal{C}\frac{\sqrt{1+\e^{-2\pi\epsilon}}}{\sqrt{p(x)}}
                 \e^{\mp\frac{\im}{\hbar}\int_{x}^{a}p(x')\d x'\pm\im\frac{\pi}{4}}\e^{\pm\im\phi(\epsilon)},\\
             \psi_{\mathrm{II}}(x)
-                &=\frac{C}{\sqrt{p(x)}}
+                &=\frac{\mathcal{C}}{\sqrt{p(x)}}
                 \e^{\pm\frac{\im}{\hbar}\int_{b}^{x}p(x')\d x'\pm\im\frac{\pi}{4}},
         \end{align}            
     \end{subequations}

@@ -27,7 +27,7 @@
 		Předpokládejte, že energie je dostatečně hluboko v jamách, kde lze potenciál $V(x)$ aproximovat potenciálem harmonického oscilátoru.
 	
 	\item
-		Srovnejte číselně s výsledkem úkolu ze 3. cvičení zimního semestru.	
+		Srovnejte číselně s výsledkem příkladu~\ref{sec:QuarticOscillator}.	
 	\end{enumerate}
 
 \begin{solution}
@@ -41,7 +41,7 @@
 		\item
 			V oblasti I musí vlnová funkce exponenciálně ubývat pro $x\rightarrow-\infty$, takže
 			\begin{equation}
-				\psi_{\mathrm{I}}(x)=\frac{C}{\sqrt{\abs{p(x)}}}\e^{-\frac{1}{\hbar}\int_{x}^{-b}\abs{p(x')}\d x'}=\lambda\e^{-I_{x}^{-b}}.
+				\psi_{\mathrm{I}}(x)=\frac{\mathcal{A}_{-}}{\sqrt{\abs{p(x)}}}\e^{-\frac{1}{\hbar}\int_{x}^{-b}\abs{p(x')}\d x'}=\lambda\e^{-I_{x}^{-b}}.
 			\end{equation}
 			
 		\item
@@ -49,19 +49,19 @@
 			\begin{equation}
 				\psi_{\mathrm{II}}(x)=2\lambda\sin{\left[I_{-b}^{x}+\frac{\pi}{4}\right]}.
 			\end{equation}
-			Vlnovou funkci je nyní potřeba upravit do takové formy, aby bylo možné pro navázání do oblasti III použít vztahů~\eqref{eq:WKBConnectionUp1}---\eqref{eq:WKBConnectionUp2}:
+			Vlnovou funkci je nyní potřeba upravit do takové formy, aby bylo možné pro navázání do oblasti III použít vztahů~\eqref{eq:WKBConnectionUp1}---\eqref{eq:WKBConnectionUp2}.
+			K tomu se budou využívat součtové vztahy a další identity pro goniometrické funkce:
 			\begin{align}
 				\psi_{\mathrm{II}}(x)
 					&=2\lambda\underbrace{\sin{\left[I_{-b}^{-a}-I_{x}^{-a}+\frac{\pi}{4}\right]}}_{\sin{(a+b)}=\sin{a}\cos{b}+\cos{a}\sin{b}}\nonumber\\
 					&=2\lambda\left\{\underbrace{\sin{I_{-b}^{-a}}}_{S}\cos\left[-I_{x}^{-a}+\frac{\pi}{4}\right]+\underbrace{\cos{I_{-b}^{-a}}}_{C}\sin\left[-\int_{x}^{-a}+\frac{\pi}{4}\right]\right\}
 			\end{align}
-			Je nutné ošetřit i znaménko $-$ před integrály v argumentech sinu a cosinu.
-			K tomu se využijí vztahy
+			Je nutné ošetřit i znaménko $-$ před integrály v argumentech sinu a cosinu:
 			\begin{align}
 				\cos\left[-I+\frac{\pi}{4}\right]
 					&\stackrel{\cos\text{ sudá}}{=}\cos\left[I-\frac{\pi}{4}\right]=\underbrace{\cos\left[I+\frac{\pi}{4}-\frac{\pi}{2}\right]}_{\cos{(a+b)}=\cos{a}\cos{b}-\sin{a}\sin{b}}\nonumber\\
 					&=\cos\left[I+\frac{\pi}{4}\right]\underbrace{\cos\left(-\frac{\pi}{2}\right)}_{0}-\sin\left[I+\frac{\pi}{4}\right]\underbrace{\sin\left(-\frac{\pi}{2}\right)}_{-1}\nonumber\\
-					&=\sin\left[I+\frac{\pi}{4}\right]\,,
+					&=\sin\left[I+\frac{\pi}{4}\right]
 			\end{align}
 			a analogicky
 			\begin{equation}
@@ -73,7 +73,8 @@
 			\end{equation}
 		
 		\item
-			Do oblasti III se posuneme za pomoci sešívacích vztahů~\eqref{eq:WKBConnectionUp1}---\eqref{eq:WKBConnectionUp2} a vlnovou funkci ihned upravíme pro navázání do následující oblasti IV:
+			Do oblasti III se přejde pomocí sešívacích vztahů~\eqref{eq:WKBConnectionUp1}--\eqref{eq:WKBConnectionUp2}.
+			Vlnová funkce se následně hned upraví pro navázání do oblasti IV:
 			\begin{align}
 				\psi_{\mathrm{III}}(x)
 					&=\lambda S\e^{-I_{-a}^{x}}+2\lambda C\e^{I_{-a}^{x}}\nonumber\\
@@ -82,7 +83,7 @@
 			\end{align}
 			
 		\item
-			V navazování se pokračuje dále do oblasti IV pomocí vztahů~\eqref{eq:WKBConnectionDown1}---\eqref{eq:WKBConnectionDown2}:
+			V navazování se pokračuje dále do oblasti IV pomocí vztahů~\eqref{eq:WKBConnectionDown1}--\eqref{eq:WKBConnectionDown2}:
 			\begin{align}
 				\psi_{\mathrm{IV}}(x)
 					&=\lambda SF\cos\left[I_{a}^{x}+\frac{\pi}{4}\right]+\frac{4\lambda C}{F}\sin\left[I_{a}^{x}+\frac{\pi}{4}\right]\nonumber\\
@@ -97,7 +98,7 @@
 			\end{align}
 			
 		\item
-			Poslední navazování do oblasti V se provedeme opět pomocí vztahů~\eqref{eq:WKBConnectionUp1}---\eqref{eq:WKBConnectionUp2}:
+			Poslední navazování do oblasti V se provede opět pomocí vztahů~\eqref{eq:WKBConnectionUp1}---\eqref{eq:WKBConnectionUp2}:
 			\begin{equation}
 				\psi_{\mathrm{V}}(x)=\frac{\lambda SC}{2}\left(F+\frac{4}{F}\right)\e^{-I_{b}^{x}}+\underbrace{\lambda\left(-S^{2}F+\frac{4C^{2}}{F}\right)}_{Z}\e^{I_{b}^{x}}
 			\end{equation}		
@@ -116,7 +117,7 @@
 		\end{align}
 		
 		Následovat bude několik aproximací. 
-		Předně budeme předpokládat, že prostupnost bariéry III je malá, takže $F\approx0$ a lze psát
+		Předně se bude předpokládat, že prostupnost bariéry III je malá, takže $F\approx0$ a lze psát
 		\begin{equation}
 			\pm\frac{1}{2}F\approx\cotg{\left[\mp\frac{1}{2}F+\pi\left(n+\frac{1}{2}\right)\right]},
 		\end{equation}
@@ -127,16 +128,16 @@
 			\frac{1}{\hbar}\int_{a}^{b}p(x)\d x=\pi\left(n+\frac{1}{2}\right)\pm\frac{1}{2}\e^{-\frac{1}{\hbar}\int_{-a}^{a}\abs{p(x)}\d x}
 		\end{equation}
 	
-		Kdyby nebylo tunelování mezi dvěma jamami, spektrum $E_{n}^{(0)}$ by na základě Bohrova-Sommerfeldova kvantování~\eqref{eq:BohrSommerfeld} bylo dáno rovnicí
+		Kdyby nebylo tunelování mezi dvěma jamami, spektrum $E_{n}^{(0)}$ by na základě Bohrova-Sommerfeldova kvantování~\eqref{eq:BohrSommerfeld}\index{podmínka!Bohrova-Sommerfeldova kvantovací} bylo dáno rovnicí
 		\begin{equation}
 			\int_{a}^{b}\sqrt{2M\left[E_{n}^{(0)}-V(x)\right]}\,\d x=\pi\hbar\left(n+\frac{1}{2}\right).
 		\end{equation}
-		Ve skutečnosti však dochází k tunelování a spektrum je dáno rovnicí~\eqref{eq:DoubleWellE}.
-		Označme
+		Ve skutečnosti však dochází k tunelování a spektrum je určeno rovnicí~\eqref{eq:DoubleWellE}.
+		Budeme předpokládat, že hladina $E_{n}$ se nachází blízko hladiny $E_{n}^{(0)}$, tj.
 		\begin{equation}
-			E_{n}=E_{n}^{(0)}+\epsilon.
+			E_{n}=E_{n}^{(0)}+\epsilon,
 		\end{equation}
-		a rozviňme levou stranu rovnice~\eqref{eq:DoubleWellE} okolo $E_{n}^{(0)}$:
+		kde $\epsilon\ll E_{n}^{(0)}$, a rozvineme levou stranu rovnice~\eqref{eq:DoubleWellE} okolo $E_{n}^{(0)}$:
 		\begin{align}
 			\frac{1}{\hbar}\int_{a}^{b}\underbrace{\sqrt{2M\left[E_{n}-V(x)\right]}}_{p(x;E_{n})}\,\d x
 				&=\frac{1}{\hbar}\int_{a}^{b}p(x;E_{n}^{(0)})\d x+\frac{\epsilon}{\hbar}\int_{a}^{b}\partialderivative{p}{E}(x;E_{n}^{(0)})\d x+\dotsb\nonumber\\
@@ -202,35 +203,37 @@
 				=\frac{\Omega\hbar}{\pi}\e^{-I_{-a}^{a}}\approx\frac{\Omega\hbar}{\pi}\sqrt{\frac{4M\Omega x_{0}^{2}}{\hbar}}\e^{-\frac{2M\Omega x_{0}^{2}}{3\hbar}+1}
 				=\frac{2}{\pi}\sqrt{\frac{\hbar g^{3}x_{0}^{5}}{M}}\e^{-\frac{2\sqrt{M}g x_{0}^{3}}{3\hbar}+1}.
 		\end{equation}
-		Sbírka~\cite{Cini2012} uvádí výsledek odlišně
-		\begin{equation}
-			\Delta E_{0}'=2\sqrt{\frac{\hbar g^{3}x_{0}^{5}}{M}}\e^{-\frac{2\sqrt{M}g x_{0}^{3}}{3\hbar}}\,,
-		\end{equation}
-		a to i přesto, že integrál $I_{-a}^{a}$ v ní vychází stejně jako zde.
-		Tento výraz $\Delta E_{0}'$ nicméně lépe souhlasí s přesnějšími metodami, viz např. následující bod.
+		\begin{note}
+			Sbírka~\cite{Cini2012} uvádí výsledek odlišně
+			\begin{equation}
+				\Delta E_{0}'=2\sqrt{\frac{\hbar g^{3}x_{0}^{5}}{M}}\e^{-\frac{2\sqrt{M}g x_{0}^{3}}{3\hbar}}\,,
+			\end{equation}
+			a to i přesto, že integrál $I_{-a}^{a}$ v ní vychází stejně jako zde.
+			Tento výraz $\Delta E_{0}'$ nicméně lépe souhlasí s přesnějšími metodami, viz např. následující bod.
+		\end{note}
 			
 	\item
 		Dvoujámový potenciál, se kterým budeme nyní získaný výsledek srovnávat, má tvar
 		\begin{equation}
 			V(x)=-\frac{1}{2}x^{2}+x^{4}=\left(x^{2}-\frac{1}{4}\right)^{2}-\frac{1}{16},
 		\end{equation}
-		takže se jedná přibližně o potenciál~\eqref{eq:DoubleWellPotential} s
+		viz~\eqref{eq:HamiltonianQuarticOscillator}, takže se jedná o potenciál~\eqref{eq:DoubleWellPotential} s
 		\begin{equation}
-			g=2\sqrt{2}\,,\qquad x_{0}=\frac{1}{2}
+			g=2\sqrt{2}\,,\qquad x_{0}=\frac{1}{2},
 		\end{equation}
-		a spektrum je posunuté o $\frac{1}{16}$ energetické jednotky dolů.
+		přičemž spektrum Hamiltoniánu bude navíc posunuté o $\frac{1}{16}$ energetické jednotky dolů.
 		
-		Pro dostatečně malé hodnoty $\hbar$ (v úloze se počítalo s $\hbar=0.02$) dostaneme pro základní stav
+		Pro dostatečně malé hodnoty $\hbar$ (v příkladu~\ref{sec:QuarticOscillator} se počítá s $\hbar=0.02$) vychází pro základní stav
 		\begin{align}
 			\Omega&=\frac{g x_{0}}{\sqrt{M}}=\sqrt{2}\approx1.4142\nonumber\\
 			E_{0}&=\frac{1}{2}\hbar\Omega-\frac{1}{16}\approx-0.0484\nonumber\\
 			\Delta E_{0}'&=1.81\cdot 10^{-6}
 		\end{align}
-		Naproti tomu na základě numerické diagonalizace jsme dostali
+		Naproti tomu na základě numerické diagonalizace matice v příkladu~\ref{sec:QuarticOscillator} je energie základího stavu a rozštěpení prvního dubletu
 		\begin{align}
 			E_{0}&=-0.0489 & \Delta E=1.86\cdot 10^{-6}.
 		\end{align}
-		Pro menší hodnoty $\hbar$ bychom dostali lepší shodu.						
+		Pro menší hodnoty $\hbar$ bychom dostali lepší shodu obou přístupů.
 	\end{enumerate}
 \end{solution}
 	

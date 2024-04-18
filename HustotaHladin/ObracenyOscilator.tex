@@ -11,12 +11,11 @@
 	Spočítejte hustotu kvantových hladin.
 	
 	\begin{solution}
-		Při výpočtu se bude využívat vztah~\eqref{eq:LevelDensity1D}.
+		Při výpočtu se vyjde ze vztahu~\eqref{eq:LevelDensity1D}.
 		
 		\begin{enumerate}
 			\item $E<0$:		
-				V tomto případě je
-				(díkz sudosti potenciálu stačí počítat jen v oblasti $x>0$ a výsledek zdvojnásobit):
+				V tomto případě je (díkz sudosti potenciálu stačí počítat jen v oblasti $x>0$ a výsledek zdvojnásobit):
 				\begin{align*}
 				\Omega(E)
 					&=2\sqrt{2m}\int_{\sqrt{\frac{2\abs{E}}{k}}}^{a}\frac{1}{\sqrt{-\abs{E}+\frac{1}{2}kq^{2}}}\d q\\
@@ -28,7 +27,7 @@
 						\frac{\sinh{z}}{\sqrt{\cosh^{2}{z}-1}}\d z\\
 					&=\frac{4}{\omega}\,\arccosh\left(\sqrt{\frac{k}{2\abs{E}}}\,a\right),
 				\end{align*}
-				kde $-\frac{1}{2}ka^{2}\leq E\leq0$.
+				kde $-\frac{1}{2}ka^{2}\leq E\leq0$ a $\omega=\sqrt{k/m}$.
 				
 				Hustota hladin je tedy
 				\begin{equation*}
@@ -38,7 +37,7 @@
 			
 			\item $E>0$
 			
-			Podobným postupem jako v případě záporné energie dostaneme
+			Analogickým postupem jako v případě záporné energie se dostane
 			\begin{equation*}
 				\rho(E)
 					=\frac{2}{\pi\hbar\omega}\,\arcsinh\left(\sqrt{\frac{k}{2\abs{E}}}\,a\right).
