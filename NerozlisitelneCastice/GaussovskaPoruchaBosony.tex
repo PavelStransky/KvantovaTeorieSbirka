@@ -20,14 +20,14 @@
 	Jednočásticová vlnová funkce základního stavu je
 	\begin{equation}
 		\phi_{0}(x)
-			=\sqrt[4]{\frac{M\Omega}{2\pi\hbar}}\e^{-\frac{M\Omega}{2\hbar}x^{2}}
+			=\sqrt[4]{\frac{M\Omega}{\pi\hbar}}\e^{-\frac{M\Omega}{2\hbar}x^{2}}
 	\end{equation}
 	V případě dvou bosonů musí být vlnová funkce symetrická vůči záměně dvou částic.
 	To splňuje jednoduchý součin
 	\begin{equation}\label{eq:IdenticalBosonsWaveFunction}
 		\psi_{0}^{\ti{B}}(x_{1},x_{2})
 			=\phi_{0}(x_{1})\phi_{0}(x_{2})
-			=\sqrt{\frac{M\Omega}{2\pi\hbar}}\e^{-\frac{M\Omega}{2\hbar}\left(x_{1}^{2}+x_{2}^{2}\right)}
+			=\sqrt{\frac{M\Omega}{\pi\hbar}}\e^{-\frac{M\Omega}{2\hbar}\left(x_{1}^{2}+x_{2}^{2}\right)}
 	\end{equation}			
 	Neporušená energie základního stavu soustavy dvou bosonů je
 	\begin{equation}
@@ -50,17 +50,17 @@
 	\begin{align}
 		E_{0}^{\ti{B}(1)}
 			&=\iint\psi^{\ti{B}*}_{0}(x_{1},x_{2})\operator{H}_{\ti{I}}\psi_{0}^{\ti{B}}(x_{1},x_{2})\d x_{1}\d x_{2}=\nonumber\\
-			&=v\frac{M\Omega}{2\pi\hbar}\iint\e^{-\frac{M\Omega}{\hbar}\left(x_{1}^{2}+x_{2}^{2}\right)}
+			&=v\frac{M\Omega}{\pi\hbar}\iint\e^{-\frac{M\Omega}{\hbar}\left(x_{1}^{2}+x_{2}^{2}\right)}
 				\e^{-\alpha\left(x_{1}-x_{2}\right)^{2}}\d x_{1}\d x_{2}=\nonumber\\
-			&=v\frac{M\Omega}{2\pi\hbar}\iint\e^{-\frac{M\Omega}{2\hbar}
+			&=v\frac{M\Omega}{\pi\hbar}\iint\e^{-\frac{M\Omega}{2\hbar}
 				\left[\left(x_{1}+x_{2}\right)^{2}+\left(x_{1}-x_{2}\right)^{2}\right]}
 				\e^{-\alpha\left(x_{1}-x_{2}\right)^{2}}\d x_{1}\d x_{2}=\nonumber\\
 			&=\equationcomment{X=\frac{x_{1}+x_{2}}{2} & \text{Jakobián} \\
 				x=x_{1}-x_{2} & \text{transformace je 1}}=\nonumber\\
-			&=v\frac{M\Omega}{2\pi\hbar}\int\e^{-\frac{2M\Omega}{\hbar}X^{2}}\d X
+			&=v\frac{M\Omega}{\pi\hbar}\int\e^{-\frac{2M\Omega}{\hbar}X^{2}}\d X
 				\int\e^{-\left(\frac{M\Omega}{2\hbar}+\alpha\right)x^{2}}\d x=\nonumber\\
-			&=v\frac{M\Omega}{2\pi\hbar}\sqrt{\frac{\pi\hbar}{2M\Omega}}
+			&=v\frac{M\Omega}{\pi\hbar}\sqrt{\frac{\pi\hbar}{2M\Omega}}
 				\sqrt{\frac{\pi}{\frac{M\Omega}{2\hbar}+\alpha}}=\nonumber\\
-			&=\frac{v}{2}\sqrt{\frac{M\Omega}{M\Omega+2\hbar\alpha}}.
+			&=v\sqrt{\frac{M\Omega}{M\Omega+2\hbar\alpha}}.
 	\end{align} 
 \end{solution}

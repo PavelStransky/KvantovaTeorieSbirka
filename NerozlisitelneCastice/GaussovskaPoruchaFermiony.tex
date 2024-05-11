@@ -22,12 +22,12 @@
 	\begin{equation}
 		\phi^{\ti{F}}_{0,S=0}(x_{1},x_{2})
 			=\phi_{0}(x_{1})\phi_{0}(x_{2})
-			=\sqrt{\frac{M\Omega}{2\pi\hbar}}\e^{-\frac{M\Omega}{2\hbar}\left(x_{1}^{2}+x_{2}^{2}\right)},
+			=\sqrt{\frac{M\Omega}{\pi\hbar}}\e^{-\frac{M\Omega}{2\hbar}\left(x_{1}^{2}+x_{2}^{2}\right)},
 	\end{equation}
 	a tím pádem také oprava k energii vyjde stejně:
 	\begin{equation}
 		E_{0,S=0}^{\ti{F}(1)}
-			=\frac{v}{2}\sqrt{\frac{M\Omega}{M\Omega+2\hbar\alpha}}
+			=v\sqrt{\frac{M\Omega}{M\Omega+2\hbar\alpha}}
 	\end{equation}
 	
 	U prostorové části vlnové funkce stavu tripletního si již nelze vystačit s jednočásticovou vlnovou funkcí $\psi_{0}$.
@@ -41,7 +41,7 @@
 	\begin{align}
 		\phi_{1}(x)
 			&=\sqrt{\frac{M\Omega}{2\hbar}}\left(x-\frac{\hbar}{M\Omega}\frac{\partial}{\partial x}\right)
-				\sqrt[4]{\frac{M\Omega}{2\pi\hbar}}\e^{-\frac{M\Omega}{2\hbar}x^{2}}=\nonumber\\
+				\sqrt[4]{\frac{M\Omega}{\pi\hbar}}\e^{-\frac{M\Omega}{2\hbar}x^{2}}=\nonumber\\
 			&=\phi_{0}(x)\sqrt{\frac{M\Omega}{2\hbar}}\left(x+\frac{\hbar}{M\Omega}\frac{M\Omega}{\hbar}x\right)\nonumber\\
 			&=x\phi_{0}(x)\sqrt{\frac{2M\Omega}{\hbar}}.
 	\end{align}
@@ -61,19 +61,19 @@
 	\begin{align}
 		E_{0,S=1}^{\ti{F}(1)}
 			&=\iint\psi^{\ti{F}*}_{0,S=1}(x_{1},x_{2})\operator{H}_{\ti{I}}\psi_{0,S=1}^{\ti{F}}(x_{1},x_{2})\d x_{1}\d x_{2}=\nonumber\\
-			&=v\frac{M\Omega}{\hbar}\frac{M\Omega}{2\pi\hbar}
+			&=v\frac{M\Omega}{\hbar}\frac{M\Omega}{\pi\hbar}
 				\iint\left(x_{1}-x_{2}\right)^{2}\e^{-\frac{M\Omega}{\hbar}\left(x_{1}^{2}+x_{2}^{2}\right)}
 				\e^{-\alpha\left(x_{1}-x_{2}\right)^{2}}\d x_{1}\d x_{2}=\nonumber\\
-			&=\frac{v}{2\pi}\left(\frac{M\Omega}{\hbar}\right)^{2}
+			&=\frac{v}{\pi}\left(\frac{M\Omega}{\hbar}\right)^{2}
 				\iint\left(x_{1}-x_{2}\right)^{2}\e^{-\frac{M\Omega}{\hbar}\left(x_{1}^{2}+x_{2}^{2}\right)}
 				\e^{-\alpha\left(x_{1}-x_{2}\right)^{2}}\d x_{1}\d x_{2}=\nonumber\\
-			&=\frac{v}{2\pi}\left(\frac{M\Omega}{\hbar}\right)^{2}
+			&=\frac{v}{\pi}\left(\frac{M\Omega}{\hbar}\right)^{2}
 				\int\e^{-\frac{2M\Omega}{\hbar}X^{2}}\d X
 				\int x^{2}\e^{-\left(\frac{M\Omega}{2\hbar}+\alpha\right)x^{2}}\d x=\nonumber\\
-			&=\frac{v}{2\pi}\left(\frac{M\Omega}{\hbar}\right)^{2}
+			&=\frac{v}{\pi}\left(\frac{M\Omega}{\hbar}\right)^{2}
 				\sqrt{\frac{\pi\hbar}{2M\Omega}}\,
 				\frac{1}{2}\frac{\pi}{\frac{M\Omega}{2\hbar}+\alpha}
 				\sqrt{\frac{\pi}{\frac{M\Omega}{2\hbar}+\alpha}}=\nonumber\\
-			&=\frac{v}{2}\left(\frac{M\Omega}{M\Omega+2\hbar\alpha}\right)^{3/2}.
+			&=v\left(\frac{M\Omega}{M\Omega+2\hbar\alpha}\right)^{3/2}.
 	\end{align}
 \end{solution}
