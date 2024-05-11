@@ -14,7 +14,7 @@ Za předpokladu, že elektrické pole lze brát jako malou poruchu, spočítejte
     \end{equation}
     přičemž vzhledem k tomu, že neporušený atom vodíku je ve stavu $1s$ ($n=1, l=0, m=0$) se sféricky symetrickou vlnovou funkcí
     \begin{equation}
-        \psi_{100}(r,\theta\phi)=\frac{1}{\sqrt{\pi a_{0}^{3}}}\e^{-\frac{r}{a_{0}}},
+        \psi_{100}(r,\theta,\phi)=\frac{1}{\sqrt{\pi a_{0}^{3}}}\e^{-\frac{r}{a_{0}}},
     \end{equation}
     lze souřadnou soustavu zvolit libovolně.
     Zvolme ji tak, že osa $\axis{z}$ bude mířit ve směru homogenního pole.
@@ -42,7 +42,7 @@ Za předpokladu, že elektrické pole lze brát jako malou poruchu, spočítejte
     \begin{subequations}
         \begin{align}
             S_{2lm,100}\hi{0}(t)&=0,\\
-            S_{2lm,100}\hi{1}(t)&=-\frac{\im}{\hbar}\int_{0}^{t}\matrixelement{2,l,m}{\left[-qE(t)\operator{z}\right]}{1,0,0}\e^{\im\omega_{21}t_{1}}\d t_{1},
+            S_{2lm,100}\hi{1}(t)&=-\frac{\im}{\hbar}\int_{0}^{t}\matrixelement{2,l,m}{\left[-qE(t_{1})\operator{z}\right]}{1,0,0}\e^{\im\omega_{21}t_{1}}\d t_{1},
             \label{eq:SH2lm}
         \end{align}            
     \end{subequations}
@@ -81,7 +81,7 @@ Za předpokladu, že elektrické pole lze brát jako malou poruchu, spočítejte
         S_{210,100}\hi{1}(t)
             &=-\frac{\im}{\hbar}\frac{4^{4}eE_{0}a_{0}}{3^{5}\sqrt{2}}\int_{0}^{t}\e^{-\frac{t_{1}}{\tau}+\im\omega_{21}t_{1}}\d t_{1}\nonumber\\
             &=-\frac{\im}{\hbar}\frac{4^{4}eE_{0}a_{0}}{3^{5}\sqrt{2}}\left[\frac{\tau}{\im\omega_{21}\tau-1}\e^{-\frac{t_{1}}{\tau}+\im\omega_{21}t_{1}}\right]_{0}^{t}\nonumber\\
-            &=-\frac{\im}{\hbar}\frac{4^{4}eE_{0}a_{0}}{3^{5}\sqrt{2}}\frac{\tau}{\im\omega_{21}\tau-1}\left(\e^{-\frac{t_{1}}{\tau}+\im\omega_{21}t_{1}}-1\right).
+            &=-\frac{\im}{\hbar}\frac{4^{4}eE_{0}a_{0}}{3^{5}\sqrt{2}}\frac{\tau}{\im\omega_{21}\tau-1}\left(\e^{-\frac{t}{\tau}+\im\omega_{21}t}-1\right).
     \end{align}
     Hledaná pravděpodobnost přechodu je pak
     \begin{equation}
