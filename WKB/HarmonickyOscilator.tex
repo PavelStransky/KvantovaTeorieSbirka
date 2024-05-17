@@ -26,7 +26,7 @@
 	\begin{figure}[!htbp]
 	\centering
 	\epsfig{file=figures/ho.eps,width=0.6\linewidth,keepaspectratio}
-	\caption{
+	\scaption{
 		Potenciál harmonického oscilátoru s vyznačenými oblastmi pro WKB řešení.
 	}
 	\label{fig:WKBHarmonicOscillator}
@@ -50,16 +50,24 @@
 		p(x)=\sqrt{2M\left(E-\frac{1}{2}M\Omega^{2}x^{2}\right)}.
 	\end{equation}	
 	Pomocí sešívacích vztahů~\eqref{eq:WKBConnectionDown1} se napojí vlnová funkce v oblasti II:
-	\begin{equation}
-		\psi_{\mathrm{II}}(x)=2\lambda\sin{\left[I_{-a}^{x}+\frac{\pi}{4}\right]}=2\lambda'\sin{\left[I_{x}^{a}+\frac{\pi}{4}\right]}.
-	\end{equation}
-	Vychází tedy $\lambda=-\lambda'$ a
+	\begin{align}
+		\psi_{\mathrm{II}}(x)
+			=\lambda\cos{\left[I_{-a}^{x}-\frac{\pi}{4}\right]}
+			=\lambda\cos{\left[I_{-a}^{a}-\left(I_{x}^{a}+\frac{\pi}{4}\right)\right]}\nonumber\\
+			=\underbrace{\lambda\cos{I_{-a}^{a}}}_{0}\cos{\left[I_{x}^{a}+\frac{\pi}{4}-\right]}-\underbrace{\lambda\sin{I_{-a}^{a}}}_{\lambda'}\sin{\left[I_{x}^{a}+\frac{\pi}{4}\right]}.
+	\end{align}
+	Musí tedy platit
 	\begin{equation}
 		\label{eq:WKBHarmonicOscillatorBS}
 		I_{-a}^{a}=\pi\left(n+\frac{1}{2}\right),
 	\end{equation}
 	což je Bohrova-Sommerfeldova kvantovací podmínka.\index{podmínka!Bohr-Sommerfeldova kvantovací}
-	
+	Zároveň platí, že
+	\begin{align}
+		\sin{I_{-a}^{a}}&=\sin\left(\pi n+\frac{\pi}{2}\right)=\minus{n}&\Longrightarrow&&\lambda'&=\minus{n}\lambda,
+	\end{align}
+	tj. pro sudé hodnoty kvantového čísla $n$ je vlnová funkce sudá, pro liché hodnoty je lichá.
+
 	Zbývá spočítat integrál
 	\begin{align}
 		I_{x_{1}}^{x_{2}}

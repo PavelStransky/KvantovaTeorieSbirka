@@ -12,7 +12,7 @@ Pokud $p'(x_{1,2})\neq0$ a zároveň $p'(x)$ je spojitá v bodech $x_{1,2}$, pak
     \begin{subfigure}{0.45\linewidth}
         \centering\epsfig{file=wkb_up.eps,width=\linewidth}	
     \end{subfigure}
-    \scaption{
+    \caption{
         Body obratu pro navazování WKB vlnových funkcí.
     }
 \label{fig:WKBConnection}
@@ -23,21 +23,22 @@ Pokud $p'(x_{1,2})\neq0$ a zároveň $p'(x)$ je spojitá v bodech $x_{1,2}$, pak
     V bodě obratu $x_{1}$, ve kterém potenciál klesá, $V'(x_{1})<0$, viz obrázek~\ref{fig:WKBConnection}(a), se mění fáze vlnové funkce o $\frac{\pi}{4}$ a zdvojnásobuje se amplituda u sinové části:
     \begin{subequations}
         \begin{align}
-            \psi_{\mathrm{II}_{1}}(x)&=\frac{\mathcal{A}_{-}}{\sqrt{\abs{p(x)}}}\e^{-\frac{1}{\hbar}\int_{x}^{x_{1}}\abs{p(x')}\d x'},\\
-            \psi_{\mathrm{I}_{1}}(x)&=\frac{2\mathcal{A}_{-}}{\sqrt{\abs{p(x)}}}\sin\left[\frac{1}{\hbar}\int_{x_{1}}^{x}p(x')\d x'+\frac{\pi}{4}\right]
+            \psi_{\mathrm{II}_{1}^{+}}(x)&=\frac{\mathcal{A}_{+}}{\sqrt{\abs{p(x)}}}\e^{\frac{1}{\hbar}\int_{x}^{x_{1}}\abs{p(x')}\d x'},\\
+            \psi_{\mathrm{I}_{1}^{+}}(x)&=-\frac{2\mathcal{A}_{+}}{\sqrt{\abs{p(x)}}}\sin\left[\frac{1}{\hbar}\int_{x_{1}}^{x}p(x')\d x'-\frac{\pi}{4}\right]
         \end{align}            
         \label{eq:WKBConnectionDown1}
     \end{subequations}
     a
     \begin{subequations}
         \begin{align}
-            \psi_{\mathrm{II}_{1}}(x)&=\frac{\mathcal{A}_{+}}{\sqrt{\abs{p(x)}}}\e^{\frac{1}{\hbar}\int_{x}^{x_{1}}\abs{p(x')}\d x'},\\
-            \psi_{\mathrm{I}_{1}}(x)&=\frac{\mathcal{A}_{+}}{\sqrt{\abs{p(x)}}}\cos\left[\frac{1}{\hbar}\int_{x_{1}}^{x}p(x')\d x'+\frac{\pi}{4}\right],
+            \psi_{\mathrm{II}_{1}^{-}}(x)&=\frac{\mathcal{A}_{-}}{\sqrt{\abs{p(x)}}}\e^{-\frac{1}{\hbar}\int_{x}^{x_{1}}\abs{p(x')}\d x'},\\
+            \psi_{\mathrm{I}_{1}^{-}}(x)&=\frac{\mathcal{A}_{-}}{\sqrt{\abs{p(x)}}}\cos\left[\frac{1}{\hbar}\int_{x_{1}}^{x}p(x')\d x'-\frac{\pi}{4}\right],
         \end{align}		            
         \label{eq:WKBConnectionDown2}
     \end{subequations}
     kde oblast II$_{1}$ odpovídá $x<x_{1}$ a oblast I$_{1}$ odpovídá $x>x_{1}$.
     Integrační meze v integrálech jsou zvoleny tak, aby spodní mez byla vždy menší než horní mez, a tedy integrace probíhala postupně zleva doprava.
+    Vlnová funkce $\psi_{\mathrm{II}_{1}^{-}}$ klesá exponenciálně pro $x\rightarrow-\infty$, zatímco $\psi_{\mathrm{II}_{1}^{+}}$ exponenciálně diverguje.
     
 \item
     V bodě obratu $x_{2}$, ve kterém potenciál roste, $V'(x_{2})>0$, viz obrázek~\ref{fig:WKBConnection}(b), je analogicky\footnote{
@@ -45,16 +46,16 @@ Pokud $p'(x_{1,2})\neq0$ a zároveň $p'(x)$ je spojitá v bodech $x_{1,2}$, pak
     }
     \begin{subequations}
         \begin{align}
-            \psi_{\mathrm{I}_{2}}(x)&=\frac{2\mathcal{B}_{-}}{\sqrt{\abs{p(x)}}}\sin\left[\frac{1}{\hbar}\int_{x}^{x_{2}}p(x')\d x'+\frac{\pi}{4}\right],\\
-            \psi_{\mathrm{II}_{2}}(x)&=\frac{\mathcal{B}_{-}}{\sqrt{\abs{p(x)}}}\e^{-\frac{1}{\hbar}\int_{x_{2}}^{x}\abs{p(x')}\d x'}\,,
+            \psi_{\mathrm{I}_{2}^{-}}(x)&=\frac{2\mathcal{B}_{-}}{\sqrt{\abs{p(x)}}}\sin\left[\frac{1}{\hbar}\int_{x}^{x_{2}}p(x')\d x'+\frac{\pi}{4}\right],\\
+            \psi_{\mathrm{II}_{2}^{-}}(x)&=\frac{\mathcal{B}_{-}}{\sqrt{\abs{p(x)}}}\e^{-\frac{1}{\hbar}\int_{x_{2}}^{x}\abs{p(x')}\d x'}\,,
         \end{align}            
         \label{eq:WKBConnectionUp1}
     \end{subequations}
     nebo
     \begin{subequations}
         \begin{align}
-            \psi_{\mathrm{I}_{2}}(x)&=\frac{\mathcal{B}_{+}}{\sqrt{\abs{p(x)}}}\cos\left[\frac{1}{\hbar}\int_{x}^{x_{2}}p(x')\d x'+\frac{\pi}{4}\right],\\
-            \psi_{\mathrm{II}_{2}}(x)&=\frac{\mathcal{B}_{+}}{\sqrt{\abs{p(x)}}}\e^{\frac{1}{\hbar}\int_{x_{2}}^{x}\abs{p(x')}\d x'},
+            \psi_{\mathrm{I}_{2}^{+}}(x)&=\frac{\mathcal{B}_{+}}{\sqrt{\abs{p(x)}}}\cos\left[\frac{1}{\hbar}\int_{x}^{x_{2}}p(x')\d x'+\frac{\pi}{4}\right],\\
+            \psi_{\mathrm{II}_{2}^{+}}(x)&=\frac{\mathcal{B}_{+}}{\sqrt{\abs{p(x)}}}\e^{\frac{1}{\hbar}\int_{x_{2}}^{x}\abs{p(x')}\d x'},
         \end{align}            
         \label{eq:WKBConnectionUp2}
     \end{subequations}

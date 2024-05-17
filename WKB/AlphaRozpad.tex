@@ -93,18 +93,18 @@
 		V oblasti III vně jádra je nenulová jen ta část vlnové funkce, která odpovídá prošlé částici vzdalující se od atomu,
 		\begin{align}
 			\psi_{\mathrm{III}}(x)
-				&=\frac{\mathcal{C}}{\sqrt{\abs{p(x)}}}\e^{\frac{\im}{\hbar}\int_{b}^{x}\abs{p(x')}\d x'+\im\frac{\pi}{4}}
-				 =\lambda\e^{\im\left(I_{b}^{x}+\frac{\pi}{4}\right)}\nonumber\\
-				&=\lambda\cos{\left[I_{b}^{x}+\frac{\pi}{4}\right]}+\im\lambda\sin{\left[I_{b}^{x}+\frac{\pi}{4}\right]},
+				&=\frac{\mathcal{C}}{\sqrt{\abs{p(x)}}}\e^{\frac{\im}{\hbar}\int_{b}^{x}\abs{p(x')}\d x'-\im\frac{\pi}{4}}
+				 =\lambda\e^{\im\left(I_{b}^{x}-\frac{\pi}{4}\right)}\nonumber\\
+				&=\lambda\cos{\left[I_{b}^{x}-\frac{\pi}{4}\right]}+\im\lambda\sin{\left[I_{b}^{x}-\frac{\pi}{4}\right]},
 		\end{align}
 		kde je využito značení~\eqref{eq:WKBNotation}. 
-		Do výrazu byla navíc přidána fáze $\pi/4$, což usnadní následné navazování vlnové funkce.
+		Do výrazu byla navíc přidána fáze $-\pi/4$, což usnadní následné navazování vlnové funkce.
 		Vlnová funkce v oblasti II se určí pomocí navazovacích vztahů~\eqref{eq:WKBConnectionDown1}---\eqref{eq:WKBConnectionDown2},
 		\begin{equation}
-			\psi_{\mathrm{II}}(x)=\lambda\e^{I_{x}^{b}}+\frac{\im}{2}\lambda\e^{-I_{x}^{b}}.
+			\psi_{\mathrm{II}}(x)=\lambda\e^{-I_{x}^{b}}+\frac{\im}{2}\lambda\e^{I_{x}^{b}}.
 		\end{equation}
 		
-		Pomocí rozepsání integrálu
+		Pomocí rozpisu integrálu
 		\begin{align}
 			\int_{x}^{b}&=\int_{a}^{b}-\int_{a}^{x} && \Longleftrightarrow & I_{x}^{b}&=I_{a}^{b}-I_{a}^{x}
 		\end{align}
@@ -114,21 +114,21 @@
 		\end{equation}
 		přejde vlnová funkce do tvaru
 		\begin{equation}
-			\psi_{\mathrm{II}}(x)=\frac{\lambda}{F}\e^{-I_{a}^{x}}+\frac{\im}{2}\lambda F\e^{I_{a}^{x}}.
+			\psi_{\mathrm{II}}(x)=\lambda F\e^{I_{a}^{x}}+\frac{\im\lambda}{2F}\e^{-I_{a}^{x}}.
 		\end{equation}
 		Do oblasti I se následně naváže pomocí sešívacích podmínek~\eqref{eq:WKBConnectionUp1}---\eqref{eq:WKBConnectionUp2}:
 		\begin{align}
 			\psi_{\mathrm{I}}(x)
-				&=\frac{2\lambda}{F}\sin\left[I_{x}^{a}+\frac{\pi}{4}\right]+\frac{\im}{2}\lambda F\cos\left[I_{x}^{a}+\frac{\pi}{4}\right]\nonumber\\										
-				&=\underbrace{-\im \mathcal{C}\left(\frac{1}{F}-\frac{F}{4}\right)\e^{\im\frac{\pi}{4}}}_{\mathcal{A}}\frac{1}{\sqrt{\abs{p(x)}}}\e^{\im I_{x}^{a}}
-					+\underbrace{\im \mathcal{C}\left(\frac{1}{F}+\frac{F}{4}\right)\e^{-\im\frac{\pi}{4}}}_{\mathcal{B}}\frac{1}{\sqrt{\abs{p(x)}}}\e^{-\im I_{x}^{a}}.						
+				&=\lambda F\cos\left[I_{x}^{a}+\frac{\pi}{4}\right]+\frac{\im\lambda}{F}\sin\left[I_{x}^{a}+\frac{\pi}{4}\right]\nonumber\\										
+				&=\underbrace{\mathcal{C}\left(F+\frac{1}{F}\right)\e^{\im\frac{\pi}{4}}}_{\mathcal{A}}\frac{\e^{\im I_{x}^{a}}}{\sqrt{\abs{p(x)}}}
+					+\underbrace{\mathcal{C}\left(F-\frac{1}{F}\right)\e^{-\im\frac{\pi}{4}}}_{\mathcal{B}}\frac{\e^{-\im I_{x}^{a}}}{\sqrt{\abs{p(x)}}}.
 		\end{align}
-		Transmisní koeficient tedy vychází
+		Pravděpodobnost průchodu tedy vychází
 		\begin{equation}
-			T=\abs{\frac{\mathcal{C}}{\mathcal{A}}}^{2}=\frac{1}{\left(\frac{1}{F}-\frac{F}{4}\right)^{2}}\approx F^{2}\,,
+			T=\abs{\frac{\mathcal{C}}{\mathcal{A}}}^{2}=\frac{1}{\left(F+\frac{1}{F}\right)^{2}}\approx F^{2}\,,
 		\end{equation}
 		přičemž poslední rovnost platí za předpokladu $F\ll1$, což musí být splněno, aby bylo vůbec možné pro tento typ úlohy WKB aproximaci použít.
-		Dosazení za $F$ dá hledaný Gamovův faktor~\eqref{eq:Gammov}.
+		Dosazení za $F$ dá hledaný Gamovův koeficient~\eqref{eq:Gammov}.
 		
 	\item
 		Do právě odvozeného Gamovova vztahu pro pravděpodobnost průniku bariérou se dosadí modelový potenciál~\eqref{eq:AlphaDecayPotential}.

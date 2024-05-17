@@ -1,28 +1,19 @@
 \sec{Bohrovo-Sommerfeldovo kvantování}\index{kvantování!Bohrovo-Sommerfeldovo}
-Omezme se nyní na vázané stavy, tj. na stavy, jejichž vlnová funkce $\psi(x\pm\infty)=0$.
-Vyskytují-li se na zadané energii jen dva body obratu, pak musí platit $\psi_{\mathrm{I}_{1}}(x)=\psi_{\mathrm{I}_{2}}(x)$, což je splněno, pokud
-\begin{itemize}
-\item
-    $\mathcal{A}_{-}=\mathcal{B}_{-}$ a zároveň
-    \begin{equation}
-        \sin\left[\frac{1}{\hbar}\int_{x_{1}}^{x}p(x')\d x'+\frac{\pi}{4}\right]=\sin\left[\frac{1}{\hbar}\int_{x}^{x_{2}}p(x')\d x'+\frac{\pi}{4}\right],
-    \end{equation}
-    neboli
-    \begin{equation}
-        \frac{1}{\hbar}\int_{x_{1}}^{x}p(x')\d x'+\frac{\pi}{4}+n\pi=\frac{1}{\hbar}\int_{x}^{x_{2}}p(x')\d x'+\frac{\pi}{4},
-    \end{equation}
-    nebo vhodněji pokud	
-\item
-    $\mathcal{A}_{-}=-\mathcal{A}_{+}$ a zároveň
-    \begin{equation}
-        \sin\left[\frac{1}{\hbar}\int_{x_{1}}^{x}p(x')\d x'+\frac{\pi}{4}\right]=-\sin\left[\frac{1}{\hbar}\int_{x}^{x_{2}}p(x')\d x'+\frac{\pi}{4}\right],
-    \end{equation}
-    neboli
-    \begin{equation}
-        \frac{1}{\hbar}\int_{x_{1}}^{x}p(x')\d x'+\frac{\pi}{4}+n\pi=-\frac{1}{\hbar}\int_{x}^{x_{2}}p(x')\d x'-\frac{\pi}{4}.
-    \end{equation}
-\end{itemize}
-Z poslední rovnosti plyne \emph{Bohrova-Sommerfeldova kvantovací podmínka}\index{podmínka!Bohrova-Sommerfeldova kvantovací}
+Vlnová funkce pro vázané stavy musí splňovat podmínku $\lim_{x\rightarrow\pm\infty}\psi(x)=0$, aby byla kvadraticky integrovatelná.
+To vyžaduje $\mathcal{A}_{+}=\mathcal{B}_{+}=0$.
+Vyskytují-li se na zadané energii jen dva body obratu, pak musí v kinematicky dostupné oblasti být 
+\begin{align}
+    \psi_{\mathrm{D}}(x)
+        &=\frac{\mathcal{A}_{-}}{\sqrt{p(x)}}\cos\left[\frac{1}{\hbar}\int_{x_{1}}^{x}p(x')\d x'-\frac{\pi}{4}\right]\nonumber\\
+        &=\frac{\mathcal{A}_{-}}{\sqrt{p(x)}}\underbrace{\cos\left[\frac{1}{\hbar}\int_{x_{1}}^{x_{2}}p(x')\d x'-\left(\frac{1}{\hbar}\int_{x}^{x_{2}}p(x')\d x'+\frac{\pi}{4}\right)\right]}_{\cos\left(a+b\right)=\cos{a}\cos{b}-\sin{a}\sin{b}}\nonumber\\
+        &=\underbrace{\frac{\mathcal{A}_{-}}{\sqrt{p(x)}}\cos\left[\frac{1}{\hbar}\int_{x_{1}}^{x_{2}}p(x')\d x'\right]}_{\mathcal{B}_{+}}\cos\left[\frac{1}{\hbar}\int_{x}^{x_{2}}p(x')\d x'+\frac{\pi}{4}\right]\nonumber\\
+        &\quad\underbrace{-\frac{\mathcal{A}_{-}}{\sqrt{p(x)}}\sin\left[\frac{1}{\hbar}\int_{x_{1}}^{x_{2}}p(x')\d x'\right]}_{\mathcal{B_{-}}}\sin\left[\frac{1}{\hbar}\int_{x}^{x_{2}}p(x')\d x'+\frac{\pi}{4}\right],
+\end{align}
+avšak asymptotická podmínka $\mathcal{B}_{+}=0$ vede na omezení
+\begin{equation}
+    \cos\left[\frac{1}{\hbar}\int_{x_{1}}^{x_{2}}p(x')\d x'\right]=0.
+\end{equation}
+Z této rovnosti plyne \emph{Bohrova-Sommerfeldova kvantovací podmínka}\index{podmínka!Bohrova-Sommerfeldova kvantovací}
 \begin{equation}
     \label{eq:BohrSommerfeld}
     \important{\oint p(x')\d x'=2\int_{x_{1}}^{x_{2}}p(x')\d x'=2\pi\hbar\left(n+\frac{1}{2}\right)},
