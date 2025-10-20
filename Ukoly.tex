@@ -664,7 +664,75 @@
             \end{equation*}
             Bude tato síla přitažlivá nebo odpudivá a jak závisí na typu nerozlišitelných částic (symetrická nebo antisymetrická prostorová část vlnové funkce)?
             Nakreslete graf závislosti $F(b)$ pro oba případy.
+        \end{enumerate}
+
+\chapter{2025 -- 2026}
+\exercise{Kvartický oscilátor}
+    \begin{enumerate}
+    \item
+        V jednorozměrném harmonickém oscilátoru popsaném Hamiltoniánem
+        \begin{equation*}
+            \operator{H}_{0}=\frac{1}{2M}\operator{p}^{2}+\frac{1}{2}M\Omega^{2}\operator{x}^{2}
+        \end{equation*}
+        vyjádřete maticové elementy
+        \begin{align*}
+        &\matrixelement{m}{\operator{x}^{2}}{n}\,,\\
+        &\matrixelement{m}{\operator{x}^{4}}{n}\,,
+        \end{align*}
+        kde $\ket{m}$ a $\ket{n}$ jsou dva libovolné vlastní vektory Hamiltoniánu $\operator{H}_{0}$.
+        
+    \item
+        Uvažujte Hamiltonián
+        \begin{equation*}
+            \operator{H}=\frac{1}{2M}\operator{p}^{2}+\frac{1}{2}M\Omega^{2}\operator{x}^{2}+\frac{1}{8}b\operator{x}^{4}
+                =\operator{H}_{0}+\frac{1}{8}b\operator{x}^{4}\,,
+        \end{equation*}
+        kde $b$ je reálný kladný parametr.
+        
+        \begin{itemize}
+        \item
+            Napočítejte maticové elementy $H_{mn}=\matrixelement{m}{\operator{H}}{n}$ pro $M=\Omega=\hbar=1,b=10$
+            a numerickou diagonalizací matice $\matrix{H}=\left(H_{mn}\right)$ 
+            (například pomocí programů Mathematica, Maple, Matlab, GNU Octave, Python, Julia, knihoven LAPACK, atd.) 
+            učete energie základního stavu $E_{0}$ a prvních tří vzbuzených stavů $E_{1,2,3}$ Hamiltoniánu $\operator{H}$.
+            Uvažujte pouze konečný počet $N$ elementů báze, tj. $m,n=0,1,\dotsc,N-1$.
+
+        \item 
+            Zakreslete graf závislosti $E_{j}(N)$, $j=0,1,2,3$ pro $N\leq50$.
+
+        \item
+            Na základě výsledků z předchozího bodu odhadněte, jaká musí být nejmenší velikost matice $N$, aby čtyři nejnižší energie byly určeny s přesností na pět platných cifer.
+        \end{itemize}
+        
+    \item
+        Uvažujte nyní Hamiltonián
+        \begin{equation*}
+            \operator{H}'=\frac{1}{2M}\operator{p}^{2}-\frac{1}{2}a\operator{x}^{2}+\frac{1}{8}b\operator{x}^{4}\,,
+        \end{equation*}
+        kde $a>0$, $b>0$.
+        
+        \begin{itemize}
+        \item 
+            Načtněte klasický potenciál
+            \begin{equation*}
+                V(x)=-\frac{1}{2}ax^{2}+\frac{1}{8}bx^{4}
+            \end{equation*}
+            pro $a=b=1$ a nalezněte jeho stacionární body.
+        \item 
+            Vypočítejte numericky první čtyři energetické hladiny pro $\hbar=0.2,M=a=b=1$.
+            Velikost matice ať je taková, aby tyto hladiny byly určeny s přesností alespoň na pět platných cifer.
+        \item 
+            Vysvětlete, proč jsou dvojice hladin $(E_{0}, E_{1})$ a $(E_{2}, E_{3})$ v téměř degenerovaných dubletech?        
+        \item 
+            Opakujte výpočet pro jiné hodnoty $\hbar$, například $\hbar=0.1$ a $\hbar=0.5$, a diskutujte, jaký vliv má volba $\hbar$ na výsledné spektrum.
+            Nezapomeňte pokaždé zkontrolovat konvergenci energetických hladin (obecně pro menší hodnoty $\hbar$ je potřeba více bázových stavů).
+        \end{itemize}		
+        
+        \emph{Poznámka:} Dvoujámový systém popsaný Hamiltoniánem $\operator{H}'$ se požívá například k modelování amoniakového maseru, k modelování systémů ochlazených iontů, v teorii kvantové informace, při studiu kvantových fázových přechodů nebo v kvantové chemii.
+            
     \end{enumerate}
+
+
 
 \appendix
 \chapter{Úkoly z dřívějších let}
