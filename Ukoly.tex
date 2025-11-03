@@ -732,6 +732,68 @@
             
     \end{enumerate}
 
+\exercise{Základní stav atomu helia variačně}
+Hamiltonián popisující elektrony obalu atomu helia je
+\begin{equation*}
+    \operator{H}=\frac{\vectoroperator{p}_{1}^{2}}{2M}
+        +\frac{\vectoroperator{p}_{2}^{2}}{2M}
+        -\frac{2\gamma}{\operator{r}_{1}}
+        -\frac{2\gamma}{\operator{r}_{2}}
+        +\frac{\gamma}{\abs{\vectoroperator{r}_{1}-\vectoroperator{r}_{2}}},\qquad \gamma=\frac{e^{2}}{4\pi\epsilon_{0}}\,,
+\end{equation*}
+kde první dva členy jsou kinetická energie elektronů, druhé dva členy popisují interakci jednotlivých elektronů s atomovým jádrem a poslední člen udává elektrostatické odpuzování mezi oběma elektrony.
+Elektrony v obalu jsou nerozlišitelné fermiony se spinem $s=\frac{1}{2}$ a hmotností $M$.
+Jádro považujte za bodovou částici, spin-orbitální interakci a jaderné pohyby zanedbejte.
+
+Uvažujte následující normalizovanou testovací vlnovou funkci pro jeden elektron základního stavu helia:
+\begin{equation*}
+    \psi(\vector{r};Z_\ti{eff})
+        =\frac{1}{\sqrt{\pi}}\left(\frac{Z_{\ti{eff}}}{a_{0}}\right)^{\frac{3}{2}}\e^{-\frac{Z_{\ti{eff}}}{a_{0}}r}\,,
+\end{equation*}
+kde $a_{0}=\hbar^{2}/(\gamma M)$ je Bohrův poloměr a $Z_\ti{eff}>0$ je variační parametr představující efektivní náboj jádra, který elektron vnímá.\footnote{Pro $Z_\ti{eff}=1$ by tato funkce odpovídala vlnové funkci základního stavu elektronu v atomu vodíku.}
+
+\begin{enumerate}
+    \item \emph{(1/2 bodu)}
+        Napište prostorovou část testovací vlnové funkce $\Psi(\vector{r}_{1},\vector{r}_{2};Z_\ti{eff})$ pro oba elektrony helia v základním stavu.
+        Jak splníte antisymetrizační požadavek na celkovou vlnovou funkci fermionů?
+
+    \item \emph{(2 body)}
+        Vypočítejte analyticky střední hodnotu energie
+        \begin{equation*}
+            E(Z_\ti{eff})
+                =\matrixelement{\Psi}{\operator{H}}{\Psi}
+                =\int\Psi^{*}(\vector{r}_{1},\vector{r}_{2};Z_\ti{eff})\operator{H}\Psi(\vector{r}_{1},\vector{r}_{2};Z_\ti{eff})\d^{3}\vector{r}_{1}\d^{3}\vector{r}_{2}\,.    
+        \end{equation*}
+    
+        Využijte znalosti integrálu přes úhlové proměnné:
+        \begin{align*}
+        I(r_{1},r_{2})
+            &=\int\frac{\d\Omega_{1}\d\Omega_{2}}{\abs{\vector{r}_{1}-\vector{r}_{2}}}
+            =4\pi\int_{0}^{2\pi}\d\phi_{2}\int_{0}^{\pi}\sin{\theta}\d\theta\frac{1}{\sqrt{r_{1}^{2}+r_{2}^{2}-2r_{1}r_{2}\cos\theta}}
+            =\frac{\left(4\pi\right)^2}{\max(r_{1},r_{2})}
+        \end{align*}
+        (souřadná soustava je při výpočtu tohoto dvojného integrálu orientována tak, že osa $z_{1}$ míří do směru vektoru $\vector{r}_{2}$).
+
+    \item \emph{(1 bod)}
+        Najděte optimální hodnotu variačního parametru $Z^*_\ti{eff}$ a odpovídající energii.
+
+    \item \emph{(1/2 bodu)}
+        Porovnejte získaný odhad energie základního stavu helia s experimentální hodnotou $E_{\ti{exp}}=-79,\!0\,\mathrm{eV}$ a určete relativní chybu pro zadanou testovací funkci.
+
+    \item \emph{(1/2 bodu)}
+        Jaký je fyzikální význam získané hodnoty variačního parametru? Jaká je jeho hodnota ve srovnání s nábojem jádra helia $Z=2$ a proč?
+
+    \item \emph{(1/2 bodu)}
+        Navrhněte jinou testovací vlnovou funkci pro elektrony helia, která by mohla sloužit k odhadu energie základního stavu.
+        Zdůvodněte svůj návrh.
+
+    \item \emph{(nepovinně)}
+        Vypočítejte střední hodnotu energie základního stavu helia pomocí vámi navržené testovací vlnové funkce a porovnejte získaný odhad s výsledkem z předchozích bodů.
+
+\note
+    Úlohu můžete řešit v atomových jednotkách ($\hbar=M=\gamma=1$), ve kterých Bohrův poloměr je $a_{0}=1$ a energie je měřena v jednotkách Hartree ($1\,E_\ti{H}=2\unit{Ry}=2\cdot13\c6\unit{eV}$); v těchto jednotkách je $E_{\ti{exp}}=-2\c90\,E_\ti{H}$.
+
+\end{enumerate}
 
 
 \appendix
