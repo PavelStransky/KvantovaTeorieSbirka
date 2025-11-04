@@ -38,3 +38,337 @@ Potenciál se tedy dá vyjádřit jako
     \item 
         Srovnáním energií základního stavu získaných oběma metodami určete, která metoda dává základní stav přesněji.
 \end{enumerate}	
+
+\begin{solution}
+    \begin{enumerate}
+        \item\textbf{WKB metoda}
+        
+            Klasická hybnost částice s energií $E$ a nacházející se v potenciálu ve výšce $z$ je
+            \begin{equation}
+                p(z)=\sqrt{2M\left(E-Mgz\right)}.
+            \end{equation}
+
+            \begin{itemize}
+                \item\emph{Body obratu}
+            
+                    Dva body obratu pro částici s energií $E$ jsou
+                    \begin{align}
+                        z_{1}&=0, & \text{\uv{tvrdý} bod obratu,}\\
+                        z_{2}&=\frac{E}{Mg}, &\text{\uv{měkký} bod obratu}.
+                    \end{align}
+
+                \item\emph{Vlnová funkce a kvantovací podmínka}
+            
+                    Vlnová funkce musí splňovat následující dvě okrajové podmínky:
+                    \begin{align}
+                        \label{eq:psi0}
+                        \psi(0)&=0,\\
+                        \label{eq:psiinfty}
+                        \lim_{z\rightarrow\infty}\psi(z)&=0,
+                    \end{align}
+                    neboli při rozdělení vlnové funkce do tří oblastí podle obrázku~\ref{fig:hopik}(a)
+                    \begin{align}
+                        \label{eq:psiII0}
+                        \psi_{\ti{II}}(0)&=0,\\
+                        \label{eq:psiIIIinfty}
+                        \lim_{z\rightarrow\infty}\psi_{\ti{III}}(z)&=0.
+                    \end{align}
+                    Vlnová funkce v oblasti $\ti{I}$ vymizí, $\psi_{\ti{I}}(z)=0$.
+
+                    Na bodu obratu $z_{2}$ je navíc nutné funkci správně navázat pomocí WKB navazovacích podmínek.
+                    Pro tento případ jsou ideální navazovací podmínky\eqref{eq:WKBConnectionUp1},
+                    \begin{align}
+                        \label{eq:psiII}
+                        \psi_{\ti{II}}(z)
+                            &=\frac{2C}{\sqrt{\abs{p(z)}}}\sin\left[\frac{1}{\hbar}\int_{z}^{z_{2}}p(z')\d z'+\frac{\pi}{4}\right],\\
+                        \psi_{\ti{III}}(z)
+                            &=\frac{C}{\sqrt{\abs{p(z)}}}\e^{-\frac{1}{\hbar}\int_{z_{2}}^{z}\abs{p(z')}\d z'},
+                    \end{align}
+                    protože zaručí splnění požadavku na vymizení vlnové funkce v nekonečnu~\eqref{eq:psiIIIinfty}.
+                    Požadavek na vymizení vlnové funkce v nule~\eqref{eq:psiII0} dá při aplikaci na vlnovou funkci~\eqref{eq:psiII} podmínku
+                    \begin{equation}
+                        \label{eq:podminka0}
+                        \frac{1}{\hbar}\int_{z_{1}}^{z_{2}}p(z')\d z'+\frac{\pi}{4}=n\pi,\qquad n\in\mathbb{Z}.
+                    \end{equation}
+                    Integrál je
+                    \begin{equation}
+                        \int_{z_{1}}^{z_{2}}p(z')\d z'
+                            =\frac{2}{3g}\sqrt{\frac{2}{M}}\,\left[\left(E-Mgz'\right)^{\frac{3}{2}}\right]_{z_{1}}^{z_{2}}
+                            =\frac{2}{3g}\sqrt{\frac{2}{M}}\,E^{\frac{3}{2}}\geq0
+                    \end{equation}
+                    (podmínka nezápornosti dá omezení na možné hodnoty $n$) a po dosazení do~\eqref{eq:podminka0} musí platit
+                    \begin{equation}
+                        \boxed{E_{n}=\sqrt[3]{\frac{9}{8}M\left(\pi\hbar g\right)^{2}\left(n+\frac{3}{4}\right)^{2}},\qquad n\in\mathbb{N}_{0}}.
+                    \end{equation}
+                    Toto je kvantovací podmínka udávající povolené energetické hladiny.
+                    Lze využít samozřejmě Bohrovu-Sommerfeldovu kvantovací podmínku\eqref{eq:BohrSommerfeld} s do\-da\-teč\-nou $\frac{1}{4}$ v závorce na pravé straně kvůli jednomu \uv{tvrdému} bodu obratu, ale to vede na stejný výsledek.\footnote{
+                        Odvození dodatečné $\frac{1}{4}$ do Bohrovy-Sommerfeldovy formule se provádí stejným způsobem, jakým postupujeme v tomto příkladu. 
+                    }
+
+                    Finální vlnové funkce mají tvar
+                    \begin{align}
+                        \psi_{\ti{I},n}(z)
+                            &=0,\nonumber\\
+                        \label{eq:WKB}
+                        \psi_{\ti{II},n}(z)
+                            &=\frac{2C}{\sqrt[4]{2M\left(E_{n}-mgz\right)}}
+                            \sin\left[\frac{2}{3\hbar g}\sqrt{\frac{2}{M}}\left(E_{n}-Mgz\right)^{\frac{3}{2}}+\frac{\pi}{4}\right],\\
+                        \psi_{\ti{III},n}(z)
+                            &=\frac{C}{\sqrt[4]{2M\left(mgz-E_{n}\right)}}
+                            \e^{-\frac{2}{3\hbar g}\sqrt\frac{2}{M}\left(Mgz-E_{n}\right)^{\frac{3}{2}}},\nonumber
+                    \end{align}
+                    kde za $E_{n}$ se dosadí z kvantovací podmínky~\eqref{eq:podminka0} a parametr $C$ je zafixován normalizací.
+
+                \item\emph{Bezrozměrné proměnné}  
+                
+                    Při diskusi této úlohy se obvykle přechází k bezrozměrným proměnným
+                    \begin{align}
+                        \zeta&=\frac{z}{z_{g}},
+                        &z_{g}&=\sqrt[3]{\frac{\hbar^{2}}{2M^{2}g}},\nonumber\\
+                        \label{eq:Units}
+                        \epsilon&=\frac{E}{E_{g}},
+                        &E_{g}&=Mgl_{g}=\sqrt[3]{\frac{\hbar^{2}Mg^{2}}{2}},
+                    \end{align}
+                    ve kterých se vlnová funkce a spektrum vyjádří jako
+                    \begin{align}
+                        \psi_{\ti{I},n}(\zeta)
+                            &=0,\nonumber\\
+                        \psi_{\ti{II},n}(\zeta)
+                            &=\frac{2D}{\sqrt[4]{\epsilon_{n}-\zeta}}\sin\left[\frac{2}{3}\left(\epsilon_{n}-\zeta\right)^{\frac{3}{2}}+\frac{\pi}{4}\right],\nonumber\\
+                        \psi_{\ti{III},n}(\zeta)
+                            &=\frac{D}{\sqrt[4]{\zeta-\epsilon_{n}}}\e^{-\frac{2}{3}\left(\zeta-\epsilon_{n}\right)^{\frac{3}{2}}}.\nonumber\\
+                        \label{eq:WKBResult}
+                        \epsilon_{n}
+                            &=\left[\frac{3}{2}\pi\left(n+\frac{3}{4}\right)\right]^{\frac{2}{3}}.
+                        \end{align}
+                    Nenormované vlnové funkce pro pět nejnižších stavů jsou zobrazeny na obrázku~\ref{fig:hopik}(a) a jejich energie jsou uvedeny v tabulce~\ref{tab:WKBpresne}. 
+
+                    \begin{table}[!htb]
+                        \centering
+                        \begin{tabular}{|c|c|c|c|}
+                            \hline
+                            $n$
+                                & $\epsilon_{n}^{\text{přesně}}$
+                                & $\epsilon_{n}^{\text{WKB}}$ 
+                                & $\delta\times10^{3}$ \\
+                            \hline
+                            \hline
+                            0
+                                & $2.338$
+                                & $2.320$
+                                & $7.6$\\
+                            \hline
+                            1
+                                & $4.088$
+                                & $4.082$
+                                & $1.5$ \\
+                            \hline
+                            2
+                                & $5.521$
+                                & $5.517$
+                                & $0.6$ \\
+                            \hline
+                            3
+                                & $6.787$
+                                & $6.784$
+                                & $0.3$ \\
+                            \hline
+                            4
+                                & $7.944$
+                                & $7.942$
+                                & $0.2$ \\
+                            \hline
+                        \end{tabular}
+                        \scaption{
+                            \small Porovnání nejnižších pěti energetických hladin získaných WKB metodou a přesným řešením Schrödingerovy rovnice.
+                            Relativní chyba $\delta\equiv(\epsilon_{0}^{\text{přesné}}-\epsilon_{0}^{\text{WKB}})/\epsilon_{0}^{\text{přesné}}$ klesá s rostoucí excitací.
+                        }
+                        \label{tab:WKBpresne}
+                    \end{table}
+                
+                    \begin{figure}[!htbp]
+                        \begin{subfigure}{0.49\linewidth}
+                            % \centering\epsfig{file=WKB.eps,width=\linewidth}
+                        \end{subfigure}
+                        \hfill
+                        \begin{subfigure}{0.49\linewidth}
+                            % \centering\epsfig{file=presne.eps,width=\linewidth}
+                        \end{subfigure}
+                        \scaption{
+                            \protect\small
+                            Nejnižších pět (a) nenormovaných WKB vlnových funkcí~\eqref{eq:WKBResult}, (b) normovaných přesných (Airyho) vlnových funkcí~\eqref{eq:PresneResult}.
+                            Vlnové funkce jsou posunuty o energii odpovídající energetické hladiny.
+                            WKB vlnové funkce divergují na bodu obratu $z_{2}$.
+                            Potenciál je zobrazen silnou červenou čarou.
+                        }	
+                        \label{fig:hopik}
+                    \end{figure}
+            \end{itemize}
+
+        \item \textbf{Variační metoda}
+
+            Testovací funkce $\theta_{\lambda}(z)$ s jedním nastavitelným parametrem $\lambda$ pro variační metodu musí splňovat podmínky~\eqref{eq:psi0} a~\eqref{eq:psiinfty}.
+            Navíc musí klesat do nuly pro $z\rightarrow\infty$ dostatečně rychle (exponenciálně), aby byla kvadraticky integrovatelná.
+            Aproximace energie základního stavu je pak dána vzorcem~\eqref{eq:Ritz},
+            \begin{equation}
+                E_{0}^{\ti{var}}
+                    =\min_{\lambda}E(\lambda)
+                    =\min_{\lambda}\frac{\matrixelement{\theta(\lambda)}{\operator{H}}{\theta(\lambda)}}{\braket{\theta(\lambda)}{\theta(\lambda)}}
+                    =\min_{\lambda}\frac{\int_{0}^{\infty}\theta_{\lambda}^{*}(z)\left(-\frac{\hbar^{2}}{2M}\derivative[2]{}{z}+Mgz\right)\theta_{\lambda}(z)\d z}
+                    {\underbrace{\int_{0}^{\infty}\abs{\theta_{\lambda}(z)}^{2}\d z}_{\mathcal{N}^{2}}},
+            \end{equation}
+            takže se technicky jedná vesměs o přímočarou brutus integraci doplněnou minimalizací, tj. derivováním a řešením rovnice
+            \begin{equation}
+                \derivative{E(\lambda)}{\lambda}=0,
+            \end{equation}
+            jejiíž řešení (doplněné o kontrolu, že se v daném nalezeném stacionárním bodě jedná o minimum a toto minimum je globální) onačíme $\lambda_{0}$.
+
+            \begin{table}[!htb]
+                \centering
+                \begin{tabular}{|c|c|c|c|r|c|l|}
+                    \hline
+                        & Vlnová funkce 
+                        & $\mathcal{N}$ 
+                        & $\lambda_{0}$ 
+                        & $\epsilon_{0}$ 
+                        & $\delta$ 
+                        & poznámka \\
+                    \hline
+                    \hline
+                        & přesné řešení 
+                        & 
+                        & 
+                        & $\mathbf{2.338}$ 
+                        & $1$
+                        & \\
+                    \hline
+                        & WKB~\eqref{eq:WKB}
+                        & 
+                        & 
+                        & $\left(\frac{9\pi}{8}\right)^{\frac{2}{3}}\approx2.320$ 
+                        & $-0.008$
+                        & \\
+                    \hline
+                    1
+                        & $z\e^{-\lambda z}$ 
+                        & $\frac{1}{2\sqrt{\lambda^{3}}}$ 
+                        & $\sqrt[3]{\frac{3}{2}}$ 
+                        & $\frac{3}{2}\left(\frac{9}{2}\right)^{\frac{1}{3}}\approx2.476$ 
+                        & $0.059$
+                        & nejjednodušší integrace \\
+                    \hline
+                    2
+                        & $z\e^{-\lambda z^{2}}$ 
+                        & $\frac{1}{2}\sqrt[4]{\frac{\pi}{8\lambda^{3}}}$ 
+                        & $\sqrt[3]{\frac{2}{9\pi}}$ 
+                        & $\frac{3}{2}\sqrt[3]{\frac{12}{\pi}}\approx2.344$ 
+                        & $0.003$
+                        & nejbližší přesnému řešení \\
+                    \hline
+                    3
+                        & $z^{2}\e^{-\lambda z}$ 
+                        & $\sqrt{\frac{3}{4\lambda^{5}}}$
+                        & $\sqrt[3]{\frac{15}{2}}$ 
+                        & $\sqrt{\frac{225}{16}}\approx2.413$ 
+                        & $0.032$
+                        & přesné a snadné \\
+                        \hline
+                    4
+                        & $z^{2}\e^{-\lambda z^{2}}$ 
+                        & $\frac{1}{4}\sqrt[4]{\frac{9\pi}{8\lambda^{5}}}$
+                        & $\sqrt[3]{\frac{32}{49\pi}}$ 
+                        & $2\sqrt[3]{\frac{7}{\pi}}\approx2.612$ 
+                        & $0.117$
+                        & už se vzdalujeme \\
+                    \hline
+                    5
+                        & $z\e^{-\lambda z^{\frac{3}{2}}}$ 
+                        & $\frac{1}{\lambda\sqrt{6}}$
+                        & $\frac{2}{3}$ 
+                        & $\frac{5}{2\sqrt[3]{3}}\Gamma\left(\frac{2}{3}\right)\approx2.347$
+                        & $0.004$
+                        & vychází z řešení WKB\\
+                    \hline
+                    6   
+                        & $z^{\lambda}\e^{-z}$ 
+                        & $\frac{1}{(2\lambda)^{\lambda}}\sqrt{\Gamma(2\lambda)}$
+                        & $1.591$ 
+                        & $2.387$
+                        & $0.021$
+                        & \\
+                    \hline
+                \end{tabular}
+                \scaption{
+                    \small Porovnání různých řešení. Relativní chyba oproti přesnému řešení je $\delta\equiv(\epsilon_{0}-\epsilon_{0}^{\text{přesné}})/\epsilon_{0}^{\text{přesné}}$.
+                }
+                \label{tab:vysledky}
+            \end{table}
+
+            \begin{figure}[!htbp]
+                % \centering\epsfig{file=variace.eps,width=0.6\linewidth}
+                \caption{
+                    \protect\small
+                    Srovnání několika vlnových funkcí získaných variační metodou s přesným a WKB řešením.
+                    WKB vlnová funkce je nanormována od oka tak, aby daleko od bodu obratu dobře korespondovala s přesným řešením.
+                }	
+                \label{fig:variace}
+            \end{figure}
+
+            Výsledky pro všemožné testovací funkce jsou shrnuty v tabulce~\ref{tab:vysledky} a jejich srovnání s WKB řešením a přesným řešením je v obrázku~\ref{fig:variace}.
+
+        \item \textbf{Přesné řešení}
+        
+        Přesné řešení lze najít v různých učebnicích a článcích, například~\cite{Ban99,Ska05}.
+        Schrödingerova rovnice pro vlnovou funkci $\phi(z)$ má tvar
+        \begin{equation}
+            -\frac{\hbar^{2}}{2M}\derivative[2]{\phi}{z}+Mgz\phi=E\phi
+        \end{equation}
+        s okrajovou podmínkou~\eqref{eq:psi0}.
+        V bezrozměrných jednotkách~\eqref{eq:Units} vede na tzv.~\emph{Airyho či Stokesovu rovnici}
+        \begin{equation}
+            \derivative[2]{\phi}{\zeta}-(\zeta-\epsilon)\phi=0,
+        \end{equation}
+        jejímiž dvěma nezávislými řešeními jsou \href{https://en.wikipedia.org/wiki/Airy_function}{Airyho funkce} $\Ai(\zeta-\epsilon)$, $\Bi(\zeta-\epsilon)$.
+        Funkce $\Bi$ nemá dobrou asymptotiku pro $\zeta\rightarrow\infty$, jediným řešením je tedy
+        \begin{equation}
+            \label{eq:PresneResult}
+            \phi_{n}(\zeta)=\Ai(\zeta-\epsilon_{n}),
+        \end{equation}
+        přičemž kvantovací podmínky dostaneme z rovnosti
+        \begin{equation}
+            \phi_{n}(0)=0\qquad\Longleftrightarrow\qquad\Ai(-\epsilon_{n})=0.
+        \end{equation}
+        Tuto rovnici, která dává energetické spektrum, je nutné vyřešit numericky.\footnote{
+            V programu Mathematica je $n$-té řešení dáno funkcí \href{https://reference.wolfram.com/language/ref/AiryAiZero.html}{AiryAiZero[n]}.
+        }
+        Prvních pět hladin je uvedeno v tabulce~\ref{tab:WKBpresne} spolu s WKB energetickými hladinami.
+
+    \end{enumerate}
+
+\note
+    \begin{itemize}
+        \item
+            WKB vlnové funkce divergují na bodech obratu.
+            Tato divergence navíc znemožňuje provést dobrou normalizaci.
+
+        \item
+            Pro všechny energie získané variační metodou platí, že $\epsilon^{\text{var}}>\epsilon_{0}^{\text{přesně}}$, jak předpovídá teorie.
+            Naopak je vidět, že WKB může dávat menší hodnoty energie, než je přesné řešení.
+
+        \item
+            Homogenní potenciál a Airyho funkce se používají při jednom možném odvození navazujících podmínek WKB metody.
+
+        \item
+            Energetické spektrum kvantových částic v gravitačním poli je experimentálně ověřeno.
+            První experiment pomocí pomalých neutronů provedla laboratoř v Grenoblu~\cite{Nesvizhevsky2002}.
+
+        \item
+            Při troše nadsázky se lze chlubit, že jsme právě spočítali úlohu na kvantovou gravitaci.
+    \end{itemize}
+\end{solution}
+
+% \begin{thebibliography}{99}
+%     \bibitem{Ban99} Julio Gea-Banacloche, {\it A quantum bouncing ball}, American Journal of Physics {\bf 67}, 776 (1999).
+%     \bibitem{Ska05} Lubomír Skála, {\it Úvod do kvantové mechaniky} (Academia, 2005).
+%     \bibitem{Nez02} Valery Nesvizhevsky {\it et. al.}, {\it Quantum states of neutrons in the Earth's gravitational field}, Nature {\bf 415}, 297 (2002).
+% \end{thebibliography}
