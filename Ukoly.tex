@@ -791,10 +791,84 @@ kde $a_{0}=\hbar^{2}/(\gamma M)$ je Bohrův poloměr a $Z_\ti{eff}>0$ je variač
     \item \emph{(nepovinně)}
         Vypočítejte střední hodnotu energie základního stavu helia pomocí vámi navržené testovací vlnové funkce a porovnejte získaný odhad s výsledkem z předchozích bodů.
 
+    \end{enumerate}
+
 \note
     Úlohu můžete řešit v atomových jednotkách ($\hbar=M=\gamma=1$), ve kterých Bohrův poloměr je $a_{0}=1$ a energie je měřena v jednotkách Hartree ($1\,E_\ti{H}=2\unit{Ry}=2\cdot13\c6\unit{eV}$); v těchto jednotkách je $E_{\ti{exp}}=-2\c90\,E_\ti{H}$.
+    
+\exercise{Koherentní stavy v Kerrově oscilátoru}
+\setcounter{footnote}{0}
+    Nelineární Kerrův oscilátor je popsán Hamiltoniánem
+    \begin{equation*}
+        \operator{H}
+            =\hbar\Omega\,\operator{a}^{\dagger}\operator{a}+\frac{\hbar K}{2}\left(\operator{a}^{\dagger}\operator{a}\right)^{2},
+    \end{equation*}
+    kde $\Omega$, $K$ jsou reálné kladné parametry a operátory $\operator{a}$, $\operator{a}^{\dagger}$ jsou posunovací operátory harmonického oscilátoru splňující komutační relaci $[\operator{a},\operator{a}^{\dagger}]=1$.
+    V čase $t=0$ je oscilátor připraven v koherentním stavu $\ket{z}$.
 
-\end{enumerate}
+    \begin{enumerate}
+        \item \emph{(1/2 bodu)}
+            Nalezněte spektrum operátoru $\operator{H}$ a jeho vlastní vektory.
+            Využijte toho, že znáte spektrum lineárního harmonického oscilátoru $\operator{H}_{0}$=$\hbar\Omega\,\left(\operator{a}^{\dagger}\operator{a}+1/2\right)$, který má vlastní energie $E_{n}^{(0)}=\hbar\Omega\,\left(n+1/2\right)$ a vlastní vektory $\ket{n}$, $n=0,1,2,\dotsc$.
+
+        \item \emph{(1/2 bodu)}
+            Dokažte, že charakteristická funkce\footnote{
+            Charakteristická funkce náhodné veličiny s rozdělením pravděpodobnosti $P_n$ je definovaná jako
+            \begin{equation*}
+                G_{P}(\theta)\equiv\left\langle \e^{\im\theta n}\right\rangle_{P}=\sum_{n}P_{n}\e^{\im\theta n}.
+            \end{equation*}
+            Je to vlastně Fourierova transformace hustoty pravděpodobnosti a plně určuje rozdělení pravděpodobnosti a všechny momenty dané náhodné veličiny:
+            \begin{equation*}
+                \left\langle n^{k}\right\rangle_{P}
+                    =\left.\frac{1}{\im^{k}}\frac{\d^{k}G_{P}(\theta)}{\d\theta^{k}}\right|_{\theta=0}.
+            \end{equation*}
+        } Poissonova rozdělení $P_{n}=\lambda^{n}e^{-\lambda}/n!$ je
+        \begin{equation*}
+            G_{P}(\theta)=\exp\left[\lambda\left(\e^{\im\theta}-1\right)\right].
+        \end{equation*}
+
+        \item\emph{(1 bod)}
+            Nalezněte explicitní vztah ve tvaru funkce (nikoliv řady) pro střední hodnotu $\left\langle\operator{a}(t)\right\rangle$.
+            Využijte výsledku z předchozího bodu a skutečnosti, že střední hodnota počtu kvant oscilátoru v koherentním stavu $\ket{z}$ je $\left\langle \operator{a}^{\dagger}\operator{a}\right\rangle=\abs{z}^{2}$.
+
+        \item\emph{(1/2 bodu)}
+            Nalezněte střední hodnotu souřadnice a hybnosti v Kerrově oscilátoru v čase $t>0$.
+
+        \item\emph{(1 bod)} 
+            Předpokládejte, že nelinearita Kerrova oscilátoru je malá, tj. $K\ll\Omega$.
+            Rozviňte získaný výraz pro $\left\langle\operator{a}(t)\right\rangle$ do druhého řádu v parametru $K$ a diskutujte fyzikální význam získaného výsledku.
+
+        \item\emph{(1/2 bodu)}
+            Ve výsledku předchozího bodu byste měli získat Gaussovské potlačení oscilací s časem, $\left\langle\operator{a}(t)\right\rangle\propto e^{-\alpha t^2}$.
+            Vypočítejte \emph{čas rozpadu} $t_{\ti{decay}}$ jako čas, za který amplituda oscilací poklesne na hodnotu $1/e$. 
+            Diskutujte platnost tohoto výsledku.
+
+        \item\emph{(1/2 bodu)}
+            Určete \emph{čas znovuoživení} $t_{\ti{revival}}$ jako čas, za který se amplituda $\left\langle\operator{a}(t)\right\rangle$ vrátí na svou počáteční velikost.
+            Diskutujte vztah časů $t_{\ti{decay}}$ a $t_{\ti{revival}}$ v závislosti na parametrech modelu.
+
+        \item\emph{(1/2 bodu)}
+            Vykreslete grafy $\abs{\left\langle\operator{a}(t)\right\rangle}$ a $\langle\operator{x}(t)\rangle$ pro vhodně zvolené parametry.
+
+    \end{enumerate}
+
+\note
+    Kerrův oscilátor je důležitý model v kvantové optice, který popisuje chování světla v nelineárních optických prostředích.
+    Efektivně také modeluje anharmonicitu transmon qubitů (založených na Josephsonově přechodu) v supravodivých obvodech používaných v kvantových počítačích.
+
+    % \begin{enumerate}
+    % \item
+    %     Napište Heisenbergovy rovnice pohybu pro operátory $\operator{a}(t)$ a $\operator{a}^{\dagger}(t)$.
+    %     Najděte jejich obecné řešení.
+
+    % \item
+    %     Předpokládejte, že v čase $t=0$ je oscilátor v základním stavu $\ket{0}$.
+    %     Nalezněte vlnovou funkci oscilátoru v čase $t>0$.
+    %     Ukažte, že tato vlnová funkce je koherentní stav.
+        
+    % \item
+    %     Spočítejte střední hodnoty polohy $\matrixelement{\psi(t)}{\operator{x}}{\psi(t)}$ a hybnosti $\matrixelement{\psi(t)}{\operator{p}}{\psi(t)}$ oscilátoru v čase $t>0$.
+    %     Porovnejte je s klasickými rovnicemi pohybu harmonického oscilátoru pod vlivem vnější síly.
 
 
 \appendix
