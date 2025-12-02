@@ -17,8 +17,23 @@
     Pomocí Bakerovy-Campbellovy-Hausdorffovy formule~\eqref{eq:BCH1} ukažte, 
     že koherentní stav lze vyjádřit také ve tvaru
     \begin{equation}
-        \ket{z}=\e^{z\conjugate{\operator{a}}-z^{*}\operator{a}}\ket{0}.
+		\label{eq:HOCoherentStateFromVacuum}
+        \important{\ket{z}=\e^{z\conjugate{\operator{a}}-z^{*}\operator{a}}\ket{0}}\,.
     \end{equation}
+
+\item 
+	Na základě předchozí relace ukažte také, že platí
+	\begin{equation}
+		\label{eq:HOCoherentStateFromPositionMomentum}
+		\ket{z}=\e^{-\frac{\im\hbar}{2}ab}\operator{P}(b)\operator{T}(a)\ket{0},
+	\end{equation}
+	kde $\operator{T}(a)$ je operátor posunutí souřadnice~\eqref{eq:TranslationOperator} a $\operator{P}(b)$ je operátor posunutí hybnosti~\eqref{eq:MomentumTranslationOperator} a hodnoty parametrů $a$, $b$ jsou
+	\begin{equation}\label{eq:HOCoherentStateab}
+		a=\sqrt{\frac{2\hbar}{M\Omega}}\real{z},\qquad
+		b=\sqrt{2\hbar M\Omega}\imaginary{z}.
+	\end{equation}
+	Koherentní stav tedy lze získat (až na fázi) ze základního stavu $\ket{0}$ posunutím v souřadnici o~$a$ a v hybnosti o~$b$.
+
 \end{enumerate}
 
 \begin{solution}
@@ -81,6 +96,23 @@
 					&=\e^{-\frac{\abs{z}}{2}}\sum_{n=0}^{\infty}
 						\frac{z^{n}}{n!}\sqrt{n!}\ket{n}\nonumber\\
 					&=\ket{z}\,.
-			\end{align}			
+			\end{align}
+
+		\item
+			Rovnost~\eqref{eq:HOCoherentStateFromVacuum} lze přepsat pomocí vztahů~\eqref{eq:ShiftOperatorToPX} do tvaru
+			\begin{align}	
+				\ket{z}
+					&=\e^{\sqrt{\frac{M\Omega}{2\hbar}}\left(z-z^{*}\right)\operator{x}-
+						\im\sqrt{\frac{1}{2\hbar M\Omega}}\left(z+z^{*}\right)\operator{p}}\ket{0}\nonumber\\
+					&=\e^{\frac{\im}{\hbar}\left(\sqrt{2M\Omega\hbar}\imaginary{z}\right)\operator{x}-
+						\frac{\im}{\hbar}\left(\sqrt{\frac{2\hbar}{M\Omega}}\real{z}\right)\operator{p}}\ket{0}\nonumber\\
+					&=\e^{\frac{\im}{\hbar}b\operator{x}-\frac{\im}{\hbar}a\operator{p}}\ket{0},
+			\end{align}
+			kde parametry $a$, $b$ jsou definovány v zadání vztahy~\eqref{eq:HOCoherentStateab}.
+			Použitím \trick{BCH formule}~\eqref{eq:BCH1} s operátory $\operator{A}=\frac{\im}{\hbar}b\operator{x}$, $\operator{B}=-\frac{\im}{\hbar}a\operator{p}$ vychází dokazovaný vztah
+			\begin{align}
+				\ket{z}
+					&=\e^{-\frac{\im\hbar}{2}ab}\e^{\frac{\im}{\hbar}b\operator{x}}\e^{-\frac{\im}{\hbar}a\operator{p}}\ket{0}.
+			\end{align}
 	\end{enumerate}
 \end{solution}
