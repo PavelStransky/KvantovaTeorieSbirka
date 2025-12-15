@@ -7,6 +7,8 @@
 \usepackage[czech]{babel}               %% České nápisy
 \usepackage{amsfonts,amsmath}			%% Matematické symboly (amssymb koliduje s jiným balíkem)
 
+\usepackage{tikz}
+
 \usepackage{epsfig}                     %% Obrázky
 \usepackage[subrefformat=simple,labelformat=simple]{subcaption} %% Podobrázky
 \usepackage{graphicx}					%% Doplňující příkazy pro obrázky
@@ -84,7 +86,6 @@
 \makeatother
 
 \maketitle
-\pdfbookmark{\contentsname}{Contents}
 \tableofcontents
 
 \chapter{2023 -- 2024}
@@ -856,20 +857,92 @@ kde $a_{0}=\hbar^{2}/(\gamma M)$ je Bohrův poloměr a $Z_\ti{eff}>0$ je variač
     Kerrův oscilátor je důležitý model v kvantové optice, který popisuje chování světla v nelineárních optických prostředích.
     Efektivně také modeluje anharmonicitu transmon qubitů (založených na Josephsonově přechodu) v supravodivých obvodech používaných v kvantových počítačích.
 
-    % \begin{enumerate}
-    % \item
-    %     Napište Heisenbergovy rovnice pohybu pro operátory $\operator{a}(t)$ a $\operator{a}^{\dagger}(t)$.
-    %     Najděte jejich obecné řešení.
+\exercise{Částice na kruhovém řetízku}
+Uvažujte uzavřený řetízek s $L>2$ místy, na kterých se může nacházet částice (viz obrázek).
+Stav takové částice můžeme popsat lineární kombinací bázových stavů $\ket{j}_{j=1}^L$, kde stav $|j\rangle$ popisuje částici sedící na $j$-tém místě řetízku.
 
-    % \item
-    %     Předpokládejte, že v čase $t=0$ je oscilátor v základním stavu $\ket{0}$.
-    %     Nalezněte vlnovou funkci oscilátoru v čase $t>0$.
-    %     Ukažte, že tato vlnová funkce je koherentní stav.
-        
-    % \item
-    %     Spočítejte střední hodnoty polohy $\matrixelement{\psi(t)}{\operator{x}}{\psi(t)}$ a hybnosti $\matrixelement{\psi(t)}{\operator{p}}{\psi(t)}$ oscilátoru v čase $t>0$.
-    %     Porovnejte je s klasickými rovnicemi pohybu harmonického oscilátoru pod vlivem vnější síly.
+\begin{figure}[ht]
+    \centering
+\begin{tikzpicture}[scale=2]
 
+    % Circle
+    \draw[thin] (0,0) circle (1);
+
+    % 8 equally spaced points
+    \foreach \k in {0,...,7} {
+        \coordinate (P\k) at ({cos(45*\k)},{sin(45*\k)});
+        \fill (P\k) circle (1.5pt);
+    }
+
+    % Label first four sites (P0,P1,P2,P3)
+    % Shift the label slightly outward in the radial direction
+        % Labels for the first four sites, shifted slightly outward
+    \node at (1.25, 0.1) {$|\dots\rangle$};                           % P0
+    \node at ({1.15*cos(45)},{1.15*sin(45) + 0.07}) {$|3\rangle$}; % P1
+    \node at (0, 1.22) {$|2\rangle$};                              % P2
+    \node at ({-1.15*cos(45)},{1.15*sin(45) + 0.07}) {$|1\rangle$};% P3
+
+\end{tikzpicture}
+\end{figure}
+
+Dále uvažujte, že částice na řetízku může skočit vždy na sousední místo. 
+Takové chování lze modelovat pomocí následujícího hamiltoniánu
+\begin{equation*}
+    \operator{H} = e\sum_{j = 1}^L\projector{j} + \nu\sum_{j = 1}^L \left(\ket{j}\bra{j+1} + \ket{j+1}\bra{j}\right),
+\end{equation*}
+kde první člen je potenciál ($e$ odpovídá energii, kterou má částice za to, že sedí na $j$-tém místě) a druhý člen --- \emph{hopping} --- je kinetický ($\nu^{-1}$ škáluje kinetickou energii podobně jako hmotnost částice).
+Uzavřenost řetízku odpovídá periodické okrajové podmínce $\ket{j+L} =\ket{j}$.
+
+\begin{enumerate}
+    \item \emph{(1 bod)} Najděte normalizované vlastní stavy a energie hamiltoniánu $\hat{H}$. Celý proces výpočtu důkladně okomentujte.
+    Řešení byste měli nalézt ve formě rovinných vln 
+    \begin{equation*}
+        \ket{k_a} \equiv \frac{1}{\sqrt{L}} \sum_{j=1}^L e^{\frac{2\pi i}{L}k_aj}|j\rangle.
+    \end{equation*}
+    Jaká je fyzikální interpretace parametru $k_a$ a jakých hodnot může nabývat?
+    
+    \textit{Nápověda: Jeden z možných způsobů je řešení pomocí diferenční rovnice. Přepište hamiltonián na matici v bázi stavů $\{\ket{j}\}_{j=1}^L$ a řešte vlastní rovnici $\operator{H}\ket{h}=E_h\ket{h}$ pro vlastní stavy $\ket{h}$ a energie $E_h$ jako diferenční rovnici s anzatzem pro elementy vlastního vektoru $h_j\equiv h^j$. 
+    Využijte periodické okrajové podmínky $h_{j+L} = h_j$.}
+
+   \item \emph{(1 bod)} Určete základní stav v bázi $\ket{j}$ stavů a základní energii v závislosti na hodnotách a znaménku parametrů $e,\nu \in \mathbb{R}$ a délce řetízku $L$.
+\end{enumerate}
+
+Dále se omezte na $\nu < 0$. 
+
+Zatím jsme uvažovali jen jednu částici na řetízku. Můžeme ale přidat další. Hamiltonián systému $N$ nerozlišitelných částic ($N$ neinteragujících částic běhajících po řetízku), kde každá je popsaná hamiltoniánem $\operator{H}\equiv\operator{H}^{(j)}$, lze zapsat jako 
+\begin{equation*}
+    \operator{H}_N = \operator{H}^{(1)}\otimes\operator{1}^{(2)}\otimes\dots\otimes\operator{1}^{(N)} + \operator{1}^{(1)}\otimes\operator{H}^{(2)}\otimes\dots\otimes\mathbb{I}_{(N)}+ \dots
+\end{equation*}
+\begin{enumerate}
+  \setcounter{enumi}{2}
+  \item (1 bod) Určete energie základních stavů 2, 3, 4 a 5-ti částicových systémů pro případ, kdy jsou částice na řetízku fermiony se spinem 1/2, a pro případ, kdy se jedná o bosony se spinem 1. Jak se budou energie lišit pro fermiony se spinem 3/2?
+\end{enumerate}
+
+V následujícím uvažujte na řetízku jen \emph{dva nerozlišitelné fermiony} se spinem $1/2$. 
+Model rozšíříme o interakční člen mezi částicemi (potenciální energii)
+\begin{equation*}
+    \operator{H}_I = \lambda\sum_{j=1}^{L}\projector{j}^{(1)} \otimes \projector{j}^{(2)},
+\end{equation*}
+který modeluje srážky částic na řetízku.
+Parametr $\lambda$ odpovídá energii, kterou částice získají, když se budou obě nacházet na stejném místě $\ket{j}$.
+Podle znaménka parametru lze rozlišit, jestli bude interakce \uv{přitažlivá}, nebo \uv{odpudivá}.
+Celkový dvoučásticový hamiltonián je
+\begin{equation*}
+    \operator{H}_{2} =\operator{H}^{(1)}\otimes \operator{1}^{(2)} + \operator{1}^{(1)}\otimes\operator{H}^{(2)} + \operator{H}_I.
+\end{equation*}
+
+\begin{enumerate}
+  \setcounter{enumi}{3}
+  \item\emph{(2 body)} Pomocí poruchové teorie určete do prvního řádu v $\lambda$ základní stav a energii dvoučásticového hamiltoniánu $\operator{H}_{2}$ jako opravu základního stavu hamiltoniánu neinteragujících částic $\operator{H}^{(1)}\otimes \operator{1}^{(2)} + \operator{1}^{(1)}\otimes \operator{H}^{(2)}$. 
+  Jaký je celkový spin základního stavu neinteragujících částic a jak se změní přidáním interakčního členu? 
+  
+  \textit{Nápověda: Rozmyslete si, jak vypadá báze prostoru pro dvě nerozlišitelné částice. Můžete využít buď Slaterovy determinanty, nebo adaptovat bázi na singletní a tripletní spinové stavy.}
+
+  Výsledek interpretujte pomocí jednočásticových stavů $\ket{k_{a}}$ a porovnejte se základním stavem neinteragujících částic. Můžete k tomu využít například grupovou rychlost, kterou lze pro jednočásticové stavy spočítat jako derivaci jednočásticové energie
+  \begin{equation*}
+    v_g(k_a) = \frac{\text{d}E(k_a)}{dk_a}.    
+  \end{equation*}
+\end{enumerate}
 
 \appendix
 \chapter{Úkoly z dřívějších let}
