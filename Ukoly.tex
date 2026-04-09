@@ -979,6 +979,47 @@ Celkový dvoučásticový hamiltonián je
             Za jaké podmínky lze v čase $t>0$ naměřit systém ve stavu $\ket{\phi_{2}}$ s pravděpodobností jedna?
     \end{enumerate}
 
+\exercise{Rozptyl nerozlišitelných částic}
+    Interakce dvou částic s hmotností $M$ a spinem $s=\frac{1}{2}$ je popsána potenciálem
+    \begin{equation*}
+        V(r)=V_{0}(r)-V_{\ti{s}}(r)\vector{\sigma}\hi{1}\cdot\vector{\sigma}\hi{2}
+    \end{equation*}
+    kde $r$ je vzájemná vzdálenost obou částic a $\frac{\hbar}{2}\vector{\sigma}\hi{1,2}$ jsou spinové operátory (dané Pauliho maticemi) odpovídající jednotlivým částicím.
+    Potenciály $V_{0}(r)$, $V_{\ti{s}}(r)$ nejsou pro začátek blíže specifikovány. 
+    Předpokládejte pouze, že interakce jsou dostatečně krátkodosahové, takže integrály
+    \begin{align*}
+        v_{0}(\vector{q})
+            =\int\e^{\im\vector{q}\cdot\vector{r}}V_{0}(r)\d^{3}\vector{r},\\
+        v_{\ti{s}}(\vector{q})
+            =\int\e^{\im\vector{q}\cdot\vector{r}}V_{\ti{s}}(r)\d^{3}\vector{r},
+    \end{align*}
+    existují a jsou konečné ($\vector{q}=\vector{k}-\vector{k'}$ je rozdíl vlnového vektoru libovolné z částic před a po interakci, počítaný v těžišťové soustavě).
+    
+    \begin{enumerate}
+        \item Uvažujte nejprve, že částice jsou rozlišitelné. 
+            V rámci 1. Bornovy aproximace vyjádřete amplitudy rozptylu
+            \begin{align*}
+                &f_{\uparrow\uparrow\longrightarrow\uparrow\uparrow}(\vector{k}',\vector{k}),
+                &&f_{\downarrow\downarrow\longrightarrow\downarrow\downarrow}(\vector{k}',\vector{k}),\\
+                &f_{\uparrow\downarrow\longrightarrow\uparrow\downarrow}(\vector{k}',\vector{k}),
+                &&f_{\uparrow\downarrow\longrightarrow\downarrow\uparrow}(\vector{k}',\vector{k}),
+            \end{align*}
+            a odpovídající diferenciální účinné průřezy, přičemž šipky udávají orientace jednotlivých spinů před interakcí a po interakci; poslední případ odpovídá procesu, kdy si jednotlivé částice během interakce prohodí spin.
+        
+        \item Diskutujte podrobně případ rozptylu \emph{nerozlišitelných částic}.
+            Jaké účinné průřezy má smysl studovat a proč?
+            Jaké budou jejich amplitudy rozptylu v rámci 1. Bornovy aproximace?
+    
+        \item Pro speciální případ interakce Yukawova typu
+            \begin{equation*}
+                V_{0}(r)=\frac{\rho}{r}\e^{-\mu r},\quad
+                V_{s}(r)=\frac{\rho}{r}\e^{-\nu r},
+            \end{equation*}
+            kde $\rho,\mu,\nu>0$, spočítejte nenulové účinné průřezy pro rozlišitelné i nerozlišitelné částice.
+            Diskutujte obdržené výsledky.
+    \end{enumerate}		
+
+
 \appendix
 \chapter{Úkoly z dřívějších let}
 \exercise{Hladká konečně hluboká potenciálová jáma}
