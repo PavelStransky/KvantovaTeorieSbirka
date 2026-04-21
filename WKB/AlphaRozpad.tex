@@ -16,7 +16,7 @@
 			\end{cases}
 		\label{eq:AlphaDecayPotential}
 	\end{equation}
-	kde $Z$ je protonové číslo jádra, $Z_{\alpha}=2$ protonové číslo $\alpha$ částice, $V_{0}$ je kladný parametr,
+	kde $Z$ je protonové číslo jádra produktu, $Z_{\alpha}=2$ protonové číslo $\alpha$ částice, $V_{0}$ je kladný parametr,
 	$\gamma=\alpha\hbar c=\frac{e^{2}}{4\pi\epsilon_{0}}$ a $\alpha$ je konstanta jemné struktury.
 
 	\begin{figure}[!htbp]
@@ -48,7 +48,7 @@
 			pro uvažovaná jádra $\approx1$) a $R$ je počet \uv{nárazů} $\alpha$ částice na bariéru za sekundu.
 			Odhadněte $R$ a spočítejte $\tau$ a poločas rozpadu $T_{1/2}$.
 		
-		Pro poloměr atomu použijte přibližný vztah $a=a_{0}\sqrt[3]{A}$, kde $A$ je atomové číslo a $a_{0}\doteq1,\!2$ fm.
+		Pro šířku jámy použijte přibližný vztah $a=a_{0}(\sqrt[3]{A}+\sqrt[3]{A_{\alpha}})$, kde $A$ je atomové číslo jádra po rozpadu, $A_\alpha=4$ je atomové číslo $\alpha$ částice, a $a_{0}\doteq1,\!2$ fm.
 		
 		\item
 			Porovnejte číselně s hodnotami tří izotopů s poločasy rozpadu
@@ -59,11 +59,11 @@
 					izotop & E (MeV) & $T_{1/2}$\\
 					\hline
 					\hline
-					$^{144}_{\ 60}{\text{Nd}}$ & $1.8$ & $2\cdot10^{15}$ let\\
+					$^{144}_{\ 60}{\text{Nd}}$ & $1.90$ & $2\cdot10^{15}$ let\\
 					\hline
-					$^{224}_{\ 88}{\text{Ra}}$ & $5.7$ & $3.6$ dne\\
+					$^{224}_{\ 88}{\text{Ra}}$ & $5.79$ & $3.6$ dne\\
 					\hline
-					$^{212}_{\ 84}{\text{Po}}$ & $8.8$ & $0.3\,\mu$s\\
+					$^{212}_{\ 84}{\text{Po}}$ & $8.95$ & $0.3\,\mu$s\\
 					\hline
 				\end{tabular}
 			\end{center}
@@ -134,7 +134,7 @@
 		Do právě odvozeného Gamovova vztahu pro pravděpodobnost průniku bariérou se dosadí modelový potenciál~\eqref{eq:AlphaDecayPotential}.
 		Klasická hybnost $\alpha$ částice o energii $E_{\alpha}$ v oblasti Coulombické části potenciálu je
 		\begin{equation}
-			p(x)=\sqrt{2M\left(E_{\alpha}-\frac{Z_{\alpha}Z\gamma}{x}\right)}.
+			p(x)=\sqrt{2M_{\alpha}\left(E_{\alpha}-\frac{Z_{\alpha}Z\gamma}{x}\right)}.
 		\end{equation}
 		První bod obratu $a$ odpovídá poloměru jádra, druhý bod obratu se vypočítá z rovnice
 		\begin{align}
@@ -144,8 +144,8 @@
 		takže
 		\begin{align}
 			I_{a}^{b}=\frac{1}{\hbar}\int_{a}^{b}\abs{p(x)}\d x
-				&=\frac{\sqrt{2ME_{\alpha}}}{\hbar}\int_{a}^{b}\sqrt{\frac{Z_{\alpha}Z\gamma}{E_{\alpha}x}-1}\,\d x=\equationcomment{u=\frac{x}{b} \\ \d x=b\,\d u}\nonumber\\
-				&=\underbrace{\frac{Z_{\alpha}Z\gamma}{\hbar}\sqrt{\frac{2M}{E_{\alpha}}}}_{\kappa}\int_{x=a}^{x=b}\sqrt{\frac{1}{u}-1}\,\d u=\equationcomment{u=y^{2} \\ \d u=2y\d y}\nonumber\\				
+				&=\frac{\sqrt{2M_{\alpha}E_{\alpha}}}{\hbar}\int_{a}^{b}\sqrt{\frac{Z_{\alpha}Z\gamma}{E_{\alpha}x}-1}\,\d x=\equationcomment{u=\frac{x}{b} \\ \d x=b\,\d u}\nonumber\\
+				&=\underbrace{\frac{Z_{\alpha}Z\gamma}{\hbar}\sqrt{\frac{2M_{\alpha}}{E_{\alpha}}}}_{\kappa}\int_{x=a}^{x=b}\sqrt{\frac{1}{u}-1}\,\d u=\equationcomment{u=y^{2} \\ \d u=2y\d y}\nonumber\\				
 				&=2\kappa\int_{x=a}^{x=b}\sqrt{1-y^{2}}\,\d y,
 		\end{align}
 		což je tentýž integrál jako u WKB řešení harmonického oscilátoru~\eqref{eq:intsqrt} s primitivní funkcí
@@ -157,7 +157,7 @@
 		\end{align}
 		Pravděpodobnost průniku tedy vychází
 		\begin{equation}
-			T=\exp{\left\{\frac{2Z_{\alpha}Z\gamma}{\hbar}\sqrt{\frac{2M}{E_{\alpha}}}\left[\arccos{\sqrt{\frac{a}{b}}}-\sqrt{\frac{a}{b}\left(1-\frac{a}{b}\right)}\right]\right\}}
+			T=\exp{\left\{\frac{2Z_{\alpha}Z\gamma}{\hbar}\sqrt{\frac{2M_{\alpha}}{E_{\alpha}}}\left[\arccos{\sqrt{\frac{a}{b}}}-\sqrt{\frac{a}{b}\left(1-\frac{a}{b}\right)}\right]\right\}}
 		\end{equation}
 		kde $b$ je dáno vzorcem~\eqref{eq:AlphaDecayTurningPoint} a $a$ je poloměr jádra spočtený pomocí vztahu uvedeného v zadání příkladu.
 		
@@ -170,19 +170,19 @@
 		Tu určíme z kinetické energie.
 		Stačí počítat pomocí nerelativistických vztahů, protože rychlost vylétávajících $\alpha$ částic je malá ve srovnání s rychlostí světla, jak se lze přesvědčit z tabulky níže:
 		\begin{equation}
-			E_{\alpha}=v_{\alpha}^{2}/2M,
+			E_{\alpha}=\frac{v_{\alpha}^{2}}{2M_{\alpha}},
 		\end{equation}
-		přičemž energie je dána jako rozdíl klidové hmotnosti $M_{{}^{A}_{Z}X}$ jádra vstupujícího do reakce a klidové hmotnosti produktů (jádro $M_{{}^{A-4}_{Z-2}Y}$ + jádro helia $M_{{}^{4}_{2}\mathrm{He}}$)
+		přičemž energie je dána jako rozdíl klidové hmotnosti $M_{{}^{A+4}_{Z+2}X}$ jádra vstupujícího do reakce a klidové hmotnosti produktů (jádro $M_{{}^{A}_{Z}Y}$ + jádro helia $M_{\alpha}\equiv M_{{}^{4}_{2}\mathrm{He}}$)
 		\begin{equation}
-			E_{\alpha}=\frac{1}{c^{2}}\left(M_{{}^{A}_{Z}X}-M_{{}^{A-4}_{Z-2}Y}-M_{{}^{4}_{2}\mathrm{He}}\right)\,.
+			E_{\alpha}=\frac{1}{c^{2}}\left(M_{{}^{A+4}_{Z+2}X}-M_{{}^{A}_{Z}Y}-M_{\alpha}\right)\,.
 		\end{equation}
 		Rychlost tedy vychází
 		\begin{equation}
-			v_{\alpha}=\sqrt{\frac{2\left(E_{\alpha}+V_{0}\right)}{M}}
+			v_{\alpha}=\sqrt{\frac{2\left(E_{\alpha}+V_{0}\right)}{M_{\alpha}}}
 		\end{equation}
 		a z ní střední doba života
 		\begin{equation}
-			\tau=\frac{2a}{T}\sqrt{\frac{M}{2\left(E_{\alpha}+V_{0}\right)}}.
+			\tau=\frac{2a}{T}\sqrt{\frac{M_{\alpha}}{2\left(E_{\alpha}+V_{0}\right)}}.
 		\end{equation}
 		Poločas rozpadu je $T_{1/2}=\tau\ln2$.
 
@@ -195,21 +195,20 @@
 				& $\frac{v_{\alpha}}{c}$ & $I_{a}^{b}$ & T & $\begin{array}{c}T_{1/2} \\ (s)\end{array}$ & $T_{1/2}$ \\
 				\hline
 				\hline
-				$^{144}_{\ 60}{\text{Nd}}$ & $1.8$ & $6.3$ & $96$ & $0.17$ & $120$ & $7.2\cdot10^{-53}$ & $2.4\cdot10^{30}$ & $7.6\cdot10^{22}$ let \\
+				$^{144}_{\ 60}{\text{Nd}}$ & $1.90$ & $8.14$ & $90.9$ & $0.23$ & $108$ & $1.59\cdot10^{-47}$ & $1.17\cdot10^{25}$ & $3.21\cdot10^{17}$ let \\
 				\hline
-				$^{224}_{\ 88}{\text{Ra}}$ & $5.7$ & $7.3$ & $45$ & $0.17$ & $73$ & $2.3\cdot10^{-32}$ & $8.5\cdot10^{9}$ & $98000$ dní \\
+				$^{224}_{\ 88}{\text{Ra}}$ & $5.79$ & $9.15$ & $43.8$ & $0.24$ & $63.6$ & $2.45\cdot10^{-28}$ & $7.2\cdot10^{5}$ & $8.4$ dní \\
 				\hline
-				$^{212}_{\ 84}{\text{Po}}$ & $8.8$ & $7.2$ & $28$ & $0.18$ & $43$ & $3.1\cdot10^{-19}$ & $5.9\cdot10^{-4}$ & $590$ $\mu$s\\
+				$^{212}_{\ 84}{\text{Po}}$ & $8.95$ & $9.1$ & $27.0$ & $0.24$ & $34.2$ & $1.34\cdot10^{-15}$ & $5.9\cdot10^{-4}$ & $0.129$ $\mu$s\\
 				\hline
 			\end{tabular}
 		\end{center}
-		Tento velmi zjednodušený výpočet tedy dává o několik řádů delší poločasy rozpadu, než jsou naměřené hodnoty ze zadání příkladu.
-		Mnohem lepší shody se dosáhne, pokud se uvažuje $a_{0}=1.6$ fm, což se dá fyzikálně interpretovat jako započtení difuzivity jaderného povrchu.
+		I přes velmi hrubé aproximace a zjednodušený výpočet dostáváme řádovou shodu s naměřenými hodnotami ze zadání příkladu (až na neodym, kde je rozdíl dva řády).
 		
 	\item
 		De Broglieovy vlnové délky $\alpha$ částic jsou
 		\begin{equation}
-			\lambda_{\alpha}=\frac{p_{\alpha}}{\hbar}=\frac{Mv_{\alpha}}{\hbar}\,.
+			\lambda_{\alpha}=\frac{p_{\alpha}}{\hbar}=\frac{M_{\alpha}v_{\alpha}}{\hbar}\,.
 		\end{equation}
 		Číselně
 		\begin{center}
@@ -218,11 +217,11 @@
 				izotop & $\lambda_{\alpha}$ (fm) \\
 				\hline
 				\hline
-				$^{144}_{\ 60}{\text{Nd}}$ & $0.32$ \\
+				$^{144}_{\ 60}{\text{Nd}}$ & $0.23$ \\
 				\hline
-				$^{224}_{\ 88}{\text{Ra}}$ & $0.31$ \\
+				$^{224}_{\ 88}{\text{Ra}}$ & $0.22$ \\
 				\hline
-				$^{212}_{\ 84}{\text{Po}}$ & $0.30$ \\
+				$^{212}_{\ 84}{\text{Po}}$ & $0.22$ \\
 				\hline
 			\end{tabular}
 		\end{center}
@@ -238,13 +237,13 @@
 		\begin{align}
 			\ln\tau
 				&=\ln{\frac{2a}{v_{\alpha}}}+2I_{a}^{b}\nonumber\\
-				&=\ln{\frac{2a_{0}\sqrt[3]{A}}{\sqrt{2\left(E_{\alpha}+V_{0}\right){M}}}}
-					+\frac{2Z_{\alpha}Z\gamma}{\hbar}\sqrt{\frac{2M}{E_{\alpha}}}\left[\frac{\pi}{2}-2\sqrt{\frac{a_{0}}{Z_{\alpha}\gamma}}\sqrt{E_{\alpha}}A^{\frac{1}{6}}Z^{-\frac{1}{2}}\right]
+				&=\ln{\frac{2a_{0}\sqrt[3]{A}}{\sqrt{2\left(E_{\alpha}+V_{0}\right){M_{\alpha}}}}}
+					+\frac{2Z_{\alpha}Z\gamma}{\hbar}\sqrt{\frac{2M_{\alpha}}{E_{\alpha}}}\left[\frac{\pi}{2}-2\sqrt{\frac{a_{0}}{Z_{\alpha}\gamma}}\sqrt{E_{\alpha}}A^{\frac{1}{6}}Z^{-\frac{1}{2}}\right]
 		\end{align}
 		a pro těžká jádra, pro která platí $A\approx 2Z$, dostaneme
 		\begin{align}
-			\ln\tau&=\frac{1}{3}\ln{Z}+\frac{1}{3}\ln{2}+\ln{\frac{2a_{0}}{\sqrt{\frac{2\left(E_{\alpha}-V_{0}\right)}{M}}}}+\frac{2Z_{\alpha}\gamma\sqrt{2M}}{\hbar}\frac{\pi}{2}\frac{Z}{\sqrt{E}}
-				-4\frac{\sqrt{2Z_{\alpha}\gamma a_{0}M}}{\hbar}\sqrt[6]{2}Z^{\frac{2}{3}}
+			\ln\tau&=\frac{1}{3}\ln{Z}+\frac{1}{3}\ln{2}+\ln{\frac{2a_{0}}{\sqrt{\frac{2\left(E_{\alpha}-V_{0}\right)}{M_{\alpha}}}} }+\frac{2Z_{\alpha}\gamma\sqrt{2M_{\alpha}}}{\hbar}\frac{\pi}{2}\frac{Z}{\sqrt{E_{\alpha}}}
+				-4\frac{\sqrt{2Z_{\alpha}\gamma a_{0}M_{\alpha}}}{\hbar}\sqrt[6]{2}Z^{\frac{2}{3}}
 		\end{align}
 		To je v souladu s experimentálně pozorovanou závislostí
 		\begin{equation}
