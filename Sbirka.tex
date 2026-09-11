@@ -26,9 +26,6 @@
 \usepackage{blkarray}					%% Pro komentované vektory
 \usepackage{empheq}                     %% Box around equations
 
-\usepackage{tikz}
-\usetikzlibrary{quantikz2}
-
 \usepackage{csquotes}
 %\usepackage{expl3}						%% Jinak nefunguje biblatex
 
@@ -36,11 +33,11 @@
 
 \graphicspath{{figures/}}
 
-%\usepackage{showlabels}                 %% Zobrazí názvy pojmenovaných objektů (label)
+%\usepackage{showlabels}                 %% Temporarily show the names of labels
 %\renewcommand{\showlabelfont}{\tiny\bfseries\color{black}}
 
 \usepackage{mathtools}
-%\mathtoolsset{showonlyrefs}            %% Odstraní čísla rovnic, na které není v textu nikde odkazováno
+%\mathtoolsset{showonlyrefs}            %% Remove equation number of unrefferenced equations
 
 \usepackage[unicode]{hyperref}			%% Hypertextové odkazy
 \hypersetup{
@@ -54,15 +51,9 @@
 	filecolor=magenta
 }
 
-\input{LaTeX_defs/defs}
-
-%% Zkopíruje soubor s referencemi (pokud existuje)
-%\filecopy{D:/Pavel/Obsidian/Physics/Literature/References.bib}{Global.bib}
-
 \usepackage[sorting=none,style=phys]{biblatex}
-\addbibresource{Global.bib}
+\addbibresource{S:/Fyzika/Bibliography/References.bib}
 \addbibresource{References.bib}
-% \addbibresource{D:/Pavel/Obsidian/Physics/Literature/References.bib}
 
 % Velikost stránky
 \addtolength{\topmargin}{-2.2cm} %\addtolength{\textheight}{-10cm}
@@ -78,15 +69,46 @@
 
 \pagestyle{fancy}
 
+\input{LaTeX_defs/defs}
+
+%\excludecomment{solution}
+%\includecomment{note}
+
+% Homework - části, které jsou (byly) za domácí úkol, a proto by se neměly vyskytnout ve sbírce
+% \newenvironment{homework}{}{}
+% \excludecomment{homework}
+
+% homeworknote - části, které jsou navázané na řešení; část s domácím úkolem; vzájemně exklusivní s prostředním homework
+% \newenvironment{homeworknote}{}{}
+
 % 0 pro číslování stránek průběžné
 % 1 pro číslování stránek po sekcích
 \def\secpage{1}
 
+% 0 pro verzi bez řešení DÚ
+% 1 pro verzi s řešením DÚ
+\def\fullversion{0}
+
+\ifthenelse{\equal{\fullversion}{0}}
+	{\excludecomment{homeworknote}}
+	{\includecomment{homeworknote}}
+
 \includecomment{theory}
 
+% Toto se odkomentuje pro tištěnou kompletní sbírku
+\excludecomment{homework}
+%\includecomment{homework}
+
+% solution - část s řešením
+%\excludecomment{solution}
+%\excludecomment{theory}
+
 \newenvironment{solution}{\begin{addmargin}{0.5cm}\color{gray}\subsubsection*{Řešení:}\small}{\end{addmargin}\vspace*{0.3cm}}
+
 \newenvironment{example}{\textbf{\textit{Příklad:}}}{}
+
 \newenvironment{note}[1][]{\vspace*{0.2cm}\noindent\textbf{\textit{\ifthenelse{\isempty{#1}}{Poznámka: }{#1}}}}{}
+%\newenvironment{theory}{}{}
 
 \def\sec#1{\subsubsection*{#1}}
 \def\sfootnote#1{\footnote{\color{gray}#1}}
@@ -96,6 +118,12 @@
 \ifthenelse{\equal{\secpage}{1}}
 	{\newcommand{\np}{\clearpage\setcounter{page}{1}\newpage}}
 	{\newcommand{\np}{\clearpage\newpage}}
+%\newcommand{\np}{}\newcommand{\minput}[1]{\input{#1}}
+
+\newcommand{\exercise}[2][]{\ifthenelse{\isempty{#1}}
+	{\np\thispagestyle{empty}\subsubsection*{Domácí úkol -- #2}}
+	{\np\thispagestyle{empty}\subsubsection*{Domácí úkol -- #2 \small{\it{(termín odevzdání: {#1})}}}}
+}
 
 \makeindex
 
@@ -111,7 +139,7 @@
 %\@addtoreset{page}{section}
 \makeatother
 
-\title{Sbírka úloh pro cvičení k přednášce Kvantová teorie}
+\title{Cvičení k přednášce Kvantová teorie}
 \date{\today}
 \author{Pavel Stránský}
 
@@ -130,11 +158,9 @@ Většina příkladů klade spíše důraz na technickou stránku věci, což od
 Příklady byly převzaty či adaptovány z různých sbírek či zdrojů na webu.
 Zmínil bych zde zejména publikace Antona Capriho~\cite{Capri2002}, Jeana-Luise Basdevanta a Jeana Dalibarda~\cite{Basdevant2000}, Kyriakose Tamvakise\cite{Tamvakis2005} a cvičení k alternující přednášce Martina Čížka~\cite{CizekWWW1,CizekWWW2}.
 
-Chtěl bych zde poděkovat všem studentům, kteří mi byli během cvičení kolegy a partnery a bez nichž by tato sbírka nevznikla.
-% Oliver Křenek, Lukáš Frk, Tomáš Tuleja
+Chtěl bych zde poděkovat všem studentům, kteří mi byli během cvičení kolegy a partnery a bez nichž by tato sbírka nevznikla. 
 Speciální poděkování patří pak těm, kteří mi pomohli vyladit řešení jednotlivých příkladů a odstranit množství chyb a překlepů.
 
-Sbírka včetně všech doprovodných materiálů je dostupná ve veřejném repozitáři na adrese \url{https://github.com/PavelStransky/Sbirka}.
 \np
 
 \input{Operatory/Operatory}\np
@@ -146,7 +172,9 @@ Sbírka včetně všech doprovodných materiálů je dostupná ve veřejném rep
 
 \input{SkladaniMomentuHybnosti/SkladaniMomentuHybnosti}\np
 \input{DeltaFunkce/DeltaFunkce}\np
+%\input{DeltaFunkce/DeltaFunkce2}\np
 
+\setcounter{section}{8}
 \input{KoherentniStavy/KoherentniStavy}\np
 \input{CasovyVyvoj/CasovyVyvoj}\np
 \input{PriblizneMetody/PoruchovaMetoda}\np
@@ -155,6 +183,8 @@ Sbírka včetně všech doprovodných materiálů je dostupná ve veřejném rep
 
 \input{NestacionarniPT/NestacionarniPT}\np
 \input{Rozptyl/Rozptyl}\np
+
+%\setcounter{section}{15}
 
 \input{TenzoroveOperatory/TenzoroveOperatory}\np
 \input{NerozlisitelneCastice/NerozlisitelneCastice}\np
@@ -170,10 +200,10 @@ Sbírka včetně všech doprovodných materiálů je dostupná ve veřejném rep
 \input{Dekoherence/Dekoherence}\np
 \input{DrahovyIntegral/DrahovyIntegral}\np
 
-\input{KvantovePocitani/KvantovePocitani}\np
-
 \printindex
 
+%\bibliography{Z:/Share/Fyzika/Bibliography/References.bib}
 \printbibliography
+%\input{refs}
 
 \end{document}

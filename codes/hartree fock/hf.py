@@ -93,6 +93,7 @@ class HartreeFock:
     def GroundStateEnergy(this):
         """
         Calculates the ground state energy from the matrix C.
+        Can be optimized by using np.einsum, but the code is more readable this way.
         """
         e = 0
         for k in range(this.Z):
@@ -124,23 +125,23 @@ class HartreeFock:
             iteration += 1
 
             this.Iteration()
-            e0 = this.GroundStateEnergy()
+            this.e0 = this.GroundStateEnergy()
 
-            error = abs(e0 - e0previous)
-            print(f"Interation: {iteration}, Ground-state energy: {e0}, Error = {error}.")
+            error = abs(this.e0 - e0previous)
+            print(f"Interation: {iteration}, Ground-state energy: {this.e0}, Error = {error}.")
 
             if error < tolerance:
                 print(f"Calculation converged after {iteration} iterations.")
-                return e0
+                return this.e0
 
-            e0previous = e0
+            e0previous = this.e0
 
         print(f"Calculation failed to converge in {iteration} iterations.")
         return
 
 Z = 2           # Helium
+Z = 3           # Lithium
 Z = 4           # Beryllium
-Z = 6           # Carbon
 
 maxN = 4        # Basis size
 

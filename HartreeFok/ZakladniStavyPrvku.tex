@@ -117,14 +117,15 @@ Jednočásticová báze tedy bude mít $n_{\mathcal{B}}=8$ ortonormálních stav
     \end{align}
     (souřadná soustava je při výpočtu tohoto dvojného integrálu orientována tak, že osa $z_{1}$ míří do směru vektoru $\vector{r}_{2}$).
 
-    Pro exlicitní výpočet maticových elementů $\matrixelement{ab}{\operator{v}^{(2)}}{cd}$ lze využít například program Mathematica. 
-    Použitý kód je na adrese \url{http://pavelstransky.cz/cvicenikt2/RadialIntegral.nb}, výsledné maticové elementy jsou uloženy v souboru \url{http://pavelstransky.cz/cvicenikt2/radial.txt}.
+    Pro explicitní výpočet maticových elementů $\matrixelement{ab}{\operator{v}^{(2)}}{cd}$ lze využít například program Wolfram Mathematica. 
+    Použitý kód \href{https://github.com/PavelStransky/KvantovaTeorieSbirka/blob/sbirka/codes/hartree\%20fock/RadialIntegral.nb}{RadialIntegral.nb} je v repozitáři v adresáři \href{https://github.com/PavelStransky/KvantovaTeorieSbirka/tree/sbirka/codes/hartree\%20fock}{codes/hartree fock}.
+    Vypočítané maticové elementy pro $n_\mathrm{max}=4$ jsou v souboru \href{https://github.com/PavelStransky/KvantovaTeorieSbirka/blob/sbirka/codes/hartree\%20fock/radial.txt}{radial.txt}.
     V řádcích jsou po řadě hodnoty hlavních kvantových čísel $a,b,c,d\leq n_{\text{max}}$ a hodnota odpovídajícího maticového elementu.
     {\bf Důležité!} Maticové elementy jsou počítané pro vodík $Z=1$.
     Pro atom s protonovým číslem $Z$ je nutné je tímto číslem vynásobit.
 
-    Kód napsaný v jazyce Python počítající energii základního stavu najdete na adrese \url{http://pavelstransky.cz/cvicenikt2/hf.py}
-    
+    Kód napsaný v jazyce Python počítající energii základního stavu jednoduchých atomů najdete rovněž v repozitáři na 
+    \href{https://github.com/PavelStransky/KvantovaTeorieSbirka/blob/sbirka/codes/hartree\%20fock/hf.py}{hf.py}.
 \end{solution}
 
 \begin{figure}[!htb]
